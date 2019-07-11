@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="../assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -22,6 +22,7 @@ body {
 	background: white !important;
 	color: black !important;
 }
+
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -57,7 +58,7 @@ body {
 					<ul>
 						<li><a href="#">계획그리기</a></li>
 						<li><a href="#">문화즐기기</a></li>
-						<li><a href="views/reservation.jsp">숙소잡기</a></li>
+						<li><a href="#">숙소잡기</a></li>
 						<li><a href="#">서울나들이</a></li>
 					</ul>
 				</nav>
@@ -72,14 +73,17 @@ body {
 			<div id="banner" class="box container">
 				<div class="row">
 					<div class="col-7 col-12-medium">
-						<h2>COC과 함께</h2>
-						<h2>당신의 여행의</h2>
+						<h2>특색있는 숙소와 </h2>
+						<h2>즐길거리를</h2>
+						<h2>검색하세요</h2>
 					</div>
 					<div class="col-5 col-12-medium">
-						<ul>
-							<li><a href="#" class="button large icon solid">계획 그리기</a></li>
-							<li><a href="#" class="button large icon solid">계획 추천받기</a></li>
-						</ul>
+						<div class="_ubzwse">
+							<h1 tabindex="-1" class="_14i3z6h">
+							<a href="/sitemaps/v2" style="color:inherit;cursor:pointer;text-decoration:none" tabindex="-1"></a></h1>
+						</div>
+						<div><div class="_slilk2"><form id="MagicCarpetSearchBar" action="/s"><div><div style="margin-top: 16px; margin-bottom: 16px;"><div><div style="margin-bottom: 8px;"><label class="_rin72m" for="magic-carpet-koan-search-bar"><span class="_1ep1f1h7"></span></label></div><div><div class="_bujmdv"><div class="_uz7ac6"><div class="_1dpi2hi"><div dir="ltr"><div class="_1blc3lt"><label for="Koan-magic-carpet-koan-search-bar__input" class="_1os10fm"><span class="_krjbj">목적지</span><div class="_1u1cgx19"><div class="_1w14zmh"><input class="_up0kwni" aria-autocomplete="list" aria-describedby="Koan-magic-carpet-koan-search-bar__description" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" id="Koan-magic-carpet-koan-search-bar__input" name="query" placeholder="모든 위치" role="combobox" type="text" value=""></div></div></label></div></div></div></div><ul aria-label="검색 제안" id="Koan-magic-carpet-koan-search-bar__listbox" role="listbox" class="_17k24wf"></ul><span aria-atomic="true" aria-live="polite" role="status" class="_krjbj"></span></div></div></div></div></div><div style="margin-top: 16px; margin-bottom: 16px;"><div><div class="_e296pg"><div style="margin-top: 8px;"><div class="_1vbsmce"><div style="margin-bottom: 8px;"><label class="_rin72m" for="checkin_input"><span class="_1ep1f1h7">체크인</span></label></div><div data-veloute="moweb_datepicker_checkin_input" class="_ne4dj"><div class="_9hxttoo"><div dir="ltr"><div class="_fm9j1ug"><div class="_178faes"><input class="_14fdu48d" data-veloute="checkin_input" id="checkin_input" name="checkin" placeholder="년/월/일" type="text" value="" readonly=""></div></div></div></div></div></div><div class="_1vbsmce"><div style="margin-bottom: 8px;"><label class="_rin72m" for="checkout_input"><span class="_1ep1f1h7">체크아웃</span></label></div><div data-veloute="moweb_datepicker_checkout_input" class="_10hp81j"><div class="_9hxttoo"><div dir="ltr"><div class="_fm9j1ug"><div class="_178faes"><input class="_14fdu48d" data-veloute="checkout_input" id="checkout_input" name="checkout" placeholder="년/월/일" type="text" value="" readonly=""></div></div></div></div></div></div></div></div></div></div><div style="margin-top: 16px; margin-bottom: 16px;"><div><div style="margin-bottom: 8px;"><label class="_rin72m" for="lp-guestpicker"><span class="_1ep1f1h7">인원</span></label></div><div class="_e296pg"><button class="_7ykwo4" type="button">인원<div class="_c75x4e"><svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; display: block; fill: currentcolor;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg></div></button></div></div></div><div id="lp-search-button" data-veloute="search_bar_small_search_button" class="_1r868w"><div><button type="submit" class="_1vs0x720" aria-busy="false"><span class="_ftj2sg4">검색</span></button></div></div></form></div></div>
+						
 					</div>
 				</div>
 			</div>
@@ -89,7 +93,7 @@ body {
 
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<div class="container">
-				<h3>식당</h3>
+				<h3>제휴</h3>
 			</div>
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -119,7 +123,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
+											src="../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -129,7 +133,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
+											src="../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -149,7 +153,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
+											src="../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -158,7 +162,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
+											src="../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -169,7 +173,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
+											src="../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -188,7 +192,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
+											src="../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -198,7 +202,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
+											src="../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -208,7 +212,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
+											src="../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -231,330 +235,107 @@ body {
 				class="sr-only">Next</span>
 			</a>
 		</div>
+<!-- ----------------------------- -->
+		<div class="stu_inner_wrap">
 
-		<!-- Features1 -->
-		<div id="myCarousel2" class="carousel slide" data-ride="carousel">
-			<div class="container">
-				<h3>숙박</h3>
-			</div>
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-			</ol>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
 
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
+                    <h2 class="stu_h2_title">내 동선을 최소로 해주는 숙소를 찾아보세요!</h2>
+                    <div class="swiper-container swiper1 swiper-container-horizontal swiper-container-free-mode">
+                        <ul class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                           
+                            <li class="swiper-slide swiper-slide-active">
+                                <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic01.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>파리</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide swiper-slide-next">
+                                <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic02.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>런던 </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic03.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>바르셀로나 </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide">
+                                 <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic01.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>프라하 </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
 
-								</div>
-								<div class="col-4 col-12-medium">
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
 
-								</div>
-								<div class="col-4 col-12-medium">
+                            <li class="swiper-slide">
+                                <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic02.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>로마 </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                            <li class="swiper-slide">
+                               <a href="#">
+                                    <div class="stu_thumb_wrap">
+                                        <div class="imgArea">
+                                            <img src="../images/pic03.jpg" alt="" style="height:100px; weight:100px;"/>
+                                        </div>
+                                        <div class="textArea">
+                                            <p>피렌체 </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                           
 
-				<div class="item active">
-					<div id="features-wrapper">
-						<div class="container">
 
-							<div class="row">
-								<div class="col-4 col-12-medium">
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
+                        </ul>
+                        <!--scrollbar-->
+                        <div class="swiper-scrollbar"></div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
 
-								</div>
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
+                    <div class="ct-toggle-btn-wrap">
+                        <button type="button" class="ct-toggle-btn on"></button>
+                    </div>
 
-								</div>
+                </div>
 
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel2" data-slide="prev"
-				style="background: white"> <span
-				class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel2"
-				data-slide="next" style="background: white"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
-		
-		
-		
-		<div id="myCarousel3" class="carousel slide" data-ride="carousel">
-			<div class="container">
-				<h3>추천코스</h3>
-			</div>
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-3 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item active">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-3 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-3 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel3" data-slide="prev"
-				style="background: white"> <span
-				class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel3"
-				data-slide="next" style="background: white"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
 		
 
 <!-- 
@@ -780,12 +561,12 @@ body {
 
 	<!-- Scripts -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
 
 </body>
 </html>
