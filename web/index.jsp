@@ -22,6 +22,19 @@ body {
 	background: white !important;
 	color: black !important;
 }
+.carousel-control{
+	width:12% !important;
+}
+.glyphicon-chevron-left{
+	padding-left:90%;
+}
+.glyphicon-chevron-right{
+	padding-right:90%;
+}
+.planbtn{
+	border-radius:30px;
+}
+
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -77,8 +90,8 @@ body {
 					</div>
 					<div class="col-5 col-12-medium">
 						<ul>
-							<li><a href="#" class="button large icon solid">계획 그리기</a></li>
-							<li><a href="#" class="button large icon solid">계획 추천받기</a></li>
+							<li><a href="#" class="button large icon solid planbtn">계획 그리기</a></li>
+							<li><a href="#" class="button large icon solid planbtn">계획 추천받기</a></li>
 						</ul>
 					</div>
 				</div>
