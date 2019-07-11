@@ -69,8 +69,8 @@ body {
 
 		<!-- Banner -->
 		<div id="banner-wrapper">
-			<div id="banner" class="box container">
 				<div class="row">
+			<div id="banner" class="box container">
 					<div class="col-7 col-12-medium">
 						<h2>COC과 함께</h2>
 						<h2>당신의 여행의</h2>
