@@ -64,7 +64,9 @@ body {
 	border-radius:40px;
 	overflow: hidden;
 }
-
+.nav2{
+	margin-right:35%;
+}
 </style>
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -83,12 +85,10 @@ body {
 
             <!-- Logo -->
             <div id="logo">
-               <h1 id="test">콕
-               
-               </h1>
+               <h1 id="test"><a href="/coc/index.jsp">콕</a></h1>
                <!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
                	<h1 id="test">
-               		<button type="button" style="background:none; margin:0; padding:0" onclick="location.href='views/searchPage.jsp'">
+               		<button type="button" style="background:none; margin:0; padding:0" onclick="location.href='/coc/views/searchPage.jsp'">
                		<i class="fa fa-search"></i>
                		</button>
                	</h1>
@@ -98,17 +98,18 @@ body {
             <!-- Nav -->
             <nav id="nav">
                <ul>
-                  <li><a href="#">고객센터</a></li>
-                  <li><a href="#">로그인</a></li>
-                  <li class="current"><a href="#">회원가입</a></li>
+                  <li><a href="/coc/views/member/cs.jsp">고객센터</a></li>
+                  <li><a href="/coc/views/member/login.jsp">로그인</a></li>
+                  <li class="current"><a href="/coc/views/member/joinForm.jsp">회원가입</a></li>
                </ul>
+               
             </nav>
-            <nav id="nav" style='left: 30%'>
+            <nav id="nav" class="nav2">
                <ul>
                   <li><a href="#">계획그리기</a></li>
-                  <li><a href="#">문화즐기기</a></li>
-                  <li><a href="#">숙소잡기</a></li>
-                  <li><a href="#">서울나들이</a></li>
+                  <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
+                  <li><a href="/coc/views/reserve/reservation.jsp">숙소잡기</a></li>
+                  <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
                </ul>
             </nav>
          </header>
@@ -747,13 +748,11 @@ body {
                   <!-- Links -->
                   <section class="widget links">
                      <h3>콕 / COC</h3>
-                     <ul class="style2">
-                        <li><a href="#">Create Or Choice</a></li>
-                        <li><a href="#">대표 : 김채원</a></li>
-                        <li><a href="#">사업자 등록번호 : none</a></li>
-                        <li><a href="#">고객센터 : 010-8692-0000</a></li>
-                        <li><a href="#">이메일 : coc@kh.com</a></li>
-                     </ul>
+                        <h4>Create Or Choice</h4>
+                        <h5>대표 : 김채원</h5>
+                        <h5>사업자 등록번호 : none</h5>
+                        <h5>고객센터 : 010-8692-0000</h5>
+                        <h5>이메일 : coc@kh.com</h5>
                   </section>
 
                </div>
@@ -763,12 +762,10 @@ body {
                   <section class="widget links">
                      <h3>Random Stuff</h3>
                      <ul class="style2">
-                        <li><a href="#">광고/제휴문의</a></li>
-                        <li><a href="#">서비스문의</a></li>
-                        <li><a href="#">개인정보 취급방침</a></li>
-                        <li><a href="#">이용약관</a></li>
-                        <li><a href="#">여행자약관</a></li>
-                        <li><a href="#">가이드약관</a></li>
+                        <li><a href="/coc/views/ads.jsp">광고/제휴문의</a></li>
+                        <li><a href="/coc/views/member/cs.jsp">서비스문의</a></li>
+                        <li><a href="/coc/views/personalinfo.jsp">개인정보 취급방침</a></li>
+                        <li><a href="/coc/views/usercontract.jsp">이용약관</a></li>
                      </ul>
                   </section>
 

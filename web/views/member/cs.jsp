@@ -112,46 +112,9 @@ button {
 			<div class="row">
 				<div id="accordian">
 					<ul>
-						<li><h3>
-								<span class="icon-dashboard"></span>FAQ
-							</h3>
-							<ul>
-								<li><a href="#" id="a1"><button id="faq1">ㅁㅁㅁ</button></a></li>
-								<li><a href="#" id="a2"><button id="faq2">ㅁㅁㅁ</button></a></li>
-								<li><a href="#"><button id="faq3">ㅁㅁㅁ</button></a></li>
-								<li><a href="#"><button id="faq4">ㅁㅁㅁ</button></a></li>
-							</ul></li>
-						<li class="active"><h3 id="ads">
-								<span class="icon-tasks" ></span>광고/제휴문의
-							</h3>
-							<ul style="display: none">
-							</ul></li>
-						<li><h3>
-								<span class="icon-calendar"></span>여행자가이드
-							</h3>
-							<ul>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-							</ul></li>
-						<li>
-							<h3>
-								<span class="icon-heart"></span>가이드약관
-							</h3>
-							<ul>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-
-							</ul>
-						</li>
-						<h3 id="aaa">
-							<li><a href="#">1:1문의</a></li>
-						</h3>
+						<li><h3 id="faq1"><span class="icon-dashboard">FAQ</span></h3></li>
+						<li><h3 id="aaa"><span class="icon-dashboard">1:1문의</span></h3></li>
 					</ul>
-
-
 				</div>
 				<!-- 아코디언 옆 -->
 				<div style="margin-left:150px">
@@ -165,21 +128,6 @@ button {
 			$(function() {
 				$("#faq1").click(function() {
 					$("#faq").load("faq/faq1.jsp");
-				});
-			});
-			$(function() {
-				$("#faq2").click(function() {
-					$("#faq").load("faq/faq2.jsp");
-				});
-			});
-			$(function() {
-				$("#faq3").click(function() {
-					$("#faq").load("faq/faq3.jsp");
-				});
-			});
-			$(function() {
-				$("#faq4").click(function() {
-					$("#faq").load("faq/faq4.jsp");
 				});
 			});
 			//1:1문의			
@@ -198,92 +146,7 @@ button {
 
 
 		<!-- Footer -->
-		<div id="footer-wrapper">
-			<footer id="footer" class="container">
-				<div class="row">
-					<div class="col-3 col-6-medium col-12-small">
-
-						<!-- Links -->
-						<section class="widget links">
-							<h3>콕 / COC</h3>
-							<ul class="style2">
-								<li><a href="#">Create Or Choice</a></li>
-								<li><a href="#">대표 : 김채원</a></li>
-								<li><a href="#">사업자 등록번호 : none</a></li>
-								<li><a href="#">고객센터 : 010-8692-0000</a></li>
-								<li><a href="#">이메일 : coc@kh.com</a></li>
-							</ul>
-						</section>
-
-					</div>
-					<div class="col-3 col-6-medium col-12-small">
-
-						<!-- Links -->
-						<section class="widget links">
-							<h3>Random Stuff</h3>
-							<ul class="style2">
-								<li><a href="#">광고/제휴문의</a></li>
-								<li><a href="#">서비스문의</a></li>
-								<li><a href="#">개인정보 취급방침</a></li>
-								<li><a href="#">이용약관</a></li>
-								<li><a href="#">여행자약관</a></li>
-								<li><a href="#">가이드약관</a></li>
-							</ul>
-						</section>
-
-					</div>
-					<div class="col-3 col-6-medium col-12-small">
-
-						<!-- Links -->
-						<section class="widget links">
-							<h3>MADE BY</h3>
-							<ul class="style2">
-								<li><a href="#">YUJIN-TAK</a></li>
-								<li><a href="#">YEONGMIN-PARK</a></li>
-								<li><a href="#">MINHA-HWANG</a></li>
-								<li><a href="#">HEEJUNG-JEE</a></li>
-								<li><a href="#">HYUNSU-KIM</a></li>
-								<li><a href="#">CHAEWON-KIM</a></li>
-							</ul>
-						</section>
-
-					</div>
-					<div class="col-3 col-6-medium col-12-small">
-
-						<!-- Contact -->
-						<section class="widget contact last">
-							<h3>Contact Us</h3>
-							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span
-										class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f"><span
-										class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram"><span
-										class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble"><span
-										class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon brands fa-pinterest"><span
-										class="label">Pinterest</span></a></li>
-							</ul>
-							<p>
-								서울특별시 강남구 테헤란로<br /> 000빌딩, KH정보교육원<br /> 010-1234-4321
-							</p>
-						</section>
-
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<div id="copyright">
-							<ul class="menu">
-								<li>&copy; Untitled. All rights reserved</li>
-								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
+		<%@include file="/views/common/footerbar_customer.jsp" %>
 
 	</div>
 
