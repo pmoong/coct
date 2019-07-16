@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <% Member loginUser = (Member) session.getAttribute("loginUser");%>	 --%>
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
@@ -12,7 +13,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="../../assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -23,13 +24,33 @@ body {
 	color: black !important;
 }
 
-hr {
-      margin: 0 auto;
-      max-width: 100%;
-      width: 1400px;
-   
+ul {
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background-color: white !important;
 }
 
+li {
+  float: left !important;
+}
+
+li a {
+  display: block !important;
+  text-align: center !important;
+  padding: 14px 16px !important;
+  text-decoration: none !important;
+}
+
+li a:hover:not(.active) {
+  background-color: yellowgreen !important;
+}
+
+li a.active {
+  color: white;
+  background-color: yellowgreen !important;
+}
 
 </style>
 <link rel="stylesheet"
@@ -41,6 +62,12 @@ hr {
 
 </head>
 <body class="is-preload homepage">
+	<%-- <% if(loginUser == null || !loginUser.getUserId().equals("admin")){ 
+		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다!");
+		request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request,response);
+		
+	} else { 
+	%> --%>
 	<div id="page-wrapper">
 
 		<!-- Header -->
@@ -57,18 +84,18 @@ hr {
 					</ul>
 
 				<!-- Nav -->
-				<nav id="nav" style='left: 20%; overflow:auto'>
+				<nav id="nav" style='left: 20%'>
 					<ul>
 						<li><a href="../manager/managerIndex.jsp">홈</a></li>
-						<li><a href="#">통계</a></li>
+						<li><a href="../manager/statistics.jsp">통계</a></li>
 						<li><a href="../manager/rm.jsp">예약관리</a></li>
-						<li><a href="#">회원관리</a></li>
-						<li><a href="#">제휴사관리</a></li>
+						<li><a href="../manager/memberManagement.jsp">회원관리</a></li>
+						<li><a href="../manager/partnerManagement.jsp">제휴사관리</a></li>
 						<li><a href="../manager/bm.jsp">게시판관리</a></li>
-						<li><a href="#">정산내역</a></li>
-						<li><a href="#">가이드라인</a></li>
+						<li><a href="../manager/settlementManagement.jsp">정산내역</a></li>
+						<li><a href="../manager/courseManagement.jsp">코스</a></li>
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
-						<li><a href="#" style='color:yellowgreen;'>로그아웃</a></li>
+						<li><a href="../../index.jsp" style='color:#088A08;'>로그아웃</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -101,7 +128,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -111,7 +138,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -121,7 +148,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -155,7 +182,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -165,7 +192,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -175,7 +202,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -211,7 +238,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -221,7 +248,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -231,7 +258,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -265,7 +292,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -275,7 +302,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -285,7 +312,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -317,7 +344,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -327,7 +354,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -337,7 +364,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -371,7 +398,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="../../images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -381,7 +408,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="../../images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -391,7 +418,7 @@ hr {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="../../images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -473,7 +500,7 @@ hr {
 								<li><a href="#" class="icon brands fa-pinterest"><span
 										class="label">Pinterest</span></a></li>
 							</ul>
-							<p>
+							<p><hr>
 								서울특별시 강남구 테헤란로<br /> 000빌딩, KH정보교육원<br /> 010-1234-4321
 							</p>
 						</section>
@@ -497,12 +524,12 @@ hr {
 
 	<!-- Scripts -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
+<%-- <% } %> --%>
 </body>
 </html>
