@@ -34,6 +34,36 @@ body {
 .planbtn{
    border-radius:30px;
 }
+.tes{
+	position:relative;
+}
+.fa{
+	display:inline !important;
+	line-height:100%;
+	color:black;
+	padding-left:5px;
+	margin-top:10px;
+}
+.submit{
+	float:right;
+	width:5px;
+	left:0;
+	top:0;
+	font-size: 1.2em;
+	text-align: center;
+	cursor: pointer;
+	background-color: white;
+}
+.search-box-container{
+	display: inline-block;
+	box-sizing: content-box;
+	height: 50px;
+	width: 50px;
+	background-color: white;
+	border:3px solid black;
+	border-radius:40px;
+	overflow: hidden;
+}
 
 </style>
 <link rel="stylesheet"
@@ -53,11 +83,18 @@ body {
 
             <!-- Logo -->
             <div id="logo">
-               <h1 id="test">콕</h1>
+               <h1 id="test">콕
+               
+               </h1>
                <!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
-               <input type="search" id="search" placeholder="검색어를 입력하세요">
+               	<h1 id="test">
+               		<button type="button" style="background:none; margin:0; padding:0" onclick="location.href='views/searchPage.jsp'">
+               		<i class="fa fa-search"></i>
+               		</button>
+               	</h1>
+          
+               
             </div>
-
             <!-- Nav -->
             <nav id="nav">
                <ul>
