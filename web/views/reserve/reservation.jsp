@@ -35,7 +35,8 @@ body {
 <%@ include file="../common/menubar_customer.jsp" %>
 
 
-
+<body class="is-preload homepage">
+	<div id="page-wrapper">
 		<!-- Banner -->
 		<div id="banner-wrapper">
 			<div id="banner" class="box container">

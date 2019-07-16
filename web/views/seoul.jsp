@@ -94,31 +94,31 @@ font-weight: bold;
   font-weight: bold;
 }
 #btn:hover{
-  background:#fff;
-  color:#1AAB8A;
+  background:#fff !important;
+  color:#1AAB8A !important;
 }
 #btn:before,button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-   color:#1AAB8A;
-  background: #1AAB8A;
-  transition:400ms ease all;
+  content:'' !important;
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  height:2px !important;
+  width:0 !important;
+   color:#1AAB8A !important;
+  background: #1AAB8A !important;
+  transition:400ms ease all !important;
 }
  #btn:after{
-   color:#1AAB8A;
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
+   color:#1AAB8A !important;
+  right:inherit !important;
+  top:inherit !important;
+  left:0 !important;
+  bottom:0 !important;
 }  
 #btn:hover:before,#btn:hover:after{
-  color:#1AAB8A;
-  width:100%;
-  transition:800ms ease all;
+  color:#1AAB8A !important;
+  width:100% !important;
+  transition:800ms ease all !important;
 }
 .con{
 padding-left:5px;
@@ -136,35 +136,7 @@ padding-left:5px;
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<div id="header-wrapper">
-			<header id="header" class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-					<h1 id="test">콕</h1>
-					<!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
-					<input type="search" id="search" placeholder="검색어를 입력하세요">
-				</div>
-
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="#">고객센터</a></li>
-						<li><a href="#">로그인</a></li>
-						<li class="current"><a href="#">회원가입</a></li>
-					</ul>
-				</nav>
-				<nav id="nav" style='left: 30%'>
-					<ul>
-						<li><a href="#">계획그리기</a></li>
-						<li><a href="#">문화즐기기</a></li>
-						<li><a href="#">숙소잡기</a></li>
-						<li><a href="#">서울나들이</a></li>
-					</ul>
-				</nav>
-			</header>
-			<hr>
-		</div>
+		<%@ include file="/views/common/menubar_customer.jsp" %>
 
  <br>
   <div class="container">
@@ -352,14 +324,6 @@ href="#"  style="font-size:2.0em"><button id="btn">top</button></a>
 
 	</div>
 
-	<!-- Scripts -->
-
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/main.js"></script>
 
 </body>
 </html> 

@@ -28,98 +28,98 @@ body {
 }  
  
  .btn-plus {
-  position:absolute;
-  top:100px;
-  left:100px;
-  border-radius:50%;
-  text-align:center;
-   opacity:0;
-  transform:scale(2);
-  transition:all .3s linear;
+  position:absolute !important;
+  top:100px !important;
+  left:100px !important;
+  border-radius:50% !important;
+  text-align:center !important;
+   opacity:0 !important;
+  transform:scale(2) !important;
+  transition:all .3s linear !important;
 }
  
 .btn-plus span {
-  font-size:9em;
-  color:#ffffff;
-   user-select:none; 
+  font-size:9em !important;
+  color:#ffffff !important;
+   user-select:none !important; 
 }
   .img-wrapper:hover .darkness{
-  opacity:0.4;
+  opacity:0.4 !important;
 }
 
 .img-wrapper:hover .btn-plus {
-  opacity:1;
-  transform:scale(1);
+  opacity:1 !important;
+  transform:scale(1) !important;
 }  
  
- #pic1:hover { opacity:0.6; text-align:justify; color:#ffffff; font-size: 40px; font-weight:700; font-family:"맑은 고딕"; padding:30px; }
+ #pic1:hover { opacity:0.6 !important; text-align:justify !important; color:#ffffff !important; font-size: 40px !important; font-weight:700 !important; font-family:"맑은 고딕" !important; padding:30px !important; }
   
    
 #bbtn{
-  background:#fcfcfc;
- font-size:1.5em;
-font-weight: bold;
+  background:#fcfcfc !important;
+ font-size:1.5em !important;
+font-weight: bold !important;
 }
 
   #btn{
-  background:#fcfcfc;
-  color:#852d7a;
-  border:none;
-  position:relative;
-  height:60px;
-  font-size:1 em;
-  padding:0 2em;
-  cursor:pointer;
+  background:#fcfcfc !important;
+  color:#852d7a !important;
+  border:none !important;
+  position:relative !important;
+  height:60px !important;
+  font-size:1 em !important;
+  padding:0 2em !important;
+  cursor:pointer !important;
   transition:800ms ease all;
-  outline:none;
-  font-weight: bold;
+  outline:none !important;
+  font-weight: bold !important;
 }
 #btn:hover{
-  background:#fff;
-  color:#852d7a;
+  background:#fff !important;
+  color:#852d7a !important;
 }
 #btn:before,button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-   color:#852d7a;
-  background: #852d7a;
-  transition:400ms ease all;
+  content:'' !important;
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  height:2px !important;
+  width:0 !important;
+   color:#852d7a !important;
+  background: #852d7a !important;
+  transition:400ms ease all !important;
 }
  #btn:after{
-   color:#852d7a;
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
+   color:#852d7a !important;
+  right:inherit !important;
+  top:inherit !important;
+  left:0 !important;
+  bottom:0 !important;
 }  
 #btn:hover:before,#btn:hover:after{
-  color:#852d7a;
-  width:100%;
-  transition:800ms ease all;
+  color:#852d7a !important;
+  width:100% !important;
+  transition:800ms ease all !important;
 }
 .carousel-control{
    width:12% !important;
 }
 
 .con{
-padding-left:30px;
+padding-left:30px !important;
 }
 #blur{
- width:270px; height:270px;
+ width:270px; height:270px !important;
  }
-#blur:hover{ opacity:0.6; text-align:justify; color:#ffffff; }
+#blur:hover{ opacity:0.6 !important; text-align:justify !important; color:#ffffff !important; }
  
  #bb{
   
- padding-left:30px;
- 	font-size:2em;
- 	color:#000000;
- 	  border:none;
- 	font-weight: bold;
+ padding-left:30px !important;
+ 	font-size:2em !important;
+ 	color:#000000 !important;
+ 	  border:none !important;
+ 	font-weight: bold !important;
  	
  	
  }
@@ -136,33 +136,7 @@ padding-left:30px;
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<div id="header-wrapper">
-			<header id="header" class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-					<h1 id="test">콕</h1>
-					<input type="search" id="search" placeholder="검색어를 입력하세요">
-				</div>
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="#">고객센터</a></li>
-						<li><a href="#">로그인</a></li>
-						<li class="current"><a href="#">회원가입</a></li>
-					</ul>
-				</nav>
-				<nav id="nav" style='left: 30%'>
-					<ul>
-						<li><a href="#">계획그리기</a></li>
-						<li><a href="#">문화즐기기</a></li>
-						<li><a href="#">숙소잡기</a></li>
-						<li><a href="#">서울나들이</a></li>
-					</ul>
-				</nav>
-			</header>
-			<hr>
-		</div>
+		<%@ include file="/views/common/menubar_customer.jsp" %>
  <br>
       <div id="myCarousel2" class="carousel slide" data-ride="carousel">
          <div class="container">
@@ -491,14 +465,7 @@ href="#"  style="font-size:2.0em"><button id="btn">top</button></a>
 		</div>
 	</div>
 
-	<!-- Scripts -->
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/main.js"></script>
 
 </body>
 </html> 

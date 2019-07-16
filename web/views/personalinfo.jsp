@@ -35,35 +35,7 @@ body {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<div id="header-wrapper">
-			<header id="header" class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-					<h1 id="test">콕</h1>
-					<!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
-					<input type="search" id="search" placeholder="검색어를 입력하세요">
-				</div>
-
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="#">고객센터</a></li>
-						<li><a href="#">로그인</a></li>
-						<li class="current"><a href="#">회원가입</a></li>
-					</ul>
-				</nav>
-				<nav id="nav" style='left: 30%'>
-					<ul>
-						<li><a href="#">계획그리기</a></li>
-						<li><a href="#">문화즐기기</a></li>
-						<li><a href="#">숙소잡기</a></li>
-						<li><a href="#">서울나들이</a></li>
-					</ul>
-				</nav>
-			</header>
-			<hr>
-		</div>
+		<%@ include file="/views/common/menubar_customer.jsp" %>
 		<div class="container">
 
 			<h1>콕 개인정보취급방침</h1>
@@ -321,14 +293,7 @@ body {
 
 	</div>
 
-	<!-- Scripts -->
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/main.js"></script>
 
 </body>
 </html>
