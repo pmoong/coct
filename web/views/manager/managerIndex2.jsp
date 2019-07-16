@@ -2,11 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%-- <% Member loginUser = (Member) session.getAttribute("loginUser");%>	 --%>
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 <head>
 <title>CoC</title>
@@ -22,34 +18,6 @@ body {
 #test {
 	background: white !important;
 	color: black !important;
-}
-
-ul {
-  list-style-type: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  background-color: white !important;
-}
-
-li {
-  float: left !important;
-}
-
-li a {
-  display: block !important;
-  text-align: center !important;
-  padding: 14px 16px !important;
-  text-decoration: none !important;
-}
-
-li a:hover:not(.active) {
-  background-color: yellowgreen !important;
-}
-
-li a.active {
-  color: white;
-  background-color: yellowgreen !important;
 }
 
 </style>
@@ -71,37 +39,7 @@ li a.active {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<div id="header-wrapper">
-			<header id="header" class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-					<h1 id="test">콕</h1>
-					<!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
-				</div>
-					<ul id="logo">
-						<li style='color:yellowgreen' >관리자</li>
-					</ul>
-
-				<!-- Nav -->
-				<nav id="nav" style='left: 20%'>
-					<ul>
-						<li><a href="../manager/managerIndex.jsp">홈</a></li>
-						<li><a href="../manager/statistics.jsp">통계</a></li>
-						<li><a href="../manager/rm.jsp">예약관리</a></li>
-						<li><a href="../manager/memberManagement.jsp">회원관리</a></li>
-						<li><a href="../manager/partnerManagement.jsp">제휴사관리</a></li>
-						<li><a href="../manager/bm.jsp">게시판관리</a></li>
-						<li><a href="../manager/settlementManagement.jsp">정산내역</a></li>
-						<li><a href="../manager/courseManagement.jsp">코스</a></li>
-						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
-						<li><a href="../../index.jsp" style='color:#088A08;'>로그아웃</a></li>
-					</ul>
-				</nav>
-			</header>
-			<hr style="border-color:green">
-		</div>
-
+	<%@ include file="../common/menubar_manager.jsp" %>
 
 
 
@@ -524,12 +462,7 @@ li a.active {
 
 	<!-- Scripts -->
 
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../../assets/js/browser.min.js"></script>
-	<script src="../../assets/js/breakpoints.min.js"></script>
-	<script src="../../assets/js/util.js"></script>
-	<script src="../../assets/js/main.js"></script>
+
 <%-- <% } %> --%>
 </body>
 </html>
