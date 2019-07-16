@@ -22,61 +22,6 @@ body {
 	background: white !important;
 	color: black !important;
 }
-
-#accordian {
-	width: 250px;
-	color: black;
-	display: inline-block;
-}
-
-ul {
-	list-style: none;
-}
-/* 아이콘폰트 스타일 */
-#accordian h3 span {
-	font-size: 40px;
-	margin-right: 10px;
-}
-
-#accordian li {
-	list-style-type: none;
-} /* 서브메뉴 스타일 */
-#accordian ul ul li a {
-	color: black;
-	text-decoration: none;
-	font-size: 20px;
-	line-height: 27px;
-	display: block;
-	padding: 0 15px;
-	-webkit-transition: all 0.15s;
-	-moz-transition: all 0.15s;
-	-o-transition: all 0.15s;
-	-ms-transition: all 0.15s;
-	transition: all 0.15s;
-}
-
-#accordian ul ul li a:hover {
-	border-left: 5px solid #09c;
-} /* active 클래스 외에 것은 보이지 않게 하기 */
-#accordian ul ul {
-	display: none;
-}
-
-#accordian li.active ul {
-	display: block;
-}
-
-#a1 {
-	color: red;
-}
-#btn1 {
-	background: #09c;
-}
-
-button {
-	background:white;
-}
-
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -84,23 +29,6 @@ button {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-	$(function() {
-		$("#accordian h3").click(function() {
-			$("#accordian ul ul").slideUp();
-			if (!$(this).next().is(":visible")) {
-				$(this).next().slideDown();
-			}
-		})
-	});
-</script>
-<script>
-	function click() {
-
-	}
-</script>
 
 </head>
 <body class="is-preload homepage">
@@ -137,91 +65,55 @@ button {
 			<hr>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div id="accordian">
-					<ul>
-						<li><h3>
-								<span class="icon-dashboard"></span>FAQ
-							</h3>
-							<ul>
-								<li><a href="#" id="a1"><button id="faq1">ㅁㅁㅁ</button></a></li>
-								<li><a href="#" id="a2"><button id="faq2">ㅁㅁㅁ</button></a></li>
-								<li><a href="#"><button id="faq3">ㅁㅁㅁ</button></a></li>
-								<li><a href="#"><button id="faq4">ㅁㅁㅁ</button></a></li>
-							</ul></li>
-						<li class="active"><h3 id="ads">
-								<span class="icon-tasks" ></span>광고/제휴문의
-							</h3>
-							<ul style="display: none">
-							</ul></li>
-						<li><h3>
-								<span class="icon-calendar"></span>여행자가이드
-							</h3>
-							<ul>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-							</ul></li>
-						<li>
-							<h3>
-								<span class="icon-heart"></span>가이드약관
-							</h3>
-							<ul>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
-								<li><a href="#">ㅁㅁㅁ</a></li>
+			<section class="section container container-md">
+				<p>광고나 제휴를 원하시거나 궁금하신 점이 있으시면 아래 양식을 이용해주시기 바랍니다. 담당자가 확인하는 대로
+					광고소개서 등을 전달드리거나 답변드리겠습니다.</p>
+			</section>
 
-							</ul>
-						</li>
-						<h3 id="aaa">
-							<li><a href="#">1:1문의</a></li>
-						</h3>
-					</ul>
-
+			<form class="section container container-md" action="/ads"
+				method="post">
+				<div class="hr"></div>
+				<header class="form-group">
+					<h2 class="section-title">광고 및 제휴 문의하기</h2>
+				</header>
+				<div class="form-group">
+					<label class="form-label" for="company">회사명</label> <input
+						class="form-control" name="company" id="company">
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="name-position">업종 <sup
+						class="fas fa-asterisk fa-xs text-primary" aria-label="필수 입력 항목"></sup>
+					</label> <input class="form-control" name="name" id="name-position">
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="email">이메일 <sup
+						class="fas fa-asterisk fa-xs text-primary" aria-label="필수 입력 항목"></sup>
+					</label> <input class="form-control" name="email" id="email" type="email">
 
 				</div>
-				<!-- 아코디언 옆 -->
-				<div style="margin-left:150px">
-					<span><span id="faq"><h2>COC 고객센터입니다.</h2><br><h4>궁금하신 점을 클릭하셔서 확인하세요</h4></span></span>
+				<div class="form-group">
+					<label class="form-label" for="contact">연락처</label> <input
+						class="form-control" name="contact" id="contact">
 				</div>
-			</div>
+				<div class="form-group">
+					<label class="form-label" for="inquiry">문의 내용 <sup
+						class="fas fa-asterisk fa-xs text-primary" aria-label="필수 입력 항목"></sup>
+					</label>
+					<textarea class="form-control" name="content" id="inquiry"
+						style="height: 200px;"></textarea>
+				</div>
+				<div class="form-group form-check">
+					<input class="form-check-input" name="agreement" type="checkbox"
+						value="1" id="agreement"> <label
+						class="form-check-label ml-1" for="agreement"> </label>
+				</div>
+
+				<div class="form-footer">
+					<button class="btn btn-primary px-4 btn-submit btn-loading"
+						type="submit">보내기</button>
+				</div>
+			</form>
 		</div>
-		<!-- 아코디언 관련 -->
-		<script>
-			//FAQ
-			$(function() {
-				$("#faq1").click(function() {
-					$("#faq").load("faq/faq1.jsp");
-				});
-			});
-			$(function() {
-				$("#faq2").click(function() {
-					$("#faq").load("faq/faq2.jsp");
-				});
-			});
-			$(function() {
-				$("#faq3").click(function() {
-					$("#faq").load("faq/faq3.jsp");
-				});
-			});
-			$(function() {
-				$("#faq4").click(function() {
-					$("#faq").load("faq/faq4.jsp");
-				});
-			});
-			//1:1문의			
-			$(function() {
-				$("#aaa").click(function() {
-					$("#faq").load("help.jsp");
-				});
-			});
-			/*$(function() {
-				$("#ads").click(function() {
-					$("#faq").load("ads.jsp");
-				});
-			});*/
-		</script>
 
 
 
@@ -270,7 +162,7 @@ button {
 								<li><a href="#">YEONGMIN-PARK</a></li>
 								<li><a href="#">MINHA-HWANG</a></li>
 								<li><a href="#">HEEJUNG-JEE</a></li>
-								<li><a href="#">HYUNSU-KIM</a></li>
+								<li><a href="#">HYUNSOO-KIM</a></li>
 								<li><a href="#">CHAEWON-KIM</a></li>
 							</ul>
 						</section>
@@ -323,5 +215,6 @@ button {
 	<script src="../assets/js/breakpoints.min.js"></script>
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
+
 </body>
 </html>
