@@ -80,14 +80,14 @@ li a.active {
 				<!-- Nav -->
 				<nav id="nav" style='left: 20%'>
 					<ul>
-						<li><a href="../manager/managerIndex.jsp">홈</a></li>
-						<li><a href="../manager/statistics.jsp">통계</a></li>
-						<li><a href="../manager/rm.jsp">예약관리</a></li>
-						<li><a href="../manager/memberManagement.jsp">회원관리</a></li>
-						<li><a href="../manager/partnerManagement.jsp">제휴사관리</a></li>
-						<li><a href="../manager/bm.jsp">게시판관리</a></li>
-						<li><a href="../manager/settlementManagement.jsp">정산내역</a></li>
-						<li><a href="../manager/courseManagement.jsp">코스</a></li>
+						<li><a href="../admin/managerIndex.jsp">홈</a></li>
+						<li><a href="../admin/statistics.jsp">통계</a></li>
+						<li><a href="../admin/rm.jsp">예약관리</a></li>
+						<li><a href="../admin/memberManagement.jsp">회원관리</a></li>
+						<li><a href="../admin/partnerManagement.jsp">제휴사관리</a></li>
+						<li><a href="../admin/bm.jsp">게시판관리</a></li>
+						<li><a href="../admin/settlementManagement.jsp">정산내역</a></li>
+						<li><a href="../admin/courseManagement.jsp">코스</a></li>
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
 						<li><a href="../../index.jsp" style='color:#088A08;'>로그아웃</a></li>
 					</ul>
