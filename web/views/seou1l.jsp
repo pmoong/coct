@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
@@ -6,7 +6,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+ <html>
 <head>
 <title>CoC</title>
 <meta charset="utf-8" />
@@ -17,32 +17,57 @@
 body {
 	background: white;
 }
-
+ 
 #test {
 	background: white !important;
 	color: black !important;
 }
-
-hr {
-      margin: 0 auto;
-      max-width: 100%;
-      width: 1400px;
+   .listgroup {
+  width: 100%; 
+  height:100%; 
+ }
+#divChild { 
+  width:100%;height:auto; 
+ border:1px solid #ccc;
+  display: inline-block; 
+margin: 30px 30px 30px 30px; 
+  vertical-align: middle;}
+  
+ 
+ 
+*{margin:0;padding:0;}
+  ul,li{list-style:none;}
+  #slide{height:300px;position:relative;overflow:hidden;}
+  #slide ul{width:400%;height:100%;transition:1s;}
+  #slide ul:after{content:"";display:block;clear:both;}
+  #slide li{float:left;width:25%;height:100%;}
+  #slide li:nth-child(1){background:  url(../images/pic08.PNG );
+  }
+  #slide li:nth-child(2){background:#ffa;}
+  #slide li:nth-child(3){background:#faF;}
+  #slide li:nth-child(4){background:#aaf;}
+  #slide input{display:none;}
+  #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+  #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+   #pos1:checked~ul{margin-left:0%;}
+  #pos2:checked~ul{margin-left:-100%;}
+  #pos3:checked~ul{margin-left:-200%;}
+  #pos4:checked~ul{margin-left:-300%;} 
    
-}
-
-
-
+ 
+ 
 </style>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+ 
 </head>
-<body class="is-preload homepage">
-	<div id="page-wrapper">
+ <body >
+	 
 
 		<!-- Header -->
 		<div id="header-wrapper">
@@ -51,96 +76,36 @@ hr {
 				<!-- Logo -->
 				<div id="logo">
 					<h1 id="test">콕</h1>
-					<!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
+					<input type="search" id="search" placeholder="검색어를 입력하세요">
 				</div>
-					<ul id="logo">
-						<li style='color:yellowgreen' >관리자</li>
-					</ul>
 
 				<!-- Nav -->
-				<nav id="nav" style='left: 20%'>
+				<nav id="nav">
 					<ul>
-						<li><a href="../manager/managerIndex.jsp">홈</a></li>
-						<li><a href="#">통계</a></li>
-						<li><a href="../manager/rm.jsp">예약관리</a></li>
-						<li><a href="#">회원관리</a></li>
-						<li><a href="#">제휴사관리</a></li>
-						<li><a href="../manager/bm.jsp">게시판관리</a></li>
-						<li><a href="#">정산내역</a></li>
-						<li><a href="#">가이드라인</a></li>
-						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
-						<li><a href="#" style='color:yellowgreen;'>로그아웃</a></li>
+						<li><a href="#">고객센터</a></li>
+						<li><a href="#">로그인</a></li>
+						<li class="current"><a href="#">회원가입</a></li>
+					</ul>
+				</nav>
+				<nav id="nav" style='left: 30%'>
+					<ul>
+						<li><a href="#">계획그리기</a></li>
+						<li><a href="#">문화즐기기</a></li>
+						<li><a href="#">숙소잡기</a></li>
+						<li><a href="#">서울나들이</a></li>
 					</ul>
 				</nav>
 			</header>
-			<hr style="border-color:green">
-		</div>
+			<hr>
+ 	</div>
 
+ <br>
+ <h1>문화</h1>
 
-
-
-
-
-	<hr style="border-color:yellowgreen">
-		<!-- 여기는 예약관리 입니당 -->
-			<div class="container" >
-				<div class="row">
-					<h3 class="col-12 col-12-medium" style='text-align: left ; margin-top:1%; border:red'>공지사항</h3>
-
-					
-				</div>
-			</div>
-		<hr style="border-color:yellowgreen">
-			<!-- Wrapper for slides -->
-			
-
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-
+  <img src="../images/seoul2.PNG" width="400" height="400">
+				
+	 
 		
-
-		
-<hr style="border-color:yellowgreen ; border-solid:5px" >
-<!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!-- Footer -->
 		<div id="footer-wrapper">
 			<footer id="footer" class="container">
@@ -228,17 +193,22 @@ hr {
 				</div>
 			</footer>
 		</div>
-
+</div>
 	</div>
 
 	<!-- Scripts -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
 
 </body>
-</html>
+</html> 
+		 
+		 
+		 
+		 
+		 
