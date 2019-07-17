@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
    Verti by HTML5 UP
@@ -11,65 +11,73 @@
 <title>CoC</title>
 <meta charset="utf-8" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/coc/assets/css/main.css" />
+   content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="../assets/css/main.css" />
 <style>
 body {
-	background: white;
+   background: white;
 }
 
 #test {
-	background: white !important;
-	color: black !important;
+   background: white !important;
+   color: black !important;
 }
 
-#userId, #userPwd {
-	font-size:13px;
+#userId, #userName, #userEmail{
+   font-size:13px;
 }
 
 
 </style>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 <body class="is-preload homepage">
-	<div id="page-wrapper">
+   <div id="page-wrapper">
 
-		<!-- Header -->
-		<%@ include file="/views/common/menubar_customer.jsp" %>
+      <!-- Header -->
+      <%@ include file="../common/menubar_customer.jsp" %>
 
-		<div class="container" align="center">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="inputUserName" class="col-sm-5 control-label" id="userName">이름</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputuserName">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputuserId">
-					</div>
-				</div>
-				<br>
-				<div class="form-group">
-					<div class="col-sm-offset-1 col-sm-10">
-						<button type="submit" class="btn btn-default">비밀번호 바꾸기</button></div>
-					</div>
-				</div>
-			</form>
-		</div>
+      <div class="container" align="center">
+         <form class="form-horizontal">
+            <div class="form-group">
+               <label for="inputUserName" class="col-sm-5 control-label" id="userName">이름</label>
+               <div class="col-sm-3">
+                  <input type="text" class="form-control" id="inputuserName">
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
+               <div class="col-sm-3">
+                  <input type="text" class="form-control" id="inputuserId">
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="inputUserEmail" class="col-sm-5 control-label" id="userEmail">이메일</label>
+               <div class="col-sm-3">
+                  <input type="email" class="form-control" id="inputuserEmail">
+               </div>
+               </div>
+               <div class="form-group">
+               <div class="col-sm-offset-1 col-sm-10">
+                  <button onclick="alert('임시 비밀번호 발송!');" type="submit" class="btn btn-default">임시 비밀번호 발송</button></div>
+               </div>
+            </div>
+            <br>
+            
+            </div>
+         </form>
+      </div>
 
-		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp" %>
+      <!-- Footer -->
+      <%@include file="/views/common/footerbar_customer.jsp" %>
 
-	</div>
+   </div>
 
 
 
