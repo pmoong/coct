@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
    background: white;
@@ -93,7 +93,7 @@ input[type="checkbox"] {
    <div id="page-wrapper">
 
       <!-- Header -->
-      <%@include file="/views/common/menubar_customer.jsp" %>
+      <%@ include file="/views/common/menubar_customer.jsp" %>
             
           
                
@@ -172,12 +172,7 @@ input[type="checkbox"] {
 
    <!-- Scripts -->
 
-   <script src="../assets/js/jquery.min.js"></script>
-   <script src="../assets/js/jquery.dropotron.min.js"></script>
-   <script src="../assets/js/browser.min.js"></script>
-   <script src="../assets/js/breakpoints.min.js"></script>
-   <script src="../assets/js/util.js"></script>
-   <script src="../assets/js/main.js"></script>
+	
 
 </body>
 </html>

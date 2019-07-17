@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -32,7 +32,7 @@ body {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-<%@ include file="../common/menubar_customer.jsp" %>
+<%@ include file="/views/common/menubar_customer.jsp" %>
 
 
 <body class="is-preload homepage">

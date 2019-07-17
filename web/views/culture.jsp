@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -378,7 +378,6 @@ padding-left:30px !important;
 href="#"  style="font-size:2.0em"><button id="btn">top</button></a> 
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>
-
-
+		
 </body>
 </html> 

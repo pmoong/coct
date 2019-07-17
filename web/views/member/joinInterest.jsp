@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -80,7 +80,7 @@ h2 {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-<%@ include file="../common/menubar_customer.jsp" %>
+<%@ include file="/views/common/menubar_customer.jsp" %>
 
 
 		<div class="container" align="center">

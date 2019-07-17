@@ -7,7 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -80,14 +80,14 @@ li a.active {
 				<!-- Nav -->
 				<nav id="nav" style='left: 20%'>
 					<ul>
-						<li><a href="../admin/managerIndex.jsp">홈</a></li>
-						<li><a href="../admin/statistics.jsp">통계</a></li>
-						<li><a href="../admin/rm.jsp">예약관리</a></li>
-						<li><a href="../admin/memberManagement.jsp">회원관리</a></li>
-						<li><a href="../admin/partnerManagement.jsp">제휴사관리</a></li>
-						<li><a href="../admin/bm.jsp">게시판관리</a></li>
-						<li><a href="../admin/settlementManagement.jsp">정산내역</a></li>
-						<li><a href="../admin/courseManagement.jsp">코스</a></li>
+						<li><a href="/coc/views/admin/managerIndex.jsp">홈</a></li>
+						<li><a href="/coc/views/admin/statistics.jsp">통계</a></li>
+						<li><a href="/coc/views/admin/rm.jsp">예약관리</a></li>
+						<li><a href="/coc/views/admin/memberManagement.jsp">회원관리</a></li>
+						<li><a href="/coc/views/admin/partnerManagement.jsp">제휴사관리</a></li>
+						<li><a href="/coc/views/admin/bm.jsp">게시판관리</a></li>
+						<li><a href="/coc/views/admin/settlementManagement.jsp">정산내역</a></li>
+						<li><a href="/coc/views/admin/courseManagement.jsp">코스</a></li>
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
 						<li><a href="../../index.jsp" style='color:#088A08;'>로그아웃</a></li>
 					</ul>
@@ -96,11 +96,11 @@ li a.active {
 			<hr style="border-color:green">
 		</div>
 
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../../assets/js/browser.min.js"></script>
-	<script src="../../assets/js/breakpoints.min.js"></script>
-	<script src="../../assets/js/util.js"></script>
-	<script src="../../assets/js/main.js"></script>
+	<script src="/coc/assets/js/jquery.min.js"></script>
+	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/coc/assets/js/browser.min.js"></script>
+	<script src="/coc/assets/js/breakpoints.min.js"></script>
+	<script src="/coc/assets/js/util.js"></script>
+	<script src="/coc/assets/js/main.js"></script>
 </body>
 </html>
