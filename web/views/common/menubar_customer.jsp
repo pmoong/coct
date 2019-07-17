@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.cw.coc.member.model.vo.Member" %>
+<%
+	Member loginUser = (Member)session.getAttribute("loginUser");
+%>    
 <html>
 <head>
 <meta charset="UTF-8">
@@ -96,8 +99,13 @@ body {
             <nav id="nav">
                <ul>
                   <li><a href="/coc/views/member/cs.jsp">고객센터</a></li>
+                  <%if(loginUser!=null) {%>
+                  <li><a href="/coc/index.jsp" onclick="logout()">로그아웃</a></li>
+                  <li class="current"><a href="/coc/views/member/myPage.jsp">마이페이지</a></li>
+                  <%}else {%>
                   <li><a href="/coc/views/member/login.jsp">로그인</a></li>
                   <li class="current"><a href="/coc/views/member/joinForm.jsp">회원가입</a></li>
+                  <%} %>
                </ul>
                
             </nav>
@@ -112,6 +120,11 @@ body {
          </header>
 			<hr style="border-color:green">
 		</div>
+		<script>
+		function logout(){
+			location.href="<%=request.getContextPath()%>/logout.me";
+		}
+		</script>
 
 	<script src="/coc/assets/js/jquery.min.js"></script>
 	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
