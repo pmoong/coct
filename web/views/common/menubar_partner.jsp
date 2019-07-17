@@ -7,7 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -80,11 +80,11 @@ li a.active {
 				<!-- Nav -->
 				<nav id="nav" style='left: 20%'>
 					<ul>
-						<li><a href="#">홈</a></li>
-						<li><a href="#">예약현황</a></li>
-						<li><a href="#">매장운영</a></li>
-						<li><a href="#">리뷰관리</a></li>
-						<li><a href="#">정산/결제</a></li>
+						<li><a href="/coc/views/partner/partnerIndex.jsp">홈</a></li>
+						<li><a href="/coc/views/partner/rm.jsp">예약현황</a></li>
+						<li><a href="/coc/views/partner/store.jsp">매장운영</a></li>
+						<li><a href="/coc/views/partner/reviewManager.jsp">리뷰관리</a></li>
+						<li><a href="/coc/views/partner/calculate.jsp">정산/결제</a></li>
 						
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
 						<li><a href="../../index.jsp" style='color:gray;'>로그아웃</a></li>
@@ -94,11 +94,11 @@ li a.active {
 			<hr style="border-color:orange">
 		</div>
 
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../../assets/js/browser.min.js"></script>
-	<script src="../../assets/js/breakpoints.min.js"></script>
-	<script src="../../assets/js/util.js"></script>
-	<script src="../../assets/js/main.js"></script>
+	<script src="/coc/assets/js/jquery.min.js"></script>
+	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/coc/assets/js/browser.min.js"></script>
+	<script src="/coc/assets/js/breakpoints.min.js"></script>
+	<script src="/coc/assets/js/util.js"></script>
+	<script src="/coc/assets/js/main.js"></script>
 </body>
 </html>

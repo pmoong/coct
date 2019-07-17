@@ -9,7 +9,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="../../assets/css/main.css" />
+<link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
 	background: white;
@@ -39,7 +39,7 @@ body {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-	<%@ include file="../common/menubar_manager.jsp" %>
+	<%@ include file="/views/common/menubar_manager.jsp" %>
 
 
 
@@ -369,14 +369,13 @@ body {
 <hr style="border-color:yellowgreen ; border-solid:5px" >
 <!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!-- Footer -->
-		<%@include file="../common/footerbar_customer.jsp" %>
+		<%@include file="/views/common/footerbar_customer.jsp" %>
 		
 
 	</div>
 
 	<!-- Scripts -->
-
-
+	
 <%-- <% } %> --%>
 </body>
 </html>
