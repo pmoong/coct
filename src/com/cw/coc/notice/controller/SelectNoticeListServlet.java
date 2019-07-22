@@ -1,4 +1,4 @@
-package com.kh.jsp.notice.controller;
+package com.cw.coc.notice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.jsp.notice.model.service.NoticeService;
-import com.kh.jsp.notice.model.vo.Notice;
+import com.cw.coc.notice.model.service.BoardService;
+import com.cw.coc.notice.model.vo.Board;
 
 /**
  * Servlet implementation class SelectNoticeListServlet
@@ -31,24 +31,19 @@ public class SelectNoticeListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Notice> list = new NoticeService().selectList();
-		
-		System.out.println("controller list : " + list);
+		ArrayList<Board> list = new BoardService().selectList();
 		
 		String page = "";
 		
-		if(list != null) {
-			page = "views/notice/noticeList.jsp";
+		System.out.println(list);
+		if(list!=null) {
+			page = "/views/notice/noticeList.jsp";
 			request.setAttribute("list", list);
 		}else {
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 조회 실패!");
+			page="/views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시판 조회 실패");
 		}
-		
 		request.getRequestDispatcher(page).forward(request, response);
-		
-		
 	}
 
 	/**
@@ -60,15 +55,3 @@ public class SelectNoticeListServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
