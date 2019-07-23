@@ -120,7 +120,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="/coc/images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -130,7 +130,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="/coc/images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -140,7 +140,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="/coc/images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -160,7 +160,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="/coc/images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -169,7 +169,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="/coc/images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -180,7 +180,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="/coc/images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -199,7 +199,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic01.jpg" alt="" /></a>
+											src="/coc/images/pic01.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -209,7 +209,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic02.jpg" alt="" /></a>
+											src="/coc/images/pic02.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -219,7 +219,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="../images/pic03.jpg" alt="" /></a>
+											src="/coc/images/pic03.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
@@ -257,7 +257,8 @@ body {
 							<div class="row">
 									<!-- Box -->
 									<section class="box feature">
-										<a href="reserv_hotelView.jsp" class="image featured"><img src="../images/reserv.PNG" alt="" style="width:100%; height:100%;"/></a>
+										<a href="reserv_hotelView.jsp" class="image featured">
+										<img src="/coc/images/reserv.PNG" alt="" style="width:100%; height:100%;"/></a>
 										<div class="inner"></div>
 									</section>
 							</div>
@@ -272,7 +273,8 @@ body {
 							<div class="row">
 									<!-- Box -->
 									<section class="box feature">
-										<a href="reserv_hotelView.jsp" class="image featured"><img src="../images/reserv.PNG" alt="" style="width:100%; height:100%;"/></a>
+										<a href="reserv_hotelView.jsp" class="image featured">
+										<img src="/coc/images/reserv.PNG" alt="" style="width:100%; height:100%;"/></a>
 										<div class="inner"></div>
 									</section>	
 							</div>
@@ -299,7 +301,7 @@ body {
 		
 	<div align="center">
 		<a href="../images/spot.PNG" class="image featured">
-		<img src="../images/allSpot.PNG" alt="" style="width:25%; height:25%;"/>
+		<img src="/coc/images/allSpot.PNG" alt="" style="width:25%; height:25%;"/>
 		</a>
 	</div>
 	<br><br><br><br><br>

@@ -71,7 +71,7 @@ body {
 								<!-- Box -->
 								<section class="box feature">
 									<a href="#" class="image featured">
-									<img src="../images/roomView.PNG" alt="" style="width:70% !important;"/></a>
+									<img src="/coc/images/roomView.PNG" alt="" style="width:70% !important;"/></a>
 								</section>
 
 							</div>
