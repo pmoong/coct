@@ -23,32 +23,31 @@ body {
 	color: black !important;
 }
 
+.outer {
+	width: 800px;
+	height: 500px;
+	background: white;
+	color: black;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
 
+table {
+	border: 1px solid green !important;
+	text-align: center;
+}
 
-	.outer {
-		width:800px;
-		height:500px;
-		background:white;
-		color:black;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:50px;
-	}
-	table {
-		border:1px solid green !important;
-		text-align:center;
-	}
-	.tableArea {
-		width:650px;
-		height:350px;
-		margin:0 auto;
-	}
-	.searchArea {
-		width:650px;
-		margin:0 auto;
-	}
-	
+.tableArea {
+	width: 650px;
+	height: 350px;
+	margin: 0 auto;
+}
 
+.searchArea {
+	width: 650px;
+	margin: 0 auto;
+}
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -62,36 +61,37 @@ body {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<%@ include file="/views/common/menubar_manager.jsp" %>
+		<%@ include file="/views/common/menubar_manager.jsp"%>
 
 
 
 
 
-	<hr style="border-color:yellowgreen">
+		<hr style="border-color: yellowgreen">
 		<!-- 여기는 리뷰관리 입니당 -->
-			<div class="container" >
-				<div class="row">
-					<h3 class="col-12 col-12-medium" style='text-align: left ; margin-top:1%;'>리뷰관리</h3>
-				</div>
+		<div class="container">
+			<div class="row">
+				<h3 class="col-12 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>리뷰관리</h3>
 			</div>
-			<hr style="border-color:yellowgreen">
-			<!-- Wrapper for slides -->
-			
+		</div>
+		<hr style="border-color: yellowgreen">
+		<!-- Wrapper for slides -->
 
-							<div class="outer">
-		<br>
-		<h2 align="center">리뷰</h2>
-		<div class="tableArea">
-			<table align="center" id="listArea">
-				<tr>
-					<th>글번호</th>
-					<th width="300px">글제목</th>
-					<th width="100px">작성자</th>
-					<th>조회수</th>
-					<th width="100px">작성일</th>
-				</tr>
-			<%-- 	<% for(Notice n : list){ %>
+
+		<div class="outer">
+			<br>
+			<h2 align="center">리뷰</h2>
+			<div class="tableArea">
+				<table align="center" id="listArea">
+					<tr>
+						<th>글번호</th>
+						<th width="300px">글제목</th>
+						<th width="100px">작성자</th>
+						<th>조회수</th>
+						<th width="100px">작성일</th>
+					</tr>
+					<%-- 	<% for(Notice n : list){ %>
 				<tr>
 					<td><%= n.getNno() %></td>
 					<td><%= n.getnTitle() %></td>
@@ -100,32 +100,31 @@ body {
 					<td><%= n.getnDate() %></td>
 				</tr>
 				<% } %> --%>
-			</table>
-			<div class="searchArea" align="center">
-				<select id="searchCondition" name="searchCondition">
-					<option value="writer">작성자</option>
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-				</select>
-				<input type="search">
-				<button type="submit" style=" background:yellowgreen;">검색하기</button>
-				<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>
-				<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-				<%-- <% } %> --%>
+				</table>
+				<div class="searchArea" align="center">
+					<select id="searchCondition" name="searchCondition">
+						<option value="writer">작성자</option>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+					</select> <input type="search">
+					<button type="submit" style="background: yellowgreen;">검색하기</button>
+					<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>
+					<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+					<%-- <% } %> --%>
+				</div>
 			</div>
 		</div>
 	</div>
-			</div>
 
 
-		
 
-		
-<hr style="border-color:yellowgreen ; border-solid:5px" >
-<!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp" %>
-		
+
+
+	<hr style="border-color: yellowgreen; border-solid: 5px">
+	<!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!-- Footer -->
+	<%@include file="/views/common/footerbar_customer.jsp"%>
+
 
 	</div>
 
