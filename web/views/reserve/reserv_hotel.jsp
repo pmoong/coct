@@ -106,40 +106,40 @@ div {
   <div class="hotelList" style="display:inline-block;">
   		<div class="hotel">
   		<a href="reserv_hotelView.jsp" class="image featured">
-  			<img src="../images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</a>
   		</div>
   		<div class="hotel">
   			<a href="reserv_hotelView.jsp" class="image featured">
-  			<img src="../images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   			</a>	
   		</div>
   		<div class="hotel">
   			<a href="reserv_hotelView.jsp" class="image featured">
-  			<img src="../images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel1.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
  			</a>	 		
   		</div>
   </div>		
   <div class="hotelList" style="display:inline-block;">
   		<div class="hotel">
-  			<img src="../images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   		<div class="hotel">
-  			<img src="../images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   		<div class="hotel">
-  			<img src="../images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel2.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   </div>	
     <div class="hotelList" style="display:inline-block;">
   		<div class="hotel">
-  			<img src="../images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   		<div class="hotel">
-  			<img src="../images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   		<div class="hotel">
-  			<img src="../images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
+  			<img src="/coc/images/hotel3.PNG" style="width:100%; margin:auto;"><hr><p><b>호텔 임페로</b></p><p id="price">104,833원/1박</p>
   		</div>
   </div>	
   </div>
