@@ -43,14 +43,6 @@ body {
 	position: relative;
 }
 
-.field-container {
-	position: relative;
-	border: 1px solid skyblue;
-	width: 100%;
-	height: 20%;
-	align: center !important;
-}
-
 .icons-container {
 	position: absolute;
 	top: 11px;
@@ -91,7 +83,7 @@ body {
 	background: darkgray !important;
 }
 .col-12-medium{
-	padding:30px 20px 10px 20px;
+	padding:30px 20px 10px 20px !important;
 	radius:5px;
 }
 #banner-wrapper .feature{
@@ -121,10 +113,7 @@ body {
 
 				<div id="logo">
 					<fieldset class="field-container" style="width: 160%">
-						<input type="text" placeholder="Search..." class="field" />
-						<div class="icons-container">
-							<div class="icon-search"></div>
-						</div>
+						<input type="search" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;"/>
 					</fieldset>
 				</div>
 			</header>
