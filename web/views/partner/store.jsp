@@ -64,7 +64,7 @@ table {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<%@ include file="/views/common/menubar_partner.jsp" %>
+		<%@ include file="/views/common/menubar_partner.jsp"%>
 
 
 
@@ -86,9 +86,11 @@ table {
 		<hr style="border-color: orange">
 
 
-			<div class="outer" style="background: skyblue;"></div>
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
 		<hr style="border-color: orangered">
-		
+
 		<!--  -->
 		<div class="container">
 			<div class="row">
@@ -105,8 +107,10 @@ table {
 
 		<!-- Wrapper for slides -->
 
-		<div class="outer" style="background: skyblue;"></div>
-		<hr>
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
+		<hr style="border-color: orange">
 		<!--  -->
 		<div class="container">
 			<div class="row">
@@ -123,8 +127,10 @@ table {
 
 		<!-- Wrapper for slides -->
 
-		<div class="outer" style="background: skyblue;"></div>
-		<hr>
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
+		<hr style="border-color: orange">
 
 		<!--  -->
 		<div class="container">
@@ -142,9 +148,11 @@ table {
 
 		<!-- Wrapper for slides -->
 
-		<div class="outer" style="background: skyblue;"></div>
-		<hr>
-		
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
+		<hr style="border-color: orange">
+
 		<!--  -->
 		<div class="container">
 			<div class="row">
@@ -161,9 +169,11 @@ table {
 
 		<!-- Wrapper for slides -->
 
-		<div class="outer" style="background: skyblue;"></div>
-		<hr>
-		
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
+		<hr style="border-color: orange">
+
 		<!--  -->
 		<div class="container">
 			<div class="row">
@@ -180,7 +190,9 @@ table {
 
 		<!-- Wrapper for slides -->
 
-		<div class="outer" style="background: skyblue;"></div>
+		<div class="outer">
+			<textarea style="background: skyblue; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
 		<hr>
 
 
@@ -188,8 +200,8 @@ table {
 		<hr style="border-color: orangered; border-solid: 5px">
 		<!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp" %>
-		
+		<%@include file="/views/common/footerbar_customer.jsp"%>
+
 
 	</div>
 

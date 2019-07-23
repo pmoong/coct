@@ -118,7 +118,7 @@ body {
                </ul>
             </nav>
          </header>
-			<hr style="border-color:green">
+			<hr style="border-color:skyblue">
 		</div>
 		<script>
 		function logout(){
