@@ -37,7 +37,7 @@ body {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
-<body class="is-preload homepage">
+<body>
 	<div id="page-wrapper">
 
 		<!-- Header -->
