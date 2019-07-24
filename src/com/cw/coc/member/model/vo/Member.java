@@ -1,6 +1,7 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
+
    private int uno;         //회원번호
    private String userId;      //회원ID
    private String userPwd;      //회원PWD
@@ -106,5 +107,5 @@ public class Member {
    }
    
    
-   
+ 
 }
