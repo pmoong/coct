@@ -17,17 +17,13 @@
 body {
 	background: white;
 }
-
 #test {
 	background: white !important;
 	color: black !important;
 }
-
 #userId, #userPwd {
 	font-size:13px;
 }
-
-
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
