@@ -1,17 +1,18 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
-	private String userId;		//회원ID
-	private String userPwd;		//회원PWD
-	private String email;		//이메일
-	private String uType;		//구분
-	private String gender;		//성별
-	private int age;			//나이
-	private String survey;		//설문조사코드
-	private int status = 99;	
-	
-	public Member() {}
 
+	   private String userId;      //회원ID
+	   private String userPwd;      //회원PWD
+	   private String email;      //이메일
+	   private String uType;      //구분
+	   private String gender;      //성별
+	   private int age;         //나이
+	   private String survey;      //설문조사코드
+	   private int status = 99;   
+	   
+	   public Member() {}
+  
 	public Member(String userId, String userPwd, String email, String uType, String gender, int age, String survey,
 			int status) {
 		super();
@@ -51,6 +52,7 @@ public class Member {
 
 	public String getuType() {
 		return uType;
+
 	}
 
 	public void setuType(String uType) {
