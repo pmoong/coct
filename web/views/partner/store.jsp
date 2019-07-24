@@ -169,7 +169,7 @@ table {
 		</div>
 <!-- 		<hr style="border-color: orange">
  --><br>
-		<!-- Wrapper for slides -->
+		 
 
 		<div class="outer">
 			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
