@@ -11,7 +11,7 @@ public class Board {
 	private String bWriter;
 	private int cCode;
 	private String pCode;
-	private int bno;
+	private int uno;
 	private String uType;
 	private int count;
 	private Date modifiyDate;
@@ -19,7 +19,7 @@ public class Board {
 	public Board(){}
 
 	public Board(int bCode, Date bDate, String bTitle, String bContent, String bType, String bWriter, int cCode,
-			String pCode, int bno, String uType, int count, Date modifiyDate) {
+			String pCode, int uno, String uType, int count, Date modifiyDate) {
 		super();
 		this.bCode = bCode;
 		this.bDate = bDate;
@@ -29,7 +29,7 @@ public class Board {
 		this.bWriter = bWriter;
 		this.cCode = cCode;
 		this.pCode = pCode;
-		this.bno = bno;
+		this.uno = uno;
 		this.uType = uType;
 		this.count = count;
 		this.modifiyDate = modifiyDate;
@@ -100,12 +100,12 @@ public class Board {
 		this.pCode = pCode;
 	}
 
-	public int getBno() {
-		return bno;
+	public int getUno() {
+		return uno;
 	}
 
-	public void setBno(int bno) {
-		this.bno = bno;
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 
 	public String getuType() {
@@ -135,7 +135,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [bCode=" + bCode + ", bDate=" + bDate + ", bTitle=" + bTitle + ", bContent=" + bContent
-				+ ", bType=" + bType + ", bWriter=" + bWriter + ", cCode=" + cCode + ", pCode=" + pCode + ", bno=" + bno
+				+ ", bType=" + bType + ", bWriter=" + bWriter + ", cCode=" + cCode + ", pCode=" + pCode + ", uno=" + uno
 				+ ", uType=" + uType + ", count=" + count + ", modifiyDate=" + modifiyDate + "]";
 	}
 

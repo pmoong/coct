@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.vo.Member;
 
@@ -39,7 +40,7 @@ public class InsertBoardServlet extends HttpServlet {
 		String writer = String.valueOf(loginUser.getUno());*/
 		
 		String writer = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUno());
-		
+		 //request.getSession().getAttribute("loginUser")).getUno()
 		System.out.println("bType : " + bType);
 		System.out.println("bTitle : " + bTitle);
 		System.out.println("bContent : " + bContent);
@@ -49,7 +50,7 @@ public class InsertBoardServlet extends HttpServlet {
 		b.setbType(bType);
 		b.setbTitle(bTitle);
 		b.setbContent(bContent);
-		b.setUno(writer);
+		b.setbWriter(writer);
 		
 		
 		int result = new BoardService().insertBoard(b);

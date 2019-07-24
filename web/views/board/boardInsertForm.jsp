@@ -8,16 +8,16 @@
 <style>
 .outer {
 	width: 900px;
-	height: 500px;
-	background: black;
-	color: white;
+	height: 700px;
+	color: black;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
+	border: 1px solid lightgray; 
 }
 
 table {
-	border: 1px solid white;
+	border: 1px solid lightgray;
 }
 
 .tableArea {
@@ -32,9 +32,9 @@ table {
 	<%@ include file="/views/common/menubar_customer.jsp"%>
 
 	<% if(loginUser != null){ %>
-		<div class="outer">
+		<div class="outer container">
 			<br>
-			<h2 align="center">게시판 작성</h2>
+			<h2 align="center">글 쓰기</h2>
 			<div class="tableArea">
 				<form action="<%= request.getContextPath() %>/insert.bo" method="post">
 					<table>
@@ -42,23 +42,16 @@ table {
 							<td>분야</td>
 							<td>
 								<select name="category">
-									
 								<%
-									if (loginUser != null && loginUser.getuType().substring(1).equals("A")) {
+									if (loginUser != null && loginUser.getuType().equals("A")) {
 								%>
 									<option value="10">전체공지</option>
 								<%
-									}
-								%>
-								<%
-									if (loginUser != null && loginUser.getuType().substring(1).equals("P")) {
+									}else  if (loginUser != null && loginUser.getuType().equals("P")) {
 								%>
 									<option value="20">제휴사공지</option>
 								<%
-									}
-								%>
-								<%
-									if (loginUser != null && loginUser.getuType().substring(1).equals("M")) {
+									}else if (loginUser != null && loginUser.getuType().equals("M")) {
 								%>
 									<option value="30">리뷰 작성하기</option>
 								<%
@@ -79,19 +72,18 @@ table {
 							</td>
 						</tr>
 				</table>
-				<div class="searchArea" align="center">
-					<select id="searchCondition" name="searchCondition">
-						<option value="wirter">작성자</option>
-						<option value="title">제목</option>
-						<option value="content">내용</option>
-					</select> <input type="search">
-					<button type="submit" style="background: darkgray">검색하기</button>
-					
-					
-				</div>
+				<div align="center">
+						<button type="reset" >취소하기</button>
+						<button type="submit">등록하기</button>
+					</div>
+					</form>
 			</div>
 		</div>
-
+	<br><br><br>
+	<br><br><br>
+	<br>
+	<br>
+	<hr>
 	<!-- Footer -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
 	<% } else {
@@ -103,5 +95,4 @@ table {
 
 </body>
 
-</body>
 </html>
