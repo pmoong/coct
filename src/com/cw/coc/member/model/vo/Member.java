@@ -1,7 +1,7 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
-	private int uNo;			//회원번호
+	private int uno;			//회원번호
 	private String userId;		//회원ID
 	private String userPwd;		//회원PWD
 	private String email;		//이메일
@@ -13,10 +13,10 @@ public class Member {
 	
 	public Member() {}
 
-	public Member(int uNo, String userId, String userPwd, String email, String uType, String gender, int age,
+	public Member(int uno, String userId, String userPwd, String email, String uType, String gender, int age,
 			String survey, int status) {
 		super();
-		this.uNo = uNo;
+		this.uno = uno;
 		this.userId = userId;
 		this.userPwd = userPwd;
 		this.email = email;
@@ -27,12 +27,12 @@ public class Member {
 		this.status = status;
 	}
 
-	public int getuNo() {
-		return uNo;
+	public int getUno() {
+		return uno;
 	}
 
-	public void setuNo(int uNo) {
-		this.uNo = uNo;
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 
 	public String getUserId() {
@@ -101,7 +101,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [uNo=" + uNo + ", userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType="
+		return "Member [uno=" + uno + ", userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType="
 				+ uType + ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
 	}
 
