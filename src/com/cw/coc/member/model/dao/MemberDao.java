@@ -105,5 +105,27 @@ public class MemberDao {
 		
 		return loginUser;
 	}
+
+	public int updatePassword(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updatePassword");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, m.getUserPwd());
+			pstmt.setInt(2, m.getuNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 }

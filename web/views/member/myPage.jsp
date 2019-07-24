@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.notice.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 %>
+
 <!DOCTYPE HTML>
 <!--
    Verti by HTML5 UP
@@ -106,7 +107,7 @@ div>a{
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body class="is-preload homepage">
 	<div id="page-wrapper">
@@ -126,20 +127,20 @@ div>a{
                     <button style="background:darkgray">편집</button>
 					</td>
 					<td><label>아이디 </label></td>
-					<td>값 받아오기</td>
+					<td><%=loginUser.getUserId()  %></td>
 				</tr>
 				<tr>
 					<td><label>성별</label></td>
-					<td>값 받아오기</td>
+					<td><%=loginUser.getGender() %></td>
 				</tr>
 				<tr>
 					<td><label>이메일</label></td>
-					<td>값 받아오기</td>
+					<td><%=loginUser.getEmail() %></td>
 				</tr>
 				<tr>
 					<td><label>비밀번호</label></td>
-					<td><input type="password" name="password">&nbsp;&nbsp;
-					<button style="background:darkgray" onclick="location.href='/coc/views/member/changeUserPwd.jsp'"><p>비밀번호변경하기</p></button>
+					<td><input type="password" name="password" id="password">&nbsp;&nbsp;
+					<button style="background:darkgray" id="testbtn"><p>비밀번호변경하기</p></button>
 					</td>
 				</tr>
 				<tr>
@@ -482,7 +483,20 @@ div>a{
 	
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 </div>
-
+<script>
+	$("#testbtn").click(function(){
+		
+		var value = $("#password").val();
+		var check='<%=loginUser.getUserPwd()%>';
+		
+		if(  check==value ){
+			location.href='/coc/views/member/changeUserPwd.jsp';
+		}else{
+			alert("비밀번호를 확인하세요");
+		}
+	});
+	
+</script>
 
 </body>
 </html>

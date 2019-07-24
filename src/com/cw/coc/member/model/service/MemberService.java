@@ -33,5 +33,20 @@ public class MemberService {
 		
 		return loginUser;
 	}
+
+	public int updatePassword(Member m) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().updatePassword(con, m);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		
+		return result;
+	}
 	
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.cw.coc.member.model.vo.Member" %>
 <%
-	Member loginUser = (Member)session.getAttribute("loginUser");
+   Member loginUser = (Member)session.getAttribute("loginUser");
 %>    
 <html>
 <head>
@@ -9,15 +9,15 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
+   content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
-	background: white;
+   background: white;
 }
 #test {
-	background: white !important;
-	color: black !important;
+   background: white !important;
+   color: black !important;
 }
 .carousel-control{
    width:12% !important;
@@ -32,48 +32,48 @@ body {
    border-radius:30px;
 }
 .tes{
-	position:relative;
+   position:relative;
 }
 .fa{
-	display:inline !important;
-	line-height:100%;
-	color:black;
-	padding-left:5px;
-	margin-top:10px;
+   display:inline !important;
+   line-height:100%;
+   color:black;
+   padding-left:5px;
+   margin-top:10px;
 }
 .submit{
-	float:right;
-	width:5px;
-	left:0;
-	top:0;
-	font-size: 1.2em;
-	text-align: center;
-	cursor: pointer;
-	background-color: white;
+   float:right;
+   width:5px;
+   left:0;
+   top:0;
+   font-size: 1.2em;
+   text-align: center;
+   cursor: pointer;
+   background-color: white;
 }
 .search-box-container{
-	display: inline-block;
-	box-sizing: content-box;
-	height: 50px;
-	width: 50px;
-	background-color: white;
-	border:3px solid black;
-	border-radius:40px;
-	overflow: hidden;
+   display: inline-block;
+   box-sizing: content-box;
+   height: 50px;
+   width: 50px;
+   background-color: white;
+   border:3px solid black;
+   border-radius:40px;
+   overflow: hidden;
 }
 .nav2{
-	margin-right:35%;
+   margin-right:35%;
 }
 </style>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-	<body class="is-preload homepage">
+   <body class="is-preload homepage">
    <div id="page-wrapper">
 
       <!-- Header -->
@@ -84,11 +84,11 @@ body {
             <div id="logo">
                <h1 id="test"><a href="/coc/index.jsp">콕</a></h1>
                <!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
-               	<h1 id="test">
-               		<button type="button" style="background:none; margin:0; padding:0" onclick="location.href='/coc/views/searchPage.jsp'">
-               		<i class="fa fa-search"></i>
-               		</button>
-               	</h1>
+                  <h1 id="test">
+                     <button type="button" style="background:none; margin:0; padding:0" onclick="location.href='/coc/views/searchPage.jsp'">
+                     <i class="fa fa-search"></i>
+                     </button>
+                  </h1>
           
                
             </div>
@@ -115,6 +115,7 @@ body {
                </ul>
             </nav>
          </header>
+
 			<hr style="border-color:skyblue">
 		</div>
 
@@ -129,5 +130,6 @@ body {
 			location.href="<%=request.getContextPath()%>/logout";
 		}
 	</script>
+
 </body>
 </html>

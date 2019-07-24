@@ -13,9 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 
-/**
- * Servlet implementation class LoginServlet
- */
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,17 +23,12 @@ public class LoginServlet extends HttpServlet {
 	public static final int WRONG_PASSWORD = 0;
 	public static final int ID_NOT_EXIST = -1;	
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -79,11 +72,8 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
