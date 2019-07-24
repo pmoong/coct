@@ -166,7 +166,6 @@ button {
 	</div>
 		</div>
 
-		<!-- 아코디언 관련 -->
 		<script>
 			//FAQ
 			$(function() {

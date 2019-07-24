@@ -115,19 +115,21 @@ body {
                </ul>
             </nav>
          </header>
-         <hr style="border-color:skyblue">
-      </div>
 
-   <script src="/coc/assets/js/jquery.min.js"></script>
-   <script src="/coc/assets/js/jquery.dropotron.min.js"></script>
-   <script src="/coc/assets/js/browser.min.js"></script>
-   <script src="/coc/assets/js/breakpoints.min.js"></script>
-   <script src="/coc/assets/js/util.js"></script>
-   <script src="/coc/assets/js/main.js"></script>
-   <script>
-      function logout(){
-         location.href="<%=request.getContextPath()%>/logout";
-      }
-   </script>
+			<hr style="border-color:skyblue">
+		</div>
+
+	<script src="/coc/assets/js/jquery.min.js"></script>
+	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/coc/assets/js/browser.min.js"></script>
+	<script src="/coc/assets/js/breakpoints.min.js"></script>
+	<script src="/coc/assets/js/util.js"></script>
+	<script src="/coc/assets/js/main.js"></script>
+	<script>
+		function logout(){
+			location.href="<%=request.getContextPath()%>/logout";
+		}
+	</script>
+
 </body>
 </html>

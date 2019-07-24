@@ -176,7 +176,6 @@ h2 {
                <input type="checkbox" id="seoulCheckbox8" value="option8">
                <label for="seoulCheckbox8" class="checkbox-inline">온평구</label>
                <input type="checkbox" id="seoulCheckbox9" value="option9">
-               <label for="seoulCheckbox9" class="checkbox-inline">서대문구</label>
                <input type="checkbox" id="seoulCheckbox10" value="option10">
                <label for="seoulCheckbox10" class="checkbox-inline">동대문구</label>
                <input type="checkbox" id="seoulCheckbox11" value="option11">
@@ -202,7 +201,7 @@ h2 {
                <input type="checkbox" id="seoulCheckbox20" value="option20">
                <label for="seoulCheckbox20" class="checkbox-inline">동작구</label>
                <input type="checkbox" id="seoulCheckbox21" value="option21">
-               <label for="seoulCheckbox21" class="checkbox-inline">관약구</label>
+               <label for="seoulCheckbox21" class="checkbox-inline">관악구</label>
                <input type="checkbox" id="seoulCheckbox22" value="option22">
                <label for="seoulCheckbox22" class="checkbox-inline">영등포구</label>
                <br><br>
