@@ -1,47 +1,37 @@
 package com.cw.coc.member.model.service;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
+import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
+import static com.cw.coc.common.JDBCTemplate.*;
 
 public class MemberService {
-	
-	
-	//회원 목록 전체 조회용 메소드
-		public ArrayList<Member> selectAll() {
-			Connection con = getConnection();
-			
-			ArrayList<Member> list = new MemberDao().selectAll(con);
-			
-			close(con);
-			
-			return list;
-			
-			
-		}
 
-		public ArrayList<Member> searchMember(String searchCondition, String searchValue) {
-			Connection con = getConnection();
-			
-			ArrayList<Member> list = null;
-			
-			MemberDao md = new MemberDao();
-			if(searchCondition.equals("findId")) {
-				
-				list = md.searchId(con, searchValue);
-				
-			}else if(searchCondition.equals("findName")) {
-				list = md.searchName(con, searchValue);
-				
+	public Member loginCheck(Member reqMember) {
+		Connection con = getConnection();
+		
+		MemberDao md = new MemberDao();
+		
+		int result = md.checkStatus(con, reqMember);
+		
+		Member loginUser = new Member();
+		
+		if(result == LoginServlet.LOGIN_OK) {
+			loginUser = md.selectOne(con, reqMember);
+			loginUser.setStatus(LoginServlet.LOGIN_OK);
+		}else {
+			if(result == LoginServlet.WRONG_PASSWORD) {
+				loginUser.setStatus(LoginServlet.WRONG_PASSWORD);
 			}else {
-				list = md.searchGender(con, searchValue);
+				loginUser.setStatus(LoginServlet.ID_NOT_EXIST);
 			}
-			
-			close(con);
-			
-			
-			return list;
 		}
+		
+		close(con);
+		
+		return loginUser;
+	}
+	
 }
