@@ -106,6 +106,4 @@ public class Member {
             + uType + ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
    }
    
-   
- 
 }
