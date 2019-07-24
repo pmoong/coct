@@ -47,7 +47,7 @@ select{
 
 		<!-- Header -->
 		<%@ include file="/views/common/menubar_customer.jsp" %>
-
+ 
 		<div class="container" align="center">
 			<div class="outer">
 		<br>
