@@ -77,6 +77,67 @@ button {
 	background:white;
 }
 
+.selected{
+
+    background: #3ad195;
+    color: #fff;
+    font-weight: 800;
+}
+
+
+.div_q{
+	font-size:16pt;
+	padding-top:11px;
+	padding-bottom:11px;
+	padding-left:7px;
+	padding-right:7px;
+
+	line-height:130%;
+	border:1px solid #c0c0c0;
+	background:#efefef;
+}
+.div_a{
+	font-weight:200px;
+	font-size:13pt;
+	padding-top:11px;
+	padding-bottom:11px;
+	line-height:130%;
+	padding-left:11px;padding-right:7px;
+
+	border-left:1px solid #c0c0c0;
+	border-right:1px solid #c0c0c0;
+}
+.tab_menu1{
+	cursor: pointer;
+	width:50%;
+	float:left;
+	padding-top:12px;
+	padding-bottom:12px;
+	text-align:center;
+	font-size:17pt;
+	border:1px solid black;
+
+}
+.tab_menu2{
+	cursor: pointer;
+	width:50%;
+	float:left;
+	padding-top:12px;
+	padding-bottom:12px;
+	text-align:center;
+	font-size:17pt;
+	border-right:1px solid black;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+
+}
+
+.q_container
+{
+	margin-top:10px;
+	border-bottom:1px solid #c0c0c0;
+}
+
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -86,21 +147,7 @@ button {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-	$(function() {
-		$("#accordian h3").click(function() {
-			$("#accordian ul ul").slideUp();
-			if (!$(this).next().is(":visible")) {
-				$(this).next().slideDown();
-			}
-		})
-	});
-</script>
-<script>
-	function click() {
 
-	}
-</script>
 
 </head>
 <body class="is-preload homepage">
@@ -109,31 +156,32 @@ button {
 		<!-- Header -->
 		<%@ include file="/views/common/menubar_customer.jsp" %>
 		<div class="container">
-			<div class="row">
-				<div id="accordian">
-					<ul>
-						<li><h3 id="faq1"><span class="icon-dashboard">FAQ</span></h3></li>
-						<li><h3 id="aaa"><span class="icon-dashboard">1:1문의</span></h3></li>
-					</ul>
-				</div>
-				<!-- 아코디언 옆 -->
-				<div style="margin-left:150px">
-					<span><span id="faq"><h2>COC 고객센터입니다.</h2><br><h4>궁금하신 점을 클릭하셔서 확인하세요</h4></span></span>
-				</div>
-			</div>
+
+	<div align="center"><h2>COC 고객센터입니다.</h2><br><h4>궁금하신 점을 클릭하셔서 확인하세요</h4></div>
+
+	<div class="tab_menu1" id="faq">FAQ</div>
+	<div class="tab_menu2" id="qa">1:1문의</div>
+	<br><br><br>
+	<div id="tab_content">
+	</div>
 		</div>
+
 		<!-- 아코디언 관련 -->
 		<script>
 			//FAQ
 			$(function() {
-				$("#faq1").click(function() {
-					$("#faq").load("faq/faq1.jsp");
+				$("#faq").click(function() {
+					$("#qa").css("background","");
+					$("#faq").css("background","darkgray");
+					$("#tab_content").load("faq/faq1.jsp");
 				});
 			});
 			//1:1문의			
 			$(function() {
-				$("#aaa").click(function() {
-					$("#faq").load("help.jsp");
+				$("#qa").click(function() {
+					$("#faq").css("background","");
+					$("#qa").css("background","darkgray");
+					$("#tab_content").load("help.jsp");
 				});
 			});
 			/*$(function() {
