@@ -8,6 +8,7 @@
 </head>
 <body>
 	<form action="/my-handling-form-page" method="post">
+	<br>
     <div>
         <label for="email">E-mail</label>
         <input type="email" id="email" style="width:300px;">

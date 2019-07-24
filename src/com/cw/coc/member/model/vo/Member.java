@@ -1,8 +1,7 @@
 package com.cw.coc.member.model.vo;
 
-import java.sql.Date;
-
 public class Member {
+
 	   private String userId;      //회원ID
 	   private String userPwd;      //회원PWD
 	   private String email;      //이메일
@@ -11,8 +10,21 @@ public class Member {
 	   private int age;         //나이
 	   private String survey;      //설문조사코드
 	   private int status = 99;   
-	
-	public Member() {}
+	   
+	   public Member() {}
+  
+	public Member(String userId, String userPwd, String email, String uType, String gender, int age, String survey,
+			int status) {
+		super();
+		this.userId = userId;
+		this.userPwd = userPwd;
+		this.email = email;
+		this.uType = uType;
+		this.gender = gender;
+		this.age = age;
+		this.survey = survey;
+		this.status = status;
+	}
 
 	public String getUserId() {
 		return userId;
@@ -40,6 +52,7 @@ public class Member {
 
 	public String getuType() {
 		return uType;
+
 	}
 
 	public void setuType(String uType) {
@@ -84,8 +97,5 @@ public class Member {
 				+ ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
 	}
 
-
-	
-	
 	
 }

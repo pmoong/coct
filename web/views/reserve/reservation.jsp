@@ -57,12 +57,11 @@ body {
 								<div style="margin-bottom: 8px;">
 									<label class="_rin72m" for="magic-carpet-koan-search-bar"><span class="_1ep1f1h7"></span></label>
 								</div>
-								<div class="_bujmdv"><div class="_uz7ac6"><div class="_1dpi2hi"><div dir="ltr"><div class="_1blc3lt">
+								<div class="_bujmdv"><div class="_uz7ac6"><div class="_1dpi2hi"><div dir="ltr"><div class="_1blc3lt" >
 								<label for="Koan-magic-carpet-koan-search-bar__input" class="_1os10fm">
 									<span class="_krjbj">목적지</span>
-									<div class="_1u1cgx19"><div class="_1w14zmh">
-									<input class="_up0kwni" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" 
-											spellcheck="false" name="query" placeholder="모든 위치" role="combobox" type="text" value="">
+									<div class="_1u1cgx19"><div class="_1w14zmh" style="margin-top:16px;margin-bottom: 8px;">
+									<input type="text" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" class="_1mcoxpnl" id="lp-geocomplete" name="location" placeholder="모든 위치" role="combobox" value="" aria-owns="awesomplete_list_1">
 									</div></div></label>
 								</div></div></div></div>
 								<span aria-atomic="true" aria-live="polite" role="status" class="_krjbj"></span></div>
@@ -73,21 +72,24 @@ body {
 								</div><div data-veloute="moweb_datepicker_checkin_input" class="_ne4dj">
 								<div class="_9hxttoo"><div dir="ltr"><div class="_fm9j1ug"><div class="_178faes">
 								<input class="_14fdu48d" data-veloute="checkin_input" id="checkin_input" name="checkin" placeholder="년/월/일" type="text" value="" readonly="">
-								</div></div></div></div></div></div><div class="_1vbsmce"><div style="margin-bottom: 8px;">
+								</div></div></div></div></div></div><div class="_1vbsmce"><div style="margin-top:16px;margin-bottom: 8px;">
 								<label class="_rin72m" for="checkout_input"><span class="_1ep1f1h7">체크아웃</span></label>
 								</div><div data-veloute="moweb_datepicker_checkout_input" class="_10hp81j">
 								<div class="_9hxttoo"><div dir="ltr"><div class="_fm9j1ug"><div class="_178faes">
 								<input class="_14fdu48d" data-veloute="checkout_input" id="checkout_input" name="checkout" placeholder="년/월/일" type="text" value="" readonly="">
 								</div></div></div></div></div></div>
 							</div></div></div>
-							<div style="margin-top: 16px; margin-bottom: 16px;"><div style="margin-bottom: 8px;">
-								<label class="_rin72m" for="lp-guestpicker"><span class="_1ep1f1h7">인원</span></label>
-							</div><div class="_e296pg">
-								<button class="_7ykwo4" type="button">인원<div class="_c75x4e">
-								<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; display: block; fill: currentcolor;">
-								<path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg></div>
-								</button>
+						<div class="_e296pg">
+							
+							
+						<!-- 	인원 수정중 --> 
+							<div style="margin-top:20px;margin-bottom:24px"><div id="lp-guestpicker"><div class="_1tgv80u"><div style="margin-bottom:8px"><label class="_rin72m" for="adults"><span class="_1ep1f1h7">어른</span></label></div><div class="_ne4dj"><div class="_pwhb9t"><div class="_9hxttoo"><div class="_1ib7atn3"><div class="_y9ev9r"><select id="adults" name="adults" class="_bwyiq2l" data-vars-select-name="adults"><option selected="" value="1">성인 1명</option><option value="2">성인 2명</option><option value="3">성인 3명</option><option value="4">성인 4명</option><option value="5">성인 5명</option><option value="6">성인 6명</option><option value="7">성인 7명</option><option value="8">성인 8명</option><option value="9">성인 9명</option><option value="10">성인 10명</option><option value="11">성인 11명</option><option value="12">성인 12명</option><option value="13">성인 13명</option><option value="14">성인 14명</option><option value="15">성인 15명</option><option value="16">성인 16명</option></select></div><span class="_1idvclr"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg></span></div></div></div></div></div><div class="_1tgv80u">
+							<div style="margin-top:20px;margin-bottom:8px"><label class="_rin72m" for="children"><span class="_1ep1f1h7">어린이</span></label></div><div class="_10hp81j"><div class="_pwhb9t"><div class="_9hxttoo"><div class="_1ib7atn3"><div class="_y9ev9r"><select id="children" name="children" class="_bwyiq2l" data-vars-select-name="children"><option selected="" value="0">어린이 0명</option><option value="1">어린이 1명</option><option value="2">어린이 2명</option><option value="3">어린이 3명</option><option value="4">어린이 4명</option><option value="5">어린이 5명</option></select></div><span class="_1idvclr">
+							<path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg></span></div></div></div></div></div></div></div>
+							
+		
 							</div></div>
+							
 							<div id="lp-search-button" data-veloute="search_bar_small_search_button" class="_1r868w"><div>
 							<button type="submit" class="_1vs0x720" aria-busy="false"><span class="_ftj2sg4">검색</span></button></div></div></form>
 						</div>

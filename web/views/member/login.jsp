@@ -44,17 +44,17 @@ body {
 		<%@ include file="/views/common/menubar_customer.jsp" %>
 
 		<div class="container" align="center">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="<%=request.getContextPath()%>/login" method="post">
 				<div class="form-group">
 					<label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputuserId">
+						<input type="text" class="form-control" id="inputuserId" name="userId">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputUserPwd" class="col-sm-5 control-label" id="userPwd">비밀번호</label>
 					<div class="col-sm-3">
-						<input type="password" class="form-control" id="inputuserPwd">
+						<input type="password" class="form-control" id="inputuserPwd" name="userPwd">
 					</div>
 				</div>
 				<br>
