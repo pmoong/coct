@@ -1,6 +1,7 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
+
 	   private String userId;      //회원ID
 	   private String userPwd;      //회원PWD
 	   private String email;      //이메일
@@ -11,7 +12,7 @@ public class Member {
 	   private int status = 99;   
 	   
 	   public Member() {}
-
+  
 	public Member(String userId, String userPwd, String email, String uType, String gender, int age, String survey,
 			int status) {
 		super();
@@ -51,6 +52,7 @@ public class Member {
 
 	public String getuType() {
 		return uType;
+
 	}
 
 	public void setuType(String uType) {
@@ -94,6 +96,6 @@ public class Member {
 		return "Member [userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType=" + uType
 				+ ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
 	}
-	   
-	   
+
+	
 }

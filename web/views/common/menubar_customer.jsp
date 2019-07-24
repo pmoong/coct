@@ -73,7 +73,6 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 </head>
 
 	<body class="is-preload homepage">
@@ -120,6 +119,7 @@ body {
          </header>
 			<hr style="border-color:skyblue">
 		</div>
+
 		<script>
 		function logout(){
 			location.href="<%=request.getContextPath()%>/logout.me";
@@ -130,11 +130,17 @@ body {
 		}
 		</script>
 
+
 	<script src="/coc/assets/js/jquery.min.js"></script>
 	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/coc/assets/js/browser.min.js"></script>
 	<script src="/coc/assets/js/breakpoints.min.js"></script>
 	<script src="/coc/assets/js/util.js"></script>
 	<script src="/coc/assets/js/main.js"></script>
+	<script>
+		function logout(){
+			location.href="<%=request.getContextPath()%>/logout";
+		}
+	</script>
 </body>
 </html>
