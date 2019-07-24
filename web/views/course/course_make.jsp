@@ -281,11 +281,6 @@ body {
 	<br>
 	<br>
 
-<p>조회기간:
-  <input type="text" id="datepicker1"> ~
-  <input type="text" id="datepicker2">
-</p>
-
 
 
 
