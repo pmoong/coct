@@ -3,37 +3,16 @@ package com.cw.coc.member.model.vo;
 import java.sql.Date;
 
 public class Member {
-	private int userNo;
-	private String userId;
-	private String userPwd;
-	private String email;
-	private String classify;
-	private int age;
-	private String gender;
-	private String surveyCode;
+	   private String userId;      //회원ID
+	   private String userPwd;      //회원PWD
+	   private String email;      //이메일
+	   private String uType;      //구분
+	   private String gender;      //성별
+	   private int age;         //나이
+	   private String survey;      //설문조사코드
+	   private int status = 99;   
 	
 	public Member() {}
-
-	public Member(int userNo, String userId, String userPwd, String email, String classify, int age, String gender,
-			String surveyCode) {
-		super();
-		this.userNo = userNo;
-		this.userId = userId;
-		this.userPwd = userPwd;
-		this.email = email;
-		this.classify = classify;
-		this.age = age;
-		this.gender = gender;
-		this.surveyCode = surveyCode;
-	}
-
-	public int getUserNo() {
-		return userNo;
-	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
-	}
 
 	public String getUserId() {
 		return userId;
@@ -59,20 +38,12 @@ public class Member {
 		this.email = email;
 	}
 
-	public String getClassify() {
-		return classify;
+	public String getuType() {
+		return uType;
 	}
 
-	public void setClassify(String classify) {
-		this.classify = classify;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public void setuType(String uType) {
+		this.uType = uType;
 	}
 
 	public String getGender() {
@@ -83,19 +54,37 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public String getSurveyCode() {
-		return surveyCode;
+	public int getAge() {
+		return age;
 	}
 
-	public void setSurveyCode(String surveyCode) {
-		this.surveyCode = surveyCode;
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getSurvey() {
+		return survey;
+	}
+
+	public void setSurvey(String survey) {
+		this.survey = survey;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPwd=" + userPwd + ", email=" + email
-				+ ", classify=" + classify + ", age=" + age + ", gender=" + gender + ", surveyCode=" + surveyCode + "]";
+		return "Member [userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType=" + uType
+				+ ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
 	}
+
+
 	
 	
 	
