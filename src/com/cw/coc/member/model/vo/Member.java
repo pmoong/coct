@@ -1,21 +1,22 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
+	private int uNo;			//회원번호
+	private String userId;		//회원ID
+	private String userPwd;		//회원PWD
+	private String email;		//이메일
+	private String uType;		//구분
+	private String gender;		//성별
+	private int age;			//나이
+	private String survey;		//설문조사코드
+	private int status = 99;	
+	
+	public Member() {}
 
-	   private String userId;      //회원ID
-	   private String userPwd;      //회원PWD
-	   private String email;      //이메일
-	   private String uType;      //구분
-	   private String gender;      //성별
-	   private int age;         //나이
-	   private String survey;      //설문조사코드
-	   private int status = 99;   
-	   
-	   public Member() {}
-  
-	public Member(String userId, String userPwd, String email, String uType, String gender, int age, String survey,
-			int status) {
+	public Member(int uNo, String userId, String userPwd, String email, String uType, String gender, int age,
+			String survey, int status) {
 		super();
+		this.uNo = uNo;
 		this.userId = userId;
 		this.userPwd = userPwd;
 		this.email = email;
@@ -24,6 +25,14 @@ public class Member {
 		this.age = age;
 		this.survey = survey;
 		this.status = status;
+	}
+
+	public int getuNo() {
+		return uNo;
+	}
+
+	public void setuNo(int uNo) {
+		this.uNo = uNo;
 	}
 
 	public String getUserId() {
@@ -52,7 +61,6 @@ public class Member {
 
 	public String getuType() {
 		return uType;
-
 	}
 
 	public void setuType(String uType) {
@@ -93,8 +101,8 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType=" + uType
-				+ ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
+		return "Member [uNo=" + uNo + ", userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType="
+				+ uType + ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
 	}
 
 	
