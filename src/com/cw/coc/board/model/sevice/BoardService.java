@@ -47,6 +47,56 @@ public class BoardService {
 		return listCount;
 	}
 
+	public Board selectOne(int num) {
+		Connection con = getConnection();
+		Board b = null;
+		
+		int result = new BoardDao().updateCount(con, num);
+		
+		if(result > 0) {
+			commit(con);
+			b = new BoardDao().selectOne(con, num);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return b;
+	}
+
+	public int deleteBoard(int uno) {
+		Connection con = getConnection();
+		
+		int result = new BoardDao().deleteBoard(con, uno);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int updateBoard(Board b) {
+		Connection con = getConnection();
+		
+		int result = new BoardDao().updateBoard(con, b);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
 
 	}
 	

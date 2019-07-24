@@ -81,11 +81,12 @@ table {
 					</tr>
 				</table>
 				<div align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo'">메뉴로 돌아가기</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo'">메뉴</button>
 			<% 
-				if (loginUser != null && b.getuno() == loginUser.getUno()) {
+				if (loginUser != null && b.getUno() == loginUser.getUno()) {
 			%>
-				<button onclick="location.href='<%=request.getContextPath()%>/delete.bo">글 삭제하기</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectOne.bo?num=<%=b.getUno()%>'">수정하기</button>
+				<button onclick="location.href='<%=request.getContextPath()%>/deleteBoard.bo">글 삭제하기</button>
 			<%
 				}
 			%>
