@@ -122,7 +122,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/pic01.jpg" alt="" /></a>
+											src="/coc/images/shillastay.jpg" alt="" /></a>
 										<div class="inner"></div>
 									</section>
 
