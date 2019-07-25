@@ -56,8 +56,7 @@ body {
 							<input type="password" class="form-control" id="inputuserPwd" name="userPwd">
 						</div>
 					</div>
-				</form>
-				<form>	
+				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
 							<button type="submit" class="btn btn-default">
@@ -65,13 +64,14 @@ body {
 							<!-- <button type="submit">로그인</button> -->
 						</div>
 					</div>
+				</form>
 					<div class="col-sm-offset-1 col-sm-10">
 						<div>
 							<br><a href="/coc/views/member/findId.jsp"><b>아이디 찾기</b></a>&emsp;|&emsp;
 							<a href="/coc/views/member/findPwd.jsp"><b>패스워드 찾기</b></a>
 						</div>
 					</div>
-				</form>
+				
 			</div> 
 		</div>
 	<script>
