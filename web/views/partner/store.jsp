@@ -6,6 +6,8 @@
 <html>
 <head>
 <title>CoC</title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC3OcLTHF_YKhnSKPLLUbrFNNaiD8vjnOQ" ></script>
+
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -27,7 +29,7 @@ body {
 	color: black;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 table {
@@ -52,8 +54,8 @@ table {
  color:black;
  margin-left:30px;
 }
-
-</style>
+/* #map_ma {width:50%; height:100px; clear:both; border:solid 1px red;}
+ */</style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -73,16 +75,7 @@ table {
 
 		<!-- Header -->
 		<%@ include file="/views/common/menubar_partner.jsp"%>
-
-
-<!-- <div id="el"> 
-  <p ><a id="color" href="#intro" >호텔 소개  </a> </p> 
-  <p><a id="color" href="#a2" > 헬로키티 아일랜드 </a> </p>
-   <p><a id="color" href="#a3"  >한복 문화 체험관  </a> </p>
-    <p><a id="color" href="#a4" > 목멱산방 </a> </p>
-     <p><a id="color" href="#a5" >안중근 의사 유묵 </a> </p>
- </div>
-  -->
+ 
 <div class="container">
 <div id="el"> 
 <a  href="#intro" >호텔 소개  </a> 
@@ -98,17 +91,15 @@ table {
 		<div class="container">
 			<div class="row">
 				<h3 id="intro" class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>호텔소개</h3>
+					style='text-align: left;margin-top: 1%;'>호텔소개</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
+					style="float: right; margin-top: 1%;"> <a href="#">
+					<input type="button" onclick="gointro();" value="편집"></a>
 				</span>
-
 			</div>
 		</div>
 <!-- 		<hr style="border-color: orange">
  -->
-
 		<div class="outer">
 			<textarea style="/* background: skyblue */; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
 		</div>
@@ -121,7 +112,7 @@ table {
 					style='text-align: left; margin-top: 1%;'>룸정보</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
+						type="button" onclick="goroominf();" value="편집"></a>
 				</span>
 
 			</div>
@@ -141,55 +132,13 @@ table {
 					style='text-align: left; margin-top: 1%;'>숙소시설</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
+						type="button" onclick="goroom();" value="편집"></a>
 				</span>
 
 			</div>
 		</div>
 <!-- 		<hr style="border-color: orange">
- --><br>
-		<!-- Wrapper for slides -->
-
-		<div class="outer">
-			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div>
-<!-- 		<hr style="border-color: orange">
- --><br>
-		<!--  -->
-		<div class="container">
-			<div class="row">
-				<h3 id="hotelpolicy" class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
-				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
-				</span>
-
-			</div>
-		</div>
-<!-- 		<hr style="border-color: orange">
- --><br>
-		 
-
-		<div class="outer">
-			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div>
-<!-- 		<hr style="border-color: orange">
- --><br>
-		<!--  -->
-		<div class="container">
-			<div class="row">
-				<h3 id="map" class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>위치</h3>
-				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
-				</span>
-
-			</div>
-		</div>
-<!-- 		<hr style="border-color: orange">
- --> 
+ -->
 		<!-- Wrapper for slides -->
 
 		<div class="outer">
@@ -197,14 +146,55 @@ table {
 		</div>
 <!-- 		<hr style="border-color: orange">
  -->
+ 
+		<div class="container">
+			<div class="row">
+				<h3 id="hotelpolicy" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
+				<span class="col-4 col-12-medium"
+					style="float: right; margin-top: 1%;"> <a href="#"><input
+						type="button" onclick="gohotelpolicy();" value="편집"></a>
+				</span>
+
+			</div>
+		</div>
+<!-- 		<hr style="border-color: orange">
+ -->
+		<div class="outer">
+			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
+		</div>
+ 
+ 
 		<!--  -->
+		
+		<div class="container">
+			<div class="row">
+				<h3 class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>위치</h3>
+				<span class="col-4 col-12-medium"
+					style="float: right; margin-top: 1%;"> <a href="#"><input
+						type="button" onclick="gomap();" value="편집"></a>
+				</span>
+		 
+				<div id="map" class="outer" style="width: 650px; height: 300px;">
+				</div>
+				</div>	
+ </div>
+	</div>	 
+<!-- 		<hr style="border-color: orange">
+ --> 
+		<!-- Wrapper for slides -->
+<!-- 		<hr style="border-color: orange">
+ -->
+		<!--  -->
+		
 		<div class="container">
 			<div class="row">
 				<h3 id="information" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>이용정보</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" value="편집"></a>
+						type="button" onclick="goinformation();" value="편집"></a>
 				</span>
 
 			</div>
@@ -227,5 +217,58 @@ table {
 
 
 	</div>
+  <script type="text/javascript">
+    var locations = [
+      ['신라스테이', 37.504788, 127.041312, 28] 
+    ];
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: new google.maps.LatLng(37.504788, 127.041312),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        
+        }
+      })(marker, i));
+    }
+ 
+    function gointro(){
+    	location.href="/coc/hotel.intro";
+    }
+    function goroominf(){
+    	location.href="/coc/hotel.ri";
+    }
+    function goroom(){
+    	location.href="/coc/hotel.rm";
+    }
+    function gohotelpolicy(){
+    	location.href="/coc/hotel.hp";
+    }
+    function gomap(){
+    	location.href="/coc/hotel.map";
+    }
+    function goinformation(){
+    	location.href="/coc/hotel.im";
+    }
+    
+    
+    
+   
+    
+  </script>
 </body>
 </html>
