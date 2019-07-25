@@ -34,10 +34,13 @@ public class SendMailServlet extends HttpServlet {
 		String msg = request.getParameter("msg");
 		
 		SendEmail sm = new SendEmail();
+		sm.setContent(msg);
+		sm.setTitle(title);
+		sm.setFrom(email);
 		
-		sm.sendMail(email, title, msg);
+		sm.sendMail();
 		
-		
+		response.sendRedirect("/coc/views/member/cs.jsp");
 	}
 
 	/**
