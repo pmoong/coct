@@ -115,7 +115,7 @@ public class MemberDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, m.getUserPwd());
-			pstmt.setInt(2, m.getuNo());
+			pstmt.setInt(2, m.getUno());
 			
 			result = pstmt.executeUpdate();
 			
@@ -123,6 +123,23 @@ public class MemberDao {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateSurvey(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateSurvey");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
 		}
 		
 		return result;

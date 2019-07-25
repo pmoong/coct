@@ -98,7 +98,7 @@ body {
                   <li><a href="/coc/views/member/cs.jsp">고객센터</a></li>
                   <%if(loginUser!=null) {%>
                   <li><a href="" onclick="logout()">로그아웃</a></li>
-                  <li class="current"><a href="/coc/views/member/myPage.jsp">마이페이지</a></li>
+                  <li class="current"><a href="/coc/views/member/myPage.jsp" onclick="myPage()">마이페이지</a></li>
                   <%}else {%>
                   <li><a href="/coc/views/member/login.jsp">로그인</a></li>
                   <li class="current"><a href="/coc/views/member/joinForm.jsp">회원가입</a></li>
@@ -128,6 +128,9 @@ body {
 	<script>
 		function logout(){
 			location.href="<%=request.getContextPath()%>/logout";
+		}
+		function myPage(){
+			location.href="/coc/updateSurvey";
 		}
 	</script>
 
