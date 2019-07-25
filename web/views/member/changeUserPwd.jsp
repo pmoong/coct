@@ -13,6 +13,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 body {
 	background: white;
@@ -70,14 +71,14 @@ table>tr>td{
 		<div align="center">
 			<table align="center" class="pwdChangeArea">
 				<tr>
-					<td colspan="2"><input type="password" class="form-control" placeholder="새 비밀번호"></td>
+					<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="password" class="form-control" placeholder="새 비밀번호 확인"></td>
+					<td colspan="2"><input type="password" name="pass2" class="form-control" placeholder="새 비밀번호 확인" id="pass2"></td>
 				</tr>
 				<tr>
-					<td><button type="submit" style="background:darkgray; width:80%">변경하기</button></td>
-					<td><button type="reset" style="background:darkgray; width:80%">취소하기</button></td>
+					<td><button type="submit" style="background:darkgray; width:80%" id="submit">변경하기</button></td>
+					<td><button type="reset" style="background:darkgray; width:80%" id="rset">취소하기</button></td>
 				</tr>
 			</table>
 		</div>
@@ -87,7 +88,18 @@ table>tr>td{
 
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 </div>
-
+<script>
+	$("#submit").click(function(){
+		var pass1 = $("#pass1").val();
+		var pass2 = $("#pass2").val();
+		
+		if(pass1 == pass2){
+			location.href="/coc/updatePassword";
+		}else {
+			alert("다시 입력하세요");
+		}
+	});
+</script>
 
 </body>
 </html>

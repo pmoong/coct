@@ -34,6 +34,7 @@ public class MemberService {
 		return loginUser;
 	}
 
+
 	public int insertMember(Member m) {
 		Connection con = getConnection();
 

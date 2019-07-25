@@ -106,6 +106,7 @@ public class MemberDao {
 		return loginUser;
 	}
 
+
 	public int insertMember(Connection con, Member m) {
 		int result = 0;
 		PreparedStatement pstmt = null;

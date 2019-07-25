@@ -1,6 +1,7 @@
 package com.cw.coc.member.model.vo;
 
 public class Member {
+
    private int uno;         //회원번호
    private String userId;      //회원ID
    private String userPwd;      //회원PWD
@@ -104,7 +105,5 @@ public class Member {
       return "Member [uno=" + uno + ", userId=" + userId + ", userPwd=" + userPwd + ", email=" + email + ", uType="
             + uType + ", gender=" + gender + ", age=" + age + ", survey=" + survey + ", status=" + status + "]";
    }
-   
-   
    
 }
