@@ -26,7 +26,6 @@ public class BoardService {
 		return result;
 		
 	}
-
 	public ArrayList<Board> selectList(int currentPage, int limit) {
 		Connection con = getConnection();
 		

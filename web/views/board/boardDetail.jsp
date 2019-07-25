@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.cw.coc.board.model.vo.*"%%>
+	pageEncoding="UTF-8" import="com.cw.coc.board.model.vo.*"%>
 <%
 	Board b = (Board) request.getAttribute("b");
+	System.out.print("여기까지 호출했는지?");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 .outer {
@@ -49,59 +50,50 @@ table {
 	%>
 	<div class="outer container">
 		<br>
-		<h2 align="center"><%=b.getbTitle()%></h2>
+		<h2 align="center">게시판 상세 보기</h2>
 		<div class="tableArea">
-			<form action="<%=request.getContextPath()%>/insert.bo"
-				method="post">
-				<table>
+				<table align="center" width="800px">
 					<tr>
 						<td>분류</td>
-						<td>
-						<td><span><%=b.getbType()%></span></td>
-					</tr>
-					<tr>
+						<td><span><%= b.getbType()%></span></td>
 						<td>제목</td>
-						<td colspan="3"><span><%=b.getbTitle()%></span></td>
+						<td colspan="3"><span><%= b.getbTitle()%></span></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td><span><%=b.getbWriter()%></span></td>
+						<td><span><%= b.getbWriter()%></span></td>
 						<td>조회수</td>
-						<td><span><%=b.getCount()%></span></td>
+						<td><span><%= b.getCount()%></span></td>
 						<td>작성일</td>
-						<td><span><%=b.getbDate()%></span></td>
+						<td><span><%= b.getbDate()%></span></td>
 					</tr>
 					<tr>
 						<td colspan="6">내용</td>
 					</tr>
 					<tr>
 						<td colspan="6">
-							<p id="content"><%=b.getbContent()%></p>
+							<p id="content"><%= b.getbContent()%></p>
 						</td>
 					</tr>
 				</table>
+				</div>
 				<div align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo'">메뉴</button>
-			<% 
-				if (loginUser != null && b.getUno() == loginUser.getUno()) {
-			%>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectOne.bo?num=<%=b.getUno()%>'">수정하기</button>
-				<button onclick="location.href='<%=request.getContextPath()%>/deleteBoard.bo">글 삭제하기</button>
-			<%
-				}
-			%>
+					<button
+						onclick="location.href='<%=request.getContextPath()%>/selectList.bo'">메뉴</button>
+					<%
+						if (loginUser != null && b.getUno() == loginUser.getUno()) {
+					%>
+					<button
+						onclick="location.href='<%=request.getContextPath()%>/selectOne.bo?num=<%=b.getUno()%>'">수정하기</button>
+					<button
+						onclick="location.href='<%=request.getContextPath()%>/deleteBoard.bo">글
+						삭제하기</button>
+					<%
+						}
+					%>
+				</div>
 		</div>
-			</form>
-		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<br><br><br><br><br><br><br><br>
 	<hr>
 	<!-- Footer -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
@@ -111,7 +103,6 @@ table {
 			request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
 		}
 	%>
-
 
 
 </body>

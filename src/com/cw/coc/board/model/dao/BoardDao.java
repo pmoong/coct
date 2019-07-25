@@ -55,16 +55,23 @@ public class BoardDao {
 
 
 	public ArrayList<Board> selectList(Connection con, int currentPage, int limit) {
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> list = null;
 		
-		String query = prop.getProperty("selectList");
+		String query = prop.getProperty("selectListWithPaging");
 		
 		try {
-			stmt = con.createStatement();
-		
-			rset = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+
+			//조회를 시작할 행 번호와 마지막 행 번호 계산
+			int startRow = (currentPage - 1) * limit + 1;
+			int endRow = startRow + limit - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
 			
 			list = new ArrayList<Board>();
 
@@ -92,7 +99,7 @@ public class BoardDao {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return list;

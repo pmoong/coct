@@ -1,6 +1,6 @@
 package com.cw.coc.board.model.vo;
 
-public class PageInfo implements java.io.Serializable{
+public class PageInfo implements java.io.Serializable {
 	private int currentPage;
 	private int listCount;
 	private int limit;
