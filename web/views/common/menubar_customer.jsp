@@ -110,7 +110,7 @@ body {
                <ul>
                   <li><a href="#">계획그리기</a></li>
                   <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
-                  <li><a href="/coc/views/reserve/reservation.jsp">숙소잡기</a></li>
+                  <li><a href="/coc/views/place/reservation.jsp">숙소잡기</a></li>
                   <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
                </ul>
             </nav>
