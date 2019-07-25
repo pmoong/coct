@@ -31,19 +31,26 @@ textarea {
 	text-align: center;
 }
 .circle {
-	width:150px;
+	width:11%;
 	height:150px;
 	border-radius:50%;
 	background:white;
 	border:2px solid black;
 }
+.circle2 {
+	width:7%;
+	height:100px;
+	border-radius:50%;
+	background:white;
+	border:1px solid black;
+}
 .count {
 	 float: left;
- 	 width: 15%;
+ 	 width: 12%;
 }
 .cir {
 	 float: right;
-	 width: 85%;
+	 width: 88%;
 }
 .css-arrow {
     display: inline-block;
@@ -64,6 +71,27 @@ textarea {
 .plan2 {
 	margin: 50px 0;
 }
+.tab_menu{
+	background:white;
+}
+.selected{
+	background:darkgray;
+}
+button:hover{
+	background:white !important;
+}
+.tab_menu{
+	float:left;
+	width:25%;
+	padding-top:12px;
+	padding-bottom:12px;
+	text-align:center;
+	border:1px solid black;
+	
+}
+.plus_menu{
+	
+}
 </style>
 </head>
 <body>
@@ -78,30 +106,35 @@ textarea {
 			</div>
 			<div class="right-box">
 				<span class="demoSpan1"></span>
-				<input type="search" style="width:360px; height:40px;">
+				<input type="search" style="width:100%; height:40px;">
 				<br>
-				<hr>
-				<div class="btn-group">
-					<button id="btn">문화</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button id="btn">숙박</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button id="btn">음식점</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button id="btn">관광</button>
-				</div>
-				<hr>
-				<textarea rows="10" cols="50" name="contents"style="overflow-y:scroll" readonly></textarea>
+					<button id="btn1" class="tab_menu" onclick="selTab('1')">문화</button>
+					<button id="btn2" class="tab_menu" onclick="selTab('2')">숙박</button>
+					<button id="btn3" class="tab_menu" onclick="selTab('3')">식당</button>
+					<button id="btn4" class="tab_menu" onclick="selTab('4')">관광</button>
+				<script>
+					var prv_id="1";
+					function selTab(id){
+						if(prv_id)
+						$("#btn"+prv_id).removeClass("selected");
+						$("#btn"+id).addClass("selected");
+						
+						prv_id=id;
+					}
+				</script>
+				<textarea rows="10" cols="50" name="contents"style="overflow-y:scroll; width:100%" readonly></textarea>
 			</div>
 		</div>
-		<br><br>
 		<div class="bottom" id="bottom">
 			<div class="h12">
 				<h1>콕과 함께 당신의 여행을 콕 찍어 그려보세요</h1><br>
 				<h2>첫 번째 목적지를 설정해볼까요?</h2><br><br><br>
 			</div>
-			<div class="plan1" id="plan1">
+			<div class="row">
 				<div class="count">
-					<br><br>
 					<h1>1일차</h1>
-					<button id="btn1" class="btn" onclick="plus1()">+</button>
+					<button id="btn1" class="btn" onclick="plus1()" style="font-size:20px">+</button>
+					<button id="btn1" class="btn" onclick="minus1()" style="font-size:20px">-</button>
 				</div>
 				<div class="cir">
 					<div class="circle" style="float:left;"></div>
@@ -113,11 +146,16 @@ textarea {
 					<div class="circle" style="float:left;"></div>
 					<div class="css-arrow" style="float:left; margin-top:60px"></div>
 					<div class="circle" style="float:left;"></div>
+					<div class="css-arrow" style="float:left; margin-top:60px"></div>
+					<div class="circle" style="float:left;"></div>
+					
+					<button class="circle2" style="float:right" onclick="rowPlus()">+</button>
 				</div>
 			</div>
+			
+			<div class="row">
 			<div class="plan2" id="plan2">
 				<div class="count">
-					<br><br><br><br>
 					<h1>2일차</h1>
 					<button id="btn2" class="btn" onclick="plus2()">+</button>
 				</div>
@@ -132,10 +170,12 @@ textarea {
 					<div class="css-arrow" style="float:left; margin-top:60px"></div>
 					<div class="circle" style="float:left;"></div>
 				</div>
-			</div><br><br>
+			</div>
+			</div>
+			
+			<div class="row">
 			<div class="plan3" id="plan3">
 				<div class="count">
-					<br><br><br>
 					<h1>3일차</h1>
 					<button id="btn3" class="btn" onclick="plus3()">+</button>
 				</div>
@@ -150,7 +190,8 @@ textarea {
 					<div class="css-arrow" style="float:left; margin-top:60px"></div>
 					<div class="circle" style="float:left;"></div>
 				</div>
-			</div><br>
+			</div>
+			</div>
 			<div class="plan4" id="plan4"></div><br>
 			<div class="plan5" id="plan5"></div><br>
 		</div>
@@ -180,9 +221,7 @@ textarea {
 	      
 	      var count = 1;
 	      
-
 	      $("#btn").click(function(){
-
 	      count++;
 	      
 	      });
@@ -197,7 +236,6 @@ textarea {
   	  		plan.appendTo('#plan3');
   	  	  }
 	      
-
 	      } */
 	      $("#plan2").hide();
 	      $("#plan3").hide();
