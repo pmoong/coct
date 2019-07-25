@@ -44,13 +44,7 @@ body {
 <%@ include file="/views/common/menubar_customer.jsp" %>
 
 		<div class="container" align="center">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="inputUserName" class="col-sm-5 control-label" id="userName">이름</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="inputuserName">
-					</div>
-				</div>
+			<form class="form-horizontal" action="<%=request.getContextPath() %>/sendMail" method="post">
 				<div class="form-group">
 					<label for="inputUserEmail" class="col-sm-5 control-label" id="userEmail">이메일</label>
 					<div class="col-sm-3">
@@ -58,13 +52,21 @@ body {
 					</div>
 				</div>
 				<br>
-				<div class="form-group">
-					<div class="col-sm-offset-1 col-sm-10">
-						<button type="submit" class="btn btn-default">인증번호 보내기</button></div>
-					</div>
-				</div>
 			</form>
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-10">
+					<button type="submit" class="btn btn-default">아이디 발송</button>
+					<button class="btn btn-default" onclick="gologin();">취소</button>
+				</div>
+			</div>
 		</div>
+
+		<script>
+			function gologin(){
+				location.href="/coc/views/member/login.jsp";
+			}
+		</script>
+
 
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>

@@ -56,18 +56,19 @@ body {
 							<input type="password" class="form-control" id="inputuserPwd" name="userPwd">
 						</div>
 					</div>
-					<br>
+				</form>
+				<form>	
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" class="btn btn-default">로그인</button>
+							<button type="submit" class="btn btn-default">
+							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
+							<!-- <button type="submit">로그인</button> -->
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-1 col-sm-10">
-							<div>
-								<button class="btn btn-default" onclick="findid();">아이디 찾기</button>
-								<button class="btn btn-default" onclick="findpwd();">패스워드 찾기</button>
-							</div>
+					<div class="col-sm-offset-1 col-sm-10">
+						<div>
+							<br><a href="/coc/views/member/findId.jsp"><b>아이디 찾기</b></a>&emsp;|&emsp;
+							<a href="/coc/views/member/findPwd.jsp"><b>패스워드 찾기</b></a>
 						</div>
 					</div>
 				</form>
@@ -76,6 +77,9 @@ body {
 	<script>
 		function findid(){
 			location.href="/coc/views/member/findId.jsp";
+		}
+		function findpwd(){
+			location.href="/coc/views/member/findPwd.jsp";
 		}
 	</script>
 

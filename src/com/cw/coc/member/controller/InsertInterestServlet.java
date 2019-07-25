@@ -1,8 +1,6 @@
 package com.cw.coc.member.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +11,16 @@ import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 
 /**
- * Servlet implementation class InsertMemberServlet
+ * Servlet implementation class InsertInterestServlet
  */
-@WebServlet("/insertMember.me")
-public class InsertMemberServlet extends HttpServlet {
+@WebServlet("/insertInterest.me")
+public class InsertInterestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertMemberServlet() {
+    public InsertInterestServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,35 +30,38 @@ public class InsertMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
 		
-		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
-		String email = request.getParameter("email");
-		String gender = request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
-		
+		String[] irr = request.getParameterValues("survey");
+		String survey = "";
+
+		if(irr != null) {
+			for(int i=0; i<irr.length; i++) {
+				if(i==0) {
+					survey += irr[i];
+				}else {
+					survey += ", " + irr[i];
+				}
+			}
+		}
+
 		Member m = new Member();
-		m.setUserId(userId);
-		m.setUserPwd(userPwd);
-		m.setEmail(email);
-		m.setAge(age);
+		m.setSurvey(survey);
 
-		System.out.println("insertMember : " + m);
+		System.out.println("InsertInterestMemberServlet : " + m);
 
-		int result = new MemberService().insertMember(m);
+		int result = new MemberService().insertInterest(m);
 
 		String page = "";
 
 		if(result > 0) {
-			page = "/coc/views/member/joinInterest.jsp";
+			page = "/coc/views/member/login.jsp";
 			response.sendRedirect(page);
 		}else {
-			page = "/views/common/errorPage.jsp";
+			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "회원가입 실패!");
 			request.getRequestDispatcher(page).forward(request, response);
 		}
-
+		
 	}
 
 	/**

@@ -46,12 +46,6 @@ body {
       <div class="container" align="center">
          <form class="form-horizontal">
             <div class="form-group">
-               <label for="inputUserName" class="col-sm-5 control-label" id="userName">이름</label>
-               <div class="col-sm-3">
-                  <input type="text" class="form-control" id="inputuserName">
-               </div>
-            </div>
-            <div class="form-group">
                <label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
                <div class="col-sm-3">
                   <input type="text" class="form-control" id="inputuserId">
@@ -63,17 +57,23 @@ body {
                   <input type="email" class="form-control" id="inputuserEmail">
                </div>
                </div>
+         </form>
                <div class="form-group">
                <div class="col-sm-offset-1 col-sm-10">
-                  <button onclick="alert('임시 비밀번호 발송!');" type="submit" class="btn btn-default">임시 비밀번호 발송</button></div>
+                  <button onclick="alert('임시 비밀번호 발송!');" type="submit" class="btn btn-default">임시 비밀번호 발송</button>
+                  <button class="btn btn-default" onclick="gologin();">취소</button>
+                  </div>
                </div>
             </div>
             <br>
             
             </div>
-         </form>
       </div>
-
+		<script>
+			function gologin(){
+				location.href="/coc/views/member/login.jsp";
+			}
+		</script>
       <!-- Footer -->
       <%@include file="/views/common/footerbar_customer.jsp" %>
 
