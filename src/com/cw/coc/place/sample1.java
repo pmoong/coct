@@ -1,4 +1,4 @@
-package com.cw.coc.course;
+package com.cw.coc.place;
  
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
  
-public class sample {
+public class sample1 {
     public static StringBuilder sb;//
  
     static String getString(String input, String data) // API에서 필요한 문자 자르기.
@@ -15,16 +15,16 @@ public class sample {
         String[] dataSplit2 = dataSplit[1].split("\"" + input + "\"");
         return dataSplit2[0];
     }
- 
     public static void main(String[] args) {
  
-        String clientId = "n3xILdpF6SHz2FikYadX";
-        String clientSecret = "49RCHGJxKW";
-        int display = 2;
+        String clientId = "8P_zrgkt3dPxfRKO64QZ";
+        String clientSecret = "xeGEUjrbxb";
+        int display = 10;
  
         try {
-            String text = URLEncoder.encode("공연", "utf-8");
-            String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
+             String text = URLEncoder.encode("혜화연극", "utf-8");
+             String apiURL = "https://openapi.naver.com/v1/search/webkr?query=" + text + "&display=" + display + "&";
+              
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -83,6 +83,8 @@ public class sample {
             System.out.println("----------------------------");
             System.out.println("첫번째 타이틀 : " + title[0]);
             System.out.println("두번째 타이틀 : " + title[1]);
+            System.out.println("세번째 타이틀 : " + title[2]);
+        
         } catch (Exception e) {
             System.out.println(e);
         }

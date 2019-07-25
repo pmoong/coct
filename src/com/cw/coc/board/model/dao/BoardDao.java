@@ -15,11 +15,10 @@ import java.util.Properties;
 
 import com.cw.coc.board.model.vo.Board;
 
-
 public class BoardDao {
 
 	private Properties prop = new Properties();
-	
+  
 	public BoardDao() {
 		String fileName = 
 				BoardDao.class.getResource("/sql/board/board-query.properties").getPath();
@@ -30,7 +29,6 @@ public class BoardDao {
 			e.printStackTrace();
 		}
 	}
-	
 
 	public int insertBoard(Connection con, Board b) {
 		PreparedStatement pstmt = null;
