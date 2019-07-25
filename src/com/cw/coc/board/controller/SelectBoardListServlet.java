@@ -38,7 +38,7 @@ public class SelectBoardListServlet extends HttpServlet {
 		int startPage;			//한 번에 표시될 페이징 버튼이 시작할 번호
 		int endPage;			//한 번에 표시될 페이징 버튼이 끝나는 번호
 		
-		//게시판은 1페이지부터 시작함
+		//게시판은 1페이지부터 시작
 		currentPage = 1;
 		
 		if(request.getParameter("currentPage") != null) {
@@ -54,16 +54,13 @@ public class SelectBoardListServlet extends HttpServlet {
 		System.out.println("listCount : " + listCount);
 		
 		//총 페이지 수 계산
-		//예를 들면, 목록 수가 124개이면 페이지 수는 13페이지이다.
 		maxPage = (int)((double)listCount / limit + 0.9);
 		
 		//현재 페이지에서 보여줄 시작 페이지 숫자
-		//아래쪽에 페이지 수가 10개씩 보여지게 한다면
-		//1, 11, 21, 31, ....
+		//아래쪽에 페이지 수가 10개씩 보여지게
 		startPage = (((int)((double) currentPage / limit + 0.9)) - 1) * 10 + 1;
 		
 		//목록 아래 쪽에 보여질 마지막 페이지 수
-		//10, 20, 30,...
 		endPage = startPage + 10 - 1;
 		
 		if(maxPage < endPage) {
@@ -74,7 +71,8 @@ public class SelectBoardListServlet extends HttpServlet {
 				new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
 		ArrayList<Board> list = new BoardService().selectList(currentPage, limit);
-		
+		System.out.println(pi);
+		System.out.println(list);
 		String page = "";
 		
 		if(list != null) {

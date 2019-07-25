@@ -8,11 +8,12 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
+	System.out.print("여기까지 호출했는지?");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<metacharset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
@@ -53,6 +54,7 @@ table {
 
 	<%
 		if (loginUser != null) {
+			System.out.print("여기까지 시도는 했는지?");
 	%>
 	<div class="outer container">
 		<br>
@@ -81,7 +83,7 @@ table {
 			</table>
 		</div>
 		
-		<%-- 페이징처리 --%>
+		페이징처리
 		<div class="pagingArea" align="center">
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
 			
@@ -111,7 +113,7 @@ table {
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
 		</div>
 		
-		<%-- 검색영역 --%>
+		검색영역
 		<div class="searchArea" align="center">
 			<select id="searchCondition" name="searchCondition">
 				<option value="category">카테고리</option>
@@ -122,7 +124,7 @@ table {
 			<input type="search">
 			<button type="submit">검색하기</button>
 			<% if(loginUser != null){ %>
-			<button onclick="location.href='views/board/boardInsertForm.jsp'">작성하기</button>
+			<button onclick="location.href='../board/boardInsertForm.jsp'">작성하기</button>
 			<% } %>
 		</div>
 		
@@ -158,7 +160,7 @@ table {
 			request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
 			request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
 		}
-	%>
+	%> 
 
 </body>
 </html>
