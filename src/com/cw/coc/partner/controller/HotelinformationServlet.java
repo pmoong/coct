@@ -1,4 +1,4 @@
-package com.cw.coc.mail.controller;
+package com.cw.coc.partner.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.mail.model.vo.SendEmail;
-
 /**
- * Servlet implementation class SendMailServlet
+ * Servlet implementation class HotelinformationServlet
  */
-@WebServlet("/sendmail.qa")
-public class SendMailServlet extends HttpServlet {
+@WebServlet("/hotel.im")
+public class HotelinformationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SendMailServlet() {
+    public HotelinformationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,19 +26,8 @@ public class SendMailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String userId = request.getParameter("userId");
-		String title = request.getParameter("title");
-		String msg = request.getParameter("msg");
-		
-		SendEmail sm = new SendEmail();
-		sm.setContent(msg);
-		sm.setTitle(title);
-		sm.setFrom(email);
-		
-		sm.sendMail();
-		
-		response.sendRedirect("/coc/views/member/cs.jsp");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

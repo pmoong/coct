@@ -98,7 +98,7 @@ body {
                   <li><a href="/coc/views/member/cs.jsp">고객센터</a></li>
                   <%if(loginUser!=null) {%>
                   <li><a href="" onclick="logout()">로그아웃</a></li>
-                  <li class="current"><a href="/coc/views/member/myPage.jsp">마이페이지</a></li>
+                  <li class="current"><a href="/coc/views/member/myPage.jsp" onclick="myPage()">마이페이지</a></li>
                   <%}else {%>
                   <li><a href="/coc/views/member/login.jsp">로그인</a></li>
                   <li class="current"><a href="/coc/views/member/joinForm.jsp">회원가입</a></li>
@@ -110,7 +110,7 @@ body {
                <ul>
                   <li><a href="#">계획그리기</a></li>
                   <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
-                  <li><a href="/coc/views/reserve/reservation.jsp">숙소잡기</a></li>
+                  <li><a href="/coc/views/place/reservation.jsp">숙소잡기</a></li>
                   <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
                </ul>
             </nav>
@@ -128,6 +128,9 @@ body {
 	<script>
 		function logout(){
 			location.href="<%=request.getContextPath()%>/logout";
+		}
+		function myPage(){
+			location.href="/coc/updateSurvey";
 		}
 	</script>
 

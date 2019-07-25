@@ -85,28 +85,6 @@ button {
 }
 
 
-.div_q{
-	font-size:16pt;
-	padding-top:11px;
-	padding-bottom:11px;
-	padding-left:7px;
-	padding-right:7px;
-
-	line-height:130%;
-	border:1px solid #c0c0c0;
-	background:#efefef;
-}
-.div_a{
-	font-weight:200px;
-	font-size:13pt;
-	padding-top:11px;
-	padding-bottom:11px;
-	line-height:130%;
-	padding-left:11px;padding-right:7px;
-
-	border-left:1px solid #c0c0c0;
-	border-right:1px solid #c0c0c0;
-}
 .tab_menu1{
 	cursor: pointer;
 	width:50%;

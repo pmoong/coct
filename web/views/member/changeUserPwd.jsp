@@ -71,6 +71,7 @@ table>tr>td{
 		<div align="center">
 			<table align="center" class="pwdChangeArea">
 				<tr>
+					<input type="hidden" id="testid" name="uno" value="<%= loginUser.getUno()%>">
 					<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
 				</tr>
 				<tr>
@@ -92,9 +93,11 @@ table>tr>td{
 	$("#submit").click(function(){
 		var pass1 = $("#pass1").val();
 		var pass2 = $("#pass2").val();
-		
+		var id = $("#testid").val();
+		console.log(id);
+		console.log('<%=loginUser.getUno()%>');
 		if(pass1 == pass2){
-			location.href="/coc/updatePassword";
+			//location.href="/coc/updatePassword";
 		}else {
 			alert("다시 입력하세요");
 		}

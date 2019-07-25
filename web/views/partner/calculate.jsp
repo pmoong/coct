@@ -103,8 +103,8 @@ table {
 					style='text-align: left; margin-top: 1%;'>월 등록비</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;">
-					<h5 style='text-align: auto;'>월 55,000원(부가세포함)</h5> <a href="#"><input
-						type="button" value="등록하기"></a>
+					<h5 style='text-align: auto;'>월 55,000원(부가세포함)</h5> <a href="#">
+					<input  type="button"  onclick="gomonthfee();" value="등록하기"></a>
 				</span>
 
 			</div>
@@ -121,7 +121,7 @@ table {
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;">
 					<h5 style='text-align: auto;'>월 44,000원(부가세포함)</h5> <a href="#"><input
-						type="button" value="등록하기"></a>
+						type="button" onclick="gopowerlink();" value="등록하기"></a>
 				</span>
 
 			</div>
@@ -143,8 +143,14 @@ table {
 	</div>
 
 	<!-- Scripts -->
-
-
-	<%-- <% } %> --%>
+	<script>
+	function goMonthfee(){
+    	location.href="/coc/monthfee.";
+	}
+	function gopowerlink(){
+    	location.href="/coc/powerlink.";
+	}
+	
+	</script>
 </body>
 </html>

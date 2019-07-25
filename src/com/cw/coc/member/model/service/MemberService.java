@@ -34,16 +34,49 @@ public class MemberService {
 		return loginUser;
 	}
 
-	public int updatePassword(Member m) {
+
+	public int insertMember(Member m) {
+		Connection con = getConnection();
+
+		int result = new MemberDao().insertMember(con, m);
+
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+
+	
+		return result;
+	}
+
+	public int insertInterest(Member m) {
+		Connection con = getConnection();
+
+		int result = new MemberDao().insertInterest(con, m);
+
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+
+		return result;
+	}
+
+	public int updateSurvey(Member m) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().updatePassword(con, m);
+		int result = new MemberDao().updateSurvey(con, m);
 		
 		if(result > 0) {
 			commit(con);
 		}else {
 			rollback(con);
 		}
+		
 		close(con);
 		
 		return result;
