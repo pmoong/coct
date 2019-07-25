@@ -12,21 +12,18 @@ import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 
 
-@WebServlet("/updatePassword")
-public class UpdatePassword extends HttpServlet {
+@WebServlet("/updateSurvey")
+public class UpdateSurveyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public UpdatePassword() {
+    public UpdateSurveyServlet() {
         super();
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int uno = Integer.parseInt(request.getParameter("uno"));
-		String password1 = request.getParameter("pass1");
-		String password2 = request.getParameter("pass2");
 		String[] surveyArr = request.getParameterValues("interest");
 		String survey = "";
 		
@@ -39,14 +36,11 @@ public class UpdatePassword extends HttpServlet {
 		}
 		
 		Member m = new Member();
-		m.setUno(uno);
-		m.setUserPwd(password1);
+		
 		m.setSurvey(survey);
 		
-		
-		int result = new MemberService().updatePassword(m);
+		int result = new MemberService().updateSurvey(m);
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
