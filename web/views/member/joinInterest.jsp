@@ -212,13 +212,11 @@ h2 {
                <label for="L24" class="checkbox-inline">양천구</label>
                <input type="checkbox" id="L25" value="option25" name="survey">
                <label for="L25" class="checkbox-inline">강서구</label>
-               
             </div>
             <br>
             <br>
             <br>
             <br>
-
                <div class="col-sm-offset-1 col-sm-10">
                   <div>
                      <button type="reset" class="btn btn-default" onclick="location.href='/coc/index.jsp'">취소하기</button>

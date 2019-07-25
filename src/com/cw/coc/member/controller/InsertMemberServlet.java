@@ -61,6 +61,7 @@ public class InsertMemberServlet extends HttpServlet {
 			request.getRequestDispatcher(page).forward(request, response);
 		}
 
+		
 	}
 
 	/**

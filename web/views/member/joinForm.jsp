@@ -128,8 +128,7 @@ body {
       <script>
      	function goMain(){
 			location.href="<%=request.getContextPath()%>/index.jsp";
-		}
-     	 
+		}   	 
 		function insertMember(){
 			$("form").submit();
 		}

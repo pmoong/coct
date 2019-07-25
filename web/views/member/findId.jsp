@@ -67,7 +67,6 @@ body {
 			}
 		</script>
 
-
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 

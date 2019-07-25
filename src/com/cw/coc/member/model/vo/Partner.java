@@ -32,7 +32,7 @@ public class Partner {
 		this.picName = picName;
 		this.comName = comName;
 	}
-
+	
 	public int getUno() {
 		return uno;
 	}

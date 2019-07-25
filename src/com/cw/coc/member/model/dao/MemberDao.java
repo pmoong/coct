@@ -120,7 +120,6 @@ public class MemberDao {
 			pstmt.setString(4, m.getGender());
 			pstmt.setInt(5, m.getAge());
 			
-			
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
