@@ -83,57 +83,60 @@ body {
       <!-- Header -->
       <%@ include file="../common/menubar_customer.jsp"%>
       <br>
+      <form action="<%=request.getContextPath() %>/insertMember.me" method="post">
       <div class="container">
          <div class="form-group">
             <label for="inputId">아이디</label> <input type="text"
-               class="form-control" id="inputId" placeholder="아이디를 입력해 주세요">
-         </div>
-         <div class="form-group">
-            <label for="inputName">성명</label> <input type="text"
-               class="form-control" id="inputName" placeholder="이름을 입력해 주세요">
+               class="form-control" id="inputId" placeholder="아이디를 입력해 주세요" name="userId">
          </div>
          <div class="form-group">
             <label for="InputEmail">이메일 주소</label> <input type="email"
-               class="form-control" id="InputEmail" placeholder="이메일 주소를 입력해주세요">
+               class="form-control" id="InputEmail" placeholder="이메일 주소를 입력해주세요" name="email">
          </div>
          <div class="form-group">
             <label for="inputPassword">비밀번호</label> <input type="password"
-               class="form-control" id="inputPassword" placeholder="비밀번호를 입력해주세요">
+               class="form-control" id="inputPassword" placeholder="비밀번호를 입력해주세요" name="userPwd">
          </div>
          <div class="form-group">
             <label for="inputPasswordCheck">비밀번호 확인</label> <input
                type="password" class="form-control" id="inputPasswordCheck"
-               placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요">
-         </div>
-         <div class="form-group">
-            <label for="inputMobile">연락처</label> <input type="tel"
-               class="form-control" id="inputMobile" placeholder="휴대폰번호를 입력해 주세요">
-         </div>
-         <div class="form-group">
-            <label for="inputadd">주소</label> <input type="text"
-               class="form-control" id="inputadd" placeholder="주소를 입력해 주세요">
+               placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요" name="userPwd2">
          </div>
          <div class="form-group">
             <label for="inputage">나이</label> <input type="number"
-               class="form-control" id="inputage" placeholder="나이를 입력해 주세요">
+               class="form-control" id="inputage" placeholder="나이를 입력해 주세요" name="age">
          </div><br>
          <div class="form-group" id="radio">
-            <label for="inputgender">성별</label> <input type="radio"
-               name="gender" value="M" id="male"> <label for="male">남</label>
-            <input type="radio" name="gender" value="F" id="female"> <label
-               for="female">여</label>
+            <label for="inputgender">성별</label> 
+            <input type="radio" name="gender" value="M" id="male"> 
+            <label for="male">남</label>
+            <input type="radio" name="gender" value="F" id="female"> 
+            <label for="female">여</label>
          </div>
-         <br> <br>
+         <br>
+         </form>
          <div class="form-group">
-
-            <button class="btn btn-default">
-               <a href="../member/joinInterest.jsp">다음 </a>
+            <button class="btn btn-default" type="submit">
+               <a href="joinInterest.jsp" onclick="insertMember();">&emsp;&emsp;&emsp;다음&emsp;&emsp;&emsp; </a>
             </button>
-            <button type="reset" class="btn btn-default">취소하기</button>
+            <button type="reset" class="btn btn-default" onclick="location.href='/coc/index.jsp'">&emsp;&emsp;취소하기&emsp;&emsp;</button>
          </div>
       </div>
       <br> <br>
       <hr>
+      
+      <script>
+     	function goMain(){
+			location.href="<%=request.getContextPath()%>/index.jsp";
+		}   	 
+		function insertMember(){
+			$("form").submit();
+		}
+     	 
+     	 
+      </script>
+      
+      
       <!-- Footer -->
       <%@include file="/views/common/footerbar_customer.jsp"%>
 
