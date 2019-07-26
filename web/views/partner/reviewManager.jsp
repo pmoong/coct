@@ -52,34 +52,19 @@ body {
 
 </head>
 <body class="is-preload homepage">
-	<%-- <% if(loginUser == null || !loginUser.getUserId().equals("admin")){ 
-		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다!");
-		request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request,response);
-		
-	} else { 
-	%> --%>
 	<div id="page-wrapper">
 
 		<!-- Header -->
 	<%@ include file="/views/common/menubar_partner.jsp" %>
-
-
-
-
-
-	<hr style="border-color:orangered">
+	<hr  >
 		<!-- 여기는 리뷰관리 라인입니당 -->
 			<div class="container" >
 				<div class="row">
-					<h3 class="col-8 col-12-medium" style='text-align: left ; margin-top:1%;'>예약현황</h3>
+					<h3 class="col-8 col-12-medium" style='text-align: left ; margin-top:1%;'>리뷰관리</h3>
 					<h2 class="col-4 col-12-medium" style='text-align: right; margin-top:1%;' ><a href="#">+</a></h2>
 				</div>
 			</div>
-			<hr style="border-color:orange">
-	
 			<!-- Wrapper for slides -->
-			
-
 				<div class="outer">
 		<br>
 		<h2 align="center">리뷰관리</h2>
@@ -91,6 +76,8 @@ body {
 					<th width="100px">작성자</th>
 					<th width="100px">작성일</th>
 				</tr>
+				
+				
 			<%-- 	<% for(Notice n : list){ %>
 				<tr>
 					<td><%= n.getNno() %></td>
@@ -101,6 +88,21 @@ body {
 				</tr>
 				<% } %> --%>
 			</table>
+			
+			
+			
+			
+			<%-- <div class="pagingArea" align="center">
+			<button onclick="lovation.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<<</button>
+			<%if(currentPage <=1) %>
+			<button disabled></button>
+			<%}else{%>
+			<button onclick="location.href='<%=request.getContextPath() %>/selectList.bo?currentPage=<%currentPage %>'"></button>
+			
+			
+			
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage -1%>'"></button>
+			 --%>
 			<div class="searchArea" align="center">
 				<select id="searchCondition" name="searchCondition">
 					<option value="writer">예약자</option>
@@ -123,7 +125,6 @@ body {
 			
 
 		
-<hr style="border-color:orangered ; border-solid:5px" >
 <!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>
