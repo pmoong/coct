@@ -154,18 +154,42 @@ public class MemberDao {
 		return result;
 	}
 
-	public int updateSurvey(Connection con, Member m) {
+	public ResultSet selectSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
-		int result = 0;
+		ResultSet rset = null;
 		
-		String query = prop.getProperty("updateSurvey");
+		String query = prop.getProperty("selectSurvey");
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, m.getUno());
+			
+			rset = pstmt.executeQuery();
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}
+		
+		return rset;
+	}
+
+	public int updatePassword(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updatePassword");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, m.getUserPwd());
+			pstmt.setString(2, m.getUserId());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
 		
 		return result;

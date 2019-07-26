@@ -130,7 +130,7 @@ body {
 			location.href="<%=request.getContextPath()%>/logout";
 		}
 		function myPage(){
-			location.href="/coc/updateSurvey";
+			location.href="/coc/selectSurvey";
 		}
 	</script>
 

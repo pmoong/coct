@@ -69,19 +69,28 @@ table>tr>td{
 		<div class="container">
 				
 		<div align="center">
-			<table align="center" class="pwdChangeArea">
-				<tr>
-					<input type="hidden" id="testid" name="uno" value="<%= loginUser.getUno()%>">
-					<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="password" name="pass2" class="form-control" placeholder="새 비밀번호 확인" id="pass2"></td>
-				</tr>
-				<tr>
-					<td><button type="submit" style="background:darkgray; width:80%" id="submit">변경하기</button></td>
-					<td><button type="reset" style="background:darkgray; width:80%" id="rset">취소하기</button></td>
-				</tr>
-			</table>
+			<form id="changeUserPasswordForm" action="<%=request.getContextPath() %>/updatePassword" method="post">
+				<table align="center" class="pwdChangeArea">
+					<tr>
+						<input type="hidden" id="testid" name="uno" value="<%= loginUser.getUno()%>">
+						<input type="hidden" id="hiddenid" name="id" value="<%= loginUser.getUserId()%>">
+						<input type="hidden" id="hiddenid" name="email" value="<%= loginUser.getEmail()%>">
+						<input type="hidden" id="hiddenid" name="utype" value="<%= loginUser.getuType()%>">
+						<input type="hidden" id="hiddenid" name="gender" value="<%= loginUser.getGender()%>">
+						<input type="hidden" id="hiddenid" name="age" value="<%= loginUser.getAge()%>">
+						<input type="hidden" id="hiddenid" name="survey" value="<%= loginUser.getSurvey()%>">
+						
+						<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="password" name="pass2" class="form-control" placeholder="새 비밀번호 확인" id="pass2"></td>
+					</tr>
+					<tr>
+						<td><button type="button" style="background:darkgray; width:80%" id="submitBtn">변경하기</button></td>
+						<td><button type="reset" style="background:darkgray; width:80%" id="rset">취소하기</button></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 		<br><br><br>
 			</div>
@@ -90,14 +99,14 @@ table>tr>td{
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 </div>
 <script>
-	$("#submit").click(function(){
+	$("#submitBtn").click(function(){
 		var pass1 = $("#pass1").val();
 		var pass2 = $("#pass2").val();
-		var id = $("#testid").val();
-		console.log(id);
-		console.log('<%=loginUser.getUno()%>');
+		
+
 		if(pass1 == pass2){
-			//location.href="/coc/updatePassword";
+			$("#changeUserPasswordForm").submit();
+
 		}else {
 			alert("다시 입력하세요");
 		}
