@@ -1,6 +1,8 @@
 package com.cw.coc.member.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
@@ -30,6 +33,7 @@ public class InsertMemberServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -40,28 +44,35 @@ public class InsertMemberServlet extends HttpServlet {
 		String gender = request.getParameter("gender");
 		int age = Integer.parseInt(request.getParameter("age"));
 		
+		
+		Map<String, Object>	hi = new HashMap<String,Object>();
+		hi.put("userId", userId);
+		hi.put("userPwd", userPwd);
+		hi.put("useremail", email);
+		hi.put("usergender", gender);
+		hi.put("userAge", age);
+		System.out.println("mapmapampampampamp"+hi);
+		System.out.println(hi.get("userId"));
+		HttpSession session = request.getSession();
+		session.setAttribute("Info", hi );
+		//세션
+		//session.setMaxInactiveInterval(5*60);
+		//세션 해제
+		//session.invalidate();
+		
 		Member m = new Member();
 		m.setUserId(userId);
 		m.setUserPwd(userPwd);
 		m.setEmail(email);
 		m.setAge(age);
-
-		System.out.println("insertMember : " + m);
-
-		int result = new MemberService().insertMember(m);
-
+		m.setGender(gender);
 		String page = "";
-
-		if(result > 0) {
-			page = "/coc/views/member/joinInterest.jsp";
-			response.sendRedirect(page);
-		}else {
-			page = "/views/common/errorPage.jsp";
-			request.setAttribute("msg", "회원가입 실패!");
-			request.getRequestDispatcher(page).forward(request, response);
-		}
-
+		page = "/coc/views/member/joinInterest.jsp";
+		response.sendRedirect(page);
 		
+//		HttpSession session = request.getSession();
+//		session.setAttribute("Info", m );
+//		System.out.println("insertMember : " + m);
 	}
 
 	/**

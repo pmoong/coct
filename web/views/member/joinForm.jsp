@@ -12,6 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css" />
 <style>
 body {
@@ -68,6 +69,18 @@ body {
    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
       rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 }
+	#idCheck {
+		background:white;
+		border-radius:5px;
+		width:80px;
+		height:25px;
+		text-align:center;
+	}
+	#idCheck:hover {
+		cursor:pointer;
+		background:lightgray;
+		border:1px solid gray;
+	}
 </style>
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -87,24 +100,27 @@ body {
       <div class="container">
          <div class="form-group">
             <label for="inputId">아이디</label> <input type="text"
-               class="form-control" id="inputId" placeholder="아이디를 입력해 주세요" name="userId">
+               class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeydown="checkId()">
+         	<td width="200px"><div id="idCheck">중복확인</div></td>
          </div>
          <div class="form-group">
             <label for="InputEmail">이메일 주소</label> <input type="email"
-               class="form-control" id="InputEmail" placeholder="이메일 주소를 입력해주세요" name="email">
+               class="form-control" id="email" placeholder="이메일 주소를 입력해주세요" name="email">
          </div>
          <div class="form-group">
-            <label for="inputPassword">비밀번호</label> <input type="password"
-               class="form-control" id="inputPassword" placeholder="비밀번호를 입력해주세요" name="userPwd">
+            <label for="inputPassword">비밀번호</label> 
+            <input type="password" class="form-control" id="userPWd" 
+            placeholder="비밀번호를 입력해주세요" name="userPwd">
          </div>
          <div class="form-group">
-            <label for="inputPasswordCheck">비밀번호 확인</label> <input
-               type="password" class="form-control" id="inputPasswordCheck"
-               placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요" name="userPwd2">
+            <label for="inputPasswordCheck">비밀번호 확인</label> 
+            <input type="password" class="form-control" id="userPwd2"
+            placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요" name="userPwd2" onkeyup="checkPwd()">
+            <span id="checkPwd">     </span>
          </div>
          <div class="form-group">
             <label for="inputage">나이</label> <input type="number"
-               class="form-control" id="inputage" placeholder="나이를 입력해 주세요" name="age">
+               class="form-control" id="age" placeholder="나이를 입력해 주세요" name="age">
          </div><br>
          <div class="form-group" id="radio">
             <label for="inputgender">성별</label> 
@@ -132,8 +148,43 @@ body {
 		function insertMember(){
 			$("form").submit();
 		}
-     	 
-     	 
+
+		function checkPwd(){
+			var f1 = document.forms[0];
+			var pw1 = f1.userPwd.value;
+			var pw2 = f1.userPwd2.value;
+			if(pw1!=pw2){
+			   document.getElementById('checkPwd').style.color = "red";
+			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치하지 않습니다"; 
+			}else{
+			   document.getElementById('checkPwd').style.color = "blue";
+			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치합니다";    
+			}	  
+		}
+     	function checkId(){
+     		var userId = $("#userId").val();
+     		
+     		$.ajax({
+				url:"/jsp/idCheck.me",
+				type:"post",
+				data:{userId:userId},
+				success:function(data){
+					//console.log(data);
+					
+					if(data === "fail"){
+						alert("아이디가 중복됩니다.");
+					}else {
+						alert("사용 가능합니다.");
+					}
+					
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
+     		
+     		
+     	}
       </script>
       
       
