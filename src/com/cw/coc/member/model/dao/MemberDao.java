@@ -118,30 +118,10 @@ public class MemberDao {
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getUserPwd());
 			pstmt.setString(3, m.getEmail());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getAge());
-			
-			result = pstmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-
-	public int insertInterest(Connection con, Member m) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-
-		String query = prop.getProperty("insertInterest");
-
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPwd());
+			pstmt.setString(4, "M");
+			pstmt.setString(5, m.getGender());
+			pstmt.setInt(6, m.getAge());
+			pstmt.setString(7, m.getSurvey());
 			
 			result = pstmt.executeUpdate();
 
@@ -166,6 +146,34 @@ public class MemberDao {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	public int idCheck(Connection con, String userId) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
 		
 		return result;
