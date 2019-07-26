@@ -9,18 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.board.model.sevice.BoardService;
+import com.cw.coc.board.model.vo.Board;
 
 /**
- * Servlet implementation class DeleteBoardServlet
+ * Servlet implementation class SelectBoardServlet
  */
-@WebServlet("/deleteBoard.bo")
-public class DeleteBoardServlet extends HttpServlet {
+@WebServlet("/selectBoard.bo")
+public class SelectBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteBoardServlet() {
+    public SelectBoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +30,22 @@ public class DeleteBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		System.out.println("잘되니?");
+int num = Integer.parseInt(request.getParameter("num"));
 		
-		int result = new BoardService().deleteBoard(bcode);
+		Board b = new BoardService().selectOne(num);
+		
 		String page = "";
 		
-		if(result > 0) {
-			response.sendRedirect("/coc/selectList.bo");
+		if(b != null) {
+			page = "views/board/boardUpdate.jsp";
+			request.setAttribute("b", b);
 		}else {
-			page ="views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 삭제 실패!");
-			request.getRequestDispatcher(page).forward(request, response);
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시글 수정용 상세보기 실패!");
 		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
 
 	/**

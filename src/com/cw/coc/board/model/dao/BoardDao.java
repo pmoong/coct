@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.member.model.vo.Member;
 
 
 public class BoardDao {
@@ -41,6 +42,10 @@ public class BoardDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			//쿼리문 작성되는 대로 작성할것~~
+			pstmt.setString(1, b.getbTitle());
+			pstmt.setString(2, b.getbContent());
+			pstmt.setString(3, b.getbType());
+			pstmt.setInt(4, b.getUno());
 			
 			result = pstmt.executeUpdate();
 		
@@ -58,7 +63,6 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> list = null;
-		
 		String query = prop.getProperty("selectListWithPaging");
 		
 		try {
@@ -90,10 +94,10 @@ public class BoardDao {
 				b.setCount(rset.getInt("COUNT"));
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 				
+				
 				list.add(b);
 			}
 
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -203,7 +207,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("deleteNotice");
+		String query = prop.getProperty("deleteBoard");
 		
 		System.out.println("query" + query);
 		try {
@@ -225,7 +229,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("updateNotice");
+		String query = prop.getProperty("updateBoard");
 		
 		try {
 			pstmt = con.prepareStatement(query);
