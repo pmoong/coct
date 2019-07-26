@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style>
 body{
 	background:white;
@@ -133,27 +134,29 @@ button:hover{
 			<div class="row">
 				<div class="count">
 					<h1>1일차</h1>
-					<button id="btn1" class="btn" onclick="plus1()" style="font-size:20px">+</button>
+					<button id="btn12" class="btn" onclick="plus1()" style="font-size:20px">+</button>
 					<button id="btn1" class="btn" onclick="minus1()" style="font-size:20px">-</button>
 				</div>
 				<div class="cir">
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
+					<div id="circle" class="circle" style="float:left;"></div>
 					
 					<button class="circle2" style="float:right" onclick="rowPlus()">+</button>
 				</div>
 			</div>
+			<script>
+				/* function plus1(){
+					$(".cir").appned('123');
+				}; */
+				$(function(){
+					
+				$("#btn12").click(function(){
+					$(".cir").appned('<div class="css-arrow" style="float:left; margin-top:60px"></div><div class="circle" style="float:left;"></div>');
+					
+				});
+				});
+			</script>
 			
-			<div class="row">
+			<!-- <div class="row">
 			<div class="plan2" id="plan2">
 				<div class="count">
 					<h1>2일차</h1>
@@ -195,8 +198,8 @@ button:hover{
 			<div class="plan4" id="plan4"></div><br>
 			<div class="plan5" id="plan5"></div><br>
 		</div>
-	</div>
-	<script>
+	</div> -->
+	<!-- <script>
 		/* function plus(){
 			var plHtml = "";
 			plHtml = plHtml + $(".plan");
@@ -261,7 +264,7 @@ button:hover{
 	      
 	
 		
-	</script>
+	</script> -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
 </body>
 </html>
