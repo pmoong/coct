@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
@@ -9,6 +9,25 @@
 <html>
 <head>
 <title>CoC</title>
+<script>
+$(function(){
+	$("#seoulBtn").click(function(){
+		$.ajax({
+			url:"seouldata.do",
+			type:"get",
+			/* data:{"name":"임동호"}, */
+			success:function(data){
+				//$("#p1").text("JJJJJLK");
+				console.log("성공");
+			},
+			error:function(){
+				console.log("패!");
+			}
+		});
+	})
+});
+
+</script>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -130,6 +149,8 @@ padding-left:5px;
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> 
+	
 
 </head>
 <body class="is-preload homepage">
@@ -179,15 +200,22 @@ padding-left:5px;
 					<a href="../views/seoulevening.jsp" ><button id="btn"> 밤 
 				</button> </a>
 			</div>
-			
-
+  			<div>
+				<div id="item" class="item" style="width: 650px; height: 300px;">
+			</div>
+</div>
+</div>
 <script>
-	$.ajax({
-		url:'publicdata.do',
-		type:'get',
-		dataType='json',
+
+  /* 	$.ajax({
+		url:"seouldata.do",
+		type:"get",
+	
 		success:function(msg){
+			$("#p2").text(data);
+
 			console.log(msg.response.body.items.item);
+	 
 			var myItem=msg.response.body.items.item;
 			
 			for(var i=0; myItem.length; i++){
@@ -200,9 +228,66 @@ padding-left:5px;
 				document.body.innerHTML +=output;
 			}
 		}
-	});
-</script>
+	});  */
+	/* 
+		$(function(){
+			$("#seoulBtn").click(function(){
+				$.ajax({
+					url:"seouldata.do",
+					type:"get",
+					/* data:{"name":"임동호"}, */
+					/* success:function(data){
+						$("#p1").text("JJJJJLK");
+						console.log("실");
+					},
+					error:function(){
+						console.log("패!");
+					}
+				});
+			})
+		}); */
+	
+			/* $.ajax({
+				url:"seouldata.do",
+				type:"get",
+				success:function(data){
+					$("#p1").text("JJJJJLK");
+					console.log("실패!");
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
+		}); */
+/*  
+$("#p2").function(){
+  	$.ajax({
+		url:"seouldata.do",
+		type:"get",
+		dataType="json"
+		success:function(msg){
+			
+			console.log(msg.response.body.items.item);
+			$("#p2").text(data);
+			var myItem=msg.response.body.items.item;
+			
+			for(var i=0; myItem.length; i++){
+				var output='';
+				console.log(myItem.length);
+				output +='<h3>'+i+'번째 서울 축제 데이터'+'</h3>';
+				output += '<h4>'+myItem[i].addr1+'<h4>';
+				output += '<h4>'+myItem[i].title+'<h4>';
+				output += '<h4>'+myItem[i].tel+'<h4>';
+				document.body.innerHTML +=output;
+			}
+		}
+	});  */
  
+</script>
+<button id="seoulBtn">서버에서 보낸 값</button>
+	<p id="p1" style="width:100%; height:50px; border:1px solid red"></p>
+
+ <div id="Parse_Area"></div>
 			<div class="btn-group" >
 				 <button id="bbtn" >
 					 계절 
