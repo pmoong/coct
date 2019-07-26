@@ -41,19 +41,19 @@ table {
 						<tr>
 							<td>분야</td>
 							<td>
-								<select name="category">
+								<select name="bType">
 								<%
 									if (loginUser != null && loginUser.getuType().equals("A")) {
 								%>
-									<option value="10">전체공지</option>
+									<option value="NT">전체공지</option>
 								<%
 									}else  if (loginUser != null && loginUser.getuType().equals("P")) {
 								%>
-									<option value="20">제휴사공지</option>
+									<option value="QA">제휴사공지</option>
 								<%
 									}else if (loginUser != null && loginUser.getuType().equals("M")) {
 								%>
-									<option value="30">리뷰 작성하기</option>
+									<option value="RV">리뷰 작성하기</option>
 								<%
 									}
 								%>
@@ -62,13 +62,13 @@ table {
 						</tr>
 						<tr>
 							<td>제목</td>
-							<td colspan="3"><input type="text" size="55" name="title"></td>
+							<td colspan="3"><input type="text" size="55" name="bTitle"></td>
 						</tr>
 						<tr>
 							<td>내용</td>
 							<td colspan="3">
 								<textarea rows="15" cols="60" style="resize:none;" 
-									name="content"></textarea>
+									name="bContent"></textarea>
 							</td>
 						</tr>
 				</table>

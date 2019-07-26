@@ -85,7 +85,7 @@ public class SelectBoardListServlet extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
-	}
+	}	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

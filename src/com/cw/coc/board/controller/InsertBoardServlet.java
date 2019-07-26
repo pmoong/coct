@@ -34,12 +34,12 @@ public class InsertBoardServlet extends HttpServlet {
 		String bType = request.getParameter("bType");
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
+		String writer = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUserId());
 		
 		/*HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
 		String writer = String.valueOf(loginUser.getUno());*/
 		
-		String writer = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUno());
 		 //request.getSession().getAttribute("loginUser")).getUno()
 		System.out.println("bType : " + bType);
 		System.out.println("bTitle : " + bTitle);

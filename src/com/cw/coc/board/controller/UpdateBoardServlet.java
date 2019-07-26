@@ -14,7 +14,7 @@ import com.cw.coc.board.model.vo.Board;
 /**
  * Servlet implementation class UpdateBoardServlet
  */
-@WebServlet("/updateBoard.bo")
+@WebServlet("/update.bo")
 public class UpdateBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,24 +33,24 @@ public class UpdateBoardServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		
+
 		Board b = new Board();
-		
 		b.setbTitle(title);
 		b.setbContent(content);
 		b.setbCode(bcode);
-		
+
 		int result = new BoardService().updateBoard(b);
-		
-		String page = "";
-		
+
+		String page="";
+
 		if(result > 0) {
-			response.sendRedirect("/jsp/selectOne.no?num="+ bcode);
+			response.sendRedirect("/coc/selectOne.bo?num=" + bcode);
 		}else {
-			page ="views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 수정 실패!");
+			page="views/common/errorPage.jsp";
+			request.setAttribute("msg", "공지사항 수정 실패!!");
 			request.getRequestDispatcher(page).forward(request, response);
 		}
+
 	}
 
 	/**
