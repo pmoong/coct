@@ -131,7 +131,13 @@ div>a{
 				</tr>
 				<tr>
 					<td><label>성별</label></td>
-					<td><%=loginUser.getGender() %></td>
+					<td><% if(loginUser.getGender().equals("M") || loginUser.getGender().equals("남자")){
+					    loginUser.setGender("남자");	
+					}else{
+						loginUser.setGender("여자");
+					} %>
+					<%= loginUser.getGender() %></td>
+					
 				</tr>
 				<tr>
 					<td><label>이메일</label></td>
@@ -503,6 +509,7 @@ div>a{
 		$("input[name=checkbox]").each(function(){
 			var arr = '<%= loginUser.getSurvey() %>'.split(",");
 			
+			console.log(arr);
 			for(var i=0;i<arr.length;i++){
 				if($(this).val() == arr[i]){
 					$(this).attr("checked", true);

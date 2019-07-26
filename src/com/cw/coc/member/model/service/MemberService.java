@@ -1,11 +1,16 @@
 package com.cw.coc.member.model.service;
 
+import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.commit;
+import static com.cw.coc.common.JDBCTemplate.getConnection;
+import static com.cw.coc.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
-import static com.cw.coc.common.JDBCTemplate.*;
 
 public class MemberService {
 
@@ -68,13 +73,42 @@ public class MemberService {
 	}
 
 
+	public ResultSet selectSurvey(Member m) {
+		Connection con = getConnection();
+		
+		ResultSet rset = new MemberDao().selectSurvey(con, m);
+		
+		
+		close(con);
+		System.out.println(rset);
+		return rset;
+	}
+
+
+	public int updatePassword(Member m) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().updatePassword(con, m);
+		
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+    close(con);
+    
+    return result;
+  }
+
+
 	public int idCheck(String userId) {
 		Connection con = getConnection();
 		
 		int result = new MemberDao().idCheck(con, userId);
 		
 		close(con);
-		
+
 		return result;
 	}
 	
