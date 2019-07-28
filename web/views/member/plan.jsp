@@ -131,140 +131,130 @@ button:hover{
 				<h1>콕과 함께 당신의 여행을 콕 찍어 그려보세요</h1><br>
 				<h2>첫 번째 목적지를 설정해볼까요?</h2><br><br><br>
 			</div>
-			<div class="row">
+			
+			
+			
+			<div id="rowDay1" class="row">
 				<div class="count">
 					<h1>1일차</h1>
-					<button id="btn12" class="btn" onclick="plus1()" style="font-size:20px">+</button>
-					<button id="btn1" class="btn" onclick="minus1()" style="font-size:20px">-</button>
+					<sup><button type="button" id="colPlus1" class="btn" style="font-size:20px" onclick="colPlus('1')">+</button></sup>
+					<sup style="float:right"><button type="button" id="colMinus1" class="btn" style="font-size:20px" onclick="colMinus('1')">-</button></sup>
 				</div>
 				<div class="cir">
-					<div id="circle" class="circle" style="float:left;"></div>
+					<div id="circle1_1" class="circle" style="float:left;">
 					
-					<button class="circle2" style="float:right" onclick="rowPlus()">+</button>
+					</div>
+					
+					<button type="button" id="rowPlus1" class="circle2" style="float:right" onclick="rowPlus('1')">+</button>
 				</div>
 			</div>
+			
+			
 			<script>
-				/* function plus1(){
-					$(".cir").appned('123');
-				}; */
-				$(function(){
-					
-				$("#btn12").click(function(){
-					$(".cir").appned('<div class="css-arrow" style="float:left; margin-top:60px"></div><div class="circle" style="float:left;"></div>');
-					
-				});
-				});
+			var prv_id="1";
+			var dth;
+			var index1=1;
+			var index2=1;
+			var index3=1;
+			var day=1;
+			function colPlus(id){
+				if(prv_id){
+					if(id==1){
+						if(index1<6){
+							$("#circle1_"+index1).after('<div id="css-arrow1_'+index1+'" class="css-arrow" style="float:left; margin-top:60px"></div>   <div id="circle1_'+(index1+1)+'" class="circle" style="float:left;"> </div>');
+							index1++;
+						}else{
+							alert('6개가 최대');
+						}
+					}else if(id==2){
+						if(index2<6){
+							$("#circle2_"+index2).after('<div id="css-arrow2_'+index2+'" class="css-arrow" style="float:left; margin-top:60px"></div>   <div id="circle2_'+(index2+1)+'" class="circle" style="float:left;"> </div>');
+							index2++;
+						}else{
+							alert('6개가 최대');
+						}
+					}else if(id==3){
+						if(index3<6){
+							$("#circle3_"+index3).after('<div id="css-arrow3_'+index3+'" class="css-arrow" style="float:left; margin-top:60px"></div>   <div id="circle3_'+(index3+1)+'" class="circle" style="float:left;"> </div>');
+							index3++;
+						}else{
+							alert('6개가 최대');
+						}
+					}
+					prv_id=id;
+				}
+			};
+			
+			function colMinus(id){
+				if(prv_id){
+					if(id==1){
+						if(index1>1){
+							$("#css-arrow1_"+(index1-1)).detach(dth);
+							$("#circle1_"+index1).detach(dth);
+							index1--;
+							}else{
+								alert('1개가 최소');
+							}
+					}else if(id==2){
+						if(index2>1){
+							$("#css-arrow2_"+(index2-1)).detach(dth);
+							$("#circle2_"+index2).detach(dth);
+							index2--;
+							}else{
+								alert('1개가 최소');
+							}
+					}else if(id==3){
+						if(index3>1){
+							$("#css-arrow3_"+(index3-1)).detach(dth);
+							$("#circle3_"+index3).detach(dth);
+							index3--;
+							}else{
+								alert('1개가 최소');
+							}
+					}
+					prv_id=id;
+				}
+			};
+			
+			function rowPlus(id){
+				if(prv_id){
+					if(id==1 && $("#rowDay2").length==0){
+						day++;
+						$("#rowDay1").after('<div id="rowDay2" class="row"> <div class="count"> <h1>2일차</h1> <sup><button type="button" id="colPlus2" class="btn" style="font-size:20px" onclick="colPlus('+2+')">+</button></sup> <sup style="float:right"><button type="button" id="colMinus2" class="btn" style="font-size:20px" onclick="colMinus('+2+')">-</button></sup> </div> <div class="cir"> <div id="circle2_'+index2+'" class="circle" style="float:left;"> </div>  <button type="button" id="rowMinus2" class="circle2" style="float:right" onclick="rowMinus('+2+')">-</button> <button type="button" id="rowPlus2" class="circle2" style="float:right" onclick="rowPlus('+2+')">+</button></div> </div>');
+					}else if(id==1 && $("#rowDay2").length==1){
+						alert('2일차는 이미 존재');
+					}else if(id==2 && day==2 && $("#rowDay3").length==0){
+						day++;
+						$("#rowDay2").after('<div id="rowDay3" class="row"> <div class="count"> <h1>3일차</h1> <sup><button type="button" id="colPlus3" class="btn" style="font-size:20px" onclick="colPlus('+3+')">+</button></sup> <sup style="float:right"><button type="button" id="colMinus3" class="btn" style="font-size:20px" onclick="colMinus('+3+')">-</button></sup> </div> <div class="cir"> <div id="circle3_'+index3+'" class="circle" style="float:left;"> </div>  <button type="button" id="rowMinus3" class="circle2" style="float:right" onclick="rowMinus('+3+')">-</button> <button type="button" id="rowPlus3" class="circle2" style="float:right" onclick="rowPlus('+3+')">+</button></div> </div>');
+					}else if(id==2 && $("#rowDay3").length==1){
+						alert('3일차는 이미 존재');
+					}else{
+						alert('3일이 최대');
+					}
+					prv_id=id;
+				}
+			};
+			
+			function rowMinus(id){
+				if(prv_id){
+					if(id==2){
+						$("#rowDay"+id).detach(dth);
+						day--;
+						index2=1;
+					}else if(id==3){
+						$("#rowDay"+id).detach(dth);
+						day--;
+						index3=1;
+					}
+					prv_id=id;
+				}
+			}
+			
 			</script>
 			
-			<!-- <div class="row">
-			<div class="plan2" id="plan2">
-				<div class="count">
-					<h1>2일차</h1>
-					<button id="btn2" class="btn" onclick="plus2()">+</button>
-				</div>
-				<div class="cir">
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-				</div>
-			</div>
-			</div>
 			
-			<div class="row">
-			<div class="plan3" id="plan3">
-				<div class="count">
-					<h1>3일차</h1>
-					<button id="btn3" class="btn" onclick="plus3()">+</button>
-				</div>
-				<div class="cir">
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-					<div class="css-arrow" style="float:left; margin-top:60px"></div>
-					<div class="circle" style="float:left;"></div>
-				</div>
-			</div>
-			</div>
-			<div class="plan4" id="plan4"></div><br>
-			<div class="plan5" id="plan5"></div><br>
-		</div>
-	</div> -->
-	<!-- <script>
-		/* function plus(){
-			var plHtml = "";
-			plHtml = plHtml + $(".plan");
-			
-			$(".bottom").append(plHtml);
-		} */
-		/* var $plan = $('#plan').clone();
-		var plan = document.getElementById('plan').cloneNode(true);
-		
-		var $div = $('<div></div>');
-		var div = document.createElement('div');
-		 */
-		
-		
-	    /*   function plus(){
-	        $("#bottom").append($div);
-	        $div.appendTo($('#plan'));
-	        document.getElementById('plan').appendChild(div);
-	      } */
-	      
-	     // var plan = $('#plan1').clone();
-	      
-	      var count = 1;
-	      
-	      $("#btn").click(function(){
-	      count++;
-	      
-	      });
-	      
-	      console.log(count);	
-		 /* function plus(){
-	      
-	      if(count == 1){
-  	  		plan.appendTo('#plan2');
-  	  	  }else if(count == 2){
-  	  		
-  	  		plan.appendTo('#plan3');
-  	  	  }
-	      
-	      } */
-	      $("#plan2").hide();
-	      $("#plan3").hide();
-	      function plus1(){
-			 $("#plan2").show();
-	    	 $("#btn1").hide();
-	      }
-	      function plus2(){
-	    	 $("#plan3").show();
-	    	 $("#btn2").hide();
-	      }
-	      
-	        
-	      /* function plus(){
-	    	  	
-	    	  	if(count == 1){
-	    	  		plan.appendTo('#plan2');
-	    	  	}else if(count == 2){
-	    	  		plan.appendTo('#plan3');
-	    	  	}
-	    	  	
-	      } */
-	      
-	
-		
-	</script> -->
+	</div>
 	<%@include file="/views/common/footerbar_customer.jsp"%>
+	</div>
 </body>
 </html>
