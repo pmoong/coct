@@ -33,7 +33,7 @@ public class IdCheckServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		
 		int result = new MemberService().idCheck(userId);
-		
+		System.out.println("userId : " + userId);
 		PrintWriter out = response.getWriter();
 		
 		if(result > 0) {
