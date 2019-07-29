@@ -51,7 +51,7 @@ public class InsertMemberServlet extends HttpServlet {
 		hi.put("useremail", email);
 		hi.put("usergender", gender);
 		hi.put("userAge", age);
-		System.out.println("mapmapampampampamp"+hi);
+		//System.out.println("mapmapampampampamp"+hi);
 		System.out.println(hi.get("userId"));
 		HttpSession session = request.getSession();
 		session.setAttribute("Info", hi );

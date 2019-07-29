@@ -111,5 +111,16 @@ public class MemberService {
 
 		return result;
 	}
+
+
+	public int emailCheck(String email) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().emailCheck(con, email);
+		
+		close(con);
+
+		return result;
+	}
 	
 }
