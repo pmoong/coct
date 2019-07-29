@@ -59,7 +59,7 @@ body {
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" class="btn btn-default" onclick="check_form()">
+							<button type="submit" class="btn btn-default btn100" onclick="check_form()">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
 						</div>
 					</div>
@@ -81,6 +81,8 @@ body {
 			location.href="/coc/views/member/findPwd.jsp";
 		}
 		function check_form(){
+		
+	
 			if($.trim($("#userId").val()) == ""){
 				alert("아이디를 입력해주세요");
 				$("#userId").focus();
@@ -93,7 +95,33 @@ body {
 				return false;
 			}
 		}
+		
 
+		$(function(){
+			$("#btn100").click(function(){
+				var userId = $("#userId").val();
+				
+				$.ajax({
+					url:"/coc/idCheck.me",
+					type:"post",
+					data:{userId:userId},
+					success:function(data){
+						//console.log(data);
+						
+						if(data === "fail"){
+							alert("환ㅇㅇ합니다.");
+						}else{
+							alert("관리자.")
+							location.href="<%=request.getContextPath()%>/selectList.ad";
+						}
+						
+					},
+					error:function(){
+						console.log("실패!");
+					}
+				});
+			});
+		});
 	</script>
 
 		<!-- Footer -->
