@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  import="com.cw.coc.member.model.vo.Member.*" %>
+    pageEncoding="UTF-8"  import="com.cw.coc.member.model.vo.*" %>
 <%
+
 	Member loginUser = (Member)session.getAttribute("loginUser");
 %>
 
@@ -85,7 +86,7 @@ li a.active {
 				<!-- Nav -->
 				<nav id="nav" style='left: 20%'>
 					<ul>
-						<li><a href="/coc/views/admin/managerIndex.jsp">홈</a></li>
+						<li><a href="/coc/selectList.ad">홈</a></li>
 						<li><a href="/coc/views/admin/statistics.jsp">통계</a></li>
 						<li><a href="/coc/views/admin/rm.jsp">예약관리</a></li>
 						<li><a href="/coc/views/admin/memberManagement.jsp">회원관리</a></li>

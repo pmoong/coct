@@ -44,6 +44,10 @@ table {
 table th {
 	text-align: center !important;
 }
+button {
+	background:yellowgreen !important;
+}
+
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -287,7 +291,6 @@ table th {
 		<!-- Wrapper for slides -->
 		<div class="outer container">
 		<br>
-		<h2 align="center">게시판</h2>
 		<div class="tableArea">
 			<table align="center" id="listArea">
 				<tr>
@@ -359,19 +362,7 @@ table th {
 	</div>
 
 
-	<script>
-		$(function(){
-			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"skyblue", "cursor":"pointer"});
-			}).mouseout(function(){
-				$(this).parent().css({"background":"white"});
-			}).click(function(){
-				var num = $(this).parent().children("input").val();
-				
-				location.href="<%=request.getContextPath()%>/selectOne.bo?num=" + num;
-			});
-		});
-	</script>
+	
 	<br>
 	<br>
 	<br>
@@ -440,6 +431,19 @@ table th {
 	</div>
 
 	<!-- Scripts -->
+	<script>
+		$(function(){
+			$("#listArea td").mouseenter(function(){
+				$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+			}).mouseout(function(){
+				$(this).parent().css({"background":"white"});
+			}).click(function(){
+				var num = $(this).parent().children("input").val();
+				
+				location.href="<%=request.getContextPath()%>/selectOne.bo?num=" + num;
+			});
+		});
+	</script>
 	<%-- <% } %> --%>
 </body>
 </html>

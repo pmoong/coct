@@ -59,7 +59,7 @@ body {
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" class="btn btn-default btn100" onclick="check_form()">
+							<button type="submit" id="btn100" class="btn btn-default" onclick="check_form()">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
 						</div>
 					</div>
@@ -88,7 +88,7 @@ body {
 				$("#userId").focus();
 				return false;
 			}
-			
+
 			if($.trim($("#userPwd").val()) == ""){
 				alert("패스워드를 입력해주세요");
 				$("#userPws").focus();
@@ -97,10 +97,10 @@ body {
 		}
 		
 
-		$(function(){
+		<%-- $(function(){
 			$("#btn100").click(function(){
 				var userId = $("#userId").val();
-				
+				console.log(userId);
 				$.ajax({
 					url:"/coc/idCheck.me",
 					type:"post",
@@ -108,20 +108,17 @@ body {
 					success:function(data){
 						//console.log(data);
 						
-						if(data === "fail"){
+						if(data === "admin"){
 							alert("환ㅇㅇ합니다.");
-						}else{
-							alert("관리자.")
 							location.href="<%=request.getContextPath()%>/selectList.ad";
 						}
-						
 					},
 					error:function(){
 						console.log("실패!");
 					}
 				});
 			});
-		});
+		}); --%>
 	</script>
 
 		<!-- Footer -->
