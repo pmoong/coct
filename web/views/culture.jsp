@@ -273,50 +273,31 @@ padding-left:30px !important;
  <br>
 		   <div class="container">
 		  <div class="btn-group" >
-		   <button id="bbtn" > 전체</button>
-					<a class="link1" href="../views/seoulafter.jsp"  ><button id="btn"> 연극</button></a>
-					<a href="../views/seoulevening.jsp" ><button id="btn"> 뮤지컬
-				</button> </a>
-				<a href="../views/seoulevening.jsp" ><button id="btn"> 콘서트
-				</button> </a>
-				<a href="../views/seoulevening.jsp" ><button id="btn"> 전시회
-				</button> </a>
-				<a href="../views/seoulevening.jsp" ><button id="btn"> 페스티벌
-				</button> </a>
-				<a href="../views/seoulevening.jsp" ><button id="btn"> 아동/가족
-				</button> </a>
+		   <button id="bbtn" class="total" > 전체</button>
+					 <button id="btn" class="btn_theater" > 연극</button> 
+					 <button id="btn" class="btn_musical" > 뮤지컬				</button> 
+				 <button id="btn" class="btn_consert" > 콘서트				</button> 
+				 <button id="btn" class="btn_show" > 전시회				</button>  
+				 <button id="btn" class="btn_fest" > 페스티벌				</button>  
+				 <button id="btn" class="btn_fam" > 아동/가족				</button >
 			</div>
 			
  		   <div class="container">
 			<div class="btn-group" >
-				 <button id="bbtn" >
-					 월
+				 <button id="bbtn" >					 월
 				</button> 
-   
-		 		<a href="../views/seoulspring.jsp" ><button id="btn">
-				1월</button> </a>
-				<a href="../views/seoulsum.jsp"  ><button id="btn">
-				2월</button> </a>
-				<a href="../views/seoulautumn.jsp" ><button id="btn">
-				3월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				4월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				5월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				6월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				7월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				8월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				9월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				10월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				11월</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				12월</button> </a>
+		 		 <button id="btn" class="btn1" >				1월</button> 
+				 <button id="btn" class="btn2" >				2월</button>  
+				 <button id="btn" class="btn3">				3월</button> 
+				<button id="btn" class="btn4">				4월</button> 
+				 <button id="btn" class="btn5">				5월</button>  
+				 <button id="btn" class="btn6">				6월</button>  
+				 <button id="btn" class="btn7">				7월</button>  
+				 <button id="btn" class="btn8">				8월</button> 
+				 <button id="btn" class="btn9">				9월</button> 
+				 <button id="btn"class="btn10">				10월</button> 
+				 <button id="btn"class="btn11">				11월</button> 
+				 <button id="btn" class="btn12">				12월</button> 
  </div>
 </div>
 </div>
@@ -325,59 +306,340 @@ padding-left:30px !important;
 <a id="bb" href="#">인기 </a>
 <a id="bb" href="#">신규</a>
 </div>
-		   <div class="container">
-   <div class="con"> 
+		  <%--  <div class="container">
+
 <div class="col-4 col-4-medium col-4-small">
 <div id="pic"> 
+<div class="imgtotal" > 
+
+
+</div>
+
+       <div class="category" id="btn_1"> 
+  <img id="blur" src="../images/culture/theater cat.PNG"width="400" height="400"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">  
+  <img id="blur" src="../images/culture.PNG"width="400" height="400" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
       
-      <img id="blur" src="../images/culture.PNG"width="400" height="400" 
+ <div class="category" id="btn_2"> 
+      <img id="blur" src="../images/culture/musical1.PNG"width="200" height="200"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200"   onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+       <div class="category" id="btn_3"> 
+      <img id="blur" src="../images/culture/kpop.PNG"width="200" height=200" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+      
+      <!-- <div class="btn_4" id="category"> --> 
+       <div class="category" id="btn_4"> 
+      <img id="blur" src="../images/culture/international.PNG"width="200" height="200" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+      
+      <!-- <div class="btn_5" id="category"> --> 
+       <div class="category" id="btn_5"> 
+      <img id="blur" src="../images/culture/desertfair.PNG" width="400" height="400" 
       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"></a>
-      
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
  
-       
-      <img id="blur"src="../images/culture2.PNG"width="400" height="400"
-       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"></a> 
+      <img id="blur" src="../images/culture/musicfestival.PNG" width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture/Traditional Music.PNG" width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture/wood.PNG" width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+     <!--  btn_6 category -->
+            <div class="category" id="btn_6"> 
+      <img id="blur" src="../images/culture/Firstfullmoon.PNG"width="400" height="400"  onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new','width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+    <img id="blur" src="../images/culture/Gyeongbokgung.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+    <img id="blur" src="../images/culture/kpop.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture/Moonlight.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/walking.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/win1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/walking.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+   <img id="blur" src="../images/culture/YiSunShin.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+      </div>
+      
+      
+      
+     <div class="btn1_1" id="season">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ 
+      </div>
+      
+      <div class="btn1_2" id="season">
+        <img id="blur" src="../images/culture/Firstfullmoon.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+      <div class="btn1_3" id="season">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      <div class="btn1_4" id="season">
+       <img id="blur" src="../images/culture/Moonlight.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      <div class="btn1_5" id="season">
+        <img id="blur" src="../images/culture/kpop.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+    <img id="blur" src="../images/culture/Moonlight.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+      <div class="btn1_6" id="season">
+             <img id="blur" src="../images/culture/desertfair.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+         <img id="blur" src="../images/culture/international.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture/kpop.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">  
+  <img id="blur" src="../images/culture/Moonlight.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ 
+      </div>
+      <div class="btn1_7" id="season">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      <div class="btn1_8" id="season">
+        <img id="blur" src="../images/culture/desertfair.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      <div class="btn1_9" id="season">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      <div class="btn1_10" id="season">
+      
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>-->
+    <!--   <div class="btn1_11" id="season"> -->
+      <div class="season" id="btn1_11">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+     <!--  <div class="btn1_12" id="season"> -->
     
-      <img id="blur" src="../images/culture3.PNG"width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
+     <div class="season" id="btn1_12">
+      <img id="blur" src="../images/culture.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       
+      <img id="blur"src="../images/culture2.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+    
+      <img id="blur" src="../images/culture3.PNG"width="400" height="400"      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
      
-      <img id="blur" src="../images/culture4.PNG" width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
+      <img id="blur" src="../images/culture4.PNG" width="400" height="400"      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+   
+  </div> 
+  
+  
+  <div class="image" >
+      <img id="blur" src="../images/culture.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      <img id="blur"src="../images/culture2.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      <img id="blur" src="../images/culture3.PNG"width="400" height="400"      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
+      <img id="blur" src="../images/culture4.PNG" width="400" height="400"      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400"       onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new', 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
        </div>
- </div>
-</div>
-</div>
+ </div></div></div></div> 
 <br><br>
-		   <div class="container">
-		      <div class="con"> 
-		   
-<div class="col-3 col-3-medium col-3-small">
-<div id="pic"> 
-      <img id="blur" src="../images/culture.PNG" width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
-      <img id="blur" src="../images/culture2.PNG" width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
-      <img id="blur" src="../images/culture3.PNG" width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
-      <img id="blur" src="../images/culture4.PNG" width="400" height="400"
-      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
- 'width=800,height=600,left=0,top=100,scrollbars=yes');" style="cursor:pointer"/>
- </div>
- </div>
-</div>
-</div>
  
 <a style="display:scroll;position:fixed;bottom:30px;right:3px;" rel="nofollow"
 href="#"  style="font-size:2.0em"><button id="btn">top</button></a> 
 		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp" %>
 		
+		<%@include file="/views/common/footerbar_customer.jsp" %>
+		<script>
+		$('.season').hide(); 
+		  $('.category').hide(); 
+$(function(){
+
+	  $('.btn_theater').click(function(){
+	 $('#btn_1').show (); $('#btn_2').hide(); $('#btn_3').hide();  $('#btn_4').hide(); $('#btn_5').hide(); $('#btn_6').hide();   $('.season').hide();
+	  }); $('.imgtotal').hide(); $('.season').hide()
+	  
+	  $('.btn_musical').click(function(){
+		  $('#btn_1').hide();
+		    $('#btn_2').show();
+		    $('#btn_3').hide();
+		    $('#btn_4').hide();
+		    $('#btn_5').hide();
+		    $('#btn_6').hide(); $('.imgtotal').hide();
+		    $('.season').hide();
+
+	  });
+	  $('.btn_consert').click(function(){
+	    $('.btn_1').hide();
+	    $('.btn_2').hide();
+	    $('.btn_3').show();
+	    $('.btn_4').hide();
+	    $('.btn_5').hide();
+	    $('.btn_6').hide();
+	    $('#season').hide();
+
+	  });
+	  $('.btn_show').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').hide();
+		    $('.btn_3').hide();
+		    $('.btn_4').show();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	  $('.btn_fest').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').hide();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').show();
+		    $('.btn_6').hide();
+		    $('#season').hide();
+	  });
+	  $('.btn_fam').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').hide();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').show();
+		    $('#season').hide();
+	  }); 
+	
+	});
+	
+</script> --%>
+	   <div class="container">
+   <div id="con"> 
+<div class="col-4 col-4-medium col-4-small">
+<div id="pic"> 
+	        <div class="imgtotal" > 
+      <img id="blur" src="../images/culture/theater cat.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+     <img id="blur" src="../images/culture/theater cat.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+     <img id="blur" src="../images/culture/theater cat.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ </div>
+      <!-- <div class="btn_1" id="category">  -->
+      
+       <div class="category" id="btn_1"> 
+      <img id="blur" src="../images/culture/theater cat.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+  <img id="blur" src="../images/culture.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+   
+      </div>
+      
+<!--       <div class="btn_2" id="category"> --> 
+ <div class="category" id="btn_2"> 
+      <img id="blur" src="../images/culture/musical1.PNG"width="200" height="200" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+       <img id="blur" src="../images/culture.PNG"width="200" height="200" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+   
+
+          <div class="season" id="btn1_1">
+      <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ 
+      </div>
+
+            <div class="season" id="btn1_2">
+        <img id="blur" src="../images/culture/Firstfullmoon.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+       <div class="season" id="btn1_3">
+       <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+      
+      <div class="season" id="btn1_4">
+      
+       <img id="blur" src="../images/culture/Moonlight.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer">
+ <img id="blur" src="../images/culture/musical1.PNG"width="400" height="400" 
+      onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EB%BD%95%EC%A1%B1','new',
+ 'width=1000,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
+      </div>
+  
+  </div> 
+  
+   
+ </div></div> </div>
+<br><br>
+ 
+		<script>
+	/* 	imgtotal */
+			$('.season').hide(); 
+			  $('.category').hide(); 
+			  
+$(function(){
+	  $('.total').click(function(){
+		$('.season').hide(); 
+		  $('.category').hide();
+		  $('.imgtotal').show(); 
+	}); 
+	  $('.btn_theater').click(function(){
+		  $('#btn_1').show();
+		    $('.btn_2').hide();
+		    $('.imgtotal').hide();
+		    $('.category').hide();
+	  });    
+	  $('.btn_musical').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').show();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	   
+	  $('.btn3').click(function(){
+		  $('#btn1_1').hide();
+		    $('#btn1_2').hide();
+		    $('#btn1_3').show();
+	 
+		    $('.imgtotal').hide();  
+			  $('.category').hide();
+
+	  });
+	});
+
+	  </script>
 </body>
 </html> 
