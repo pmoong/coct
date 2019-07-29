@@ -33,7 +33,7 @@ public class UpdatePassword extends HttpServlet {
 		String email = request.getParameter("email");
 		int age = Integer.parseInt(request.getParameter("age"));
 		String survey = request.getParameter("survey");
-		System.out.println(password1);
+
 
 		Member m = new Member();
 
@@ -44,11 +44,9 @@ public class UpdatePassword extends HttpServlet {
 		m.setEmail(email);
 		m.setAge(age);
 		m.setSurvey(survey);
-		
-		System.out.println(m);
+
 		int result = new MemberService().updatePassword(m);
 
-		System.out.println(result);
 		String page = "";
 
 		if(result > 0 ) {

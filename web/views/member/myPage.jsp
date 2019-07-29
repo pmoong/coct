@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	String str = (String) request.getAttribute("str");	
 %>
 
 <!DOCTYPE HTML>
@@ -126,7 +127,7 @@ div>a{
                     <br><br>
                     <button style="background:darkgray">편집</button>
 					</td>
-					<td><label>아이디 </label></td>
+					<td><label id="id">아이디 </label></td>
 					<td><%=loginUser.getUserId()  %></td>
 				</tr>
 				<tr>
@@ -507,8 +508,8 @@ div>a{
 	// 취향
 	$(function(){
 		$("input[name=checkbox]").each(function(){
-			var arr = '<%= loginUser.getSurvey() %>'.split(",");
-			
+			var arr = '<%= str %>'.split(",");
+			//location.href="/selectInterest";
 			console.log(arr);
 			for(var i=0;i<arr.length;i++){
 				if($(this).val() == arr[i]){
@@ -517,6 +518,12 @@ div>a{
 			}
 		});
 	});
+	
+	 /*  $(document).ready(function() {
+		location.href="/coc/selectSurvey";
+	}); */
+
+	
 </script>
 
 </body>

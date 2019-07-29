@@ -24,21 +24,26 @@ public class SelectSurveyServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("as");
-		String[] surveyArr = request.getParameterValues("interest");
-		String survey = "";
 		
-		for(int i=0;i<surveyArr.length;i++) {
-			if(i==0) {
-				survey += surveyArr[i];
-			}
-		}
 		
-		Member m = new Member();
 		
-		m.setSurvey(survey);
+	//	String[] iCodeArr = request.getParameterValues("checkbox");
 		
-		ResultSet rset = new MemberService().selectSurvey(m);
+		Member m = new Member ();
+	
+		String id = request.getParameter("id");
+		
+		m.setUserId(id);
+		
+		System.out.println("111");
+		String icode = new MemberService().selectSurvey("id");
+		
+		String page = "";
+		
+		page = "/views/member/myPage.jsp";
+		
+		request.getRequestDispatcher(page).forward(request, response);
+		//ResultSet rset = new MemberService().selectSurvey(m);
 		
 	}
 	

@@ -73,15 +73,18 @@ public class MemberService {
 	}
 
 
-	public ResultSet selectSurvey(Member m) {
+	public String selectSurvey(String icode) {
+
 		Connection con = getConnection();
 		
-		ResultSet rset = new MemberDao().selectSurvey(con, m);
+		Member m = new Member();
+		
+		 icode = new MemberDao().selectSurvey(con, icode);
 		
 		
 		close(con);
-		System.out.println(rset);
-		return rset;
+		
+		return icode;
 	}
 
 

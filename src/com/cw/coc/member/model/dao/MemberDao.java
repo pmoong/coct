@@ -1,5 +1,7 @@
 package com.cw.coc.member.model.dao;
 
+import static com.cw.coc.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -8,9 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import org.apache.tomcat.util.collections.SynchronizedStack;
+
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
-import static com.cw.coc.common.JDBCTemplate.*;
+import com.cw.coc.member.model.vo.Survey;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -153,15 +157,22 @@ public class MemberDao {
 	}
 
 
-	public ResultSet selectSurvey(Connection con, Member m) {
+	public String selectSurvey(Connection con, String icode) {
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+	
 		
 		String query = prop.getProperty("selectSurvey");
 		
+		System.out.println("dao @");
+		Member m = new Member();
+		System.out.println(m.getUserId());
+		System.out.println(icode);
+		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, m.getUno());
+			pstmt.setString(1, m.getUserId());
 			
 			rset = pstmt.executeQuery();
       
@@ -185,20 +196,26 @@ public class MemberDao {
 
       
 			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				result = rset.getInt(1);
+
+			while(rset.next()) {
+				 icode = rset.getString("Survey");
+				
+				
 			}
 			
-		} catch (SQLException e) {
+			
+			
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(rset);
+
 			close(pstmt);
+			close(rset);
 		}
 		
-		return result;
+		
+		return icode;
+
 	}
 
 	public int updatePassword(Connection con, Member m) {
