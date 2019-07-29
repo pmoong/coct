@@ -193,29 +193,21 @@ public class MemberDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
-
-      
 			
-
-			while(rset.next()) {
-				 icode = rset.getString("Survey");
-				
-				
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
 			}
 			
-			
-			
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-
-			close(pstmt);
 			close(rset);
+			close(pstmt);
 		}
 		
-		
-		return icode;
-
+		return result;
 	}
 
 	public int updatePassword(Connection con, Member m) {
@@ -268,5 +260,5 @@ public class MemberDao {
 		
 		return result;
 	}
-	
+
 }
