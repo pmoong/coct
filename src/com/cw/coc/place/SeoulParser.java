@@ -51,24 +51,19 @@ public class SeoulParser {
 	   List<SeoulVo> listOfData = new ArrayList<SeoulVo>();
     nodeList = document.getElementsByTagName(tagName);
     for(int i = 0; i < nodeList.getLength() ; i ++){
-      	
+      	String a=("x");
      
      Element element = (Element) nodeList.item(i);
      String stitle = this.getTagValue("title", element);
+  	System.out.println(stitle);
+
      String saddr1 = this.getTagValue("addr1",element);
-    /*  String stel = this.getTagValue("tel",element); */
-    
-    /* if(stel !=null) {
-    	 stel = this.getTagValue("tel",element);
-    	 
-     }*/  
-/*     String stel = this.getTagValue("tel",element);*/ 
+   
      int scontenttypeid =Integer.parseInt(this.getTagValue("contenttypeid",element));
      String scat1 =this.getTagValue("cat1", element);
      String scat2 =this.getTagValue("cat2", element);
      System.out.println(scat1);
      String scat3 =this.getTagValue("cat3", element);
-     /* String smapx =this.getTagValue("mapx", element);*/
  	String smapx =this.getTagValue("mapx", element);
  	System.out.println(smapx);
  	
@@ -80,10 +75,16 @@ public class SeoulParser {
  	System.out.println("xx");
  	}
  	String smapy =this.getTagValue("mapy", element); 	 
- 	String simg=this.getTagValue("img", element);
-   
+ 	
+ 	String sfirstimage=this.getTagValue("firstimage", element);
+ 	if(sfirstimage !=null) {
+ 		sfirstimage =this.getTagValue("mapx", element);
+ 	System.out.println("cc");
+ 	}else {
+ 		sfirstimage = a;
+ 	}
      
-     listOfData.add(new SeoulVo(stitle, saddr1, scontenttypeid,scat1, scat2, scat3 ,smapx,smapy,simg));
+     listOfData.add(new SeoulVo(stitle, saddr1, scontenttypeid,scat1, scat2, scat3 ,smapx,smapy,sfirstimage));
     }
     
   return listOfData;
@@ -99,3 +100,4 @@ private String getTagValue(String tagName, Element element) {
  
 
 } 
+ 

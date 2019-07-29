@@ -32,29 +32,34 @@ public class SeoulDao {
 
 
   // TODO Auto-generated method stub
-  File file = new File("culture.xml");
+  File file = new File("seoul.xml");
   SeoulParser seoulParser = new SeoulParser(file);
   List<SeoulVo> tmp = seoulParser.parse("item");
   
   Condb connectDB = new Condb();
+	 System.out.println(connectDB+"connectDB");
+
   Connection conn = Condb.getConnection();
-  	 
+  System.out.println(tmp);
+  	 System.out.println(conn+"conn");
    String sql = "INSERT INTO SEOUL VALUES(?,?,?,?,?,?,?,?,?)";
  
   try {
    for(int i=0; i<tmp.size() ; i++){
     PreparedStatement stmt = conn.prepareStatement(sql);
-  
+   
+    System.out.println(sql);
+
     stmt.setString(1, tmp.get(i).getTitle());
     stmt.setString(2, tmp.get(i).getAddr1());
-/*     stmt.setString(3, tmp.get(i).getTel()); */
     stmt.setInt(3, tmp.get(i).getContenttypeid());
     stmt.setString(4, tmp.get(i).getCat1());
     stmt.setString(5, tmp.get(i).getCat2());
     stmt.setString(6, tmp.get(i).getCat3());
     stmt.setString(7, tmp.get(i).getMapx());
     stmt.setString(8, tmp.get(i).getMapy());
-    stmt.setString(9, tmp.get(i).getImg());
+    stmt.setString(9, tmp.get(i).getFirstimage());
+   
     
     stmt.executeUpdate();
     System.out.println("sucess to save");
