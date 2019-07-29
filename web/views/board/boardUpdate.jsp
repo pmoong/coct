@@ -58,7 +58,7 @@ table {
 							<td>제목</td>
 							<td colspan="3">
 								<input type="text" size="50" name="title" value="<%=b.getbTitle()%>">
-								<input type="hidden" name="nno" value="<%=b.getUno()%>">
+								<input type="hidden" name="bcode" value="<%= b.getbCode() %>">
 							</td>
 						</tr>
 						<tr>
@@ -93,7 +93,7 @@ table {
 						$("#updateForm").attr("action", "<%=request.getContextPath()%>/update.bo");
 					}
 					
-					function deleteNotice(){
+					function deleteBoard(){
 						$("#updateForm").attr("action", "<%=request.getContextPath()%>/deleteBoard.bo");
 					}
 				</script>

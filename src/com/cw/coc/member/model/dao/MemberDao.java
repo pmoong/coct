@@ -86,6 +86,7 @@ public class MemberDao {
 			if(rset.next()) {
 				loginUser = new Member();
 				
+				loginUser.setUno(rset.getInt("SEQ_UNO"));
 				loginUser.setUserId(rset.getString("USER_ID"));
 				loginUser.setUserPwd(rset.getString("USER_PWD"));
 				loginUser.setEmail(rset.getString("EMAIL"));

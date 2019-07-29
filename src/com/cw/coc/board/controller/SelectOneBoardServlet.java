@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.member.model.vo.Member;
 
 /**
  * Servlet implementation class SelectOneBoardServlet
@@ -30,13 +31,19 @@ public class SelectOneBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-int num = Integer.parseInt(request.getParameter("num"));
+		int num = Integer.parseInt(request.getParameter("num"));
+		String bWriter = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUserId());
 		
-		System.out.println(num);
+		System.out.println("bWriter : " + bWriter);
+		
+		System.out.println("NUM : " + num);
 		
 		Board b = new BoardService().selectOne(num);
-		
 		System.out.println("controller board : " + b);
+		
+		
+		
+		
 		
 		String page = null;
 		

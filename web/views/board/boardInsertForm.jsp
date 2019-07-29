@@ -67,7 +67,7 @@ table {
 						<tr>
 							<td>내용</td>
 							<td colspan="3">
-								<textarea rows="15" cols="60" style="resize:none;" 
+								<textarea rows="15" cols="60" style="resize:auto;" 
 									name="bContent"></textarea>
 							</td>
 						</tr>

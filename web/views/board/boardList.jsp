@@ -73,7 +73,7 @@ table {
 				<% for(Board b : list){ 
 				%>
 				<tr>
-					<input type="hidden" value="<%= b.getUno() %>">
+					<input type="hidden" value="<%= b.getbCode() %>">
 					<td><%= b.getbCode() %></td>
 					<td><%= b.getbType() %></td>
 					<td><%= b.getbTitle() %></td>
