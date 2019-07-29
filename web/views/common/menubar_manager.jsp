@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"  import="com.cw.coc.member.model.vo.Member.*" %>
+<%
+	Member loginUser = (Member)session.getAttribute("loginUser");
+%>
+
+    
 <html>
 <head>
 <meta charset="UTF-8">

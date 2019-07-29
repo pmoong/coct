@@ -44,14 +44,14 @@ body {
 			<div class="container" align="center">
 				<form class="form-horizontal" action="<%=request.getContextPath()%>/login" method="post">
 					<div class="form-group">
-						<label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
+						<label for="inputUserId" class="col-sm-5 control-label" id="InputuserId">아이디</label>
 						<div class="col-sm-3">
 							<input type="text" class="form-control" id="userId" name="userId">
 						</div>
 						
 					</div>
 					<div class="form-group">
-						<label for="inputUserPwd" class="col-sm-5 control-label" id="userPwd">비밀번호</label>
+						<label for="inputUserPwd" class="col-sm-5 control-label" id="InputuserPwd">비밀번호</label>
 						<div class="col-sm-3">
 							<input type="password" class="form-control" id="userPwd" name="userPwd">
 						</div>
@@ -59,7 +59,7 @@ body {
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" class="btn btn-default" onclick="check_form()">
+							<button type="submit" class="btn btn-default btn100" onclick="check_form()">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
 						</div>
 					</div>
@@ -81,6 +81,8 @@ body {
 			location.href="/coc/views/member/findPwd.jsp";
 		}
 		function check_form(){
+		
+	
 			if($.trim($("#userId").val()) == ""){
 				alert("아이디를 입력해주세요");
 				$("#userId").focus();
@@ -93,7 +95,33 @@ body {
 				return false;
 			}
 		}
+		
 
+		$(function(){
+			$("#btn100").click(function(){
+				var userId = $("#userId").val();
+				
+				$.ajax({
+					url:"/coc/idCheck.me",
+					type:"post",
+					data:{userId:userId},
+					success:function(data){
+						//console.log(data);
+						
+						if(data === "fail"){
+							alert("환ㅇㅇ합니다.");
+						}else{
+							alert("관리자.")
+							location.href="<%=request.getContextPath()%>/selectList.ad";
+						}
+						
+					},
+					error:function(){
+						console.log("실패!");
+					}
+				});
+			});
+		});
 	</script>
 
 		<!-- Footer -->
