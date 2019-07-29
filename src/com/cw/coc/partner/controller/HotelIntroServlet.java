@@ -1,6 +1,6 @@
 package com.cw.coc.partner.controller;
 
-import java.io.File;
+ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -18,26 +18,19 @@ import com.cw.coc.partner.model.service.HotelService;
 import com.cw.coc.partner.model.vo.Attachment;
 import com.cw.coc.partner.model.vo.Hotel;
 import com.oreilly.servlet.MultipartRequest;
-
-/**
- * Servlet implementation class HotelroomInfServlet
- */
-@WebServlet("/hotel.ri")
-public class HotelroomInfServlet extends HttpServlet {
+ 
+ 
+@WebServlet("/hotel.intro")
+public class HotelIntroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public HotelroomInfServlet() {
+    public HotelIntroServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 1024*1024*10;
 			
@@ -98,11 +91,6 @@ public class HotelroomInfServlet extends HttpServlet {
 			}
 		}
 	}
-	 
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

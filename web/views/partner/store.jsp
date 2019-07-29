@@ -94,15 +94,15 @@ table {
 					style='text-align: left;margin-top: 1%;'>호텔소개</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#">
-					<input type="button" onclick="gointro();" value="편집"></a>
+					<input type="button" onclick="location.href='/coc/views/partner/storeintroInsertForm.jsp';" value="편집"></a>
 				</span>
 			</div>
 		</div>
 <!-- 		<hr style="border-color: orange">
  -->
-		<div class="outer">
+	<!-- 	<div class="outer">
 			<textarea style="/* background: skyblue */; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div>
+		</div> -->
 <!-- 		<hr style="border-color: orangered">
  -->
 		<!--  -->
@@ -112,18 +112,17 @@ table {
 					style='text-align: left; margin-top: 1%;'>룸정보</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="goroominf();" value="편집"></a>
+						type="button" onclick="location.href='/coc/views/partner/HotelroomInfForm.jsp';" value="편집"></a>
 				</span>
-
+ 
 			</div>
 		</div>
 <!-- 		<hr style="border-color: orange">
  -->
-		<!-- Wrapper for slides -->
 
-		<div class="outer">
+		<!-- <div class="outer">
 			<textarea style="/* background: skyblue */; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div>
+		</div> -->
 <!-- 		<hr style="border-color: orange">
  -->		<!--  -->
 		<div class="container">
@@ -132,11 +131,11 @@ table {
 					style='text-align: left; margin-top: 1%;'>숙소시설</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="goroom();" value="편집"></a>
+						type="button" onclick="location.href='/coc/views/partner/HotelroomForm.jsp ';" value="편집"></a>
 				</span>
 
-			</div>
-		</div>
+			</div> 
+		</div> 
 <!-- 		<hr style="border-color: orange">
  -->
 		<!-- Wrapper for slides -->
@@ -153,7 +152,7 @@ table {
 					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="gohotelpolicy();" value="편집"></a>
+						type="button" onclick="location.href='/coc/views/partner/HotelpolicyForm.jsp';" value="편집"></a>
 				</span>
 
 			</div>
@@ -194,7 +193,7 @@ table {
 					style='text-align: left; margin-top: 1%;'>이용정보</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="goinformation();" value="편집"></a>
+						type="button" onclick="location.href='/coc/views/partner/HotelinformainForm.jsp';" value="편집"></a>
 				</span>
 
 			</div>
@@ -203,9 +202,9 @@ table {
  -->
 		<!-- Wrapper for slides -->
 
-		<div class="outer">
+	<!-- 	<div class="outer">
 			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div>
+		</div> -->
 		<hr>
 
 
@@ -216,7 +215,8 @@ table {
 		<%@include file="/views/common/footerbar_customer.jsp"%>
 
 
-	</div>
+	 
+ 
   <script type="text/javascript">
     var locations = [
       ['신라스테이', 37.504788, 127.041312, 28] 
@@ -246,25 +246,10 @@ table {
       })(marker, i));
     }
  
-    function gointro(){
-    	location.href="/coc/hotel.intro";
-    }
-    function goroominf(){
-    	location.href="/coc/hotel.ri";
-    }
-    function goroom(){
-    	location.href="/coc/hotel.rm";
-    }
-    function gohotelpolicy(){
-    	location.href="/coc/hotel.hp";
-    }
-    function gomap(){
-    	location.href="/coc/hotel.map";
-    }
-    function goinformation(){
-    	location.href="/coc/hotel.im";
-    }
-    
+     /*  function gointro(){
+    	location.href="views/partner/storeintroInsertForm.jsp";
+    } */
+   
     
     
    

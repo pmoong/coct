@@ -10,13 +10,13 @@
 <head>
 <title>CoC</title>
 <script>
-$(function(){
+/* $(function(){
 	$("#seoulBtn").click(function(){
 		$.ajax({
 			url:"seouldata.do",
 			type:"get",
 			/* data:{"name":"임동호"}, */
-			success:function(data){
+/* 			success:function(data){
 				//$("#p1").text("JJJJJLK");
 				console.log("성공");
 			},
@@ -25,7 +25,7 @@ $(function(){
 			}
 		});
 	})
-});
+}); */ 
 
 </script>
 <meta charset="utf-8" />
@@ -196,147 +196,62 @@ padding-left:5px;
 				 <button id="bbtn" class="link1">
 					 시간대 
 				</button>
-					<a class="link1" href="../views/seoulafter.jsp"  ><button id="btn"> 낮</button></a>
-					<a href="../views/seoulevening.jsp" ><button id="btn"> 밤 
-				</button> </a>
+				 <button id="btn" class="btn_day"> 낮</button> 
+				 <button id="btn" class="btn_night"> 밤 
+				</button> 
 			</div>
-  			<div>
-				<div id="item" class="item" style="width: 650px; height: 300px;">
-			</div>
+  		 
 </div>
 </div>
-<script>
-
-  /* 	$.ajax({
-		url:"seouldata.do",
-		type:"get",
-	
-		success:function(msg){
-			$("#p2").text(data);
-
-			console.log(msg.response.body.items.item);
-	 
-			var myItem=msg.response.body.items.item;
-			
-			for(var i=0; myItem.length; i++){
-				var output='';
-				console.log(myItem.length);
-				output +='<h3>'+i+'번째 서울 축제 데이터'+'</h3>';
-				output += '<h4>'+myItem[i].addr1+'<h4>';
-				output += '<h4>'+myItem[i].title+'<h4>';
-				output += '<h4>'+myItem[i].tel+'<h4>';
-				document.body.innerHTML +=output;
-			}
-		}
-	});  */
-	/* 
-		$(function(){
-			$("#seoulBtn").click(function(){
-				$.ajax({
-					url:"seouldata.do",
-					type:"get",
-					/* data:{"name":"임동호"}, */
-					/* success:function(data){
-						$("#p1").text("JJJJJLK");
-						console.log("실");
-					},
-					error:function(){
-						console.log("패!");
-					}
-				});
-			})
-		}); */
-	
-			/* $.ajax({
-				url:"seouldata.do",
-				type:"get",
-				success:function(data){
-					$("#p1").text("JJJJJLK");
-					console.log("실패!");
-				},
-				error:function(){
-					console.log("실패!");
-				}
-			});
-		}); */
-/*  
-$("#p2").function(){
-  	$.ajax({
-		url:"seouldata.do",
-		type:"get",
-		dataType="json"
-		success:function(msg){
-			
-			console.log(msg.response.body.items.item);
-			$("#p2").text(data);
-			var myItem=msg.response.body.items.item;
-			
-			for(var i=0; myItem.length; i++){
-				var output='';
-				console.log(myItem.length);
-				output +='<h3>'+i+'번째 서울 축제 데이터'+'</h3>';
-				output += '<h4>'+myItem[i].addr1+'<h4>';
-				output += '<h4>'+myItem[i].title+'<h4>';
-				output += '<h4>'+myItem[i].tel+'<h4>';
-				document.body.innerHTML +=output;
-			}
-		}
-	});  */
  
-</script>
-<button id="seoulBtn">서버에서 보낸 값</button>
-	<p id="p1" style="width:100%; height:50px; border:1px solid red"></p>
-
+<div class="container">
  <div id="Parse_Area"></div>
 			<div class="btn-group" >
 				 <button id="bbtn" >
 					 계절 
 				</button> 
-		 		<a href="../views/seoulspring.jsp" ><button id="btn">
-				봄</button> </a>
+		 	 <button id="btn" class="btn_spring">
+				봄</button> 
 				   
-				<a href="../views/seoulsum.jsp"  ><button id="btn">
-				여름</button> </a>
-				<a href="../views/seoulautumn.jsp" ><button id="btn">
-				가을</button> </a>
-				<a href="../views/seoulwin.jsp" ><button id="btn">
-				겨울</button> </a>
+				 <button id="btn" class="btn_summer">
+				여름</button> 
+				 <button id="btn" class="btn_autumn">
+				가을</button>  
+			 <button id="btn" class="btn_winter">
+				겨울</button>  
 				</div></div>
  </div>
 </div>
 <div class="container">
     <div class="con"> 
-<div class="col-3 col-3-medium col-3-small">
+<div class="col-2 col-2-medium col-2-small">
 <div id="pic"> 
-      
-      <img id="blur" src="../images/seoul1.PNG" width="200" height="300" 
+      <div class="btn_1">
+      <img id="blur"  src="../images/seoul1.PNG" width="30%" height="30%" 
       onclick="window.open('https://www.seoultower.co.kr/','new',
      'width=1400,height=800,left=0,top=100,scrollbars=yes');" style="cursor:pointer"> 
- 
-      <img  id="blur" src="../images/seoul2.PNG" width="200" height="300" > 
+      <img id="blur"  src="../images/seoul6.PNG" width="400" height="400"/> 
+      </div>
       
-      <img id="blur" src="../images/seoul3.PNG" width="200" height="400"/>
+     
+   <div class="btn_2">
+         <img  id="blur"  src="../images/seoul2.PNG" width="200" height="300" > 
+        <img id="blur"   src="../images/seoul7.PNG" width="400" height="400"/> 
+      <img id="blur"  src="../images/seoul8.PNG" width="400" height="400"/> 
+      <img id="blur"  src="../images/seoul3.PNG" width="200" height="400"/>
+   </div>
+   
+ 
+     <div class="btn_3">
+        <img id="blur"  src="../images/seoul4.PNG" width="200" height="300"/>
+      <img id="blur"  src="../images/seoul5.PNG" width="400" height="400"/>
+      <img id="blur"  src="../images/seoul6.PNG" width="400" height="400"/> 
       
-      <img id="blur"  src="../images/seoul4.PNG" width="200" height="300"/>
- </div>
-</div>
-</div>
-<br><br>
-<div class="col-3 col-3-medium col-3-small">
-<div id="pic"> 
-
-      <img id="blur" src="../images/seoul5.PNG" width="400" height="400"/>
-    
-      <img id="blur" src="../images/seoul6.PNG" width="400" height="400"/> 
- 
-      <img id="blur" src="../images/seoul7.PNG" width="400" height="400"/> 
-    
-      <img id="blur" src="../images/seoul8.PNG" width="400" height="400"/></div>
- 
-  
-</div>
- 
-
+      </div>
+      </div>
+      </div>
+      </div>
+      
 
 <a style="display:scroll;position:fixed;bottom:30px;right:3px;" rel="nofollow"
 href="#"  style="font-size:2.0em"><button id="btn">top</button></a> 
@@ -345,7 +260,62 @@ href="#"  style="font-size:2.0em"><button id="btn">top</button></a>
 
 	</div>
 
-
+<script>
+$(function(){
+	  $('.btn_day').click(function(){
+		  $('.btn_1').show();
+		    $('.btn_2').hide();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	  $('.btn_night').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').show();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	  $('.btn_spring').click(function(){
+	    $('.btn_1').show();
+	    $('.btn_2').hide();
+	    $('.btn_3').hide();
+	    $('.btn_4').hide();
+	    $('.btn_5').hide();
+	    $('.btn_6').hide();
+	  });
+	  $('.btn_summer').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').show();
+		    $('.btn_3').hide();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	  $('.btn_autumn').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').hide();
+		    $('.btn_3').show();
+		    $('.btn_4').hide();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  });
+	  $('.btn_winter').click(function(){
+		  $('.btn_1').hide();
+		    $('.btn_2').hide();
+		    $('.btn_3').hide();
+		    $('.btn_4').show();
+		    $('.btn_5').hide();
+		    $('.btn_6').hide();
+	  }); 
+	
+	});
+	
+	
+	
+</script>
 </body>
 </html> 
 		 

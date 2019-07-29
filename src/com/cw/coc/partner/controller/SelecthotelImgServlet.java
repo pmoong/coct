@@ -10,32 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.board.model.vo.Board;
-import com.cw.coc.partner.model.service.hotelService;
- 
+import com.cw.coc.partner.model.service.HotelService;
+
 /**
- * Servlet implementation class SillahotelIntro
- * @param <Attachment>
+ * Servlet implementation class SelecthotelImg
  */
-@WebServlet("/hotel.intro")
-public class hotelIntroServlet<Attachment> extends HttpServlet {
+@WebServlet("/select.hi")
+public class SelecthotelImgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public hotelIntroServlet() {
+    public SelecthotelImgServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 
+	ArrayList<HashMap<String,Object>> list =new HotelService().selecthotelImg();
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
