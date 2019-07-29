@@ -65,20 +65,13 @@ public class SeoulParser {
      System.out.println(scat1);
      String scat3 =this.getTagValue("cat3", element);
  	String smapx =this.getTagValue("mapx", element);
- 	System.out.println(smapx);
  	
- 	if(smapx !=null) {
- 		smapx =this.getTagValue("mapx", element);
- 	System.out.println("cc");
- 	}else {
- 		smapx =null;
- 	System.out.println("xx");
- 	}
+ 	 
  	String smapy =this.getTagValue("mapy", element); 	 
- 	
  	String sfirstimage=this.getTagValue("firstimage", element);
+
  	if(sfirstimage !=null) {
- 		sfirstimage =this.getTagValue("mapx", element);
+ 		sfirstimage =this.getTagValue("firstimage", element);
  	System.out.println("cc");
  	}else {
  		sfirstimage = a;

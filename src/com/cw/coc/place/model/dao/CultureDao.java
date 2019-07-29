@@ -1,7 +1,7 @@
 package com.cw.coc.place.model.dao;
 
 import java.io.File;
-
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -26,23 +26,25 @@ public class CultureDao {
 	 public static void main(String[] args) {
  
   // TODO Auto-generated method stub
-  File file = new File("culture1.xml");
-  System.out.println("1");
+  File file = new File("culture2.xml");
   
   CultureParser CultureParser = new CultureParser(file);
-  System.out.println("2");
   System.out.println("CultureParser"+CultureParser);
   
   List<CultureVo> tmp = CultureParser.parse("item");
   
   System.out.println("dmdk");
   
-  Condb condb = new Condb();
+  try {
+	Condb condb = new Condb();
+} catch (IOException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
   Connection conn = Condb.getConnection();
  	 
    String sql ="INSERT INTO CULTURE VALUES(?,?,?,?,?,?,?,?,?)";
- 
-  try {
+   try {
    for(int i=0; i<tmp.size() ; i++){
     PreparedStatement stmt = conn.prepareStatement(sql);
   
@@ -56,6 +58,7 @@ public class CultureDao {
     stmt.setString(7, tmp.get(i).getCmapx());
     stmt.setString(8, tmp.get(i).getCmapy());
     stmt.setString(9, tmp.get(i).getCfirstimage());
+    
     stmt.executeUpdate();
     System.out.println("sucess to save");
    }

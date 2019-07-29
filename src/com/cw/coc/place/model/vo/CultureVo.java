@@ -15,6 +15,7 @@ public  class CultureVo {
 
 	 private String cfirstimage;
 	 
+	 public CultureVo() {}
 	public String getCtitle() {
 		return ctitle;
 	} 
@@ -91,6 +92,12 @@ public  class CultureVo {
 		this.cmapy = cmapy;
 		this.cfirstimage=cfirstimage;
 System.out.println("fds");
+	}
+	@Override
+	public String toString() {
+		return "CultureVo [ctitle=" + ctitle + ", caddr1=" + caddr1 + ", ccontenttypeid=" + ccontenttypeid + ", ccat1="
+				+ ccat1 + ", ccat2=" + ccat2 + ", ccat3=" + ccat3 + ", cmapx=" + cmapx + ", cmapy=" + cmapy
+				+ ", cfirstimage=" + cfirstimage + "]";
 	}
 	 
  
