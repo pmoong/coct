@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.cw.coc.place.controller.SearchKeyword" %>
+<%
+	String keyWord = (String) request.getAttribute("keyWord");
+
+
+	String[] title = (String[]) request.getAttribute("title");
+	String[] link = (String[]) request.getAttribute("link");
+	String[] description = (String[]) request.getAttribute("description");
+%>
 <!DOCTYPE HTML>
 <!--
    Verti by HTML5 UP
@@ -15,7 +23,7 @@
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
-	background: white;
+	background: white !important;
 }
 
 #test {
@@ -28,51 +36,51 @@ body {
 }
 
 .glyphicon-chevron-left {
-	padding-left: 90%;
+	padding-left: 90% !important;
 }
 
 .glyphicon-chevron-right {
-	padding-right: 90%;
+	padding-right: 90% !important;
 }
 
 .planbtn {
-	border-radius: 30px;
+	border-radius: 30px !important;
 }
 
 .tes {
-	position: relative;
+	position: relative !important;
 }
 
 .icons-container {
-	position: absolute;
-	top: 11px;
-	right: -25px;
-	width: 35px;
-	height: 35px;
-	overflow: hidden;
+	position: absolute !important;
+	top: 11px !important;
+	right: -25px !important;
+	width: 35px !important;
+	height: 35px !important;
+	overflow: hidden !important;
 }
 
 .icon-search {
-	position: relative;
-	top: 5px;
-	left: 8px;
-	width: 50%;
-	height: 50%;
-	opacity: 1;
-	border-radius: 50%;
-	border: 3px solid mix(#6078EA, white, 35%);
+	position: relative !important;
+	top: 5px !important;
+	left: 8px !important;
+	width: 50% !important;
+	height: 50% !important;
+	opacity: 1 !important;
+	border-radius: 50% !important;
+	border: 3px solid mix(#6078EA, white, 35%) !important;
 	transition: opacity 0.25s ease, transform 0.43s
-		cubic-bezier(0.694, 0.048, 0.335, 1.000);
-	place-horder: remove;
+		cubic-bezier(0.694, 0.048, 0.335, 1.000) !important;
+	place-horder: remove !important;
 }
 
 .field {
-	border: 0;
-	width: 100%;
-	height: 100%;
-	padding: 10px 20px;
-	background: white;
-	border-radius: 3px;
+	border: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	padding: 10px 20px !important;
+	background: white !important;
+	border-radius: 3px !important;
 }
 
 .tagBtn {
@@ -84,11 +92,11 @@ body {
 }
 .col-12-medium{
 	padding:30px 20px 10px 20px !important;
-	radius:5px;
+	radius:5px !important;
 }
 #banner-wrapper .feature{
-	border:3px solid #FFD700;
-	border-radius:5px;
+	border:3px solid #FFD700 !important;
+	border-radius:5px !important;
 }
 
 </style>
@@ -101,19 +109,27 @@ body {
 </head>
 <body class="is-preload homepage">
 	<div id="page-wrapper">
+		<%@ include file="/views/common/menubar_customer.jsp" %>
+		<div class="container">
+			<div id="logo">
+				<fieldset class="field-container" style="width: 160%">
+						<input type="search" name="keyWord" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;" value="<%=keyWord%>"/>
+				</fieldset>
+			</div>
 
-		<!-- Header -->
+			<header class="container">
+				<input class="tagBtn" type="button" value="태그추가하기"
+					onclick="addTag();" style="font-size: small;">
+			</header>
+		</div>
+		<%-- <!-- Header -->
 		<div id="header-wrapper">
 			<header id="header" class="container">
 
 				<!-- Logo -->
 				<div id="logo">
-					<h1 id="test"><a href="../index.jsp">콕</a></h1>
-				</div>
-
-				<div id="logo">
 					<fieldset class="field-container" style="width: 160%">
-						<input type="search" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;"/>
+						<input type="search" name="keyWord" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;" value="<%=keyWord%>"/>
 					</fieldset>
 				</div>
 			</header>
@@ -121,7 +137,7 @@ body {
 				<input class="tagBtn" type="button" value="태그추가하기"
 					onclick="addTag();" style="font-size: small;">
 			</header>
-		</div>
+		</div> --%>
 
 
 
@@ -136,13 +152,13 @@ body {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 								<h2>뽕나무족발</h2>
 									<p>02-558-9279</p>
 									<p>서울 강남구 역삼로65길 31</p>
-								</header>		
+									</header>	
 							</div>
 						</section>
 
@@ -152,23 +168,7 @@ body {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic02.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						<!-- Box -->
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="../images/pic03.jpg" alt=""></a>
+								src="/coc/images/pic02.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -184,7 +184,23 @@ body {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic03.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+									</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						<!-- Box -->
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -203,13 +219,24 @@ body {
 
 		<div id="features-wrapper">
 			<div class="container">
-				<div class="row">
+			
+		
+        <%int k = 0; %>
+        <%for (int i = 0; i < title.length; i++){ %>
+        	<div class="row">
+        		<div class="col-12 col-12-medium">
+        			<a href="<%=link[i]%>" target="_blank"><h2><%=title[i] %></h2></a>
+        			<p><%=description[i] %></p>
+        		</div>
+        	</div>
+        <%} %>
+				<!-- <div class="row">
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 								<h2>뽕나무족발</h2>
@@ -223,10 +250,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic02.jpg" alt=""></a>
+								src="/coc/images/pic02.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -239,10 +266,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic03.jpg" alt=""></a>
+								src="/coc/images/pic03.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -255,10 +282,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -269,17 +296,17 @@ body {
 						</section>
 
 					</div>
-				</div>
+				</div> -->
 				
 				
 				
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 								<h2>뽕나무족발</h2>
@@ -293,10 +320,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic02.jpg" alt=""></a>
+								src="/coc/images/pic02.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -309,10 +336,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic03.jpg" alt=""></a>
+								src="/coc/images/pic03.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -325,10 +352,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -339,16 +366,16 @@ body {
 						</section>
 
 					</div>
-				</div>
+				</div> -->
 				
 				
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 								<h2>뽕나무족발</h2>
@@ -362,10 +389,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic02.jpg" alt=""></a>
+								src="/coc/images/pic02.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -378,10 +405,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic03.jpg" alt=""></a>
+								src="/coc/images/pic03.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -394,10 +421,10 @@ body {
 					</div>
 					<div class="col-3 col-12-medium">
 
-						<!-- Box -->
+						Box
 						<section class="box feature">
 							<a href="#" class="image featured"><img
-								src="../images/pic01.jpg" alt=""></a>
+								src="/coc/images/pic01.jpg" alt=""></a>
 							<div class="inner">
 								<header>
 									<h2>뽕나무족발</h2>
@@ -408,7 +435,7 @@ body {
 						</section>
 
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -462,6 +489,9 @@ body {
 	</div>
 
 	<!-- Scripts -->
+	<script>
+
+	</script>
 
 	
 </body>

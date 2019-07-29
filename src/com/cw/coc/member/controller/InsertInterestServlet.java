@@ -1,11 +1,15 @@
 package com.cw.coc.member.controller;
 
+import java.io.Console;
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
@@ -27,8 +31,9 @@ public class InsertInterestServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 *//*,HttpSession session*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String[] irr = request.getParameterValues("survey");
@@ -39,17 +44,32 @@ public class InsertInterestServlet extends HttpServlet {
 				if(i==0) {
 					survey += irr[i];
 				}else {
-					survey += ", " + irr[i];
+					survey += "," + irr[i];
 				}
 			}
 		}
-
-		Member m = new Member();
-		m.setSurvey(survey);
-
-		System.out.println("InsertInterestMemberServlet : " + m);
-
-		int result = new MemberService().insertInterest(m);
+//		HttpSession session = request.getSession();
+//		System.out.println(session.getAttribute("Info"));
+//		String hi = session.getAttribute("Info").toString();
+		Member member = new Member();
+//		Member m = new Member();
+//		String var = m.getUserId();
+		//m.setSurvey(survey);
+		HttpSession session= request.getSession();
+		Map<String,Object> var=(Map<String, Object>) session.getAttribute("Info");
+//		System.out.println("uuuuuu"+var);
+		System.out.println(var); 
+		System.out.println(var.get("userId"));
+		member.setUserId(var.get("userId").toString());
+		member.setEmail(var.get("useremail").toString());
+		member.setGender(var.get("usergender").toString());
+		member.setSurvey(survey);
+		member.setUserPwd(var.get("userPwd").toString());
+		member.setAge(Integer.parseInt(var.get("userAge").toString()));
+		
+		System.out.println("InsertInterestMemberServlet : " + member);
+	//	member.setUserId(session.getAttribute("Info"));
+		int result = new MemberService().insertMember(member);
 
 		String page = "";
 
@@ -69,7 +89,9 @@ public class InsertInterestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		doGet(request, response);
+//		System.out.println(request +"%%"+ response+"qweqweqweqwe"+member);
 	}
 
 }

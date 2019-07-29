@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*"%>
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
 <%
+	
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
@@ -69,21 +70,21 @@ table {
 					<th width="100px">조회수</th>
 					<th width="150px">작성일</th>
 				</tr>
-				<% for(Board b : list){ %>
+				<% for(Board b : list){ 
+				%>
 				<tr>
-					<input type="hidden" value="<%= b.getUno() %>">
+					<input type="hidden" value="<%= b.getbCode() %>">
 					<td><%= b.getbCode() %></td>
 					<td><%= b.getbType() %></td>
 					<td><%= b.getbTitle() %></td>
 					<td><%= b.getbWriter() %></td>
-					<td><%= b.getCount() %></td>
+					<td><span><%= b.getCount()%></span></td>
 					<td><%= b.getbDate() %></td>
 				</tr>
 				<% } %>
 			</table>
 		</div>
-		
-		페이징처리
+		<br><br><br><br><br>
 		<div class="pagingArea" align="center">
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
 			
@@ -113,7 +114,6 @@ table {
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
 		</div>
 		
-		검색영역
 		<div class="searchArea" align="center">
 			<select id="searchCondition" name="searchCondition">
 				<option value="category">카테고리</option>
@@ -124,7 +124,7 @@ table {
 			<input type="search">
 			<button type="submit">검색하기</button>
 			<% if(loginUser != null){ %>
-			<button onclick="location.href='../board/boardInsertForm.jsp'">작성하기</button>
+			<button onclick="location.href='views/board/boardInsertForm.jsp'">작성하기</button>
 			<% } %>
 		</div>
 		
@@ -134,9 +134,9 @@ table {
 	<script>
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
+				$(this).parent().css({"background":"skyblue", "cursor":"pointer"});
 			}).mouseout(function(){
-				$(this).parent().css({"background":"black"});
+				$(this).parent().css({"background":"white"});
 			}).click(function(){
 				var num = $(this).parent().children("input").val();
 				

@@ -46,22 +46,21 @@ body {
 					<div class="form-group">
 						<label for="inputUserId" class="col-sm-5 control-label" id="userId">아이디</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" id="inputuserId" name="userId">
+							<input type="text" class="form-control" id="userId" name="userId">
 						</div>
 						
 					</div>
 					<div class="form-group">
 						<label for="inputUserPwd" class="col-sm-5 control-label" id="userPwd">비밀번호</label>
 						<div class="col-sm-3">
-							<input type="password" class="form-control" id="inputuserPwd" name="userPwd">
+							<input type="password" class="form-control" id="userPwd" name="userPwd">
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" class="btn btn-default">
+							<button type="submit" class="btn btn-default" onclick="check_form()">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
-							<!-- <button type="submit">로그인</button> -->
 						</div>
 					</div>
 				</form>
@@ -81,6 +80,20 @@ body {
 		function findpwd(){
 			location.href="/coc/views/member/findPwd.jsp";
 		}
+		function check_form(){
+			if($.trim($("#userId").val()) == ""){
+				alert("아이디를 입력해주세요");
+				$("#userId").focus();
+				return false;
+			}
+			
+			if($.trim($("#userPwd").val()) == ""){
+				alert("패스워드를 입력해주세요");
+				$("#userPws").focus();
+				return false;
+			}
+		}
+
 	</script>
 
 		<!-- Footer -->

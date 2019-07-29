@@ -80,15 +80,13 @@ table {
 				<div align="center">
 					<button
 						onclick="location.href='<%=request.getContextPath()%>/selectList.bo'">메뉴</button>
-					<%
-						if (loginUser != null && b.getUno() == loginUser.getUno()) {
-					%>
+					 <%
+						if (loginUser != null && b.getbWriter().equals(loginUser.getUserId())) {
+					%> 
 					<button
-						onclick="location.href='<%=request.getContextPath()%>/selectOne.bo?num=<%=b.getUno()%>'">수정하기</button>
-					<button
-						onclick="location.href='<%=request.getContextPath()%>/deleteBoard.bo">글
-						삭제하기</button>
-					<%
+						onclick="location.href='<%=request.getContextPath()%>/selectBoard.bo?num=<%= b.getbCode()%>'">수정하기</button>
+				
+					 <%
 						}
 					%>
 				</div>

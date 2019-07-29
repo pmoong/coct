@@ -110,7 +110,7 @@ body {
                <ul>
                   <li><a href="#">계획그리기</a></li>
                   <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
-                  <li><a href="/coc/views/place/reservation.jsp">숙소잡기</a></li>
+                  <li><a href="/coc/views/place/reservation.jsp" onclick="reservation()">숙소잡기</a></li>
                   <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
                </ul>
             </nav>
@@ -129,7 +129,13 @@ body {
 		function logout(){
 			location.href="<%=request.getContextPath()%>/logout";
 		}
-		
+
+		function myPage(){
+			location.href="/coc/selectSurvey";
+		}
+		function reservation(){
+			lacation.href="/coc/random";
+		}
 	</script>
 
 </body>

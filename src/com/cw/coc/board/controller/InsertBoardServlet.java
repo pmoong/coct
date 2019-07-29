@@ -34,24 +34,26 @@ public class InsertBoardServlet extends HttpServlet {
 		String bType = request.getParameter("bType");
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
-		
+		String bWriter = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUserId());
+		int uno = ((Member) request.getSession().getAttribute("loginUser")).getUno();
+		System.out.println("loginuser" + ((Member) request.getSession().getAttribute("loginUser")) );
 		/*HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
 		String writer = String.valueOf(loginUser.getUno());*/
 		
-		String writer = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUno());
 		 //request.getSession().getAttribute("loginUser")).getUno()
 		System.out.println("bType : " + bType);
 		System.out.println("bTitle : " + bTitle);
 		System.out.println("bContent : " + bContent);
-		System.out.println("writer : " + writer);
+		System.out.println("bWriter : " + bWriter);
+		System.out.println(" uno  :  " + uno);
 		
 		Board b = new Board();
 		b.setbType(bType);
 		b.setbTitle(bTitle);
 		b.setbContent(bContent);
-		b.setbWriter(writer);
-		
+		b.setbWriter(bWriter);
+		b.setUno(uno);
 		
 		int result = new BoardService().insertBoard(b);
 		

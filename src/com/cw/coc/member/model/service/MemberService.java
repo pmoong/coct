@@ -56,22 +56,25 @@ public class MemberService {
 		return result;
 	}
 
-	public int insertInterest(Member m) {
+	public int updateSurvey(Member m) {
 		Connection con = getConnection();
-
-		int result = new MemberDao().insertInterest(con, m);
-
+		
+		int result = new MemberDao().updateSurvey(con, m);
+		
 		if(result > 0) {
 			commit(con);
 		}else {
 			rollback(con);
 		}
+		
 		close(con);
-
+		
 		return result;
 	}
 
+
 	public String selectSurvey(String icode) {
+
 		Connection con = getConnection();
 		
 		Member m = new Member();
@@ -96,6 +99,28 @@ public class MemberService {
 		}else {
 			rollback(con);
 		}
+    close(con);
+    
+    return result;
+  }
+
+
+	public int idCheck(String userId) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().idCheck(con, userId);
+		
+		close(con);
+
+		return result;
+	}
+
+
+	public int emailCheck(String email) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().emailCheck(con, email);
+		
 		close(con);
 
 		return result;

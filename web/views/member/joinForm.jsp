@@ -68,6 +68,18 @@ body {
    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
       rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 }
+	#idCheck, #emailCheck {
+		background:white;
+		border-radius:5px;
+		width:20%;
+		text-align:center;
+		border:1px solid lightgray;
+	}
+	#idCheck:hover, #emailCheck:hover {
+		cursor:pointer;
+		background:lightgray;
+		border:1px solid gray;
+	}
 </style>
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -82,58 +94,150 @@ body {
 
       <!-- Header -->
       <%@ include file="../common/menubar_customer.jsp"%>
-      <br>
+      <br><!--  onsubmit="return formsbmit();" -->
       <form action="<%=request.getContextPath() %>/insertMember.me" method="post">
       <div class="container">
          <div class="form-group">
-            <label for="inputId">아이디</label> <input type="text"
-               class="form-control" id="inputId" placeholder="아이디를 입력해 주세요" name="userId">
+            <label for="userId">* 아이디</label>
+          	<input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()">
+         	<br><label id="checkId"></label>
          </div>
          <div class="form-group">
-            <label for="InputEmail">이메일 주소</label> <input type="email"
-               class="form-control" id="InputEmail" placeholder="이메일 주소를 입력해주세요" name="email">
+            <label for="email">* 이메일</label>
+            <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" name="email" onkeyup="emailCheck()">
+         	<br><label id="checkEmail"></label>
          </div>
          <div class="form-group">
-            <label for="inputPassword">비밀번호</label> <input type="password"
-               class="form-control" id="inputPassword" placeholder="비밀번호를 입력해주세요" name="userPwd">
+            <label for="userPwd">* 비밀번호</label> 
+            <input type="password" class="form-control" id="userPwd" 
+            placeholder="비밀번호를 입력해주세요" name="userPwd">
          </div>
          <div class="form-group">
-            <label for="inputPasswordCheck">비밀번호 확인</label> <input
-               type="password" class="form-control" id="inputPasswordCheck"
-               placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요" name="userPwd2">
+            <label for="userPwd2">* 비밀번호 확인</label> 
+            <input type="password" class="form-control" id="userPwd2"
+            placeholder="비밀번호 확인을 위해 다시 한 번 입력 해 주세요" name="userPwd2" onkeyup="checkPwd()">
+            &nbsp;<label id="checkPwd"></label>
          </div>
          <div class="form-group">
-            <label for="inputage">나이</label> <input type="number"
-               class="form-control" id="inputage" placeholder="나이를 입력해 주세요" name="age">
+            <label for="age">* 나이</label> <input type="number"
+               class="form-control" id="age" placeholder="나이를 입력해 주세요" name="age">
          </div><br>
          <div class="form-group" id="radio">
-            <label for="inputgender">성별</label> 
+            <label for="gender">* 성별</label> 
             <input type="radio" name="gender" value="M" id="male"> 
             <label for="male">남</label>
             <input type="radio" name="gender" value="F" id="female"> 
             <label for="female">여</label>
          </div>
          <br>
-         </form>
          <div class="form-group">
             <button class="btn btn-default" type="submit">
-               <a href="joinInterest.jsp" onclick="insertMember();">&emsp;&emsp;&emsp;다음&emsp;&emsp;&emsp; </a>
+               <a onclick="insertMember();">&emsp;&emsp;&emsp;다음&emsp;&emsp;&emsp; </a>
             </button>
             <button type="reset" class="btn btn-default" onclick="location.href='/coc/index.jsp'">&emsp;&emsp;취소하기&emsp;&emsp;</button>
          </div>
+         </form>
       </div>
       <br> <br>
       <hr>
       
       <script>
+		$(function(){
+ 			$("form").submit(function(){
+				if($.trim($("#userId").val()) == ""){
+					alert("아이디 입력하세요");
+					$("#userId").focus();
+					return false;
+				}
+				
+				if($.trim($("#email").val()) == ""){
+					$("#email").focus();
+					return false;
+				}
+				
+				if($.trim($("#userPwd").val()) == "" 
+						&& $.trim($("#userPwd2").val()) == ""){
+					$("#userPwd").focus();
+					return false;
+				}
+				
+				if($.trim($("#age").val()) == ""){
+					$("#age").focus();
+					return false;
+				}
+				return true;
+			}); 
+		});
      	function goMain(){
 			location.href="<%=request.getContextPath()%>/index.jsp";
 		}   	 
 		function insertMember(){
 			$("form").submit();
+			location.href="joinInterest.jsp";
 		}
-     	 
-     	 
+		function idCheck(){
+			var userId = $("#userId").val();
+			
+			$.ajax({
+				url:"/coc/idCheck.me",
+				type:"post",
+				data:{userId:userId},
+				success:function(data){
+					//console.log(data);
+					
+					if(data === "fail"){
+						document.getElementById('checkId').style.color = "red";
+						document.getElementById('checkId').innerHTML = "중복된 아이디입니다"; 
+					}else {
+						document.getElementById('checkId').style.color = "gray";
+						document.getElementById('checkId').innerHTML = "사용가능한 아이디입니다";
+					}
+					
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
+		}
+		function emailCheck(){
+			var email = $("#email").val();
+			
+			$.ajax({
+				url:"/coc/emailCheck.me",
+				type:"post",
+				data:{email:email},
+				success:function(data){
+					//console.log(data);
+					
+					if(data === "fail"){
+						document.getElementById('checkEmail').style.color = "red";
+						document.getElementById('checkEmail').innerHTML = "중복된 이메일입니다"; 
+					}else {
+						document.getElementById('checkEmail').style.color = "gray";
+						document.getElementById('checkEmail').innerHTML = "사용가능한 이메일입니다";
+					}
+					
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			
+			});
+		}
+		function checkPwd(){
+			var f1 = document.forms[0];
+			var pw1 = f1.userPwd.value;
+			var pw2 = f1.userPwd2.value;
+			
+			if(pw1!=pw2){
+			   document.getElementById('checkPwd').style.color = "red";
+			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치하지 않습니다"; 
+			}else{
+			   document.getElementById('checkPwd').style.color = "gray";
+			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치합니다";    
+			}	  
+		}
+
       </script>
       
       

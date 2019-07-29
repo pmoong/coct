@@ -71,8 +71,8 @@ public class SelectBoardListServlet extends HttpServlet {
 				new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
 		ArrayList<Board> list = new BoardService().selectList(currentPage, limit);
-		System.out.println(pi);
-		System.out.println(list);
+		System.out.println("PT : " + pi);
+		System.out.println("LIST : " + list);
 		String page = "";
 		
 		if(list != null) {
@@ -85,7 +85,7 @@ public class SelectBoardListServlet extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
-	}
+	}	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -46,16 +46,16 @@ body {
 		<div class="container" align="center">
 			<form class="form-horizontal" action="<%=request.getContextPath() %>/sendMail" method="post">
 				<div class="form-group">
-					<label for="inputUserEmail" class="col-sm-5 control-label" id="userEmail">이메일</label>
+					<label for="email" class="col-sm-5 control-label" id="userEmail">이메일</label>
 					<div class="col-sm-3">
-						<input type="email" class="form-control" id="inputuserEmail">
+						<input type="email" class="form-control" id="email" placeholder="user@gmail.com" onkeyup="emailCheck()">
 					</div>
+            		<br><br><label id="checkEmail"></label>
 				</div>
-				<br>
 			</form>
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-10">
-					<button type="submit" class="btn btn-default">아이디 발송</button>
+					<button class="btn btn-default" onclick="sendMail()">아이디 발송</button>
 					<button class="btn btn-default" onclick="gologin();">취소</button>
 				</div>
 			</div>
@@ -65,6 +65,45 @@ body {
 			function gologin(){
 				location.href="/coc/views/member/login.jsp";
 			}
+			function emailCheck(){
+					var email = $("#email").val();
+					
+					$.ajax({
+						url:"/coc/emailCheck.me",
+						type:"post",
+						data:{email:email},
+						success:function(data){
+							//console.log(data);
+							
+							if(data === "fail"){
+								document.getElementById('checkEmail').style.color = "red";
+								document.getElementById('checkEmail').innerHTML = "존재하는 이메일입니다"; 
+							}else {
+								document.getElementById('checkEmail').style.color = "blue";
+								document.getElementById('checkEmail').innerHTML = "존재하지 않는 이메일입니다";
+							}
+							
+						},
+						error:function(){
+							console.log("실패!");
+						}
+					
+				});
+			}
+			function sendMail(){
+				
+			}
+			$(function(){
+	 			$("form").submit(function(){
+					if($.trim($("#email").val()) == ""){
+						$("#email").focus();
+						return false;
+					}
+
+					return true;
+				}); 
+			});
+
 		</script>
 
 		<!-- Footer -->

@@ -90,6 +90,7 @@ public class MemberDao {
 			if(rset.next()) {
 				loginUser = new Member();
 				
+				loginUser.setUno(rset.getInt("SEQ_UNO"));
 				loginUser.setUserId(rset.getString("USER_ID"));
 				loginUser.setUserPwd(rset.getString("USER_PWD"));
 				loginUser.setEmail(rset.getString("EMAIL"));
@@ -122,8 +123,10 @@ public class MemberDao {
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getUserPwd());
 			pstmt.setString(3, m.getEmail());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getAge());
+			pstmt.setString(4, "M");
+			pstmt.setString(5, m.getGender());
+			pstmt.setInt(6, m.getAge());
+			pstmt.setString(7, m.getSurvey());
 			
 			result = pstmt.executeUpdate();
 
@@ -136,29 +139,26 @@ public class MemberDao {
 		return result;
 	}
 
-	public int insertInterest(Connection con, Member m) {
-		int result = 0;
+	public int updateSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
-
-		String query = prop.getProperty("insertInterest");
-
+		int result = 0;
+		
+		String query = prop.getProperty("updateSurvey");
+		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPwd());
 			
-			result = pstmt.executeUpdate();
-
 		} catch (SQLException e) {
+			
 			e.printStackTrace();
-		} finally {
-			close(pstmt);
 		}
 		
 		return result;
 	}
 
+
 	public String selectSurvey(Connection con, String icode) {
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 	
@@ -175,7 +175,28 @@ public class MemberDao {
 			pstmt.setString(1, m.getUserId());
 			
 			rset = pstmt.executeQuery();
+      
+    } catch (SQLException e) {
+			e.printStackTrace();
+		}
+  return rset;
+}
+
+	public int idCheck(Connection con, String userId) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userId);
+
+      
 			
+
 			while(rset.next()) {
 				 icode = rset.getString("Survey");
 				
@@ -184,16 +205,17 @@ public class MemberDao {
 			
 			
 			
-		} catch (SQLException e) {
-			
+		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+
 			close(pstmt);
 			close(rset);
 		}
 		
 		
 		return icode;
+
 	}
 
 	public int updatePassword(Connection con, Member m) {
@@ -211,6 +233,36 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int emailCheck(Connection con, String email) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("emailCheck");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, email);
+
+      
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
 			close(pstmt);
 		}
 		

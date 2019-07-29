@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.member.model.vo.Member;
 
 
 public class BoardDao {
@@ -41,8 +42,16 @@ public class BoardDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			//쿼리문 작성되는 대로 작성할것~~
+			pstmt.setString(1, b.getbTitle());
+			pstmt.setString(2, b.getbContent());
+			pstmt.setString(3, b.getbType());
+			pstmt.setString(4, b.getbWriter());
+			pstmt.setInt(5, b.getUno());
 			
 			result = pstmt.executeUpdate();
+			
+			System.out.println("insertboard query : " +query);
+			System.out.println("uno : " + b.getUno());
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,7 +67,6 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> list = null;
-		
 		String query = prop.getProperty("selectListWithPaging");
 		
 		try {
@@ -83,6 +91,7 @@ public class BoardDao {
 				b.setbTitle(rset.getString("BTITLE"));
 				b.setbContent(rset.getString("BCONTENT"));
 				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
 				b.setcCode(rset.getInt("SEQ_CCODE"));
 				b.setpCode(rset.getString("PCODE"));
 				b.setUno(rset.getInt("SEQ_UNO"));
@@ -90,10 +99,10 @@ public class BoardDao {
 				b.setCount(rset.getInt("COUNT"));
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 				
+				
 				list.add(b);
 			}
-
-			
+			System.out.println("board b list = " + list);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -170,6 +179,8 @@ public class BoardDao {
 			pstmt.setInt(1, num);
 			
 			rset = pstmt.executeQuery();
+			System.out.println("sone query : " + query);
+			
 			
 			if(rset.next()) {
 				b = new Board();
@@ -179,6 +190,7 @@ public class BoardDao {
 				b.setbTitle(rset.getString("BTITLE"));
 				b.setbContent(rset.getString("BCONTENT"));
 				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
 				b.setcCode(rset.getInt("SEQ_CCODE"));
 				b.setpCode(rset.getString("PCODE"));
 				b.setUno(rset.getInt("SEQ_UNO"));
@@ -187,7 +199,6 @@ public class BoardDao {
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 				
 			}
-		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -195,20 +206,21 @@ public class BoardDao {
 			close(rset);
 		}
 		
+		System.out.println("값 리턴하러가기");
 		return b;
 	}
 
 
-	public int deleteBoard(Connection con, int nno) {
+	public int deleteBoard(Connection con, int bcode) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("deleteNotice");
+		String query = prop.getProperty("deleteBoard");
 		
 		System.out.println("query" + query);
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, nno);
+			pstmt.setInt(1, bcode);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -225,13 +237,13 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("updateNotice");
+		String query = prop.getProperty("updateBoard");
 		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, b.getbTitle());
 			pstmt.setString(2, b.getbContent());
-			pstmt.setInt(3, b.getUno());
+			pstmt.setInt(3, b.getbCode());
 			
 			
 			result = pstmt.executeUpdate();

@@ -1,24 +1,27 @@
 package com.cw.coc.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.cw.coc.member.model.service.MemberService;
 
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/idCheck.me")
+public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public IdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,10 +30,21 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String userId = request.getParameter("userId");
 		
-		request.getSession().invalidate();
+		int result = new MemberService().idCheck(userId);
+		System.out.println("userId : " + userId);
+		PrintWriter out = response.getWriter();
 		
-		response.sendRedirect("/coc/index.jsp");
+		if(result > 0) {
+			out.append("fail");
+		}else {
+			out.append("success");
+		} 
+		
+		
+		out.flush();
+		out.close();
 	}
 
 	/**
