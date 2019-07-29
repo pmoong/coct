@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-	String str = (String) request.getAttribute("str");	
+	String icode = (String) request.getAttribute("icode");
 %>
 
 <!DOCTYPE HTML>
@@ -152,51 +152,54 @@ div>a{
 				</tr>
 				<tr>
 					<td style="vertical-align: middle"><label>설문조사</label>
+					<form action="/coc/updateSurvey" method="post">
 					<br><br>
 					<button typee="submit" style="background:darkgray">저장하기</button>
+					<input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
+					
 					</td>
 					<td colspan="2">
-					<form action="" method="get">
+					
             <label class="checkbox-inline"><b>분위기 </b> </label><br>
             <br>
 
 
             <div class="checks">
-               <input type="checkbox" id="ex_chk1" value="option1" name="checkbox">
+               <input type="checkbox" id="ex_chk1" value="1" name="checkbox">
                <label for="ex_chk1" class="checkbox-inline">회식</label> 
-               <input type="checkbox" id="ex_chk2" value="option2" name="checkbox">
+               <input type="checkbox" id="ex_chk2" value="2" name="checkbox">
                <label for="ex_chk2" class="checkbox-inline">데이트 </label> 
-               <input type="checkbox" id="ex_chk3" value="option3" name="checkbox">
+               <input type="checkbox" id="ex_chk3" value="3" name="checkbox">
                <label for="ex_chk3" class="checkbox-inline">연말모임 </label> 
-               <input type="checkbox" id="ex_chk4" value="option4" name="checkbox">
+               <input type="checkbox" id="ex_chk4" value="4" name="checkbox">
                <label for="ex_chk4" class="checkbox-inline">분위기 좋은 맛집 </label> 
-               <input type="checkbox" id="ex_chk5" value="option5" name="checkbox">
+               <input type="checkbox" id="ex_chk5" value="5" name="checkbox">
                <label for="ex_chk5" class="checkbox-inline">비오는날 맛집 </label> 
-               <input type="checkbox" id="ex_chk6" value="option6" name="checkbox">
+               <input type="checkbox" id="ex_chk6" value="6" name="checkbox">
                <label for="ex_chk6" class="checkbox-inline">고급스러운 맛집</label>
                <br><br>
-               <input type="checkbox" id="ex_chk7" value="option7" name="checkbox">
+               <input type="checkbox" id="ex_chk7" value="7" name="checkbox">
                <label for="ex_chk7" class="checkbox-inline">세련된 맛집</label>
-               <input type="checkbox" id="ex_chk8" value="option8" name="checkbox">
+               <input type="checkbox" id="ex_chk8" value="8" name="checkbox">
                <label for="ex_chk8" class="checkbox-inline">송년회</label>
-               <input type="checkbox" id="ex_chk9" value="option9" name="checkbox">
+               <input type="checkbox" id="ex_chk9" value="9" name="checkbox">
                <label for="ex_chk9" class="checkbox-inline">몸보신</label>
-               <input type="checkbox" id="ex_chk10" value="option10" name="checkbox">
+               <input type="checkbox" id="ex_chk10" value="10" name="checkbox">
                <label for="ex_chk10" class="checkbox-inline">소개팅</label>
-               <input type="checkbox" id="ex_chk11" value="option11" name="checkbox">
+               <input type="checkbox" id="ex_chk11" value="11" name="checkbox">
                <label for="ex_chk11" class="checkbox-inline">기념일</label>
-               <input type="checkbox" id="ex_chk12" value="option12" name="checkbox">
+               <input type="checkbox" id="ex_chk12" value="12" name="checkbox">
                <label for="ex_chk12" class="checkbox-inline">가족모임</label>
                <br><br>
-               <input type="checkbox" id="ex_chk13" value="option13" name="checkbox">
+               <input type="checkbox" id="ex_chk13" value="13" name="checkbox">
                <label for="ex_chk13" class="checkbox-inline">조용한 분위기</label>
-               <input type="checkbox" id="ex_chk14" value="option14" name="checkbox">
+               <input type="checkbox" id="ex_chk14" value="14" name="checkbox">
                <label for="ex_chk14" class="checkbox-inline">젊고 캐쥬얼한</label>
-               <input type="checkbox" id="ex_chk15" value="option15" name="checkbox">
+               <input type="checkbox" id="ex_chk15" value="15" name="checkbox">
                <label for="ex_chk15" class="checkbox-inline">아이와 함께</label>
-               <input type="checkbox" id="ex_chk16" value="option16" name="checkbox">
+               <input type="checkbox" id="ex_chk16" value="16" name="checkbox">
                <label for="ex_chk16" class="checkbox-inline">모임하기 좋은</label>
-               <input type="checkbox" id="ex_chk17" value="option17" name="checkbox">
+               <input type="checkbox" id="ex_chk17" value="17" name="checkbox">
                <label for="ex_chk17" class="checkbox-inline">특별한 날</label>
             </div>
             <!-- </div>
@@ -205,17 +208,17 @@ div>a{
             <br> <label class="checkbox-inline"><b>연령</b> </label><br>
             <br>
             <div class="checks">
-               <input type="checkbox" id="inlineCheckbox1" value="option1" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox1" value="18" name="checkbox">
                <label for="inlineCheckbox1" class="checkbox-inline">10대 </label> 
-               <input type="checkbox" id="inlineCheckbox2" value="option2" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox2" value="19" name="checkbox">
                <label for="inlineCheckbox2" class="checkbox-inline">20대 </label> 
-               <input type="checkbox" id="inlineCheckbox3" value="option3" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox3" value="20" name="checkbox">
                <label for="inlineCheckbox3" class="checkbox-inline">30대 </label> 
-               <input type="checkbox" id="inlineCheckbox4" value="option4" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox4" value="21" name="checkbox">
                <label for="inlineCheckbox4" class="checkbox-inline">40대</label> 
-               <input type="checkbox" id="inlineCheckbox5" value="option5" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox5" value="22" name="checkbox">
                <label for="inlineCheckbox5" class="checkbox-inline">50대</label> 
-               <input type="checkbox" id="inlineCheckbox6" value="option6" name="checkbox">
+               <input type="checkbox" id="inlineCheckbox6" value="23" name="checkbox">
                <label for="inlineCheckbox6" class="checkbox-inline">60대~</label> 
                   
             </div>
@@ -224,66 +227,67 @@ div>a{
             <br> <label class="checkbox-inline"><b>위치</b> </label><br>
             <br>
             <div class="checks">
-               <input type="checkbox" id="seoulCheckbox1" value="option1" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox1" value="24" name="checkbox">
                <label for="seoulCheckbox1" class="checkbox-inline">도봉구</label> 
-               <input type="checkbox" id="seoulCheckbox2" value="option2" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox2" value="25" name="checkbox">
                <label for="seoulCheckbox2" class="checkbox-inline">노원구 </label> 
-               <input type="checkbox" id="seoulCheckbox3" value="option3" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox3" value="26" name="checkbox">
                <label for="seoulCheckbox3" class="checkbox-inline">강북구 </label> 
-               <input type="checkbox" id="seoulCheckbox4" value="option4" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox4" value="27" name="checkbox">
                <label for="seoulCheckbox4" class="checkbox-inline">성북구 </label> 
-               <input type="checkbox" id="seoulCheckbox5" value="option5" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox5" value="28" name="checkbox">
                <label for="seoulCheckbox5" class="checkbox-inline">중랑구</label> 
-               <input type="checkbox" id="seoulCheckbox6" value="option6" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox6" value="29" name="checkbox">
                <label for="seoulCheckbox6" class="checkbox-inline">서대문구</label>
                <br><br>
-               <input type="checkbox" id="seoulCheckbox7" value="option7" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox7" value="30" name="checkbox">
                <label for="seoulCheckbox7" class="checkbox-inline">종로구</label>
-               <input type="checkbox" id="seoulCheckbox8" value="option8" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox8" value="31" name="checkbox">
                <label for="seoulCheckbox8" class="checkbox-inline">온평구</label>
-               <input type="checkbox" id="seoulCheckbox9" value="option9" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox9" value="32" name="checkbox">
                <label for="seoulCheckbox9" class="checkbox-inline">서대문구</label>
-               <input type="checkbox" id="seoulCheckbox10" value="option10" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox10" value="33" name="checkbox">
                <label for="seoulCheckbox10" class="checkbox-inline">동대문구</label>
-               <input type="checkbox" id="seoulCheckbox11" value="option11" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox11" value="34" name="checkbox">
                <label for="seoulCheckbox11" class="checkbox-inline">중구</label>
-               <input type="checkbox" id="seoulCheckbox12" value="option12" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox12" value="35" name="checkbox">
                <label for="seoulCheckbox12" class="checkbox-inline">성동구</label>
                <br><br>
-               <input type="checkbox" id="seoulCheckbox13" value="option13" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox13" value="36" name="checkbox">
                <label for="seoulCheckbox13" class="checkbox-inline">광진구</label>
-               <input type="checkbox" id="seoulCheckbox14" value="option14" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox14" value="37" name="checkbox">
                <label for="seoulCheckbox14" class="checkbox-inline">마포구</label>
-               <input type="checkbox" id="seoulCheckbox15" value="option15" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox15" value="38" name="checkbox">
                <label for="seoulCheckbox15" class="checkbox-inline">용산구</label>
-               <input type="checkbox" id="seoulCheckbox16" value="option16" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox16" value="39" name="checkbox">
                <label for="seoulCheckbox16" class="checkbox-inline">강동구</label>
-               <input type="checkbox" id="seoulCheckbox17" value="option17" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox17" value="40" name="checkbox">
                <label for="seoulCheckbox17" class="checkbox-inline">송파구</label>
                <br><br>
-               <input type="checkbox" id="seoulCheckbox18" value="option18" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox18" value="41" name="checkbox">
                <label for="seoulCheckbox18" class="checkbox-inline">강남구</label>
-               <input type="checkbox" id="seoulCheckbox19" value="option19" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox19" value="42" name="checkbox">
                <label for="seoulCheckbox19" class="checkbox-inline">서초구</label>
-               <input type="checkbox" id="seoulCheckbox20" value="option20" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox20" value="43" name="checkbox">
                <label for="seoulCheckbox20" class="checkbox-inline">동작구</label>
-               <input type="checkbox" id="seoulCheckbox21" value="option21" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox21" value="44" name="checkbox">
                <label for="seoulCheckbox21" class="checkbox-inline">관약구</label>
-               <input type="checkbox" id="seoulCheckbox22" value="option22" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox22" value="45" name="checkbox">
                <label for="seoulCheckbox22" class="checkbox-inline">영등포구</label>
                <br><br>
-               <input type="checkbox" id="seoulCheckbox23" value="option23" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox23" value="46" name="checkbox">
                <label for="seoulCheckbox23" class="checkbox-inline">금천구</label>
-               <input type="checkbox" id="seoulCheckbox24" value="option24" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox24" value="47" name="checkbox">
                <label for="seoulCheckbox24" class="checkbox-inline">구로구</label>
-               <input type="checkbox" id="seoulCheckbox25" value="option25" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox25" value="48" name="checkbox">
                <label for="seoulCheckbox25" class="checkbox-inline">양천구</label>
-               <input type="checkbox" id="seoulCheckbox26" value="option26" name="checkbox">
+               <input type="checkbox" id="seoulCheckbox26" value="49" name="checkbox">
                <label for="seoulCheckbox26" class="checkbox-inline">강서구</label>
                
             </div>
 					
 					</td>
+					</form>
 				</tr>
 				</tbody>
 			</table>
@@ -508,11 +512,11 @@ div>a{
 	// 취향
 	$(function(){
 		$("input[name=checkbox]").each(function(){
-			var arr = '<%= str %>'.split(",");
+			var arr = '<%= icode %>'.split(",");
 			//location.href="/selectInterest";
-			console.log(arr);
+			
 			for(var i=0;i<arr.length;i++){
-				if($(this).val() == arr[i]){
+				if($(this).val()== arr[i]){
 					$(this).attr("checked", true);
 				}
 			}

@@ -56,10 +56,10 @@ public class MemberService {
 		return result;
 	}
 
-	public int updateSurvey(Member m) {
+	public int updateSurvey(String uno, String icode) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().updateSurvey(con, m);
+		int result = new MemberDao().updateSurvey(con, uno, icode);
 		
 		if(result > 0) {
 			commit(con);
@@ -67,19 +67,20 @@ public class MemberService {
 			rollback(con);
 		}
 		
+		System.out.println("서비스!!");
 		close(con);
 		
 		return result;
 	}
 
 
-	public String selectSurvey(String icode) {
+	public String selectSurvey(String uno) {
 
 		Connection con = getConnection();
 		
 		Member m = new Member();
 		
-		 icode = new MemberDao().selectSurvey(con, icode);
+		String icode = new MemberDao().selectSurvey(con, uno);
 		
 		
 		close(con);

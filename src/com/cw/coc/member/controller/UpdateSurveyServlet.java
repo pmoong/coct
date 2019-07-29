@@ -1,7 +1,6 @@
 package com.cw.coc.member.controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,39 +9,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.member.model.service.MemberService;
-import com.cw.coc.member.model.vo.Member;
 
 
-@WebServlet("/selectSurvey")
-public class SelectSurveyServlet extends HttpServlet {
+@WebServlet("/updateSurvey")
+public class UpdateSurveyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public SelectSurveyServlet() {
+    
+    public UpdateSurveyServlet() {
         super();
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
-	//	String[] iCodeArr = request.getParameterValues("checkbox");
-		
-	
 		String uno = request.getParameter("userNo");
+		String[] icodeArr = request.getParameterValues("checkbox"); 
+		String icode = "";
+		System.out.println(uno);
 		
-		String icode = new MemberService().selectSurvey(uno);
-		String page = "";
+		int result = new MemberService().updateSurvey(uno, icode);
 		
-		page = "/views/member/myPage.jsp";
-		request.setAttribute("icode", icode);
+		for(int i=0;i<icodeArr.length;i++) {
+			if(i==0) {
+				icode += icodeArr[i];
+			}else {
+				icode += "," + icodeArr[i];
+			}
+		}
 		
 		
-		request.getRequestDispatcher(page).forward(request, response);
-		//ResultSet rset = new MemberService().selectSurvey(m);
+		
+		System.out.println(icode);	
+		
+		
 		
 	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

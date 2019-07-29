@@ -139,7 +139,7 @@ public class MemberDao {
 		return result;
 	}
 
-	public int updateSurvey(Connection con, Member m) {
+	public int updateSurvey(Connection con, String uno, String icode) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -147,39 +147,46 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, icode);
+			pstmt.setString(2, uno);
 			
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
 		
 		return result;
 	}
 
 
-	public String selectSurvey(Connection con, String icode) {
+	public String selectSurvey(Connection con, String uno) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		String icode="";
 	
 		
 		String query = prop.getProperty("selectSurvey");
-		
-		System.out.println("dao @");
-		Member m = new Member();
-		System.out.println(m.getUserId());
-		System.out.println(icode);
-		
+
+
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
+			pstmt.setString(1, uno);
 			
 			rset = pstmt.executeQuery();
+			
+			while(rset.next()){
+				icode = rset.getString("icode");
+			}
+			
       
     } catch (SQLException e) {
 			e.printStackTrace();
 		}
-  return rset;
+		return icode;
 }
 
 	public int idCheck(Connection con, String userId) {
