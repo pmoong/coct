@@ -47,14 +47,25 @@ public class LoginServlet extends HttpServlet {
 		
 		String view = "";
 		if(loginUser.getStatus() == LOGIN_OK) {
-			view = "/coc/index.jsp";
 			
+			
+			if(userId != null && userId.equals("admin")) {
+				view = "/coc/selectList.ad";
+				//request.setAttribute("loginUser", loginUser);
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("loginUser", loginUser);
+				
+				response.sendRedirect(view);
+				
+			}else{
+			view = "/coc/index.jsp";
 			//request.setAttribute("loginUser", loginUser);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
 			response.sendRedirect(view);
-			
+			}
 		}else {
 			view = "/views/common/errorPage.jsp";
 			
