@@ -26,7 +26,7 @@ public class CultureDao {
 	 public static void main(String[] args) {
  
   // TODO Auto-generated method stub
-  File file = new File("culture2.xml");
+  File file = new File("culture1.xml");
   System.out.println("1");
   
   CultureParser CultureParser = new CultureParser(file);
@@ -55,7 +55,7 @@ public class CultureDao {
     stmt.setString(6, tmp.get(i).getCcat3());
     stmt.setString(7, tmp.get(i).getCmapx());
     stmt.setString(8, tmp.get(i).getCmapy());
-    stmt.setString(9, tmp.get(i).getCimg());
+    stmt.setString(9, tmp.get(i).getCfirstimage());
     stmt.executeUpdate();
     System.out.println("sucess to save");
    }

@@ -11,7 +11,21 @@ public class SeoulVo {
 	 private String cat3;
 	 private String mapx;
 	 private String  mapy;
-	 private String img;
+	 private String firstimage;
+		public SeoulVo(String title, String addr1, int contenttypeid, String cat1, String cat2, String cat3, String mapx,
+				String mapy, String firstimage) {
+			super();
+			this.title = title;
+			this.addr1 = addr1;
+			this.contenttypeid = contenttypeid;
+			this.cat1 = cat1;
+			this.cat2 = cat2;
+			this.cat3 = cat3;
+			this.mapx = mapx;
+			this.mapy = mapy;
+			this.firstimage = firstimage;
+		}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -24,13 +38,7 @@ public class SeoulVo {
 	public void setAddr1(String addr1) {
 		this.addr1 = addr1;
 	}
- /*	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	} */
-	
+ 
  
 	public int getContenttypeid() {
 		return contenttypeid;
@@ -68,31 +76,14 @@ public class SeoulVo {
 	public void setMapy(String mapy) {
 		this.mapy = mapy;
 	}
+	 public String getFirstimage() {
+			return firstimage;
+		}
+		public void setFirstimage(String firstimage) {
+			this.firstimage = firstimage;
+		}
+
 	
-	
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
-	public SeoulVo(String title, String addr1, int contenttypeid, String cat1, String cat2, String cat3,
-			String mapx, String mapy,String img) {
- 		this.title = title;
-		this.addr1 = addr1;
-	/* 	this.tel = tel; */
-		this.contenttypeid = contenttypeid;
-		this.cat1 = cat1;
-		this.cat2 = cat2;
-		this.cat3 = cat3;
-		this.mapx = mapx;
-		this.mapy = mapy;
-		this.img=img;
-	}
-	 
- 
-	 
-	 
 	 
 	 
 }

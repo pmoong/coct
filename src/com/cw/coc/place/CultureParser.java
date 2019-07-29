@@ -65,16 +65,25 @@ public class CultureParser {
      String ccat3 =this.getTagValue("cat3", element);
      String cmapx =this.getTagValue("mapx", element); 		 
      String cmapy =this.getTagValue("mapy", element); 	 
-     String cimg =this.getTagValue("cimg", element);
-     
-     listOfData.add(new CultureVo(ctitle, caddr1, ccontenttypeid,ccat1, ccat2, ccat3 ,cmapx,cmapy,cimg));
+     String cfirstimage =this.getTagValue("cfirstimage", element);
+   	System.out.println("cfirstimage1" +cfirstimage);
+
+     if(cfirstimage !=null) {
+  		cfirstimage =this.getTagValue("cfirstimage", element);
+  	System.out.println("cfirstimage2" +cfirstimage);
+  	}else {
+  		 
+  	}
+   	System.out.println("cfirstimage3" +cfirstimage);
+
+     listOfData.add(new CultureVo(ctitle, caddr1, ccontenttypeid,ccat1, ccat2, ccat3 ,cmapx,cmapy,cfirstimage));
     }
     System.out.println("listOfData"+listOfData);
   return listOfData;
  }
  
   private static String getTagValue(String tag, Element eElement) {
-		
+		String a=("x");
    NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
 	   Node nValue = (Node) nlList.item(0); 
 	   	
@@ -86,7 +95,8 @@ public class CultureParser {
 			nlList.toString();
 			System.out.println("dsf");
 			return  nValue.getNodeValue();
-		}
+		}else {
+ 		}
 		System.out.println("nlList2"+nlList);
 		System.out.println("nlList12"+nValue.getNodeValue());
 		return nValue.getNodeValue();

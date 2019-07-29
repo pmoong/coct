@@ -13,7 +13,7 @@ public  class CultureVo {
 	 private String cmapx;
 	 private String cmapy;
 
-	 private String cimg;
+	 private String cfirstimage;
 	 
 	public String getCtitle() {
 		return ctitle;
@@ -70,15 +70,15 @@ public  class CultureVo {
 		this.cmapy = cmapy;
 	}
 	
-	
-	public String getCimg() {
-		return cimg;
+	 
+	public String getCfirstimage() {
+		return cfirstimage;
 	}
-	public void setCimg(String cimg) {
-		this.cimg = cimg;
+	public void setCfirstimage(String cfirstimage) {
+		this.cfirstimage = cfirstimage;
 	}
 	public CultureVo(String ctitle, String caddr1, int ccontenttypeid, String ccat1, String ccat2,
-			String ccat3, String cmapx, String cmapy,String cimg) {
+			String ccat3, String cmapx, String cmapy,String cfirstimage) {
 		super();
 		this.ctitle = ctitle;
 		this.caddr1 = caddr1;
@@ -89,7 +89,7 @@ public  class CultureVo {
 		this.ccat3 = ccat3;
 		this.cmapx = cmapx;
 		this.cmapy = cmapy;
-		this.cimg=cimg;
+		this.cfirstimage=cfirstimage;
 System.out.println("fds");
 	}
 	 
