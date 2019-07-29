@@ -68,14 +68,14 @@ body {
    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
       rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 }
-	#idCheck, #emailCheck {
+	#idCheck, #eCheck {
 		background:white;
 		border-radius:5px;
-		width:20%;
+		width:30%;
 		text-align:center;
 		border:1px solid lightgray;
 	}
-	#idCheck:hover, #emailCheck:hover {
+	#idCheck:hover, #eCheck:hover {
 		cursor:pointer;
 		background:lightgray;
 		border:1px solid gray;
@@ -104,9 +104,14 @@ body {
          </div>
          <div class="form-group">
             <label for="email">* 이메일</label>
+            <div style="float:left;">
             <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" name="email" onkeyup="emailCheck()">
+            </div> 
+            <div id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%">인증 받기</div>
+         	<br><br><br><div><label>인증</label><input type="text" id="checkNum"></div>
          	<br><label id="checkEmail"></label>
          </div>
+         <br><br>
          <div class="form-group">
             <label for="userPwd">* 비밀번호</label> 
             <input type="password" class="form-control" id="userPwd" 
@@ -212,6 +217,8 @@ body {
 					if(data === "fail"){
 						document.getElementById('checkEmail').style.color = "red";
 						document.getElementById('checkEmail').innerHTML = "중복된 이메일입니다"; 
+					}else if(){
+						//메일인증완료시
 					}else {
 						document.getElementById('checkEmail').style.color = "gray";
 						document.getElementById('checkEmail').innerHTML = "사용가능한 이메일입니다";
