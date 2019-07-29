@@ -81,7 +81,6 @@ body {
 			location.href="/coc/views/member/findPwd.jsp";
 		}
 		function check_form(){
-		
 	
 			if($.trim($("#userId").val()) == ""){
 				alert("아이디를 입력해주세요");
