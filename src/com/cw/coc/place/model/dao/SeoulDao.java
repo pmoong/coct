@@ -1,10 +1,10 @@
 package com.cw.coc.place.model.dao;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.SQLException;
+ import java.sql.SQLException;
 import java.util.List;
 
 import com.cw.coc.place.Condb;
@@ -36,12 +36,16 @@ public class SeoulDao {
   SeoulParser seoulParser = new SeoulParser(file);
   List<SeoulVo> tmp = seoulParser.parse("item");
   
-  Condb connectDB = new Condb();
-	 System.out.println(connectDB+"connectDB");
-
+  try {
+	Condb connectDB = new Condb();
+} catch (IOException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
+  
+  
   Connection conn = Condb.getConnection();
-  System.out.println(tmp);
-  	 System.out.println(conn+"conn");
+   	 System.out.println(conn+"conn");
    String sql = "INSERT INTO SEOUL VALUES(?,?,?,?,?,?,?,?,?)";
  
   try {
