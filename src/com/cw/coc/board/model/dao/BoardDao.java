@@ -45,9 +45,13 @@ public class BoardDao {
 			pstmt.setString(1, b.getbTitle());
 			pstmt.setString(2, b.getbContent());
 			pstmt.setString(3, b.getbType());
-			pstmt.setInt(4, b.getUno());
+			pstmt.setString(4, b.getbWriter());
+			pstmt.setInt(5, b.getUno());
 			
 			result = pstmt.executeUpdate();
+			
+			System.out.println("insertboard query : " +query);
+			System.out.println("uno : " + b.getUno());
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,6 +91,7 @@ public class BoardDao {
 				b.setbTitle(rset.getString("BTITLE"));
 				b.setbContent(rset.getString("BCONTENT"));
 				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
 				b.setcCode(rset.getInt("SEQ_CCODE"));
 				b.setpCode(rset.getString("PCODE"));
 				b.setUno(rset.getInt("SEQ_UNO"));
@@ -97,7 +102,7 @@ public class BoardDao {
 				
 				list.add(b);
 			}
-
+			System.out.println("board b list = " + list);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,6 +179,8 @@ public class BoardDao {
 			pstmt.setInt(1, num);
 			
 			rset = pstmt.executeQuery();
+			System.out.println("sone query : " + query);
+			
 			
 			if(rset.next()) {
 				b = new Board();
@@ -183,6 +190,7 @@ public class BoardDao {
 				b.setbTitle(rset.getString("BTITLE"));
 				b.setbContent(rset.getString("BCONTENT"));
 				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
 				b.setcCode(rset.getInt("SEQ_CCODE"));
 				b.setpCode(rset.getString("PCODE"));
 				b.setUno(rset.getInt("SEQ_UNO"));
@@ -191,7 +199,6 @@ public class BoardDao {
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 				
 			}
-		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -199,11 +206,12 @@ public class BoardDao {
 			close(rset);
 		}
 		
+		System.out.println("값 리턴하러가기");
 		return b;
 	}
 
 
-	public int deleteBoard(Connection con, int nno) {
+	public int deleteBoard(Connection con, int bcode) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -212,7 +220,7 @@ public class BoardDao {
 		System.out.println("query" + query);
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, nno);
+			pstmt.setInt(1, bcode);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -235,7 +243,7 @@ public class BoardDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, b.getbTitle());
 			pstmt.setString(2, b.getbContent());
-			pstmt.setInt(3, b.getUno());
+			pstmt.setInt(3, b.getbCode());
 			
 			
 			result = pstmt.executeUpdate();

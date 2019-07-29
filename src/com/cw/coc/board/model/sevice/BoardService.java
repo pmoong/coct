@@ -54,6 +54,8 @@ public class BoardService {
 		
 		if(result > 0) {
 			commit(con);
+			System.out.println("selectone 진행중 1");
+			
 			b = new BoardDao().selectOne(con, num);
 		}else {
 			rollback(con);
@@ -64,10 +66,10 @@ public class BoardService {
 		return b;
 	}
 
-	public int deleteBoard(int uno) {
+	public int deleteBoard(int bcode) {
 		Connection con = getConnection();
 		
-		int result = new BoardDao().deleteBoard(con, uno);
+		int result = new BoardDao().deleteBoard(con, bcode);
 		
 		if(result > 0) {
 			commit(con);

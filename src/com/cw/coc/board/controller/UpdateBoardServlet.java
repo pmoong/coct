@@ -33,6 +33,7 @@ public class UpdateBoardServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		int bcode = Integer.parseInt(request.getParameter("bcode"));
+		System.out.println("이동전 b코드 노출" + bcode);
 
 		Board b = new Board();
 		b.setbTitle(title);
@@ -40,7 +41,7 @@ public class UpdateBoardServlet extends HttpServlet {
 		b.setbCode(bcode);
 
 		int result = new BoardService().updateBoard(b);
-
+		System.out.println("b 노출 : " + b); 
 		String page="";
 
 		if(result > 0) {

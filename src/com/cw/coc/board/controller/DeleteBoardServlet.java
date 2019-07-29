@@ -30,7 +30,7 @@ public class DeleteBoardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		System.out.println("잘되니?");
+		System.out.println("삭ㅈ제~잘되니?");
 		
 		int result = new BoardService().deleteBoard(bcode);
 		String page = "";
