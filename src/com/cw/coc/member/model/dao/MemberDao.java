@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 
 import org.apache.tomcat.util.collections.SynchronizedStack;
 
@@ -189,7 +190,7 @@ public class MemberDao {
 			}
 			
       
-    } catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return icode;
@@ -350,6 +351,57 @@ public class MemberDao {
 		}
 		
 		return listCount;
+	}
+
+	public String findId(Connection con, String email) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String userId = "";
+		
+		String query = prop.getProperty("findId");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, email);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()){
+				userId = rset.getString("USER_ID");
+			}
+			//System.out.println("userId from Dao : " + userId);
+      
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return userId;
+	}
+
+	public int findPwd(Connection con, String userId, String userPwd, String email) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("findPwd");	
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userPwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, email);
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println("userPWD from Dao : " + userPwd);
+      
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 }
