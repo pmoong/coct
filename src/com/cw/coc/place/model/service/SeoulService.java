@@ -17,7 +17,7 @@ public class SeoulService {
 		Connection con = getConnection();
 		
 		ArrayList<SeoulVo> list =new SeoulDao().selecthisList(con);
-		
+		System.out.println("list"+list);
 		close(con);
 		
 		return list;
@@ -62,21 +62,17 @@ public class SeoulService {
 		
 		return list;
 	}
-	
-	/* public ArrayList<SeoulVo> selectList(int currentPage,int limit){
-		Connection con =getConnection();
-		ArrayList<SeoulVo> list =new SeoulDao2().selectList(con,currentPage,limit);
-		close(con);
-		return list;
-		
-	}*/
 
-	/*public int getListCount() {
-		Connection con=getConnection();
-		int listCount =new SeoulDao2().getListCount(con);
+	public ArrayList<SeoulVo> selecttotList() {
+Connection con = getConnection();
+		
+		ArrayList<SeoulVo> list =new SeoulDao().selecttotList(con);
 		
 		close(con);
-		return listCount;
-	}*/
+		
+		return list;
+	}
+	
+ 
 	 
 }
