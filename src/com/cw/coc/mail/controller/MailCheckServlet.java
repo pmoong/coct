@@ -3,6 +3,7 @@ package com.cw.coc.mail.controller;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -18,6 +19,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.cw.coc.mail.model.vo.SendEmail;
 
 /**
  * Servlet implementation class MailCheckServlet
@@ -38,82 +42,25 @@ public class MailCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("mail_servlet");
-		Properties props = System.getProperties();
+		String email = request.getParameter("email");
+		String userId = request.getParameter("userId");
 		
-		props.put("mail.smtp.user", "anjdicodnjs");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "465");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.socketFactory.port", "465");
-		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.socketFactory.fallback", "false");
+		SendEmail sm = new SendEmail();
+		sm.setFrom(email);
 	
-		Authenticator auth = new MyAuthentication();
+		String auth = getRandom();
+		sm.sendMail2(email,auth);
 		
-		//session 생성 및 MimeMessage생성
-		Session session = Session.getDefaultInstance(props, auth);
-		MimeMessage msg = new MimeMessage(session);
+		request.setAttribute("userId", userId);
+		request.setAttribute("email", email);
+		request.setAttribute("auth", auth);
+
+		//되는 소스
+		//response.sendRedirect("/coc/views/member/joinForm.jsp?userId="+userId+"&email="+email);
 		
-		try {
-			//편지보낸시간
-			msg.setSentDate(new Date());
-			
-			InternetAddress from = new InternetAddress("보내는 사람");
-			
-			//이메일 발신자
-			msg.setFrom(from);
-			
-			//이메일 수신자
-			String email = request.getParameter("receiver");
-			
-			InternetAddress to = new InternetAddress(email);
-			msg.setRecipient(Message.RecipientType.TO, to);
-			
-			//이메일 제목
-			msg.setSubject("비밀번호 인증번호", "UTF-8");
-			
-			//이메일 내용
-			String code = request.getParameter("code_check");
-			
-			request.setAttribute("code", code);
-			msg.setText(code, "UTF-8");
-			
-			
-			//이메일 헤더
-			msg.setHeader("content-Type", "text/html");
-			
-			//메일보내기
-			javax.mail.Transport.send(msg);
-			System.out.println("보냄!");
-			
-		} catch (AddressException e) {
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
-	
-		RequestDispatcher rd = request.getRequestDispatcher("인증번호확인하는페이지");
-		rd.forward(request, response);
-		
-		
+		request.getRequestDispatcher("/views/member/joinForm.jsp").forward(request, response);
 	}
-	class MyAuthentication extends Authenticator{
-		PasswordAuthentication pa;
-		
-		public MyAuthentication() {
-			String id = "anjdicodnjs";
-			String pw = "Aheywb457!!";
-			
-			pa = new PasswordAuthentication(id, pw);
-		}
-		
-		public PasswordAuthentication getPasswordAuthentication() {
-			return pa;
-		}
-		
-	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -121,5 +68,30 @@ public class MailCheckServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
+	public String getRandom(){
+		StringBuffer temp =new StringBuffer();
+         Random rnd = new Random();
+         for(int i=0;i<10;i++)
+         {
+             int rIndex = rnd.nextInt(3);
+             switch (rIndex) {
+             case 0:
+                 // a-z
+                 temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+                 break;
+             case 1:
+                 // A-Z
+                 temp.append((char) ((int) (rnd.nextInt(26)) + 65));
+                 break;
+             case 2:
+                 // 0-9
+                 temp.append((rnd.nextInt(10)));
+                 break;
+             }
+         }
+         String AuthenticationKey = temp.toString();
+         System.out.println("인증번호 : " + AuthenticationKey);
+         return AuthenticationKey;
+	}
 }
