@@ -76,7 +76,7 @@ public class AdminSelectBoardListServlet extends HttpServlet {
 		String page = "";
 		
 		if(list != null) {
-			page = "/selectMemberList.ad";
+			page = "views/admin/managerIndex.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 		}else {

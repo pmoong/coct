@@ -282,7 +282,8 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-
+			System.out.println("mquery : " + query);
+			
 			//조회를 시작할 행 번호와 마지막 행 번호 계산
 			int startRow = (currentPage - 1) * limit + 1;
 			int endRow = startRow + limit - 1;
@@ -293,14 +294,15 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			mlist = new ArrayList<Member>();
-
+			System.out.println("여기까진 잘 되비낟 멍청아");
 			while(rset.next()) {
 				Member m = new Member();
 				
-				
 				m.setUno(rset.getInt("SEQ_UNO"));
+				System.out.println("uno" + m.getUno());
 				m.setUserId(rset.getString("USER_ID"));
-				m.setUserPwd(rset.getString("USER_PWD"));
+				System.out.println("userId : " + m.getUserId());
+				m.setUserId(rset.getString("USER_PWD"));
 				m.setEmail(rset.getString("EMAIL"));
 				m.setuType(rset.getString("UTYPE"));
 				m.setGender(rset.getString("GENDER"));
