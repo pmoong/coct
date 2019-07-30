@@ -436,7 +436,7 @@ body {
 								<!-- Box -->
 								<section class="box feature">
 									<div class="img">
-										<a href="/coc/searchRoom?locationName=강남" class="image featured"><img
+										<a href="reserv_hotel.jsp" class="image featured"><img
 											src="/coc/images/gangnam.png" alt="" id="blur"
 											style="cursor: pointer" />
 											<div class="content">
