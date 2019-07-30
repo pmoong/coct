@@ -44,11 +44,11 @@ body {
 <%@ include file="/views/common/menubar_customer.jsp" %>
 
 		<div class="container" align="center">
-			<form class="form-horizontal" action="<%=request.getContextPath() %>/sendMail" method="post">
+			<form class="form-horizontal" action="<%=request.getContextPath() %>/sendMail" onsubmit="return check_form();" method="post">
 				<div class="form-group">
 					<label for="email" class="col-sm-5 control-label" id="userEmail">이메일</label>
 					<div class="col-sm-3">
-						<input type="email" class="form-control" id="email" placeholder="user@gmail.com" onkeyup="emailCheck()">
+						<input type="email" class="form-control" id="email" placeholder="user@gmail.com">
 					</div>
             		<br><br><label id="checkEmail"></label>
 				</div>
@@ -65,7 +65,7 @@ body {
 			function gologin(){
 				location.href="/coc/views/member/login.jsp";
 			}
-			function emailCheck(){
+/* 			function emailCheck(){
 					var email = $("#email").val();
 					
 					$.ajax({
@@ -89,12 +89,26 @@ body {
 						}
 					
 				});
-			}
+			} */
 			function sendMail(){
+				var email = $('#email').val();
+				
+				$.ajax({
+					url:"/coc/mailCheck",
+					type:"post",
+					data:{email:email},
+					success:function(data){
+						console.log(data);
+						
+					},
+					error:function(){
+						console.log("실패!");
+					}
+				});
 				
 			}
-			$(function(){
-	 			$("form").submit(function(){
+			function check_form(){
+				$("form").submit(function(){
 					if($.trim($("#email").val()) == ""){
 						$("#email").focus();
 						return false;
@@ -102,7 +116,7 @@ body {
 
 					return true;
 				}); 
-			});
+			}
 
 		</script>
 

@@ -83,7 +83,7 @@ public class SendEmail {
 		}
 		
 	}
-	public void sendMail2(String email,String auth) {
+	public void joinSendMail(String email,String auth) {
 		String host = "smtp.naver.com";
 		final String user = "khcoct";
 		final String password = "1qazXSW@";
