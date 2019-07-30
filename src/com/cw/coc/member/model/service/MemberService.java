@@ -134,11 +134,11 @@ public class MemberService {
 	public ArrayList<Member> selectList(int currentPage, int limit) {
 		Connection con = getConnection();
 		
-		ArrayList<Member> list = new MemberDao().selectList(con, currentPage, limit);
+		ArrayList<Member> mlist = new MemberDao().selectList(con, currentPage, limit);
 		
 		close(con);
-		
-		return list;
+		System.out.println("mlist test 1 : " + mlist);
+		return mlist;
 	}
 
 
