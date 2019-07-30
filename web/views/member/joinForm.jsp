@@ -121,7 +121,7 @@ body {
             
             <div type="submit" id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%" onclick="email();">인증 받기</div>
          	<br><br><br><div><label>인증 번호</label><input type="text" id="check_code" onkeyup="emailCheck()"></div>
-         	<input type=text readonly="readonly" name="code_check" id="code_check" value="<%=request.getAttribute("auth") %>">
+         	<input type=text readonly="readonly" name="code_check" id="code_check" value="<%= request.getAttribute("auth")%>">
          	<br><label id="checkCode"></label>
          </div>
          <br><br>
@@ -218,6 +218,7 @@ body {
 			});
 		}
 		function emailCheck(){
+			//인증번호 검사
 			var f1 = document.forms[0];
 			var v1 = f1.check_code.value;
 			var v2 = f1.code_check.value;
@@ -231,33 +232,7 @@ body {
 			}
 			
 		}
-/* 		function emailCheck(){
-			var email = $("#email").val();
-			
-			$.ajax({
-				url:"/coc/emailCheck.me",
-				type:"post",
-				data:{email:email},
-				success:function(data){
-					//console.log(data);
-					
-					if(data === "fail"){
-						document.getElementById('checkEmail').style.color = "red";
-						document.getElementById('checkEmail').innerHTML = "중복된 이메일입니다"; 
-					}else if(){
-						//메일인증완료시
-					}else {
-						document.getElementById('checkEmail').style.color = "gray";
-						document.getElementById('checkEmail').innerHTML = "사용가능한 이메일입니다";
-					}
-					
-				},
-				error:function(){
-					console.log("실패!");
-				}
-			
-			});
-		} */
+
 		function checkPwd(){
 			var f1 = document.forms[0];
 			var pw1 = f1.userPwd.value;
@@ -272,49 +247,62 @@ body {
 			}	  
 		}
 
-function email(){
-	var userId = $('#userId').val();
-	var email = $('#email').val();
-	/*location.href="http://127.0.0.1:8001/coc/mailCheck?userId="+userId+"&email="+email; */
-	  var form = document.createElement("form");
-
-      form.setAttribute("charset", "UTF-8");
-
-      form.setAttribute("method", "Post");  //Post 방식
-
-      form.setAttribute("action", "http://127.0.0.1:8001/coc/mailCheck"); //요청 보낼 주소
-
-
-
-      var hiddenField = document.createElement("input");
-
-      hiddenField.setAttribute("type", "hidden");
-
-      hiddenField.setAttribute("name", "userId");
-
-      hiddenField.setAttribute("value", userId);
-
-      form.appendChild(hiddenField);
-
-
-
-      hiddenField = document.createElement("input");
-
-      hiddenField.setAttribute("type", "hidden");
-
-      hiddenField.setAttribute("name", "email");
-
-      hiddenField.setAttribute("value", email);
-
-      form.appendChild(hiddenField);
-
-
-
-      document.body.appendChild(form);
-
-      form.submit(); 
-	
-}
+/* 		function email(){
+			var userId = $('#userId').val();
+			var email = $('#email').val();
+			location.href="http://127.0.0.1:8001/coc/mailCheck?userId="+userId+"&email="+email; 
+			  var form = document.createElement("form");
+		
+		      form.setAttribute("charset", "UTF-8");
+		
+		      form.setAttribute("method", "Post");  //Post 방식
+		
+		      form.setAttribute("action", "http://127.0.0.1:8001/coc/mailCheck"); //요청 보낼 주소
+		
+		      var hiddenField = document.createElement("input");
+		
+		      hiddenField.setAttribute("type", "hidden");
+		
+		      hiddenField.setAttribute("name", "userId");
+		
+		      hiddenField.setAttribute("value", userId);
+		
+		      form.appendChild(hiddenField);
+		
+		      hiddenField = document.createElement("input");
+		
+		      hiddenField.setAttribute("type", "hidden");
+		
+		      hiddenField.setAttribute("name", "email");
+		
+		      hiddenField.setAttribute("value", email);
+		
+		      form.appendChild(hiddenField);
+		
+		      document.body.appendChild(form);
+		
+		      form.submit(); 
+			
+		} */
+		function email(){
+			var userId = $('#userId').val();
+			var email = $('#email').val();
+			
+			$.ajax({
+				url:"/coc/mailCheck",
+				type:"post",
+				data:{userId:userId, email:email},
+				success:function(data){
+					console.log(data);
+					
+					var auth = $('#code_check').val();
+					auth = <%=request.getAttribute("auth")%>
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
+		}
       </script>
       
 
@@ -322,7 +310,6 @@ function email(){
       <%@include file="/views/common/footerbar_customer.jsp"%>
 
    </div>
-
 
 
 </body>
