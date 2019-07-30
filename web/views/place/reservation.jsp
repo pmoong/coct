@@ -419,8 +419,8 @@ body {
 
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+			<li data-target="#myCarousel2" data-slide-to="0" class=""></li>
+			<li data-target="#myCarousel2" data-slide-to="1" class="active"></li>
 			
 		</ol>
 		
@@ -436,7 +436,7 @@ body {
 								<!-- Box -->
 								<section class="box feature">
 									<div class="img">
-										<a href="/coc/searchRoom?locationName=강남" class="image featured"><img
+										<a href="/coc/searchRoom?locationName=강남구" class="image featured"><img
 											src="/coc/images/gangnam.png" alt="" id="blur"
 											style="cursor: pointer" />
 											<div class="content">
@@ -453,8 +453,9 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/seocho.gif" alt="" /></a>
+									<a href="/coc/searchRoom?locationName=서초구" class="image featured"><img
+										src="/coc/images/seocho.gif" alt="" id="blur"
+											style="cursor: pointer"/></a>
 
 								</section>
 
@@ -700,11 +701,11 @@ body {
 			</div>
 
 <!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev"
+			<a class="left carousel-control" href="#myCarousel2" data-slide="prev"
 				style="background: white"> <span
 				class="glyphicon glyphicon-chevron-left"></span> <span
 				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel"
+			</a> <a class="right carousel-control" href="#myCarousel2"
 				data-slide="next" style="background: white"> <span
 				class="glyphicon glyphicon-chevron-right"></span> <span
 				class="sr-only">Next</span>

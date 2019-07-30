@@ -3,6 +3,7 @@
 <%
 	ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) request.getAttribute("list");
 	System.out.println("list.size : " + list.size());
+	String locationName = (String) request.getAttribute("locationName");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -46,7 +47,7 @@ body {
 
 			<div align="center">
 				<h2 style="margin-left: 3%;">
-					<b>... 숙소 검색 결과</b> <small style="margin-left: 50%;"><a
+					<b><%=request.getParameter("locationName")%> 숙소 검색 결과</b> <small style="margin-left: 50%;"><a
 						href="#">인기순</a> <b>/</b> <a href="#"> 추천순</a></small>
 				</h2>
 				<div class="hotelList" style="display: inline-block;"></div>
@@ -64,7 +65,7 @@ body {
 					<div class="hotel" aling="center">
 						<a href="reserv_hotelView.jsp" class="image featured"> <input
 							type="hidden" value="<%=hmap.get("cCode")%>"> <img
-							src="<%=hmap.get("image")%>" style="width: 100%; margin: auto;">
+							src="<%=hmap.get("image")%>" style="width: 20%; margin: auto;">
 						 
 						<hr>
 							<p>
