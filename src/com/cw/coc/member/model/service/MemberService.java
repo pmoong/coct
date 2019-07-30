@@ -7,7 +7,10 @@ import static com.cw.coc.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import com.cw.coc.board.model.dao.BoardDao;
+import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
@@ -125,6 +128,28 @@ public class MemberService {
 		close(con);
 
 		return result;
+	}
+
+
+	public ArrayList<Member> selectList(int currentPage, int limit) {
+		Connection con = getConnection();
+		
+		ArrayList<Member> list = new MemberDao().selectList(con, currentPage, limit);
+		
+		close(con);
+		
+		return list;
+	}
+
+
+	public int getListCount() {
+		Connection con = getConnection();
+		
+		int listCount = new MemberDao().getListCount(con);
+		
+		close(con);
+		
+		return listCount;
 	}
 	
 }

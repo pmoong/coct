@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	ArrayList<Board> blist = (ArrayList<Board>) request.getAttribute("blist");
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
@@ -301,7 +301,7 @@ button {
 					<th width="100px">조회수</th>
 					<th width="150px">작성일</th>
 				</tr>
-				<% for(Board b : list){ 
+				<% for(Board b : blist){ 
 				%>
 				<tr>
 					<input type="hidden" value="<%= b.getbCode() %>">

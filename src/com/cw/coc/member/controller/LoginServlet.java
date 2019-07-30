@@ -52,8 +52,8 @@ public class LoginServlet extends HttpServlet {
 		if(loginUser.getStatus() == LOGIN_OK) {
 			
 			if(userId != null && userId.equals("admin")) {
-				view = "/coc/selectList.ad";
-				//request.setAttribute("loginUser", loginUser);
+				view = "/coc/List.ad";
+				//request.setAttribute("loginsUser", loginUser);
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", loginUser);
