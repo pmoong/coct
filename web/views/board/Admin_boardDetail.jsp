@@ -46,7 +46,7 @@ table {
 	<%@ include file="/views/common/menubar_manager.jsp"%>
 
 	<%
-		if (loginUser != null) {
+		if (loginUser != null && loginUser.getUserId().equals("admin") ) {
 	%>
 	<div class="outer container">
 		<br>
@@ -81,10 +81,10 @@ table {
 					<button
 						onclick="location.href='<%=request.getContextPath()%>/selectList.ad'">메뉴</button>
 					 <%
-						if (loginUser != null && b.getbWriter().equals(loginUser.getUserId())) {
+						if (loginUser != null && loginUser.getUserId().equals("admin")) {
 					%> 
 					<button
-						onclick="location.href='<%=request.getContextPath()%>/selectBoard.bo?num=<%= b.getbCode()%>'">수정하기</button>
+						onclick="location.href='<%=request.getContextPath()%>/deleteBoard.ad?num=<%= b.getbCode()%>'">삭제하기</button>
 				
 					 <%
 						}

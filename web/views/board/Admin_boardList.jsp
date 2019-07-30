@@ -86,12 +86,12 @@ table {
 		</div>
 		<br><br><br><br><br>
 		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
 			
 			<% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage - 1%>'"><</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
 			<% } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){ 
@@ -99,7 +99,7 @@ table {
 			%>
 					<button disabled><%= p %></button>
 			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=p%>'"><%= p %></button>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
 			<% 
 				}
 			}
@@ -108,10 +108,10 @@ table {
 			<% if(currentPage >= maxPage){ %>
 			<button disabled>></button>
 			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage + 1 %>'">></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
 		</div>
 		
 		<div class="searchArea" align="center">
@@ -124,7 +124,7 @@ table {
 			<input type="search">
 			<button type="submit">검색하기</button>
 			<% if(loginUser != null){ %>
-			<button onclick="location.href='views/board/boardInsertForm.jsp'">작성하기</button>
+			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
 			<% } %>
 		</div>
 		
@@ -134,13 +134,13 @@ table {
 	<script>
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"skyblue", "cursor":"pointer"});
+				$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"white"});
 			}).click(function(){
 				var num = $(this).parent().children("input").val();
 				
-				location.href="<%=request.getContextPath()%>/selectOne.bo?num=" + num;
+				location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
 			});
 		});
 	</script>

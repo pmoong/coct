@@ -9,18 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.board.model.sevice.BoardService;
+import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.member.model.vo.Member;
 
 /**
- * Servlet implementation class DeleteBoardServlet
+ * Servlet implementation class SelectOneBoardServlet
  */
-@WebServlet("/deleteBoard.ad")
-public class AdminDeleteBoardServlet extends HttpServlet {
+@WebServlet("/selectOne.ad")
+public class AdminSelectOneBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminDeleteBoardServlet() {
+    public AdminSelectOneBoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +31,30 @@ public class AdminDeleteBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		System.out.println("삭ㅈ제~잘되니?");
+		int num = Integer.parseInt(request.getParameter("num"));
+		String bWriter = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUserId());
 		
-		int result = new BoardService().deleteBoard(bcode);
-		String page = "";
+		System.out.println("bWriter : " + bWriter);
 		
-		if(result > 0) {
-			response.sendRedirect("/coc/selectList.ad");
+		System.out.println("NUM : " + num);
+		
+		Board b = new BoardService().selectOne(num);
+		System.out.println("controller board : " + b);
+		
+		
+		
+		
+		
+		String page = null;
+		
+		if(b != null) {
+			page = "views/board/Admin_boardDetail.jsp";
+			request.setAttribute("b", b);
 		}else {
-			page ="views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 삭제 실패!");
-			request.getRequestDispatcher(page).forward(request, response);
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "게시판 상세 조회 실패!");
 		}
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	/**

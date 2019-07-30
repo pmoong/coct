@@ -8,10 +8,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.tomcat.util.collections.SynchronizedStack;
 
+import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.member.model.vo.Survey;
@@ -269,6 +272,82 @@ public class MemberDao {
 		}
 		
 		return result;
+	}
+
+	public ArrayList<Member> selectList(Connection con, int currentPage, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Member> mlist = null;
+		String query = prop.getProperty("selectListWithMPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+
+			//조회를 시작할 행 번호와 마지막 행 번호 계산
+			int startRow = (currentPage - 1) * limit + 1;
+			int endRow = startRow + limit - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			mlist = new ArrayList<Member>();
+
+			while(rset.next()) {
+				Member m = new Member();
+				
+				
+				m.setUno(rset.getInt("SEQ_UNO"));
+				m.setUserId(rset.getString("USER_ID"));
+				m.setUserPwd(rset.getString("USER_PWD"));
+				m.setEmail(rset.getString("EMAIL"));
+				m.setuType(rset.getString("UTYPE"));
+				m.setGender(rset.getString("GENDER"));
+				m.setAge(rset.getInt("AGE"));
+				m.setSurvey(rset.getString("SCODE"));
+				
+				
+				mlist.add(m);
+			}
+			System.out.println("board m list = " + mlist);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mlist;
+	}
+
+	public int getListCount(Connection con) {
+		Statement stmt = null;
+		int listCount = 0;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("selectListCount");
+		
+		
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(stmt);
+			close(rset);
+		}
+		
+		return listCount;
 	}
 
 }
