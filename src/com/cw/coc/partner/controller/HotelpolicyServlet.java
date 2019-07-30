@@ -80,7 +80,7 @@ public class HotelpolicyServlet extends HttpServlet {
 					File failedFile =new File(savePath+saveFiles.get(i));
 					failedFile.delete();
 				}
-				request.setAttribute("msg", "등록 실패!!");
+				request.setAttribute("msg", "실패!!");
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			}
 		}

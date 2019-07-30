@@ -93,45 +93,34 @@ table {
 				<h3 id="intro" class="col-8 col-12-medium"
 					style='text-align: left;margin-top: 1%;'>호텔소개</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#">
-					<input type="button" onclick="location.href='/coc/views/partner/storeintroInsertForm.jsp';" value="편집"></a>
+					style="float: right; margin-top: 1%;">  
+ 					<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/storeintroInsertForm.jsp';">편집하기</button>  &nbsp;
+		
 				</span>
+				
 			</div>
 		</div>
-<!-- 		<hr style="border-color: orange">
- -->
-	<!-- 	<div class="outer">
-			<textarea style="/* background: skyblue */; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div> -->
-<!-- 		<hr style="border-color: orangered">
- -->
 		<!--  -->
 		<div class="container">
 			<div class="row">
 				<h3 id="roominf" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>룸정보</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="location.href='/coc/views/partner/HotelroomInfForm.jsp';" value="편집"></a>
+					style="float: right; margin-top: 1%;"> 
+					 
+							<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelroomInfForm.jsp';">편집하기</button>  &nbsp;
 				</span>
  
 			</div>
 		</div>
-<!-- 		<hr style="border-color: orange">
- -->
-
-		<!-- <div class="outer">
-			<textarea style="/* background: skyblue */; width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div> -->
-<!-- 		<hr style="border-color: orange">
  -->		<!--  -->
 		<div class="container">
 			<div class="row">
 				<h3 id="room" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>숙소시설</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="location.href='/coc/views/partner/HotelroomForm.jsp ';" value="편집"></a>
+					style="float: right; margin-top: 1%;">  
+		<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelroomForm.jsp';" >편집하기</button>  &nbsp;
 				</span>
 
 			</div> 
@@ -143,16 +132,16 @@ table {
 		<div class="outer">
 			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
 		</div>
-<!-- 		<hr style="border-color: orange">
- -->
  
 		<div class="container">
 			<div class="row">
 				<h3 id="hotelpolicy" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
+				
+				
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="location.href='/coc/views/partner/HotelpolicyForm.jsp';" value="편집"></a>
+					style="float: right; margin-top: 1%;"> <a href="#">
+					<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelpolicyForm.jsp';" >편집하기</button> &nbsp;</a>
 				</span>
 
 			</div>
@@ -171,9 +160,9 @@ table {
 				<h3 class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>위치</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="gomap();" value="편집"></a>
-				</span>
+					style="float: right; margin-top: 1%;"> 
+						<button type="button" class="btn btn-default"onclick="gomap();" >편집하기</button> &nbsp; 
+ 				</span>
 		 
 				<div id="map" class="outer" style="width: 650px; height: 300px;">
 				</div>
@@ -192,24 +181,13 @@ table {
 				<h3 id="information" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>이용정보</h3>
 				<span class="col-4 col-12-medium"
-					style="float: right; margin-top: 1%;"> <a href="#"><input
-						type="button" onclick="location.href='/coc/views/partner/HotelinformainForm.jsp';" value="편집"></a>
+					style="float: right; margin-top: 1%;"> 
+					 <button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelinformainForm.jsp';" >편집하기</button> &nbsp;</a>
+						
 				</span>
 
 			</div>
-		</div>
-<!-- 		<hr style="border-color: orange">
- -->
-		<!-- Wrapper for slides -->
-
-	<!-- 	<div class="outer">
-			<textarea style="/* background: skyblue; */ width: 650px; height: 300px;" placeholder="여기에 입력하세요"></textarea>
-		</div> -->
-		<hr>
-
-
-
-		<hr style="border-color: orangered; border-solid: 5px">
+		</div>  
 		<!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp"%>
@@ -246,12 +224,6 @@ table {
       })(marker, i));
     }
  
-     /*  function gointro(){
-    	location.href="views/partner/storeintroInsertForm.jsp";
-    } */
-   
-    
-    
    
     
   </script>
