@@ -42,7 +42,7 @@ body {
 		<div style="margin:10%; margin-top:0;">
 			<h3>로그인</h3><hr><br>
 			<div class="container" align="center">
-				<form class="form-horizontal" action="<%=request.getContextPath()%>/login" method="post">
+				<form class="form-horizontal" action="<%=request.getContextPath()%>/login.me" onsubmit="return check_form();" method="post">
 					<div class="form-group">
 						<label for="inputUserId" class="col-sm-5 control-label" id="InputuserId">아이디</label>
 						<div class="col-sm-3">
@@ -51,7 +51,7 @@ body {
 						
 					</div>
 					<div class="form-group">
-						<label for="inputUserPwd" class="col-sm-5 control-label" id="InputuserPwd">비밀번호</label>
+						<label for="userPwd" class="col-sm-5 control-label">비밀번호</label>
 						<div class="col-sm-3">
 							<input type="password" class="form-control" id="userPwd" name="userPwd">
 						</div>
@@ -59,7 +59,7 @@ body {
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" id="btn100" class="btn btn-default" onclick="check_form()">
+							<button type="submit" id="btn100" class="btn btn-default">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
 						</div>
 					</div>
@@ -81,10 +81,11 @@ body {
 			location.href="/coc/views/member/findPwd.jsp";
 		}
 		function check_form(){
-	
+			var form = document.createElement("form");
 			if($.trim($("#userId").val()) == ""){
 				alert("아이디를 입력해주세요");
 				$("#userId").focus();
+				/* history.back(); */
 				return false;
 			}
 
@@ -93,6 +94,8 @@ body {
 				$("#userPws").focus();
 				return false;
 			}
+			document.body.appendChild(form);
+			form.submit(); 
 		}
 		
 

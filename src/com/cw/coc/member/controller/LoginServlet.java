@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 
-
-@WebServlet("/login")
+/**
+ * Servlet implementation class LoginServlet
+ */
+@WebServlet("/login.me")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -39,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("userId : " + userId);
 		System.out.println("userPwd : " + userPwd);
 		
+		
 		Member reqMember = new Member();
 		reqMember.setUserId(userId);
 		reqMember.setUserPwd(userPwd);
@@ -47,7 +50,6 @@ public class LoginServlet extends HttpServlet {
 		
 		String view = "";
 		if(loginUser.getStatus() == LOGIN_OK) {
-			
 			
 			if(userId != null && userId.equals("admin")) {
 				view = "/coc/selectList.ad";

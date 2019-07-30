@@ -51,10 +51,12 @@ public class InsertMemberServlet extends HttpServlet {
 		hi.put("useremail", email);
 		hi.put("usergender", gender);
 		hi.put("userAge", age);
-		//System.out.println("mapmapampampampamp"+hi);
+		
+		//System.out.println("map : " + hi);
 		System.out.println(hi.get("userId"));
 		HttpSession session = request.getSession();
 		session.setAttribute("Info", hi );
+		
 		//세션
 		//session.setMaxInactiveInterval(5*60);
 		//세션 해제
@@ -69,10 +71,6 @@ public class InsertMemberServlet extends HttpServlet {
 		String page = "";
 		page = "/coc/views/member/joinInterest.jsp";
 		response.sendRedirect(page);
-		
-//		HttpSession session = request.getSession();
-//		session.setAttribute("Info", m );
-//		System.out.println("insertMember : " + m);
 	}
 
 	/**

@@ -48,27 +48,21 @@ public class InsertInterestServlet extends HttpServlet {
 				}
 			}
 		}
-//		HttpSession session = request.getSession();
-//		System.out.println(session.getAttribute("Info"));
-//		String hi = session.getAttribute("Info").toString();
-		Member member = new Member();
-//		Member m = new Member();
-//		String var = m.getUserId();
-		//m.setSurvey(survey);
+
 		HttpSession session= request.getSession();
 		Map<String,Object> var=(Map<String, Object>) session.getAttribute("Info");
-//		System.out.println("uuuuuu"+var);
 		System.out.println(var); 
 		System.out.println(var.get("userId"));
+
+		Member member = new Member();
 		member.setUserId(var.get("userId").toString());
+		member.setUserPwd(var.get("userPwd").toString());
 		member.setEmail(var.get("useremail").toString());
+		member.setAge(Integer.parseInt(var.get("userAge").toString()));
 		member.setGender(var.get("usergender").toString());
 		member.setSurvey(survey);
-		member.setUserPwd(var.get("userPwd").toString());
-		member.setAge(Integer.parseInt(var.get("userAge").toString()));
 		
 		System.out.println("InsertInterestMemberServlet : " + member);
-	//	member.setUserId(session.getAttribute("Info"));
 		int result = new MemberService().insertMember(member);
 
 		String page = "";

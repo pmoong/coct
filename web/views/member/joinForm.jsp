@@ -95,26 +95,35 @@ body {
       <!-- Header -->  
       <%@ include file="../common/menubar_customer.jsp"%>
       <br><!--  onsubmit="return formsbmit();" -->
-      <form action="<%=request.getContextPath() %>/insertMember.me" method="post">
+      <form action="<%=request.getContextPath() %>/insertMember.me" onsubmit="return check_form();" method="post">
       <div class="container">
          <div class="form-group">
             <label for="userId">* 아이디</label>
+            <%
+            if(request.getAttribute("userId") != null) 
+            {
+            %>	
+            
+          	<%-- <input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()"value="<%=request.getParameter("userId")%>"> --%>
+          	<input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()"value="<%=request.getAttribute("userId")%>">
+          	<%
+            }else{
+          	%>
           	<input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()">
+          	<%} %>
          	<br><label id="checkId"></label>
          </div>
-         <form actoin="<%=request.getContextPath() %>/mailCheck" method="post">
          <div class="form-group">
             <label for="email">* 이메일</label>
             <div style="float:left;">
             <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" name="email">
             </div>
             
-            <div type="submit" id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%">인증 받기</div>
+            <div type="submit" id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%" onclick="email();">인증 받기</div>
          	<br><br><br><div><label>인증 번호</label><input type="text" id="check_code" onkeyup="emailCheck()"></div>
-         	<input type="hidden" readonly="readonly" name="code_check" id="code_check" value="<%=request.getAttribute("code") %>">
+         	<input type=text readonly="readonly" name="code_check" id="code_check" value="<%=request.getAttribute("auth") %>">
          	<br><label id="checkCode"></label>
          </div>
-         </form> 
          <br><br>
          <div class="form-group">
             <label for="userPwd">* 비밀번호</label> 
@@ -141,7 +150,7 @@ body {
          <br>
          <div class="form-group">
             <button class="btn btn-default" type="submit">
-               <a onclick="insertMember();">&emsp;&emsp;&emsp;다음&emsp;&emsp;&emsp; </a>
+               <a>&emsp;&emsp;&emsp;다음&emsp;&emsp;&emsp; </a>
             </button>
             <button type="reset" class="btn btn-default" onclick="location.href='/coc/index.jsp'">&emsp;&emsp;취소하기&emsp;&emsp;</button>
          </div>
@@ -149,35 +158,6 @@ body {
       </div>
       <br> <br>
       <hr>
-      <%! public int getRandom(){
-	    	 /*  StringBuffer temp =new StringBuffer();
-	          Random rnd = new Random();
-	          for(int i=0;i<10;i++)
-	          {
-	              int rIndex = rnd.nextInt(3);
-	              switch (rIndex) {
-	              case 0:
-	                  // a-z
-	                  temp.append((char) ((int) (rnd.nextInt(26)) + 97));
-	                  break;
-	              case 1:
-	                  // A-Z
-	                  temp.append((char) ((int) (rnd.nextInt(26)) + 65));
-	                  break;
-	              case 2:
-	                  // 0-9
-	                  temp.append((rnd.nextInt(10)));
-	                  break;
-	              }
-	          }
-	          String AuthenticationKey = temp.toString();
-	          System.out.println(AuthenticationKey); */
-	          int random = 0;
-	          random = (int)Math.floor((Math.random()*(99999-10000 + 1))) +10000;
-	          return random;
-      }
-      	
-      %>
       <script>
 		$(function(){
  			$("form").submit(function(){
@@ -188,6 +168,7 @@ body {
 				}
 				
 				if($.trim($("#email").val()) == ""){
+					alert("이메일 입력하세요");
 					$("#email").focus();
 					return false;
 				}
@@ -237,12 +218,13 @@ body {
 			});
 		}
 		function emailCheck(){
-			var v1 = form.code_check.value;
-			var v2 = form.check_code.value;
+			var f1 = document.forms[0];
+			var v1 = f1.check_code.value;
+			var v2 = f1.code_check.value;
 			
 			if(v1 != v2) {
 				document.getElementById('checkCode').style.color = "red";
-				document.getElementById('checkCode').innerHTML = "잘못된 인증번호";
+				document.getElementById('checkCode').innerHTML = "잘못된 인증번호입니다";
 			}else{
 				document.getElementById('checkCode').style.color = "gray";
 				document.getElementById('checkCode').innerHTML = "인증되었습니다";
@@ -290,9 +272,52 @@ body {
 			}	  
 		}
 
+function email(){
+	var userId = $('#userId').val();
+	var email = $('#email').val();
+	/*location.href="http://127.0.0.1:8001/coc/mailCheck?userId="+userId+"&email="+email; */
+	  var form = document.createElement("form");
+
+      form.setAttribute("charset", "UTF-8");
+
+      form.setAttribute("method", "Post");  //Post 방식
+
+      form.setAttribute("action", "http://127.0.0.1:8001/coc/mailCheck"); //요청 보낼 주소
+
+
+
+      var hiddenField = document.createElement("input");
+
+      hiddenField.setAttribute("type", "hidden");
+
+      hiddenField.setAttribute("name", "userId");
+
+      hiddenField.setAttribute("value", userId);
+
+      form.appendChild(hiddenField);
+
+
+
+      hiddenField = document.createElement("input");
+
+      hiddenField.setAttribute("type", "hidden");
+
+      hiddenField.setAttribute("name", "email");
+
+      hiddenField.setAttribute("value", email);
+
+      form.appendChild(hiddenField);
+
+
+
+      document.body.appendChild(form);
+
+      form.submit(); 
+	
+}
       </script>
       
-      
+
       <!-- Footer -->
       <%@include file="/views/common/footerbar_customer.jsp"%>
 
