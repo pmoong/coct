@@ -31,7 +31,6 @@ public class EncryptFilter implements Filter {
 		HttpServletRequest hRequest = (HttpServletRequest) request;
 		
 		LoginWrapper lw = new LoginWrapper(hRequest);
-		System.out.println("인코딩 완료dhdhdhdhdhh222222222222!");
 		chain.doFilter(lw, response);
 	}
 
