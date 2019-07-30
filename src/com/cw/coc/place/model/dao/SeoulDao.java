@@ -200,72 +200,42 @@ public class SeoulDao {
 		
 		return list;
 	}
-}
-	 /*public ArrayList<SeoulVo> selectList(Connection con, int currentPage, int limit) {
-		PreparedStatement pstmt = null;
+
+	public ArrayList<SeoulVo> selecttotList(Connection con) {
+		Statement stmt = null;
 		ResultSet rset = null;
 		ArrayList<SeoulVo> list = null;
 		
-		String query = prop.getProperty("selectList1");
+		String query = prop.getProperty("selecttotList");
 		
 		try {
-			pstmt = con.prepareStatement(query);
-
-			int startRow = (currentPage - 1) * limit + 1;
-			int endRow = startRow + limit - 1;
-			
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-			
-			rset = pstmt.executeQuery();
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
 			
 			list = new ArrayList<SeoulVo>();
 			
 			while(rset.next()) {
 				SeoulVo s = new SeoulVo();
-				
-				 s.setTitle(rset.getString("TITLE"));
-				 s.setAddr1(rset.getString("Addr1")); 
-				  s.setFirstimage(rset.getString("Firstimage"));  
-				
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
 				list.add(s);
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(pstmt);
 			close(rset);
-		}
-		return list;
-	} 
-}*/
-	/* public int getListCount(Connection con) {
-		Statement stmt=null;
-		int listCount =0;
-	 ResultSet rset =null;//조회 할 떄 사용
-	 
-		String query =prop.getProperty("selectListCount");
-		
-		try {
-			stmt=con.createStatement();
-			rset=stmt.executeQuery(query);
-			
-			if(rset.next()) {
-				listCount =rset.getInt(1);
-			}
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			
 			close(stmt);
-			close(rset);
 		}
 		
-		
-		return listCount;
-	}*/ 
+		return list;
+	}
+	}
+ 
+	 
  
  
