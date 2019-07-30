@@ -1,4 +1,4 @@
-package com.cw.coc.board.controller;
+package com.cw.coc.admin.controller;
 
 import java.io.IOException;
 
