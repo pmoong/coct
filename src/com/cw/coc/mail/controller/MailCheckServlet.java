@@ -49,7 +49,7 @@ public class MailCheckServlet extends HttpServlet {
 		sm.setFrom(email);
 	
 		String auth = getRandom();
-		sm.sendMail2(email,auth);
+		sm.joinSendMail(email,auth);
 		
 		request.setAttribute("userId", userId);
 		request.setAttribute("email", email);
