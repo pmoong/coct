@@ -143,7 +143,10 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
+		System.out.println("Assas");
 		String query = prop.getProperty("updateSurvey");
+		
+		System.out.println(icode);
 		
 		try {
 			pstmt = con.prepareStatement(query);

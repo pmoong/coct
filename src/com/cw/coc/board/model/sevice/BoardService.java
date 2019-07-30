@@ -97,6 +97,15 @@ public class BoardService {
 		
 		return result;
 	}
+	public ArrayList<Board> myPageSelect() {
+		Connection con = getConnection();
+		
+		ArrayList<Board> list = new BoardDao().myPageSelect(con);
+		
+		close(con);
+		
+		return list;
+	}
 
 
 	}
