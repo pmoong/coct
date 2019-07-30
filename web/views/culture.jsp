@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8" import="com.cw.coc.place.*,java.util.*,java.sql.*"%>
 	 
  <%
- CultureVo c =(CultureVo) request.getAttribute("c");
-
+ /* CultureVo c =(CultureVo) request.getAttribute("c");
+ */
  
  %>
 <!DOCTYPE HTML>
@@ -643,18 +643,7 @@ $(function(){
 
 	  </script>
 	  
-<%String title =request.getParameter("title");
-/* Connection conn =null;
-  */
- 
-	String cfitstimage=request.getParameter("image");
- ResultSet st =excuteQuery("select * from seoul where scat2='A0201'"+cfitstimage);
 
-
-
-
-
-%>	  
 
 	  
 </body>

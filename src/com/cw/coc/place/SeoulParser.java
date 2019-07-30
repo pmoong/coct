@@ -1,6 +1,7 @@
 package com.cw.coc.place;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,6 @@ public class SeoulParser {
 	   List<SeoulVo> listOfData = new ArrayList<SeoulVo>();
     nodeList = document.getElementsByTagName(tagName);
     for(int i = 0; i < nodeList.getLength() ; i ++){
-      	String a=("x");
      
      Element element = (Element) nodeList.item(i);
      String stitle = this.getTagValue("title", element);
@@ -65,17 +65,8 @@ public class SeoulParser {
      System.out.println(scat1);
      String scat3 =this.getTagValue("cat3", element);
  	String smapx =this.getTagValue("mapx", element);
- 	
- 	 
  	String smapy =this.getTagValue("mapy", element); 	 
  	String sfirstimage=this.getTagValue("firstimage", element);
-
- 	if(sfirstimage !=null) {
- 		sfirstimage =this.getTagValue("firstimage", element);
- 	System.out.println("cc");
- 	}else {
- 		sfirstimage = a;
- 	}
      
      listOfData.add(new SeoulVo(stitle, saddr1, scontenttypeid,scat1, scat2, scat3 ,smapx,smapy,sfirstimage));
     }
