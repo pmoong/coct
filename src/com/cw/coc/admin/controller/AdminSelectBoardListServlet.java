@@ -1,4 +1,4 @@
-package com.cw.coc.board.controller;
+package com.cw.coc.admin.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,7 +76,7 @@ public class AdminSelectBoardListServlet extends HttpServlet {
 		String page = "";
 		
 		if(list != null) {
-			page = "views/admin/managerIndex.jsp";
+			page = "/selectMemberList.ad";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 		}else {
