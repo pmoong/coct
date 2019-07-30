@@ -1,10 +1,9 @@
 package com.cw.coc.place.model.vo;
 
-public class SeoulVo {
+public class SeoulVo implements java.io.Serializable {
 	 
 	 private String title;
 	 private String addr1;
-/*  private String tel; */
 	 private int contenttypeid;
 	 private String cat1;
 	 private String cat2;
@@ -12,6 +11,8 @@ public class SeoulVo {
 	 private String mapx;
 	 private String  mapy;
 	 private String firstimage;
+	 
+	 
 		public SeoulVo(String title, String addr1, int contenttypeid, String cat1, String cat2, String cat3, String mapx,
 				String mapy, String firstimage) {
 			super();
@@ -26,6 +27,9 @@ public class SeoulVo {
 			this.firstimage = firstimage;
 		}
 	
+	public SeoulVo() {}
+ 
+
 	public String getTitle() {
 		return title;
 	}
@@ -81,6 +85,13 @@ public class SeoulVo {
 		}
 		public void setFirstimage(String firstimage) {
 			this.firstimage = firstimage;
+		}
+
+		@Override
+		public String toString() {
+			return "SeoulVo [title=" + title + ", addr1=" + addr1 + ", contenttypeid=" + contenttypeid + ", cat1="
+					+ cat1 + ", cat2=" + cat2 + ", cat3=" + cat3 + ", mapx=" + mapx + ", mapy=" + mapy + ", firstimage="
+					+ firstimage + "]";
 		}
 
 	

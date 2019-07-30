@@ -1,83 +1,271 @@
 package com.cw.coc.place.model.dao;
 
-import java.io.File;
+import java.io.FileReader;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
- import java.sql.SQLException;
-import java.util.List;
-
-import com.cw.coc.place.Condb;
-import com.cw.coc.place.SeoulParser;
-import com.cw.coc.place.model.vo.SeoulVo;
-
-  
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Properties;
+import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.getConnection;
  
+
+import com.cw.coc.place.model.vo.SeoulVo;
+ 
+
 public class SeoulDao {
-	/*private Properties prop =new Properties();
-	public SeoulDao(){
-		String fileName=SeoulDao.class.getResource("/sql/place/seoul-query.properties").getPath();
+	private Properties prop = new Properties();
+
+	public SeoulDao() {
+		String fileName = 
+				SeoulDao.class.getResource("/sql/place/seoul-query.properties").getPath();
+		
 		try {
-	prop.load(new FileReader(fileName));
+			prop.load(new FileReader(fileName));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
- 
-  public static void saveDB(List<SeoulVo> xmlList){
-  
-  }
- 
- 
-	 public static void main(String[] args) {
+		}
+	}
+	
+	public ArrayList<SeoulVo> selecthisList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selecthisList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
 
+	public ArrayList<SeoulVo> selectexpList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectexpList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
 
-  // TODO Auto-generated method stub
-  File file = new File("seoul.xml");
-  SeoulParser seoulParser = new SeoulParser(file);
-  List<SeoulVo> tmp = seoulParser.parse("item");
-  
-  try {
-	Condb connectDB = new Condb();
-} catch (IOException e1) {
-	// TODO Auto-generated catch block
-	e1.printStackTrace();
+	public ArrayList<SeoulVo> selecrecList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectrecList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
+
+	public ArrayList<SeoulVo> selectconList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectconList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
+
+	public ArrayList<SeoulVo> selectindList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectindList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
 }
-  
-  
-  Connection conn = Condb.getConnection();
-   	 System.out.println(conn+"conn");
-   String sql = "INSERT INTO SEOUL VALUES(?,?,?,?,?,?,?,?,?)";
+	 /*public ArrayList<SeoulVo> selectList(Connection con, int currentPage, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectList1");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+
+			int startRow = (currentPage - 1) * limit + 1;
+			int endRow = startRow + limit - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				
+				 s.setTitle(rset.getString("TITLE"));
+				 s.setAddr1(rset.getString("Addr1")); 
+				  s.setFirstimage(rset.getString("Firstimage"));  
+				
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
+	} 
+}*/
+	/* public int getListCount(Connection con) {
+		Statement stmt=null;
+		int listCount =0;
+	 ResultSet rset =null;//조회 할 떄 사용
+	 
+		String query =prop.getProperty("selectListCount");
+		
+		try {
+			stmt=con.createStatement();
+			rset=stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				listCount =rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			close(stmt);
+			close(rset);
+		}
+		
+		
+		return listCount;
+	}*/ 
  
-  try {
-   for(int i=0; i<tmp.size() ; i++){
-    PreparedStatement stmt = conn.prepareStatement(sql);
-   
-    System.out.println(sql);
-
-    stmt.setString(1, tmp.get(i).getTitle());
-    stmt.setString(2, tmp.get(i).getAddr1());
-    stmt.setInt(3, tmp.get(i).getContenttypeid());
-    stmt.setString(4, tmp.get(i).getCat1());
-    stmt.setString(5, tmp.get(i).getCat2());
-    stmt.setString(6, tmp.get(i).getCat3());
-    stmt.setString(7, tmp.get(i).getMapx());
-    stmt.setString(8, tmp.get(i).getMapy());
-    stmt.setString(9, tmp.get(i).getFirstimage());
-   
-    
-    stmt.executeUpdate();
-    System.out.println("sucess to save");
-   }
-  } catch (SQLException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  }
  
-}
-
-
- 
- 
-} 
-
-
