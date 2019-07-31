@@ -17,27 +17,22 @@
 body {
    background: white;
 }
-
 #test {
    background: white !important;
    color: black !important;
 }
-
 #userId, #userPwd {
    font-size: 13px;
 }
-
 #cocInfo {
    width: 800px;
    height: 300px;
 }
-
 .left-box {
    background: white;
    float: left;
    width: 50%;
 }
-
 .right-box {
    float: right;
    width: 50%;
@@ -52,13 +47,11 @@ body {
    outline: none;
    font-weight: bold;
 }
-
 #bbtn {
    background: #fcfcfc;
    font-size: 1.5em;
    font-weight: bold;
 }
-
 #btn {
    background: #fcfcfc;
    color: #1AAB8A;
@@ -74,12 +67,10 @@ body {
    /* padding: 0px 10px 0px 10px;
   margin: 5px 0px 5px 0px; */
 }
-
 #btn:hover {
    background: #fff !important;
    color: #1AAB8A !important;
 }
-
 #btn:before, button:after {
    content: '' !important;
    position: absolute !important;
@@ -91,7 +82,6 @@ body {
    background: #1AAB8A !important;
    transition: 400ms ease all !important;
 }
-
 #btn:after {
    color: #1AAB8A !important;
    right: inherit !important;
@@ -99,17 +89,14 @@ body {
    left: 0 !important;
    bottom: 0 !important;
 }
-
 #btn:hover:before, #btn:hover:after {
    color: #1AAB8A !important;
    width: 100% !important;
    transition: 800ms ease all !important;
 }
-
 .btn-group {
    padding-left: 150px !important;
 }
-
 #image {
    float: left;
 }
