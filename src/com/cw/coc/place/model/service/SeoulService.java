@@ -1,6 +1,7 @@
 package com.cw.coc.place.model.service;
 
 import static com.cw.coc.common.JDBCTemplate.close;
+
 import static com.cw.coc.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -17,7 +18,7 @@ public class SeoulService {
 		Connection con = getConnection();
 		
 		ArrayList<SeoulVo> list =new SeoulDao().selecthisList(con);
-		System.out.println("list"+list);
+		System.out.println("listselcthi"+list);
 		close(con);
 		
 		return list;

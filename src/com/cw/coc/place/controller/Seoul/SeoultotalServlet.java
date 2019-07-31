@@ -15,7 +15,7 @@ import com.cw.coc.place.model.vo.SeoulVo;
 /**
  * Servlet implementation class SeoulServlet
  */
-@WebServlet("/seoul.con")
+@WebServlet("/seoul.tot")
 public class SeoultotalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +32,7 @@ public class SeoultotalServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
-ArrayList<SeoulVo> list = new SeoulService().selectconList();
+ArrayList<SeoulVo> list = new SeoulService().selecttotList();
 		
 		System.out.println("controller list : " + list);
 		
@@ -43,7 +43,7 @@ ArrayList<SeoulVo> list = new SeoulService().selectconList();
 			request.setAttribute("list", list);
 		}else {
 			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 조회 실패!");
+			request.setAttribute("msg", "실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);

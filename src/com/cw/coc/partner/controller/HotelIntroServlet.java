@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.cw.coc.board.model.sevice.BoardService;
+import com.cw.coc.board.model.vo.Attachment;
+import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.common.MyFileRenamePolicy;
-import com.cw.coc.partner.model.service.HotelService;
-import com.cw.coc.partner.model.vo.Attachment;
-import com.cw.coc.partner.model.vo.Hotel;
 import com.oreilly.servlet.MultipartRequest;
  
  
@@ -45,8 +45,8 @@ public class HotelIntroServlet extends HttpServlet {
 			
 			ArrayList<String> saveFiles =new ArrayList<String>();
 			ArrayList<String> originFiles =new ArrayList<String>();
-			Enumeration<String> files =multiRequest.getFileNames();
-			
+ 			Enumeration<String> files =multiRequest.getFileNames();
+ 			
 			while(files.hasMoreElements()) {
 				
 				String name=files.nextElement();
@@ -59,9 +59,9 @@ public class HotelIntroServlet extends HttpServlet {
 			/*int uno =((Member)(request.getSession().getAttribute("loginUser"))).getUno();
 			*/
 			
-			Hotel h =new Hotel();
-			h.sethTitle(multiTitle);
-			h.sethContent(multiContent);
+			Board b =new Board();
+			b.setbTitle(multiTitle);
+			b.setbContent(multiContent);
 /*			h.sethWriter(String.valueOf(uno));
 */	
 			ArrayList<Attachment>fileList =new ArrayList<Attachment>();
@@ -76,9 +76,9 @@ public class HotelIntroServlet extends HttpServlet {
 				
 				fileList.add(a);
 			}
-			System.out.println(h+"controller board");
+			System.out.println(b+"controller board");
 
-			int result=new HotelService().insertImg(h,fileList);
+			int result=new BoardService().insertImg(b,fileList);
 			if(result >0) {
 				response.sendRedirect(request.getContextPath()+"/select.hi");
 			}else {

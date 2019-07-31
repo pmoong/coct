@@ -4,7 +4,7 @@ package com.cw.coc.place.model.vo;
 public  class CultureVo {
  
 	 private String ctitle;
-	 private String caddr1;
+	 private String caddr;
 	/* private String ctel;*/
 	 private int ccontenttypeid;
 	 private String ccat1;
@@ -22,11 +22,11 @@ public  class CultureVo {
 	public void setCtitle(String ctitle) {
 		this.ctitle = ctitle;
 	}
-	public String getCaddr1() {
-		return caddr1;
+	public String getCaddr() {
+		return caddr;
 	}
-	public void setCaddr1(String caddr1) {
-		this.caddr1 = caddr1;
+	public void setCaddr(String caddr) {
+		this.caddr = caddr;
 	}
 /*	public String getCtel() {
 		return ctel;
@@ -78,11 +78,11 @@ public  class CultureVo {
 	public void setCfirstimage(String cfirstimage) {
 		this.cfirstimage = cfirstimage;
 	}
-	public CultureVo(String ctitle, String caddr1, int ccontenttypeid, String ccat1, String ccat2,
+	public CultureVo(String ctitle, String caddr, int ccontenttypeid, String ccat1, String ccat2,
 			String ccat3, String cmapx, String cmapy,String cfirstimage) {
 		super();
 		this.ctitle = ctitle;
-		this.caddr1 = caddr1;
+		this.caddr = caddr;
 		/*this.ctel = ctel;*/
 		this.ccontenttypeid = ccontenttypeid;
 		this.ccat1 = ccat1;
@@ -95,10 +95,11 @@ System.out.println("fds");
 	}
 	@Override
 	public String toString() {
-		return "CultureVo [ctitle=" + ctitle + ", caddr1=" + caddr1 + ", ccontenttypeid=" + ccontenttypeid + ", ccat1="
+		return "CultureVo [ctitle=" + ctitle + ", caddr=" + caddr + ", ccontenttypeid=" + ccontenttypeid + ", ccat1="
 				+ ccat1 + ", ccat2=" + ccat2 + ", ccat3=" + ccat3 + ", cmapx=" + cmapx + ", cmapy=" + cmapy
 				+ ", cfirstimage=" + cfirstimage + "]";
 	}
+	 
 	 
  
 	 
