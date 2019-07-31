@@ -260,7 +260,7 @@ public class BoardDao {
 	}
 
 
-	public ArrayList<Board> myPageSelect(Connection con) {
+	public ArrayList<Object> myPageSelect(Connection con) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> list = null;
