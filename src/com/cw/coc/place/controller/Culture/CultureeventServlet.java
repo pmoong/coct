@@ -16,7 +16,7 @@ import com.cw.coc.place.model.vo.CultureVo;
 /**
  * Servlet implementation class CulturetotalServlet
  */
-@WebServlet("/culture")
+@WebServlet("/culture.ev")
 public class CultureeventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
