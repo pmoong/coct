@@ -34,6 +34,7 @@ public class MyPageServlet extends HttpServlet {
 		System.out.println("userid : " + m.getUserId());
 		
 		ArrayList<Object> list = new MemberService().myPage(m);
+		
 	}
 
 	
