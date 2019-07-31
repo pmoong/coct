@@ -100,7 +100,7 @@ body {
                   <%if(loginUser!=null) {%>
                   <li><a href="" onclick="logout()">로그아웃</a></li>
  
-                  <form  action="/coc/selectSurvey" method="post">
+                  <form  action="/coc/myPage" method="post">
                   <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
                   <li class="current"><button type="submit">마이페이지</button></li>
                   </form>

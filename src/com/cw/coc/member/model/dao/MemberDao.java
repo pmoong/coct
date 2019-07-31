@@ -13,12 +13,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
 
-import org.apache.tomcat.util.collections.SynchronizedStack;
-
-import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
-import com.cw.coc.member.model.vo.Survey;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -101,7 +97,7 @@ public class MemberDao {
 				loginUser.setuType(rset.getString("UTYPE"));
 				loginUser.setGender(rset.getString("GENDER"));
 				loginUser.setAge(rset.getInt("AGE"));
-				loginUser.setSurvey(rset.getString("SCODE"));
+				loginUser.setiCode(rset.getString("ICODE"));
 			}
 		
 		} catch (SQLException e) {
@@ -130,7 +126,7 @@ public class MemberDao {
 			pstmt.setString(4, "M");
 			pstmt.setString(5, m.getGender());
 			pstmt.setInt(6, m.getAge());
-			pstmt.setString(7, m.getSurvey());
+			pstmt.setString(7, m.getiCode());
 			
 			result = pstmt.executeUpdate();
 
@@ -168,33 +164,6 @@ public class MemberDao {
 		return result;
 	}
 
-
-	public String selectSurvey(Connection con, String uno) {
-
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String icode="";
-	
-		
-		String query = prop.getProperty("selectSurvey");
-
-
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, uno);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()){
-				icode = rset.getString("icode");
-			}
-			
-      
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return icode;
-}
 
 	public int idCheck(Connection con, String userId) {
 		int result = 0;
@@ -308,7 +277,7 @@ public class MemberDao {
 				m.setuType(rset.getString("UTYPE"));
 				m.setGender(rset.getString("GENDER"));
 				m.setAge(rset.getInt("AGE"));
-				m.setSurvey(rset.getString("SCODE"));
+				m.setiCode(rset.getString("ICODE"));
 				
 				
 				mlist.add(m);
@@ -402,6 +371,37 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return result;
+  }
+
+	public ArrayList<Object> selectSurvey(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Object> list = null;
+		
+		System.out.println("Dao!!");
+		String query = prop.getProperty("selectSurvey");
+
+
+		try {
+			
+			pstmt = con.prepareStatement(query);
+					
+			pstmt.setInt(1, m.getUno());
+			
+			rset = pstmt.executeQuery();
+			
+			System.out.println("list : " + list); 
+			while(rset.next()){
+				m.setiCode(rset.getString("ICODE"));
+				
+				list.add(m);
+			}
+			
+    } catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+
 	}
 
 }

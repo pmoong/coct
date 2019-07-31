@@ -88,8 +88,8 @@ h2 {
             당신의 취향을 테스트합니다.<br> <br> 선택 후 가입하기버튼을 누르세요.<br> <br>
             선택한 취향을 분석하여 여행가이드를 제공해드립니다 <br> <br>
          </h6>
-		<br><br>	
-			
+      <br><br>   
+         
          <form action="<%=request.getContextPath() %>/insertInterest.me" method="post">
             <label class="checkbox-inline"><b>분위기 </b> </label><br>
             <br>
