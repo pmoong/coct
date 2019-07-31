@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.service.PlaceService;
+import com.cw.coc.place.model.vo.Place;
 
 
 /**
@@ -34,12 +35,13 @@ public class SearchRoomServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("servlet ? ");
+		String locationName = "";
 		
-		ArrayList<HashMap<String, Object>> list = new PlaceService().searchRoomList();
-		
-		String locationName = request.getParameter("locationName");
+		locationName = request.getParameter("locationName");
 		System.out.println("locationName::"+locationName);
 		
+		ArrayList<Place> list = new PlaceService().searchRoomList(locationName);
+	
 		
 		String page = "";
 		if(list != null) {

@@ -436,7 +436,7 @@ body {
 								<!-- Box -->
 								<section class="box feature">
 									<div class="img">
-										<a href="/coc/searchRoom?locationName=강남구" class="image featured"><img
+										<a href="/coc/searchRoom?locationName=40" class="image featured"><img
 											src="/coc/images/gangnam.png" alt="" id="blur"
 											style="cursor: pointer" />
 											<div class="content">
@@ -453,7 +453,7 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/searchRoom?locationName=서초구" class="image featured"><img
+									<a href="/coc/searchRoom?locationName=41" class="image featured"><img
 										src="/coc/images/seocho.gif" alt="" id="blur"
 											style="cursor: pointer"/></a>
 
