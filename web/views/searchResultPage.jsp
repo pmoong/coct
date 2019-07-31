@@ -3,10 +3,14 @@
 <%
 	String keyWord = (String) request.getAttribute("keyWord");
 
-
 	String[] title = (String[]) request.getAttribute("title");
 	String[] link = (String[]) request.getAttribute("link");
+	String[] category = (String[]) request.getAttribute("category");
 	String[] description = (String[]) request.getAttribute("description");
+	String[] telephone = (String[]) request.getAttribute("telephone");
+	String[] address = (String[]) request.getAttribute("address");
+	String[] mapx = (String[]) request.getAttribute("mapx");
+	String[] mapy = (String[]) request.getAttribute("mapy");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -223,12 +227,30 @@ body {
 		
         <%int k = 0; %>
         <%for (int i = 0; i < title.length; i++){ %>
-        	<div class="row">
-        		<div class="col-12 col-12-medium">
-        			<a href="<%=link[i]%>" target="_blank"><h2><%=title[i] %></h2></a>
-        			<p><%=description[i] %></p>
+        		<% if(i%4==0){ %>
+        		<div class="row">
+        		<%} %>
+        		
+        		<div class="col-3 col-12-medium">
+        		<section class="box feature">
+							<a href="<%=link[i]%>" target="_blank"><h2><%=title[i] %></h2></a>
+							<div class="inner">
+								<header>
+								<p><%=address[i] %></p>
+        						<p><%=telephone[i] %></p>
+        						<p><%=description[i] %></p>
+								</header>	
+							</div>
+				</section>
         		</div>
-        	</div>
+        		
+        		<% if(i%4==3){ %>
+					</div>
+        		<%} %>
+        		
+
+       
+     
         <%} %>
 				<!-- <div class="row">
 					<div class="col-3 col-12-medium">

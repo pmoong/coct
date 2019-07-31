@@ -1,66 +1,67 @@
 package com.cw.coc.mail.controller;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
 import java.util.Random;
 
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.cw.coc.mail.model.vo.SendEmail;
+import com.cw.coc.member.model.service.MemberService;
+import com.cw.coc.member.model.vo.Member;
 
 /**
- * Servlet implementation class MailCheckServlet
+ * Servlet implementation class FindPwdSendMailServlet
  */
-@WebServlet("/mailCheck")
-public class MailCheckServlet extends HttpServlet {
+@WebServlet("/findPwd")
+public class FindPwdSendMailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MailCheckServlet() {
+    public FindPwdSendMailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @return 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
 		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
+		String userPwd = getRandom();
+		
+		int result = new MemberService().findPwd(userId, userPwd, email);
+		
+		
+		String msg = "임시 비밀번호는 " + userPwd + " 입니다.";
 		
 		SendEmail sm = new SendEmail();
+		sm.setContent(msg);
 		sm.setTitle("KHCOC에서 보낸 메일입니다.");
 		sm.setFrom(email);
-	
-		String auth = getRandom();
-		sm.joinSendMail(email,auth);
+		
+		sm.findSendMail(userId, email, msg);
+
 		
 		request.setAttribute("userId", userId);
 		request.setAttribute("email", email);
-		request.setAttribute("auth", auth);
 
-		//되는 소스
-		//response.sendRedirect("/coc/views/member/joinForm.jsp?userId="+userId+"&email="+email);
-		
-		request.getRequestDispatcher("/views/member/joinForm.jsp").forward(request, response);
+		String page = "";
+
+		if(result > 0) {
+			page = "views/member/login.jsp";
+			response.sendRedirect(page);
+		}else {
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "임시번호 발송 실패!");
+			request.getRequestDispatcher(page).forward(request, response);
+		}
 		
 	}
 
@@ -71,8 +72,8 @@ public class MailCheckServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
 	public String getRandom(){
+		//임시비밀번호 생성
 		StringBuffer temp =new StringBuffer();
          Random rnd = new Random();
          for(int i=0;i<10;i++)
@@ -94,7 +95,6 @@ public class MailCheckServlet extends HttpServlet {
              }
          }
          String AuthenticationKey = temp.toString();
-         System.out.println("인증번호 : " + AuthenticationKey);
          return AuthenticationKey;
 	}
 }

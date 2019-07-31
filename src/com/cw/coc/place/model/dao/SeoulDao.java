@@ -37,7 +37,7 @@ public class SeoulDao {
 		ArrayList<SeoulVo> list = null;
 		
 		String query = prop.getProperty("selecthisList");
-		
+		System.out.println(query);
 		try {
 			stmt = con.createStatement();
 		
@@ -50,9 +50,9 @@ public class SeoulDao {
 				 s.setTitle(rset.getString("STITLE"));
 				 s.setAddr1(rset.getString("SADDR")); 
 				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
-				  
-			 
-				list.add(s);
+					System.out.println("daolist1"+list);
+
+ 				list.add(s);
 			}
 			
 		} catch (SQLException e) {
@@ -61,7 +61,7 @@ public class SeoulDao {
 			close(rset);
 			close(stmt);
 		}
-		
+		System.out.println("daolist2"+list);
 		return list;
 	}
 
@@ -200,6 +200,45 @@ public class SeoulDao {
 		
 		return list;
 	}
+ 
+	  public ArrayList<SeoulVo> selectList(Connection con, int currentPage, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectList1");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+
+			int startRow = (currentPage - 1) * limit + 1;
+			int endRow = startRow + limit - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				
+				 s.setTitle(rset.getString("TITLE"));
+				 s.setAddr1(rset.getString("Addr1")); 
+				  s.setFirstimage(rset.getString("Firstimage"));  
+				
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return list;
+	} 
 
 	public ArrayList<SeoulVo> selecttotList(Connection con) {
 		Statement stmt = null;

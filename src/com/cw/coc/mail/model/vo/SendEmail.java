@@ -99,7 +99,6 @@ public class SendEmail {
 				return new PasswordAuthentication(user, password);
 			}
 		});
-		System.out.println("sendMail2 method()..." + email);
 		// Compose the message
 		try {
 			MimeMessage message = new MimeMessage(session);
@@ -111,6 +110,47 @@ public class SendEmail {
 			message.setText(auth);
 			// Text
 			message.setText(this.from + "님 이메일 인증번호를 입력해주세요" + "\n" + auth);
+			// send the message
+			try {
+				Transport.send(message);
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}
+			
+			System.out.println("message sent successfully...");
+
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public void findSendMail(String userId, String email, String msg) {
+		String host = "smtp.naver.com";
+		final String user = "khcoct";
+		final String password = "1qazXSW@";
+		String to = email;
+		
+		// Get the session object
+		Properties props = new Properties();
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.auth", "true");
+
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(user, password);
+			}
+		});
+		// Compose the message
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(user));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+			// Subject
+			message.setSubject(this.title);
+			// Text
+			message.setText(email + msg);
 			// send the message
 			try {
 				Transport.send(message);

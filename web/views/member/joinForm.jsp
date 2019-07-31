@@ -105,7 +105,7 @@ body {
             %>	
             
           	<%-- <input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()"value="<%=request.getParameter("userId")%>"> --%>
-          	<input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()"value="<%=request.getAttribute("userId")%>">
+          	<input type="text" class="form-control" id="userId" placeholder="아이디를 입력해 주세요" name="userId" onkeyup="idCheck()" value="<%=request.getAttribute("userId")%>">
           	<%
             }else{
           	%>
@@ -115,20 +115,36 @@ body {
          </div>
          <div class="form-group">
             <label for="email">* 이메일</label>
+            <%
+              if(request.getAttribute("email") != null) 
+            {
+            %>	
             <div style="float:left;">
+            <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" name="email" value="<%=request.getAttribute("email")%>">
+            </div>
+ 			<%
+            }else {
+ 			%>     
+ 			<div style="float:left;">
             <input type="email" id="email" placeholder="이메일 주소를 입력해주세요" name="email">
             </div>
-            
-            <div type="submit" id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%" onclick="email();">인증 받기</div>
-         	<br><br><br><div><label>인증 번호</label><input type="text" id="check_code" onkeyup="emailCheck()"></div>
-         	<input type=text readonly="readonly" name="code_check" id="code_check" value="<%= request.getAttribute("auth")%>">
-         	<br><label id="checkCode"></label>
+ 			<%
+            }
+ 			%>      
+            <div type="submit" id="eCheck" style="float:left; margin-left:10%; margin-top:1%; padding:1%" onclick="email();">인증 받기</div><br><br><br>
+         	<div><label>인증 번호</label>
+         	<div style="float:left;">
+         	<input type="text" id="check_code" onkeyup="emailCheck()"></div>
+         	</div>
+         	<div style="float:left; width:10%;">
+         	<input type="hidden" readonly="readonly" name="code_check" id="code_check" value="<%= request.getAttribute("auth")%>">
+         	</div>
+         	<br><br><br><label id="checkCode"></label>
          </div>
-         <br><br>
          <div class="form-group">
             <label for="userPwd">* 비밀번호</label> 
             <input type="password" class="form-control" id="userPwd" 
-            placeholder="비밀번호를 입력해주세요" name="userPwd">
+            placeholder="8자리 이하로 입력해주세요" name="userPwd">
          </div>
          <div class="form-group">
             <label for="userPwd2">* 비밀번호 확인</label> 
@@ -238,19 +254,24 @@ body {
 			var pw1 = f1.userPwd.value;
 			var pw2 = f1.userPwd2.value;
 			
-			if(pw1!=pw2){
-			   document.getElementById('checkPwd').style.color = "red";
-			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치하지 않습니다"; 
-			}else{
-			   document.getElementById('checkPwd').style.color = "gray";
-			   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치합니다";    
-			}	  
+			if(pw1.length >= 8){
+				document.getElementById('checkPwd').style.color = "red";
+				document.getElementById('checkPwd').innerHTML = "8자리 이하로만 입력해주세요";
+			}else {				
+				if(pw1!=pw2){
+				   document.getElementById('checkPwd').style.color = "red";
+				   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치하지 않습니다"; 
+				}else{
+				   document.getElementById('checkPwd').style.color = "gray";
+				   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치합니다";    
+				}	  
+			}
 		}
 
-/* 		function email(){
+ 		function email(){
 			var userId = $('#userId').val();
 			var email = $('#email').val();
-			location.href="http://127.0.0.1:8001/coc/mailCheck?userId="+userId+"&email="+email; 
+			/* location.href="http://127.0.0.1:8001/coc/mailCheck?userId="+userId+"&email="+email; */ 
 			  var form = document.createElement("form");
 		
 		      form.setAttribute("charset", "UTF-8");
@@ -283,26 +304,8 @@ body {
 		
 		      form.submit(); 
 			
-		} */
-		function email(){
-			var userId = $('#userId').val();
-			var email = $('#email').val();
-			
-			$.ajax({
-				url:"/coc/mailCheck",
-				type:"post",
-				data:{userId:userId, email:email},
-				success:function(data){
-					console.log(data);
-					
-					var auth = $('#code_check').val();
-					auth = <%=request.getAttribute("auth")%>
-				},
-				error:function(){
-					console.log("실패!");
-				}
-			});
-		}
+		} 
+
       </script>
       
 

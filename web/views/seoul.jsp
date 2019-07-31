@@ -1,8 +1,10 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.SeoulVo"%>
  <% 
-	ArrayList<SeoulVo> list = (ArrayList<SeoulVo>)request.getAttribute("list");
-%>
+ SeoulVo SeoulVo=(SeoulVo)request.getAttribute("SeoulVo");
+ 	ArrayList<SeoulVo> list = (ArrayList<SeoulVo>) request.getAttribute("list");
+ 
+  %>
 
 <!DOCTYPE HTML>
 <!--
@@ -128,18 +130,18 @@ font-weight: bold;
 padding-left:5px;
 }
  
-   #history{
-width:200px;
-height:300px;
-margin:2px;
-}  
+#history{
+width:50px;
+height:40%;
+
+} 
 
 #recreation {
-width:100%;
-height:100%;
-} 
- 
-   </style>
+width:30px;
+height:40px;
+
+}
+    </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -165,12 +167,12 @@ height:100%;
   <input type="radio" name="pos" id="pos4">
   <ul>
    
-    <li><img src=" /coc/images/pic08.PNG" width="1400" height="300"  
+    <li><img src=" ../images/pic08.PNG" width="1400" height="300"  
       onclick="window.open('http://www.royalpalace.go.kr','new',
  'width=1400,height=900,left=0,top=100,scrollbars=yes');" style="cursor:pointer" /></li>
-    <li><img src=" /coc/images/pic9.PNG"  width="1600" height="300"    /></li>
-    <li><img src=" /coc/images/pic08.PNG"   width="1600" height="300"   /></li>
-    <li><img src=" /coc/images/pic08.PNG"  width="1600" height="300"    /></li>
+    <li><img src=" ../images/pic08.PNG"  width="1600" height="300"    /></li>
+    <li><img src=" ../images/pic08.PNG"   width="1600" height="300"   /></li>
+    <li><img src=" ../images/pic08.PNG"  width="1600" height="300"    /></li>
  
   </ul>
   <p class="pos">
@@ -190,39 +192,99 @@ height:100%;
 			</div>
 			<div class="container">
 					  <div class="btn-group" >
-				  <button id="bbtn" onclick="location.href='<%=request.getContextPath() %>/seoul.tot'">
+				  <%-- <button id="bbtn" onclick="goTotal();">
 					 전체
 				</button> 
-				 <button id="btn" class="btn_his" onclick="location.href='<%=request.getContextPath() %>/seoul.his'"> 역사관광지</button> 
-				 <button id="btn" class="btn_night" onclick="location.href='<%=request.getContextPath() %>/seoul.rec'">휴양관광지</button>
-				 <button id="btn" class="btn_night" onclick="location.href='<%=request.getContextPath() %>/seoul.exp'">체험관광지</button> 
-				 <button id="btn" class="btn_night" onclick="location.href='<%=request.getContextPath() %>/seoul.ind'">산업관광지</button> 
-				  <button id="btn" class="btn_night" onclick="location.href='<%=request.getContextPath() %>/seoul.con'"> 건축/조형물</button> 
+ 				 <button id="btn" class="btn_his" onclick="location.href='<%=request.getContextPath() %>/seoul.his'"> 역사관광지</button> 
+ 			 --%>
+ 
+  				<!--  <button id="btn" class="btn_night" onclick="goHistory();">역사관광지</button>
+ 
+ 				 <button id="btn" class="btn_night" onclick="goRecreation();">휴양관광지</button>
+				 <button id="btn" class="btn_night" onclick="goExperience();">체험관광지</button> 
+				 <button id="btn" class="btn_night" onclick="goIndustry();">산업관광지</button> 
+				  <button id="btn" class="btn_night" onclick="goConstruct();"> 건축/조형물</button>  -->
+<!-- 				  <button id="btn" class="btn_night">문화시설</button> 
+ -->
+     <button id="bbtn" onclick="location.href='<%=request.getContextPath() %>/seoul.tot'"> 전체</button> 
+				 <button id="btn"  onclick="location.href='<%=request.getContextPath() %>/seoul.his'"> 역사관광지</button> 
+				 <button id="btn"   onclick="location.href='<%=request.getContextPath() %>/seoul.rec'">휴양관광지</button>
+				 <button id="btn"   onclick="location.href='<%=request.getContextPath() %>/seoul.exp'">체험관광지</button> 
+				 <button id="btn"  onclick="location.href='<%=request.getContextPath() %>/seoul.ind'">산업관광지</button> 
+				  <button id="btn" onclick="location.href='<%=request.getContextPath() %>/seoul.con'"> 건축/조형물</button> 
 			</div>
+  		 
 </div>
-  
 </div>
-</div></div>
  
-                <div class="container">
-  
- 
- 	<% for(SeoulVo s : list){ %>
- 	 <div style="width:200px ;height:200px ; float: left; margin:5px;margin-bottom:5%;">
- 					<div id="history">
- 					 <%= s.getTitle() %> 
- 					<br>
-					 <%= s.getAddr1() %> 
+<div class="container">
+  <table align="center" id="listArea">
+ <tr>
+ <%  
+ SeoulVo s=(SeoulVo)request.getAttribute("SeoulVo");
+
+ System.out.println("list1 : " + list);
+ System.out.println("s : " + s);
+ 		   %> - 
+ 			<%-- 		<% for(SeoulVo s : list){ %> --%>
+ 					
+ 					<td><%= s.getTitle() %></td>
+					<td><%= s.getAddr1() %></td>
 					
-					 <img src="<%= s.getFirstimage() %>" width="200px" height="200px" style="display:inline" > 
-					</div></div>
-					 
-					<%} %>
-  
- </div> 
-            
-            
+					<div id="history">
+<%-- 					<td><img src="<%= s.getFirstimage() %>"width="200px" height="200px" style="display:inline"></td>
+ --%>					<img src="<%=s.getFirstimage() %>" width="200px" height="200px" style="display:inline" > 
+					</div>
+					 </tr>
+			 
+ </table>
+ </div></div>
+ 
+ 
+ <script>
+ 				
+
+/* <button id="btn" class="btn_night" onclick="goHistory();">역사관광지</button>
+
+<button id="btn" class="btn_night" onclick="goRecreation();">휴양관광지</button>
+<button id="btn" class="btn_night" onclick="goExperience();">체험관광지</button> 
+<button id="btn" class="btn_night" onclick="goIndustry();">산업관광지</button> 
+<button id="btn" class="btn_night" onclick="goConstruct();"> 건축/조형물</button>  */
+/*  (function(){
+	 goHistory().click(function(){
+		 
+	 });
+ }); */
+/* 	function goTotal(){
+		location.href="/seoul.tot";
+	}
+	
+	function goHistory(){
+		location.href="/seoul.his";
+	}
+	
+	function goExperience(){
+		location.href="/seoul.exp";
+	}
+	
+	function goIndustry(){
+		location.href="/seoul.ind";
+	}
+  */
+<%--   $("#listArea td").mouseenter(function(){
+		$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
+	}).mouseout(function(){
+		$(this).parent().css({"background":"black"});
+	}).click(function(){
+		var num = $(this).parent().children().eq(0).text();
+		
+		//console.log(num);
+		
+		location.href="<%=request.getContextPath()%>/selectOne.no?num=" + num;
+	}); --%>
+ </script>
 </body>
 </html>
-		 
-		 
+
+
+ 

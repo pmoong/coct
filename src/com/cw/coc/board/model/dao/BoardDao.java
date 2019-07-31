@@ -1,8 +1,7 @@
 package com.cw.coc.board.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.close;
-
-
+ 
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,11 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
+import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.vo.Member;
-
+ 
 
 public class BoardDao {
 
@@ -298,6 +299,128 @@ public class BoardDao {
 			close(rset);
 		}
 
+		return list;
+	}
+
+
+	public int selectCurrval(Connection con) {
+		Statement stmt =null;
+		ResultSet rset =null;
+		int bid=0;
+		String query=prop.getProperty("selectCurrval");
+		
+		try {
+			stmt =con.createStatement();
+			rset=stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				bid=rset.getInt("currval");
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+			close(rset);
+		}
+		
+		
+		return bid;
+	}
+
+
+	public int insertAttachment(Connection con, ArrayList<Attachment> fileList) {
+		PreparedStatement pstmt =null;
+		int result=0;
+		
+		String query=prop.getProperty("insertAttachment");
+			try {
+				for(int i=0; i<fileList.size(); i++) {
+				pstmt=con.prepareStatement(query);
+				pstmt.setInt(1, fileList.get(i).getBid());
+				pstmt.setString(2, fileList.get(i).getOriginName());
+				pstmt.setString(3,fileList.get(i).getChangeName());
+				pstmt.setString(4, fileList.get(i).getFilePath());
+				
+				int level=0;
+				if(i ==0) {
+					level=0;
+				}else {
+					level=1;
+				}
+				pstmt.setInt(5, level);
+				result += pstmt.executeUpdate();
+				}	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+		}
+		return result;
+	}
+
+	public int insertImgContent(Connection con, Board b) {
+		PreparedStatement pstmt =null;
+		int result=0;
+		String query =prop.getProperty("insertinfo");
+		
+		try {
+			pstmt=con.prepareStatement(query);
+			pstmt.setInt(1, b.getbCode());
+			/*pstmt.setString(2, b.getbType());
+			pstmt.setString(3, b.getbTitle());*/
+			/*pstmt.setString(1, b.getbContent());*/
+			pstmt.setDate(2, b.getbDate());
+
+		result =pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+
+	public ArrayList<HashMap<String, Object>> selectconList(Connection con) {
+		Statement stmt=null;
+		ArrayList<HashMap<String,Object>> list=null;
+		HashMap<String,Object> hmap=null;
+		ResultSet rset =null;
+		
+		String query =prop.getProperty("selectThumbnailMap");
+		
+		try {
+			stmt=con.createStatement();
+			rset=stmt.executeQuery(query);
+			list = new ArrayList<HashMap<String,Object>>();
+			
+			while(rset.next()) {
+				hmap =new HashMap<String,Object>();
+				hmap.put("fid",rset.getInt("FID"));
+				hmap.put("bid", rset.getInt("BID"));
+				hmap.put("originName",rset.getString("ORIGINNAME"));
+				hmap.put("changeName",rset.getString("CHANGENAME"));
+				hmap.put("filePath",rset.getString("FILEPATH"));
+				hmap.put("uploadDate",rset.getString("UPLOADDATE"));
+				hmap.put("fileLevel",rset.getString("FILELEVEL"));
+				hmap.put("bcount",rset.getInt("BCOUNT"));
+				hmap.put("status", rset.getString("STATUS"));	
+				list.add(hmap);
+			    }
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(stmt);
+		}
+		
 		return list;
 	}
 

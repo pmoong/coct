@@ -44,7 +44,7 @@ body {
 <%@ include file="/views/common/menubar_customer.jsp" %>
 
 		<div class="container" align="center">
-			<form class="form-horizontal" action="<%=request.getContextPath() %>/sendMail" onsubmit="return check_form();" method="post">
+			<form class="form-horizontal" onsubmit="return check_form();" method="post">
 				<div class="form-group">
 					<label for="email" class="col-sm-5 control-label" id="userEmail">이메일</label>
 					<div class="col-sm-3">
@@ -52,19 +52,45 @@ body {
 					</div>
             		<br><br><label id="checkEmail"></label>
 				</div>
-			</form>
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-10">
-					<button class="btn btn-default" onclick="sendMail()">아이디 발송</button>
+					<button type="submit" class="btn btn-default" onclick="sendMail()">아이디 발송</button>
+			</form>
 					<button class="btn btn-default" onclick="gologin();">취소</button>
 				</div>
 			</div>
 		</div>
 
 		<script>
+			function check_form(){
+				$("form").submit(function(){
+					if($.trim($("#email").val()) == ""){
+						$("#email").focus();
+						return false;
+					}
+	
+					return true;
+				}); 
+			}
 			function gologin(){
 				location.href="/coc/views/member/login.jsp";
 			}
+ 			function sendMail(){
+				var email = $('#email').val();
+				
+				$.ajax({
+					url:"/coc/findSend",
+					type:"post",
+					data:{email:email},
+					success:function(data){
+					},
+					error:function(){
+						console.log("실패!");
+					}
+				});
+				alert("메일이 발송되었습니다.");
+				location.href="/coc/views/member/login.jsp";
+			} 
 /* 			function emailCheck(){
 					var email = $("#email").val();
 					
@@ -90,33 +116,6 @@ body {
 					
 				});
 			} */
-			function sendMail(){
-				var email = $('#email').val();
-				
-				$.ajax({
-					url:"/coc/mailCheck",
-					type:"post",
-					data:{email:email},
-					success:function(data){
-						console.log(data);
-						
-					},
-					error:function(){
-						console.log("실패!");
-					}
-				});
-				
-			}
-			function check_form(){
-				$("form").submit(function(){
-					if($.trim($("#email").val()) == ""){
-						$("#email").focus();
-						return false;
-					}
-
-					return true;
-				}); 
-			}
 
 		</script>
 

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -57,6 +57,7 @@
   		
   		<div class=intertArea">
  <table align="center">
+ 
 		<tr> 	
 			<td>호텔 소개 이미지</td>
 			<td colspan="3">
@@ -82,7 +83,7 @@
 	</div>	
 	<div class="btnArea">
 		<button type="reset" class="btn btn-default"onclick="location.href='/coc/views/partner/store.jsp'">취소하기</button> &nbsp;
-		<button type="submit" class="btn btn-default">완료</button>
+		<button type="submit" class="btn btn-default" OnClick="javascript:writeCheck();">완료</button>
 	</div>
 	</form>
 	</div>
@@ -105,12 +106,22 @@
 				 switch(num){
 				case 1:$("#tImg").attr("src",e.target.result);break;
 				case 2:$("#cImg").attr("src",e.target.result);break;
-/* 				case 3:$("#cententImg").attr("src",e.target.result);break;
- */					}
+ 	}
 			}
 			reader.readAsDataURL(value.files[0]);
 		}				
-	}
+	}function writeCheck()
+	  {
+		   var form = document.writeform;
+		   
+		  if( !form.memo.value )
+		   {
+		    alert( "내용을 적어주세요" );
+		    form.memo.focus();
+		    return;
+		   }
+		  form.submit();
+		  }
 	</script>
 </body>
 </html>
