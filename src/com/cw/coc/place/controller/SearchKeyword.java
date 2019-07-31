@@ -15,7 +15,7 @@ import com.cw.coc.place.model.Searchapi;
 @WebServlet("/search.kw")
 public class SearchKeyword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      private static final int display = 10;
+      private static final int display = 20;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -51,8 +51,7 @@ public class SearchKeyword extends HttpServlet {
             if (array[i].equals("category"))
                 category[k] = array[i + 2];
             if (array[i].equals("description")) {
-                description[k] = array[i + 2];
-                k++;
+                description[k] = array[i + 2];            
             }
             if (array[i].equals("telephone"))
                 telephone[k] = array[i + 2];
@@ -62,6 +61,7 @@ public class SearchKeyword extends HttpServlet {
                 mapx[k] = array[i + 2];
             if (array[i].equals("mapy")) {
                 mapy[k] = array[i + 2];
+                k++;
             }
         }
         
@@ -70,7 +70,12 @@ public class SearchKeyword extends HttpServlet {
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("title", title);
 		request.setAttribute("link", link);
+		request.setAttribute("category", category);
 		request.setAttribute("description", description);
+		request.setAttribute("telephone", telephone);
+		request.setAttribute("address", address);
+		request.setAttribute("mapx", mapx);
+		request.setAttribute("mapy", mapy);
 		
 		request.getRequestDispatcher(page).forward(request, response);
         
