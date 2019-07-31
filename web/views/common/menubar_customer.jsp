@@ -101,7 +101,15 @@ body {
                   <li><a href="" onclick="logout()">로그아웃</a></li>
  
                   <form  action="/coc/myPage" method="post">
-                  <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
+                  <input type="hidden" name="uno" value="<%=loginUser.getUno() %>">
+                  <input type="hidden" name="id" value="<%=loginUser.getUserId() %>">
+                  <input type="hidden" name="password" value="<%=loginUser.getUserPwd() %>">
+                  <input type="hidden" name="email" value="<%=loginUser.getEmail() %>">
+                  <input type="hidden" name="utype" value="<%=loginUser.getuType() %>">
+                  <input type="hidden" name="gender" value="<%=loginUser.getGender() %>">
+                  <input type="hidden" name="age" value="<%=loginUser.getAge() %>">
+                  <input type="hidden" name="icode" value="<%=loginUser.getiCode() %>">
+                  <input type="hidden" name="status" value="<%=loginUser.getStatus() %>">
                   <li class="current"><button type="submit">마이페이지</button></li>
                   </form>
 
@@ -115,12 +123,10 @@ body {
             <nav id="nav" class="nav2">
                <ul>
                   <li><a href="#">계획그리기</a></li>
-              <!--     <li><a href="/coc/views/culture.jsp" onclick="goculture()">문화즐기기</a></li> -->
-              <li><a onclick="goculture();">문화즐기기</a></li>
+                  <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
                   <li><a href="/coc/views/place/reservation.jsp" onclick="reservation()">숙소잡기</a></li>
-                 <!--  <li><a href="/coc/views/seoul.jsp" onclick="goseoul()">서울나들이</a></li> -->
-                  <li><a href="/coc/views/seoul.jsp" onclick="goseoul();">서울나들이</a></li>
-                </ul>
+                  <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
+               </ul>
             </nav>
          </header>
 
@@ -144,12 +150,6 @@ body {
 		} */
 		function reservation(){
 			lacation.href="/coc/random";
-		}
-		function goculture(){
-			lacation.href="/coc/culture";
-		}
-		function goseoul(){
-			lacation.href="/coc/seoul";
 		}
 	</script>
 

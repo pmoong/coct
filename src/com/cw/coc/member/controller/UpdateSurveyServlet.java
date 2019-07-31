@@ -25,15 +25,27 @@ public class UpdateSurveyServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String uno = request.getParameter("userNo");
+		Member m = new Member();
+
+		int uno = Integer.parseInt(request.getParameter("uno"));
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String utype = request.getParameter("utype");
+		String gender = request.getParameter("gender");
+		int age = Integer.parseInt(request.getParameter("age"));
+		int status = Integer.parseInt(request.getParameter("status"));
 		String[] icodeArr = request.getParameterValues("checkbox"); 
 		String icode = "";
-		
-		System.out.println(uno);
-		
-		
-		
-		
+
+		m.setUno(uno);
+		m.setUserId(id);
+		m.setUserPwd(password);
+		m.setEmail(email);
+		m.setuType(utype);
+		m.setGender(gender);
+		m.setAge(age);
+		m.setStatus(status);
 		
 		for(int i=0;i<icodeArr.length;i++) {
 			if(i==0) {
@@ -42,17 +54,19 @@ public class UpdateSurveyServlet extends HttpServlet {
 				icode += "," + icodeArr[i];
 			}
 		}
+		m.setiCode(icode);
 		
-		int result = new MemberService().updateSurvey(uno, icode);
+		int result = new MemberService().updateSurvey(m);
 		
 		String page = "";
 		
+		
 		if(result > 0 ) {
 			page="/coc/views/member/myPage.jsp";
-			/*HttpSession session = request.getSession();
-			session.setAttribute("uno", uno);
-			request.getSession().setAttribute("uno", uno);*/
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", m);
 			response.sendRedirect(page);
+			
 		}else {
 
 		}

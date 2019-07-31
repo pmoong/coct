@@ -105,11 +105,11 @@ public class BoardService {
 	public ArrayList<Board> myPageSelect() {
 		Connection con = getConnection();
 		
-		ArrayList<Board> list = new BoardDao().myPageSelect(con);
+		//ArrayList<Board> list = new BoardDao().myPageSelect(con);
 		
 		close(con);
 		
-		return list;
+		return null;
 	}
 	
 	
