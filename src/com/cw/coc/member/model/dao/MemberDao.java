@@ -290,19 +290,15 @@ public class MemberDao {
 			
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
-			
 			rset = pstmt.executeQuery();
 			
 			mlist = new ArrayList<Member>();
-			System.out.println("여기까진 잘 되비낟 멍청아");
 			while(rset.next()) {
 				Member m = new Member();
 				
 				m.setUno(rset.getInt("SEQ_UNO"));
-				System.out.println("uno" + m.getUno());
 				m.setUserId(rset.getString("USER_ID"));
-				System.out.println("userId : " + m.getUserId());
-				m.setUserId(rset.getString("USER_PWD"));
+				m.setUserPwd(rset.getString("USER_PWD"));
 				m.setEmail(rset.getString("EMAIL"));
 				m.setuType(rset.getString("UTYPE"));
 				m.setGender(rset.getString("GENDER"));
