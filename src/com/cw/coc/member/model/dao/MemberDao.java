@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
@@ -162,6 +163,7 @@ public class MemberDao {
 		
 		return result;
 	}
+
 
 	public int idCheck(Connection con, String userId) {
 		int result = 0;
@@ -320,6 +322,57 @@ public class MemberDao {
 		return listCount;
 	}
 
+	public String findId(Connection con, String email) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String userId = "";
+		
+		String query = prop.getProperty("findId");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, email);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()){
+				userId = rset.getString("USER_ID");
+			}
+			//System.out.println("userId from Dao : " + userId);
+      
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return userId;
+	}
+
+	public int findPwd(Connection con, String userId, String userPwd, String email) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("findPwd");	
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userPwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, email);
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println("userPWD from Dao : " + userPwd);
+      
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+  }
+
 	public ArrayList<Object> selectSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -348,6 +401,7 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		return list;
+
 	}
 
 }

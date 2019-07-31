@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.mail.model.vo.SendEmail;
-import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.member.model.service.MemberService;
 
 /**
  * Servlet implementation class FindSendMailServlet
  */
 @WebServlet("/findSend")
-public class FindSendMailServlet extends HttpServlet {
+public class FindIdSendMailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSendMailServlet() {
+    public FindIdSendMailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,35 +31,31 @@ public class FindSendMailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-		Member m = new Member();
 		
-		
-		String userId = request.getParameter("userId");
+		String userId = new MemberService().findId(email);
+		//System.out.println("userId from doGet : " + userId);
 		String id = ""; 
 		
 		for(int i = 0; i < userId.length(); i++) {
 			if(i >= userId.length() / 2) {
-				id = "*";
+				id += "*";
 			}else {
-				id = userId.substring(0, 1);
+				id += userId.substring(i, i+1);
 			}
 		}
 		
-		System.out.println("id : " + id);
-		
-		String msg = "아이디는 " + userId + " 입니다.";
+		//System.out.println("id : " + id);
+		String msg = "로 가입된 아이디는 " + id + "입니다.";
 		
 		SendEmail sm = new SendEmail();
+		sm.setContent(msg);
+		sm.setTitle("KHCOC에서 보낸 메일입니다.");
 		sm.setFrom(email);
-
 		
-		request.setAttribute("userId", userId);
+		sm.findSendMail(id, email, msg);
+
 		request.setAttribute("email", email);
 
-		//되는 소스
-		//response.sendRedirect("/coc/views/member/joinForm.jsp?userId="+userId+"&email="+email);
-		
-		request.getRequestDispatcher("/views/member/joinForm.jsp").forward(request, response);
 	}
 
 	/**
