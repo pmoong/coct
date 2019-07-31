@@ -1,4 +1,4 @@
-package com.cw.coc.reserve.model.dao;
+package com.cw.coc.partner.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.close;
 
@@ -12,16 +12,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.cw.coc.member.model.dao.MemberDao;
-import com.cw.coc.member.model.vo.Member;
-import com.cw.coc.reserve.model.vo.Reserve;
+import com.cw.coc.member.model.vo.Partner;
 
-public class ReserveDao {
+public class PartnerDao {
 	
 	private Properties prop = new Properties();
 	
-	public ReserveDao() {
-		String fileName = ReserveDao.class.getResource("/sql/reserve/reserve-query.properties").getPath();
+	public PartnerDao() {
+		String fileName = PartnerDao.class.getResource("/sql/partner/partner-query.properties").getPath();
 		
 		try {
 			prop.load(new FileReader(fileName));
@@ -59,11 +57,11 @@ public class ReserveDao {
 		return listCount;
 	}
 
-	public ArrayList<Reserve> selectList(Connection con, int currentPage, int limit) {
+	public ArrayList<Partner> selectList(Connection con, int currentPage, int limit) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Reserve> rlist = null;
-		String query = prop.getProperty("selectListWithRPaging");
+		ArrayList<Partner> plist = null;
+		String query = prop.getProperty("selectListWithPPaging");
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -77,20 +75,39 @@ public class ReserveDao {
 			pstmt.setInt(2, endRow);
 			rset = pstmt.executeQuery();
 			
+			/*SEQ_UNO
+CORP_REGST_NUM
+BUSINESS_ESTABLISH_DATE
+CTEL
+TAXTYPE
+SEQ_CCODE
+BUSINESS_TYPE
+BUSINESS_ITEMS
+REPRESENTATIVE_NAME
+PICNAME
+COMPANY_NAME*/
 		
-			rlist = new ArrayList<Reserve>();
+			plist = new ArrayList<Partner>();
 			while(rset.next()) {
-				Reserve r = new Reserve();
+				Partner p = new Partner();
 				
-				r.setRsvCode(rset.getInt("SEQ_RSVCODE"));
-				r.setUno(rset.getInt("SEQ_UNO"));
-				r.setRmCode(rset.getInt("SEQ_RMCODE"));
-				r.setRsvDate(rset.getDate("RSVDATE"));
-				r.setCiDate(rset.getDate("CIDATE"));
+				p.setUno(rset.getInt("SEQ_UNO"));
+				p.setRegstNum(rset.getString("CORP_REGST_NUM"));
+				p.setEstaDate(rset.getDate("BUSINESS_ESTABLISH_DATE"));
+				p.setPhone(rset.getString("CTEL"));
+				p.setTaxType(rset.getString("TAXTYPE"));
+				p.setcCode(rset.getInt("SEQ_CCODE"));
+				p.setBusType(rset.getString("BUSINESS_TYPE"));
+				p.setBusItems(rset.getString("BUSINESS_ITEMS"));
+				p.setReprenName(rset.getString("REPRESENTATIVE_NAME"));
+				p.setPicName(rset.getString("PICNAME"));
+				p.setComName(rset.getString("COMPANY_NAME"));
 				
-				rlist.add(r);
+				
+				
+				plist.add(p);
 			}
-			System.out.println("r list = " + rlist);
+			System.out.println("p list = " + plist);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -99,6 +116,7 @@ public class ReserveDao {
 			close(pstmt);
 		}
 		
-		return rlist;
+		return plist;
 	}
-	}
+
+}

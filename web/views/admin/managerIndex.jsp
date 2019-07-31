@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+	
+	
+	List<Board> list = new ArrayList<Board>();
+	List<Member> mlist = new ArrayList<Member>();
+	List<Reserve> rlist = new ArrayList<Reserve>();
+	List<Partner> plist = new ArrayList<Partner>();
+			
+	list = (List)result.get("blist");
+	mlist = (List)result.get("mlist");
+	rlist = (List)result.get("rlist");
+	plist = (List)result.get("plist");
+	
+	System.out.println("※");
+	System.out.println(plist);
+
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
@@ -9,6 +25,9 @@
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	System.out.print("여기까지 호출했는지?");
+	
+	
+	
 %>
 <%-- <% Member loginUser = (Member) session.getAttribute("loginUser");%>	 --%>
 <!DOCTYPE HTML>
@@ -146,37 +165,31 @@ button {
 		<hr style="border-color: yellowgreen">
 
 		<!-- Wrapper for slides -->
-		<div class="container">
-			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">예약번호</th>
-						<th width="100px">방이름</th>
-						<th width="100px">회원번호</th>
-						<th width="100px">예약한날짜</th>
-						<th width="100px">예약한상품날짜</th>
-						<th width="100px">??</th>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-				</table>
-			</div>
+		<div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">예약번호</th>
+					<th width="100px">예약회원</th>
+					<th width="300px">방번호</th>
+					<th width="100px">예약날짜</th>
+					<th width="100px">예약상품날짜</th>
+				</tr>
+				<% for(Reserve r : rlist){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= r.getUno() %>">
+					<td><%= r.getRsvCode() %></td>
+					<td><%= r.getUno() %></td>
+					<td><%= r.getRmCode() %></td>
+					<td><%= r.getRsvDate() %></td>
+					<td><%= r.getCiDate() %></td>
+				</tr>
+				<% } %>
+			</table>
 		</div>
-
+<br><br><br><br><br>
 
 
 		<hr style="border-color: yellowgreen">
@@ -205,65 +218,24 @@ button {
 					<th width="300px">이메일</th>
 					<th width="100px">구분</th>
 					<th width="100px">성별</th>
-					<th width="150px">가입일</th>
 				</tr>
-				<% for(Board b : list){ 
+				<% for(Member m : mlist){ 
 				%>
 				<tr>
-					<input type="hidden" value="<%= b.getbCode() %>">
-					<td><%= b.getbCode() %></td>
-					<td><%= b.getbType() %></td>
-					<td><%= b.getbTitle() %></td>
-					<td><%= b.getbWriter() %></td>
-					<td><span><%= b.getCount()%></span></td>
-					<td><%= b.getbDate() %></td>
+					<input type="hidden" value="<%= m.getUno() %>">
+					<td><%= m.getUno() %></td>
+					<td><%= m.getUserId() %></td>
+					<td><%= m.getEmail() %></td>
+					<td><%= m.getuType() %></td>
+					<td><%= m.getGender() %></td>
 				</tr>
 				<% } %>
 			</table>
 		</div>
 		<br><br><br><br><br>
-		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
-			
-			<% if(currentPage <= 1){ %>
-			<button disabled><</button>
-			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage - 1%>'"><</button>
-			<% } %>
-			
-			<% for(int p = startPage; p <= endPage; p++){ 
-				if(currentPage == p){
-			%>
-					<button disabled><%= p %></button>
-			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=p%>'"><%= p %></button>
-			<% 
-				}
-			}
-			%>
-			
-			<% if(currentPage >= maxPage){ %>
-			<button disabled>></button>
-			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage + 1 %>'">></button>
-			<% } %>
-
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
-		</div>
 		
-		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="category">카테고리</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="search">
-			<button type="submit">검색하기</button>
-			<% if(loginUser != null && loginUser.equals("admin")){ %>
-			<button onclick="location.href='views/board/boardInsertForm.jsp'">작성하기</button>
-			<% } %>
-		</div>
+		
+	
 		
 	</div>
 
@@ -284,36 +256,36 @@ button {
 
 		<!-- Wrapper for slides -->
 
-		<div class="container">
-			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">회원번호</th>
-						<th width="100px">업체이름</th>
-						<th width="100px">회원ID</th>
-						<th width="100px">가입날짜</th>
-						<th width="100px">아이디권한</th>
-						<th width="100px">??</th>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-				</table>
-			</div>
+		<div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">회원번호</th>
+					<th width="100px">상호명</th>
+					<th width="300px">전화번호</th>
+					<th width="100px">업체담당자명</th>
+					<th width="100px">구분</th>
+				</tr>
+				<% for(Partner p : plist){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= p.getUno() %>">
+					<td><%= p.getUno() %></td>
+					<td><%= p.getComName() %></td>
+					<td><%= p.getPhone() %></td>
+					<td><%= p.getPicName() %></td>
+					<td><%= p.getBusType() %></td>
+				</tr>
+				<% } %>
+			</table>
 		</div>
+		<br><br><br><br><br>
+		
+		
+	
+		
+	</div>
 
 		<!-- 게시판관리 -->
 		<hr style="border-color: yellowgreen">
@@ -357,62 +329,8 @@ button {
 			</table>
 		</div>
 		<br><br><br><br><br>
-		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
-			
-			<% if(currentPage <= 1){ %>
-			<button disabled><</button>
-			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage - 1%>'"><</button>
-			<% } %>
-			
-			<% for(int p = startPage; p <= endPage; p++){ 
-				if(currentPage == p){
-			%>
-					<button disabled><%= p %></button>
-			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=p%>'"><%= p %></button>
-			<% 
-				}
-			}
-			%>
-			
-			<% if(currentPage >= maxPage){ %>
-			<button disabled>></button>
-			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage + 1 %>'">></button>
-			<% } %>
-
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
-		</div>
-		
-		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="category">카테고리</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="search">
-			<button type="submit">검색하기</button>
-			<% if(loginUser != null && loginUser.equals("admin")){ %>
-			<button onclick="location.href='views/board/boardInsertForm.jsp'">작성하기</button>
-			<% } %>
-		</div>
-		
 	</div>
-
-
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<hr>
 
 
 		<!-- 정산내역  -->
