@@ -68,7 +68,19 @@ public class SeoulService {
 Connection con = getConnection();
 		
 		ArrayList<SeoulVo> list =new SeoulDao().selecttotList(con);
+		System.out.println("listselcthi"+list);
+
+		close(con);
 		
+		return list;
+	}
+
+	public ArrayList<SeoulVo> selectnatList() {
+Connection con = getConnection();
+		
+		ArrayList<SeoulVo> list =new SeoulDao().selectnatList(con);
+	 
+
 		close(con);
 		
 		return list;

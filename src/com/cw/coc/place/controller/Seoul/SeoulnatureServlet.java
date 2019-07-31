@@ -15,14 +15,14 @@ import com.cw.coc.place.model.vo.SeoulVo;
 /**
  * Servlet implementation class SeoulServlet
  */
-@WebServlet("/seoul.ind")
-public class SeoulindustryServlet extends HttpServlet {
+@WebServlet("/seoul.nat")
+public class SeoulnatureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SeoulindustryServlet() {
+    public SeoulnatureServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class SeoulindustryServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
-ArrayList<SeoulVo> list = new SeoulService().selectindList();
+ArrayList<SeoulVo> list = new SeoulService().selectnatList();
 		
 		System.out.println("controller list : " + list);
 		

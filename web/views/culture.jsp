@@ -3,7 +3,6 @@
  <% 
 	
 	ArrayList<CultureVo> list = (ArrayList<CultureVo>)request.getAttribute("list");
-  ;
 %>
 
 <!DOCTYPE HTML>
@@ -121,9 +120,16 @@ padding-left:30px !important;
  	color:#000000 !important;
  	  border:none !important;
  	font-weight: bold !important;
- 	
- 	
  }
+ #history{
+ width:230px;
+height:230px; 
+ 
+ /*  margin:2%; */
+  margin-left:2%;
+  margin-bottom:2%;
+  
+}
   </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -160,7 +166,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                src="../images/culture.PNG"  width="500" height="400" /></a>
+                                src="/coc/images/culture.PNG"  width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
 
@@ -170,7 +176,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="../images/culture2.PNG" width="500" height="400"   /></a>
+                                 src="/coc/images/culture2.PNG" width="500" height="400"   /></a>
                               <div class="inner"></div>
                            </section>
 
@@ -179,7 +185,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture4.PNG"  width="500" height="400"   /></a>
+                                  src="/coc/images/culture4.PNG"  width="500" height="400"   /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -197,7 +203,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture3.PNG"  width="500" height="400" /></a>
+                                  src="/coc/images/culture3.PNG"  width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -205,7 +211,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture.PNG""  width="500" height="400"  /></a>
+                                  src="/coc/images/culture.PNG""  width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -215,7 +221,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                src="../images/culture3.PNG"  width="500" height="400"  /></a>
+                                src="/coc/images/culture3.PNG"  width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -232,7 +238,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture4.PNG" width="500" height="400" /></a>
+                                  src="/coc/images/culture4.PNG" width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -241,7 +247,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture4.PNG" width="500" height="400"  /></a>
+                                  src="/coc/images/culture4.PNG" width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -250,7 +256,7 @@ padding-left:30px !important;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="../images/culture4.PNG" width="500" height="400"  /></a>
+                                  src="/coc/images/culture4.PNG" width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -274,72 +280,27 @@ padding-left:30px !important;
  <br>
 		   <div class="container">
 		  <div class="btn-group" >
-		<!--    <button id="bbtn" class="total" > 전체</button>
-					 <button id="btn" class="btn_theater" > 연극</button> 
-					 <button id="btn" class="btn_musical" > 뮤지컬				</button> 
-				 <button id="btn" class="btn_consert" > 콘서트				</button> 
-				 <button id="btn" class="btn_show" > 전시회				</button>  
-				 <button id="btn" class="btn_fest" > 페스티벌				</button>  
-				 <button id="btn" class="btn_fam" > 아동/가족				</button > -->
 		  <button id="bbtn"       onclick="location.href='<%=request.getContextPath() %>/culture.tot'"> 전체</button> 
 				 <button id="btn"  onclick="location.href='<%=request.getContextPath() %>/culture.fes'"> 축제</button> 
 				 <button id="btn"   onclick="location.href='<%=request.getContextPath() %>/culture.show'">공연</button>
 				 <button id="btn"   onclick="location.href='<%=request.getContextPath() %>/culture.event'">행사</button> 
-				 
 			</div>	
-			
-			
-			
-			
 			</div>
-			
- 		   <!-- <div class="container">
-			<div class="btn-group" >
-				 <button id="bbtn" >					 월
-				</button> 
-		 		 <button id="btn" class="btn1" >				1월</button> 
-				 <button id="btn" class="btn2" >				2월</button>  
-				 <button id="btn" class="btn3">				3월</button> 
-				<button id="btn" class="btn4">				4월</button> 
-				 <button id="btn" class="btn5">				5월</button>  
-				 <button id="btn" class="btn6">				6월</button>  
-				 <button id="btn" class="btn7">				7월</button>  
-				 <button id="btn" class="btn8">				8월</button> 
-				 <button id="btn" class="btn9">				9월</button> 
-				 <button id="btn"class="btn10">				10월</button> 
-				 <button id="btn"class="btn11">				11월</button> 
-				 <button id="btn" class="btn12">				12월</button>  -->
+		 
  </div>
-</div>
-</div>
-  <div class="container">
-
-<a id="bb" href="#">인기 </a>
-<a id="bb" href="#">신규</a>
-</div>
-	
-<div class="container">
+<div class="container"> 
   <table align="center" id="listArea">
  <tr>
- <%  
- /* CultureVo c=(CultureVo)request.getAttribute("CultureVo");
- */
-  ;
- System.out.println("list1 : " + list);
- for(CultureVo c : list){ 
- System.out.println("c : " + c);
- 		   %> - 
- 			<%-- 		<% for(CultureVo c : list){ %> --%>
+ <%  for(CultureVo c : list){   		   %> 
  					
- 					<td><%= c.getCtitle() %></td>
-					<td><%= c.getCaddr() %></td>
 					
-					<div id="history">
-<%-- 					<td><img src="<%= s.getFirstimage() %>"width="200px" height="200px" style="display:inline"></td>
- --%>					<img src="<%=c.getCfirstimage() %>" width="200px" height="200px" style="display:inline" > 
-					</div>
-					 </tr>
+					<div id="history" style="display:inline; float: left;  ">
+ 					<b>타이틀: </b><%= c.getCtitle() %><br> 
+ 				<img src="<%= c.getCfirstimage() %>"width="80%" height="80%"><br>
+					<b>주소: </b><%= c.getCaddr() %> 
+				     </div>
 			 <%} %>
+					 </tr>
  </table>
  </div></div> 
 
