@@ -33,7 +33,8 @@ public class FindIdSendMailServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		String userId = new MemberService().findId(email);
-		//System.out.println("userId from doGet : " + userId);
+		System.out.println("userId from doGet : " + userId);
+		
 		String id = ""; 
 		
 		for(int i = 0; i < userId.length(); i++) {
@@ -44,7 +45,7 @@ public class FindIdSendMailServlet extends HttpServlet {
 			}
 		}
 		
-		//System.out.println("id : " + id);
+		System.out.println("id : " + id);
 		String msg = "로 가입된 아이디는 " + id + "입니다.";
 		
 		SendEmail sm = new SendEmail();

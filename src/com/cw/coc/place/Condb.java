@@ -9,8 +9,8 @@ import org.apache.catalina.Session;
  
 public class Condb {
  String sqlURL  = "jdbc:oracle:thin:@localhost:1521:xe";
-     String user = "coc";
-    String password = "coc";
+     String user = "COC";
+    String password = "COC";
      static Connection conn = null;
    /*  String sfirstimage=((String).getAttribute("sfirstimage");
  */

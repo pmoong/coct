@@ -139,28 +139,27 @@ public class MemberDao {
 		return result;
 	}
 
-	public int updateSurvey(Connection con, String uno, String icode) {
+	
+	public int updateSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		
-		System.out.println("Assas");
+
 		String query = prop.getProperty("updateSurvey");
 		
-		System.out.println(icode);
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, icode);
-			pstmt.setString(2, uno);
-			
+			pstmt.setString(1,m.getiCode());
+			pstmt.setInt(2, m.getUno());
+
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -334,7 +333,7 @@ public class MemberDao {
 			while(rset.next()){
 				userId = rset.getString("USER_ID");
 			}
-			//System.out.println("userId from Dao : " + userId);
+			System.out.println("userId from Dao : " + userId);
       
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -359,8 +358,6 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 			
-			System.out.println("userPWD from Dao : " + userPwd);
-      
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -369,35 +366,37 @@ public class MemberDao {
 		return result;
   }
 
-	public ArrayList<Object> selectSurvey(Connection con, Member m) {
+	public Member selectSurvey(Connection con) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Object> list = null;
-		
-		System.out.println("Dao!!");
+		Member m = null;
 		String query = prop.getProperty("selectSurvey");
-
-
+		
 		try {
-			
 			pstmt = con.prepareStatement(query);
-					
-			pstmt.setInt(1, m.getUno());
-			
-			rset = pstmt.executeQuery();
-			
-			System.out.println("list : " + list); 
-			while(rset.next()){
-				m.setiCode(rset.getString("ICODE"));
-				
-				list.add(m);
-			}
-			
-    } catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
 
+
+			rset = pstmt.executeQuery();
+
+			if(rset.next()){
+				m = new Member();
+				m.setUno(rset.getInt("SEQ_UNO"));
+				m.setUserId(rset.getString("USER_ID"));
+				m.setUserPwd(rset.getString("USER_PWD"));
+				m.setEmail(rset.getString("EMAIL"));
+				m.setuType(rset.getString("UTYPE"));
+				m.setGender(rset.getString("GENDER"));
+				m.setAge(rset.getInt("AGE"));
+				m.setiCode(rset.getString("ICODE"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return m;
 	}
 
 }

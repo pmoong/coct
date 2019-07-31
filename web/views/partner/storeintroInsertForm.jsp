@@ -10,7 +10,7 @@
 .outer {
 		width:1000px;
 		height:650px;
-		background:#ffffed;
+		background:#fff9f2;
 		border:1px solid black;
 		
 		color:black;

@@ -59,10 +59,10 @@ public class MemberService {
 		return result;
 	}
 
-	public int updateSurvey(String uno, String icode) {
+	public int updateSurvey(Member m) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().updateSurvey(con, uno, icode);
+		int result = new MemberDao().updateSurvey(con, m);
 		
 		if(result > 0) {
 			commit(con);
@@ -70,15 +70,11 @@ public class MemberService {
 			rollback(con);
 		}
 		
-		System.out.println("서비스!!");
+		
 		close(con);
 		
 		return result;
 	}
-
-
-	
-
 
 	public int updatePassword(Member m) {
 		Connection con = getConnection();
@@ -168,16 +164,18 @@ public class MemberService {
 		return result;
 	}
 
-	public ArrayList<Object> myPage(Member m) {
+	public ArrayList<Object> myPage() {
 		Connection con = getConnection();
-		
-		System.out.println("서비스!!");
-		ArrayList<Object> list = new MemberDao().selectSurvey(con, m);
-		
+		ArrayList<Object> list = new ArrayList<Object>();
+		Member m  = new MemberDao().selectSurvey(con);
+		//Board b = new BoardDao().myPageSelect(con);
+		 
+		 list.add(m);
+		 //list.add(b);
+		 
 		close(con);
 		
 		return list;
 	}
 	
-
 }
