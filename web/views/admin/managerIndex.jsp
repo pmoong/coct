@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*"%>
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*, com.cw.coc.allpayment.model.vo.*"%>
 <%
 
 	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
@@ -9,14 +9,16 @@
 	List<Member> mlist = new ArrayList<Member>();
 	List<Reserve> rlist = new ArrayList<Reserve>();
 	List<Partner> plist = new ArrayList<Partner>();
+	List<AllPayment> alist = new ArrayList<AllPayment>();
 			
 	list = (List)result.get("blist");
 	mlist = (List)result.get("mlist");
 	rlist = (List)result.get("rlist");
 	plist = (List)result.get("plist");
+	alist = (List)result.get("alist");
 	
 	System.out.println("※");
-	System.out.println(plist);
+	System.out.println(alist);
 
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
@@ -150,46 +152,7 @@ button {
 		</div>
 
 
-		<!-- Features1 -->
-		<hr style="border-color: yellowgreen">
-		<div class="container">
-			<div class="row">
-				<h3 class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>예약관리</h3>
-				<h2 class="col-4 col-12-medium"
-					style='text-align: right; margin-top: 1%;'>
-					<a href="#">+</a>
-				</h2>
-			</div>
-		</div>
-		<hr style="border-color: yellowgreen">
-
-		<!-- Wrapper for slides -->
-		<div class="outer container">
-		<br>
-		<div class="tableArea">
-			<table align="center" id="listArea">
-				<tr>
-					<th width="100px">예약번호</th>
-					<th width="100px">예약회원</th>
-					<th width="300px">방번호</th>
-					<th width="100px">예약날짜</th>
-					<th width="100px">예약상품날짜</th>
-				</tr>
-				<% for(Reserve r : rlist){ 
-				%>
-				<tr>
-					<input type="hidden" value="<%= r.getUno() %>">
-					<td><%= r.getRsvCode() %></td>
-					<td><%= r.getUno() %></td>
-					<td><%= r.getRmCode() %></td>
-					<td><%= r.getRsvDate() %></td>
-					<td><%= r.getCiDate() %></td>
-				</tr>
-				<% } %>
-			</table>
-		</div>
-<br><br><br><br><br>
+		
 
 
 		<hr style="border-color: yellowgreen">
@@ -237,6 +200,49 @@ button {
 		
 	
 		
+	</div>
+	
+		<!-- 정산내역  -->
+		<hr style="border-color: yellowgreen">
+		<div class="container">
+			<div class="row">
+				<h3 class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>정산내역</h3>
+				<h2 class="col-4 col-12-medium"
+					style='text-align: right; margin-top: 1%;'>
+					<a href="#">+</a>
+				</h2>
+			</div>
+		</div>
+		<hr style="border-color: yellowgreen">
+
+		<!-- Wrapper for slides -->
+
+		<div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">업체번호</th>
+					<th width="100px">상호명</th>
+					<th width="300px">결제금액</th>
+					<th width="100px">결제일</th>
+				</tr>
+				
+				
+				<% for(AllPayment a : alist){ 
+					
+				%>
+				<tr>
+					<td><%= a.getcCode() %></td>
+					<td><%= a.getpName() %></td>
+					<td><%= a.getPrice() %></td>
+					<td><%= a.getpDate() %></td>
+				</tr>
+				<% } %>
+			</table>
+		</div>
+		<br><br><br><br><br>
 	</div>
 
 
@@ -333,12 +339,14 @@ button {
 	
 
 
-		<!-- 정산내역  -->
+	
+	
+	<!-- Features1 -->
 		<hr style="border-color: yellowgreen">
 		<div class="container">
 			<div class="row">
 				<h3 class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>정산내역</h3>
+					style='text-align: left; margin-top: 1%;'>예약관리</h3>
 				<h2 class="col-4 col-12-medium"
 					style='text-align: right; margin-top: 1%;'>
 					<a href="#">+</a>
@@ -348,37 +356,31 @@ button {
 		<hr style="border-color: yellowgreen">
 
 		<!-- Wrapper for slides -->
-
-		<div class="container">
-			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">회원번호</th>
-						<th width="100px">업체이름</th>
-						<th width="100px">제휴번호</th>
-						<th width="100px">결제금액</th>
-						<th width="100px">유지기한</th>
-						<th width="100px">??</th>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-				</table>
-			</div>
+		<div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">예약번호</th>
+					<th width="100px">예약회원</th>
+					<th width="300px">방번호</th>
+					<th width="100px">예약날짜</th>
+					<th width="100px">예약상품날짜</th>
+				</tr>
+				<% for(Reserve r : rlist){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= r.getUno() %>">
+					<td><%= r.getRsvCode() %></td>
+					<td><%= r.getUno() %></td>
+					<td><%= r.getRmCode() %></td>
+					<td><%= r.getRsvDate() %></td>
+					<td><%= r.getCiDate() %></td>
+				</tr>
+				<% } %>
+			</table>
 		</div>
+<br><br><br><br><br>
 
 
 		<hr style="border-color: yellowgreen; border-solid: 5px">
