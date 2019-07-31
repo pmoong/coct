@@ -80,12 +80,22 @@ li a.active {
 				<!-- Nav -->
 				<nav id="nav" style='left: 20%'>
 					<ul>
-						<li><a href="/coc/views/partner/partnerIndex.jsp">홈</a></li>
+ 
+					<!-- 	<li><a href="/coc/views/partner/partnerIndex.jsp">홈</a></li>
 						<li><a href="/coc/views/partner/rm.jsp">예약현황</a></li>
 						<li><a href="/coc/views/partner/store.jsp">매장운영</a></li>
 						<li><a href="/coc/views/partner/reviewManager.jsp">리뷰관리</a></li>
+						<li><a href="/coc/views/partner/calculate.jsp">정산/결제</a></li> -->
+						
+						
+			<li><a href="/coc/views/partner/partnerIndex.jsp">홈</a></li>
+						<li><a href="/coc/views/partner/rm.jsp">예약현황</a></li>
+						<!-- <li><a href="/partner.store">매장운영</a></li> -->
+						<li><a onclick="goStore();">매장운영</a> </li>
+						<li><a href="/coc/views/partner/reviewManager.jsp">리뷰관리</a></li>
 						<li><a href="/coc/views/partner/calculate.jsp">정산/결제</a></li>
 						
+									
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
 						<li><a href="../../index.jsp" style='color:gray;'>로그아웃</a></li>
 					</ul>
@@ -93,7 +103,14 @@ li a.active {
 			</header>
 			<hr style="border-color:orange">
 		</div>
+<script>
+function goStore(){
+	location.href="/coc/partner.store";
+}
 
+
+
+</script>
 	<script src="/coc/assets/js/jquery.min.js"></script>
 	<script src="/coc/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/coc/assets/js/browser.min.js"></script>

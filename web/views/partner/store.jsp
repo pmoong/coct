@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%-- <% Member loginUser = (Member) session.getAttribute("loginUser");%>	 --%>
+	pageEncoding="UTF-8" import="java.util.*"%>
+  <% /* Member loginUser = (Member) session.getAttribute("loginUser"); */
+
+  ArrayList<HashMap<String, Object>> list =
+         (ArrayList<HashMap<String, Object>>) request.getAttribute("list");
+
+%>	  
+
+
 <!DOCTYPE HTML>
 
 <html>
@@ -97,7 +104,21 @@ table {
  					<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/storeintroInsertForm.jsp';">편집하기</button>  &nbsp;
 		
 				</span>
-				
+				<div class="thumbnailArea">
+         <% for(int i = 0; i < list.size(); i++){ 
+               HashMap<String, Object> hmap = list.get(i);
+         %>
+            <div class="thumb-list" align="center">
+               <div>
+                  <input type="hidden" value="<%= hmap.get("bid") %>">
+                  <img src="/jsp/thumbnail_uploadFiles/<%=hmap.get("changeName")%>" 
+                     width="200px" height="150px">
+               </div>
+               <p> <%=hmap.get("bno")%> <%=hmap.get("btitle") %><br> </p>
+            </div>
+         
+         <% } %>
+      </div>  
 			</div>
 		</div>
 		<!--  -->

@@ -43,7 +43,7 @@ ArrayList<SeoulVo> list = new SeoulService().selecthisList();
 			request.setAttribute("list", list);
 		}else {
 			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 조회 실패!");
+			request.setAttribute("msg", "실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
