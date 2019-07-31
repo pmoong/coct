@@ -231,8 +231,8 @@ body {
         		<div class="row">
         		<%} %>
         		
-        		<div class="col-3 col-12-medium">
-        		<section class="box feature">
+        		<div class="col-3 col-12-medium" >
+        			<div style="float:right"><p>콕</p></div>
 							<a href="<%=link[i]%>" target="_blank"><h2><%=title[i] %></h2></a>
 							<div class="inner">
 								<header>
@@ -241,7 +241,7 @@ body {
         						<p><%=description[i] %></p>
 								</header>	
 							</div>
-				</section>
+					
         		</div>
         		
         		<% if(i%4==3){ %>
