@@ -220,7 +220,7 @@ h2 {
                <div class="col-sm-offset-1 col-sm-10">
                   <div>
                      <button type="reset" class="btn btn-default" onclick="location.href='/coc/index.jsp'">취소하기</button>
-                     <button type="submit" class="btn btn-default" onclick="alert('환영합니다.');">가입하기</button>
+                     <button type="submit" class="btn btn-default" onclick="alert('COC의 회원이 되신 것을 환영합니다.');">가입하기</button>
                   </div>
                </div>
          </form>
