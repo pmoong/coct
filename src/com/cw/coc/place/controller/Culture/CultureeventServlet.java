@@ -16,7 +16,7 @@ import com.cw.coc.place.model.vo.CultureVo;
 /**
  * Servlet implementation class CulturetotalServlet
  */
-@WebServlet("/culture.ev")
+@WebServlet("/culture.event")
 public class CultureeventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,9 +29,25 @@ public class CultureeventServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
+ArrayList<CultureVo> list = new CultureService().selecteventList();
+		
+		System.out.println("controller list : " + list);
+		
+		String page = "";
+		
+		if(list != null) {
+			page = "views/culture.jsp";
+			request.setAttribute("list", list);
+		}else {
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "  실패!");
+		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
 		
 	}  
+		
+  
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

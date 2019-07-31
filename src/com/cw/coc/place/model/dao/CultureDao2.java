@@ -11,22 +11,14 @@ import com.cw.coc.place.Condb;
 import com.cw.coc.place.CultureParser;
 import com.cw.coc.place.model.vo.CultureVo;
  
-public class CultureDao {
-	/*private Properties prop =new Properties();
-	public SeoulDao(){
-		String fileName=SeoulDao.class.getResource("/sql/place/seoul-query.properties").getPath();
-		try {
-	prop.load(new FileReader(fileName));
-		} catch (IOException e) { 			e.printStackTrace(); 
-		}*/
+public class CultureDao2 {
  
   public static void saveDB(List<CultureVo> xmlList){
   
   }
 	 public static void main(String[] args) {
  
-  // TODO Auto-generated method stub
-  File file = new File("culture2.xml");
+  File file = new File("seoul2.xml");
   
   CultureParser CultureParser = new CultureParser(file);
   System.out.println("CultureParser"+CultureParser);
@@ -38,18 +30,17 @@ public class CultureDao {
   try {
 	Condb condb = new Condb();
 } catch (IOException e1) {
-	// TODO Auto-generated catch block
 	e1.printStackTrace();
 }
   Connection conn = Condb.getConnection();
  	 
-   String sql ="INSERT INTO CULTURE VALUES(?,?,?,?,?,?,?,?,?)";
+   String sql ="INSERT INTO SEOUL VALUES(?,?,?,?,?,?,?,?,?)";
    try {
    for(int i=0; i<tmp.size() ; i++){
     PreparedStatement stmt = conn.prepareStatement(sql);
   
     stmt.setString(1, tmp.get(i).getCtitle());
-    stmt.setString(2, tmp.get(i).getCaddr1());
+    stmt.setString(2, tmp.get(i).getCaddr());
     
     stmt.setInt(3, tmp.get(i).getCcontenttypeid());
     stmt.setString(4, tmp.get(i).getCcat1());

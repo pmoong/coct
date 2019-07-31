@@ -333,7 +333,7 @@ public class MemberDao {
 			while(rset.next()){
 				userId = rset.getString("USER_ID");
 			}
-			//System.out.println("userId from Dao : " + userId);
+			System.out.println("userId from Dao : " + userId);
       
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -358,8 +358,6 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 			
-			System.out.println("userPWD from Dao : " + userPwd);
-      
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

@@ -91,7 +91,7 @@ li a.active {
 			<li><a href="/coc/views/partner/partnerIndex.jsp">홈</a></li>
 						<li><a href="/coc/views/partner/rm.jsp">예약현황</a></li>
 						<!-- <li><a href="/partner.store">매장운영</a></li> -->
-						<li><a onclick="goStore();">매장운영</a> </li>
+						<li><a href="/coc/partner.store">매장운영</a> </li>
 						<li><a href="/coc/views/partner/reviewManager.jsp">리뷰관리</a></li>
 						<li><a href="/coc/views/partner/calculate.jsp">정산/결제</a></li>
 						

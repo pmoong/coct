@@ -402,15 +402,11 @@ public class BoardDao {
 			
 			while(rset.next()) {
 				hmap =new HashMap<String,Object>();
-				hmap.put("fid",rset.getInt("FID"));
-				hmap.put("bid", rset.getInt("BID"));
-				hmap.put("originName",rset.getString("ORIGINNAME"));
-				hmap.put("changeName",rset.getString("CHANGENAME"));
-				hmap.put("filePath",rset.getString("FILEPATH"));
-				hmap.put("uploadDate",rset.getString("UPLOADDATE"));
-				hmap.put("fileLevel",rset.getString("FILELEVEL"));
-				hmap.put("bcount",rset.getInt("BCOUNT"));
-				hmap.put("status", rset.getString("STATUS"));	
+				hmap.put("seq_bcode",rset.getInt("SEQ_BCODE"));
+				hmap.put("bdate", rset.getDate("BDATE"));
+				hmap.put("bcontent",rset.getString("BCONTENT"));
+				hmap.put("utype",rset.getString("UTYPE"));
+			 	
 				list.add(hmap);
 			    }
 			} catch (SQLException e) {

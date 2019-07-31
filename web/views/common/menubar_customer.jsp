@@ -144,13 +144,11 @@ body {
 			location.href="<%=request.getContextPath()%>/logout";
 		}
 
-	/* 	function myPage(){
-			location.href="/coc/selectSurvey";
-	
-		} */
+
 		function reservation(){
 			lacation.href="/coc/random";
 		}
+
 	</script>
 
 </body>
