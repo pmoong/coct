@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
+import com.cw.coc.place.model.vo.Place;
+
 
 public class PlaceDao {
 	
@@ -32,33 +34,40 @@ public class PlaceDao {
 		}
 	}
 
-	public ArrayList<HashMap<String, Object>> searchRoomList(Connection con) {
+	public ArrayList<Place> searchRoomList(Connection con, String locationName) {
 		Statement stmt = null;
-		ArrayList<HashMap<String, Object>> list = null;
+		ArrayList<Place> list = null;
 		ResultSet rset = null;
-			
+		 
+		
 		String query = prop.getProperty("searchRoomList");
 		
 		try {
+			
+			
 			stmt = con.createStatement();
 			
 			rset = stmt.executeQuery(query);
 			
-			list = new ArrayList<HashMap<String, Object>>();
+			list = new ArrayList<Place>();
 			
 			while(rset.next()) {
-				HashMap<String, Object> hmap = new HashMap<String, Object>();
+				Place p = new Place();
 				
-				hmap.put("cCode", rset.getInt("SEQ_CCODE"));
-				hmap.put("pName", rset.getString("PNAME"));
-				hmap.put("image", rset.getString("IMAGE"));
+				p.setcCode(rset.getInt("SEQ_CCODE"));
+				p.setpName(rset.getString("PNAME"));
+				p.setpAddress(rset.getString("PADDRESS"));
+				p.setImage(rset.getString("IMAGE"));
+				p.setuType(rset.getString("UTYPE"));
+				p.setiCode(rset.getInt("ICODE"));
+				p.setiContent(rset.getString("ICONTENT"));
 				
 				
-				list.add(hmap);
-				
-				System.out.println("list :" + list);
+				if(Integer.parseInt(locationName) ==  rset.getInt("ICODE")) {
+					
+					list.add(p);
+				}
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -68,6 +77,11 @@ public class PlaceDao {
 		
 		
 		return list;
+	}
+
+	public ArrayList<Place> randomPlace(Connection con) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	 
 	

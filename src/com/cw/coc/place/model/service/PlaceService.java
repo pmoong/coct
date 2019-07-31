@@ -9,15 +9,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.cw.coc.place.model.dao.PlaceDao;
+import com.cw.coc.place.model.vo.Place;
 
 
 
 public class PlaceService {
-
-	public ArrayList<HashMap<String, Object>> searchRoomList() {
+	
+	public ArrayList<Place> searchRoomList(String locationName) {
 		Connection con = getConnection();
 
-		ArrayList<HashMap<String, Object>> list = new PlaceDao().searchRoomList(con);
+		ArrayList<Place> list = new PlaceDao().searchRoomList(con, locationName);
+
+		close(con);
+ 
+		return list;	
+	}
+
+	public ArrayList<Place> randomPlace() {
+
+		Connection con = getConnection();
+
+		ArrayList<Place> list = new PlaceDao().randomPlace(con);
 
 		close(con);
 

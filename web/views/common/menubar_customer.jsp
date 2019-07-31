@@ -118,7 +118,7 @@ body {
                   <li class="current"><a href="/coc/views/member/joinForm.jsp">회원가입</a></li>
                   <%} %>
                </ul>
-               
+                
             </nav>
             <nav id="nav" class="nav2">
                <ul>
@@ -146,7 +146,7 @@ body {
 
 
 		function reservation(){
-			lacation.href="/coc/random";
+			location.href="/coc/random";
 		}
 
 	</script>
