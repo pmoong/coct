@@ -37,14 +37,14 @@ public class InsertInterestServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String[] irr = request.getParameterValues("survey");
-		String survey = "";
+		String icode = "";
 
 		if(irr != null) {
 			for(int i=0; i<irr.length; i++) {
 				if(i==0) {
-					survey += irr[i];
+					icode += irr[i];
 				}else {
-					survey += "," + irr[i];
+					icode += "," + irr[i];
 				}
 			}
 		}
@@ -60,7 +60,7 @@ public class InsertInterestServlet extends HttpServlet {
 		member.setEmail(var.get("useremail").toString());
 		member.setAge(Integer.parseInt(var.get("userAge").toString()));
 		member.setGender(var.get("usergender").toString());
-		member.setSurvey(survey);
+		member.setiCode(icode);
 		
 		System.out.println("InsertInterestMemberServlet : " + member);
 		int result = new MemberService().insertMember(member);
