@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cw.coc.allpayment.model.sevice.AllPaymentService;
+import com.cw.coc.allpayment.model.vo.AllPayment;
+import com.cw.coc.allpayment.model.vo.aPageInfo;
 import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.board.model.vo.PageInfo;
@@ -65,6 +68,7 @@ public class AdminSelectListServlet extends HttpServlet {
 		int mlistCount = new MemberService().getListCount();
 		int rlistCount = new ReserveService().getListCount();
 		int plistCount = new PartnerService().getListCount();
+		int alistCount = new AllPaymentService().getListCount();
 		
 		System.out.println("listCount : " + blistCount);
 		System.out.println("mlistCount : " + mlistCount);
@@ -96,21 +100,26 @@ public class AdminSelectListServlet extends HttpServlet {
 		
 		pPageInfo pi4 = 
 				new pPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
+		
+		aPageInfo pi5 = 
+				new aPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
 	
 		ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
 		ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
 		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
 		ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
+		ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
 		
 		result.put("blist", blist);	
 		result.put("mlist", mlist);
 		result.put("rlist", rlist);
 		result.put("plist", plist);
+		result.put("alist", alist);
 		//result.put("pi", pi);
 		System.out.println("result : " +result);
 		
-		System.out.println("pi3 : " + pi3);
-		System.out.println("pLIST : " + plist);
+		System.out.println("pi5 : " + pi5);
+		System.out.println("aLIST : " + alist);
 		String page = "";
 		
 		if(blist != null) {
