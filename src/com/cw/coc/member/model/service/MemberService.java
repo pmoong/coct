@@ -77,19 +77,7 @@ public class MemberService {
 	}
 
 
-	public String selectSurvey(String uno) {
-
-		Connection con = getConnection();
-		
-		Member m = new Member();
-		
-		String icode = new MemberDao().selectSurvey(con, uno);
-		
-		
-		close(con);
-		
-		return icode;
-	}
+	
 
 
 	public int updatePassword(Member m) {
@@ -150,6 +138,18 @@ public class MemberService {
 		close(con);
 		
 		return listCount;
+	}
+
+
+	public ArrayList<Object> myPage(Member m) {
+		Connection con = getConnection();
+		
+		System.out.println("서비스!!");
+		ArrayList<Object> list = new MemberDao().selectSurvey(con, m);
+		
+		close(con);
+		
+		return list;
 	}
 	
 }
