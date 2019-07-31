@@ -38,7 +38,7 @@ public class PlaceDao {
 		Statement stmt = null;
 		ArrayList<Place> list = null;
 		ResultSet rset = null;
-		
+		 
 		
 		String query = prop.getProperty("searchRoomList");
 		

@@ -14,14 +14,14 @@ import com.cw.coc.place.model.vo.Place;
 
 
 public class PlaceService {
-
+	
 	public ArrayList<Place> searchRoomList(String locationName) {
 		Connection con = getConnection();
 
 		ArrayList<Place> list = new PlaceDao().searchRoomList(con, locationName);
 
 		close(con);
-
+ 
 		return list;	
 	}
 

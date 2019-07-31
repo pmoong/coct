@@ -1,6 +1,6 @@
 package com.cw.coc.place.model.vo;
 
-public class Place implements java.io.Serializable{
+public class Place implements java.io.Serializable{ 
 	
 	private int cCode;				//업체코드
 	private String pName;			//가게명

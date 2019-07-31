@@ -43,7 +43,7 @@ public class SearchRoomServlet extends HttpServlet {
 		ArrayList<Place> list = new PlaceService().searchRoomList(locationName);
 	
 		
-		String page = "";
+		String page = ""; 
 		if(list != null) {
 			page = "views/place/searchRoom.jsp";
 			request.setAttribute("list", list);
