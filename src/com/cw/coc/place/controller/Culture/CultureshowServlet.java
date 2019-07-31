@@ -29,7 +29,7 @@ public class CultureshowServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-ArrayList<CultureVo> list = new CultureService().selecttotList();
+ArrayList<CultureVo> list = new CultureService().selectshowList();
 		
 		System.out.println("controller list : " + list);
 		

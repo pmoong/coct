@@ -273,6 +273,40 @@ public class SeoulDao {
 		
 		return list;
 	}
+
+	public ArrayList<SeoulVo> selectnatList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVo> list = null;
+		
+		String query = prop.getProperty("selectnatList");
+		
+		try {
+			stmt = con.createStatement();
+		
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<SeoulVo>();
+			
+			while(rset.next()) {
+				SeoulVo s = new SeoulVo();
+				 s.setTitle(rset.getString("STITLE"));
+				 s.setAddr1(rset.getString("SADDR")); 
+				  s.setFirstimage(rset.getString("SFIRSTIMAGE"));  
+				  
+			 
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
 	}
  
 	 
