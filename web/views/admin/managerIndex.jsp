@@ -40,6 +40,16 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<!-- Additional files for the Highslide popup effect -->
+<script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
@@ -111,45 +121,13 @@ button {
 		<!-- Wrapper for slides -->
 
 
-		<div class="item">
-			<div id="features-wrapper">
-				<div class="container">
-
-					<div class="row">
-						<div class="col-4 col-12-medium">
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/pic01.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-4 col-12-medium">
-
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/pic02.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-4 col-12-medium">
-
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/pic03.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
+		<div class="container">
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<br>
+<hr>
+<br>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	</div>
 
 
 		
@@ -393,6 +371,22 @@ button {
 
 	<!-- Scripts -->
 	<script>
+	$(function(){
+		$("#listArea td").mouseenter(function(){
+			
+			$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+			
+		}).mouseout(function(){
+			$(this).parent().css({"background":"white"});
+			
+		}).click(function(){
+			
+			var num = $(this).parent().children("input").val();
+			
+			location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+		});
+	});
+	
 		$(function(){
 			$("#BlistArea td").mouseenter(function(){
 				
@@ -424,7 +418,217 @@ button {
 				
 			});
 		});
-	</script>
+		
+		   Highcharts.chart('container', {
+
+		       chart: {
+		           scrollablePlotArea: {
+		               minWidth: 700
+		           }
+		       },
+
+		       data: {
+		           csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+		           beforeParse: function (csv) {
+		               return csv.replace(/\n\n/g, '\n');
+		           }
+		       },
+
+		       title: {
+		           text: '주별 사용자 추이'
+		       },
+		       
+		       xAxis: {
+		           tickInterval: 7 * 24 * 3600 * 1000, // one week
+		           tickWidth: 0,
+		           gridLineWidth: 1,
+		           labels: {
+		               align: 'left',
+		               x: 3,
+		               y: -3
+		           }
+		       },
+
+		       yAxis: [{ // left y axis
+		           title: {
+		               text: null
+		           },
+		           labels: {
+		               align: 'left',
+		               x: 3,
+		               y: 16,
+		               format: '{value:.,0f}'
+		           },
+		           showFirstLabel: false
+		       }, { // right y axis
+		           linkedTo: 0,
+		           gridLineWidth: 0,
+		           opposite: true,
+		           title: {
+		               text: null
+		           },
+		           labels: {
+		               align: 'right',
+		               x: -3,
+		               y: 16,
+		               format: '{value:.,0f}'
+		           },
+		           showFirstLabel: false
+		       }],
+
+		       legend: {
+		           align: 'left',
+		           verticalAlign: 'top',
+		           borderWidth: 0
+		       },
+
+		       tooltip: {
+		           shared: true,
+		           crosshairs: true
+		       },
+
+		       plotOptions: {
+		           series: {
+		               cursor: 'pointer',
+		               point: {
+		                   events: {
+		                       click: function (e) {
+		                           hs.htmlExpand(null, {
+		                               pageOrigin: {
+		                                   x: e.pageX || e.clientX,
+		                                   y: e.pageY || e.clientY
+		                               },
+		                               headingText: this.series.name,
+		                               maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+		                                   this.y + ' sessions',
+		                               width: 200
+		                           });
+		                       }
+		                   }
+		               },
+		               marker: {
+		                   lineWidth: 1
+		               }
+		           }
+		       },
+
+		       series: [{
+		           name: 'All sessions',
+		           lineWidth: 4,
+		           marker: {
+		               radius: 4
+		           }
+		       }, {
+		           name: 'New users'
+		       }]
+		   });
+		      
+		   
+		   Highcharts.chart('container2', {
+
+		       chart: {
+		           scrollablePlotArea: {
+		               minWidth: 700
+		           }
+		       },
+
+		       data: {
+		           csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+		           beforeParse: function (csv) {
+		               return csv.replace(/\n\n/g, '\n');
+		           }
+		       },
+
+		       title: {
+		           text: '주별 매출 추이'
+		       },
+
+		       xAxis: {
+		           tickInterval: 7 * 24 * 3600 * 1000, // one week
+		           tickWidth: 0,
+		           gridLineWidth: 1,
+		           labels: {
+		               align: 'left',
+		               x: 3,
+		               y: -3
+		           }
+		       },
+
+		       yAxis: [{ // left y axis
+		           title: {
+		               text: null
+		           },
+		           labels: {
+		               align: 'left',
+		               x: 3,
+		               y: 16,
+		               format: '{value:.,0f}'
+		           },
+		           showFirstLabel: false
+		       }, { // right y axis
+		           linkedTo: 0,
+		           gridLineWidth: 0,
+		           opposite: true,
+		           title: {
+		               text: null
+		           },
+		           labels: {
+		               align: 'right',
+		               x: -3,
+		               y: 16,
+		               format: '{value:.,0f}'
+		           },
+		           showFirstLabel: false
+		       }],
+
+		       legend: {
+		           align: 'left',
+		           verticalAlign: 'top',
+		           borderWidth: 0
+		       },
+
+		       tooltip: {
+		           shared: true,
+		           crosshairs: true
+		       },
+
+		       plotOptions: {
+		           series: {
+		               cursor: 'pointer',
+		               point: {
+		                   events: {
+		                       click: function (e) {
+		                           hs.htmlExpand(null, {
+		                               pageOrigin: {
+		                                   x: e.pageX || e.clientX,
+		                                   y: e.pageY || e.clientY
+		                               },
+		                               headingText: this.series.name,
+		                               maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+		                                   this.y + ' sessions',
+		                               width: 200
+		                           });
+		                       }
+		                   }
+		               },
+		               marker: {
+		                   lineWidth: 1
+		               }
+		           }
+		       },
+
+		       series: [{
+		           name: 'All sessions',
+		           lineWidth: 4,
+		           marker: {
+		               radius: 4
+		           }
+		       }, {
+		           name: 'New users'
+		       }]
+		   });
+		      
+		   </script>
 	<%-- <% } %> --%>
 </body>
 </html>

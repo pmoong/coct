@@ -13,6 +13,125 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['시간', '이용자'],
+          [ 1,      11],
+          [ 2,      7],
+          [ 3,      6],
+          [ 4,      7],
+          [ 5,      10],
+          [ 6,      9],
+          [ 7,      13],
+          [ 8,      10],
+          [ 9,      7],
+          [ 10,      14],
+          [ 11,      23],
+          [ 12,     20],
+          [ 13,      21],
+          [ 14,      18],
+          [ 15,      19],
+          [ 16,     18],
+          [ 17,      16],
+          [ 18,      14],
+          [ 19,      15],
+          [ 20,     24],
+          [ 21,      22],
+          [ 22,      21],
+          [ 23,      18],
+          [ 24,    15]
+        ]);
+
+        var options = {
+          title: '시간대별 이용자 추이',
+          hAxis: {title: '시간', minValue: 0, maxValue: 24},
+          vAxis: {title: '이용자수', minValue: 0, maxValue: 30},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+<script type='text/javascript' src='http://www.google.com/jsapi'></script>
+<script type='text/javascript'>google.load('visualization', '1', {'packages': ['geochart']});
+google.setOnLoadCallback(drawVisualization);
+
+function drawVisualization() {
+	var data = new google.visualization.DataTable();
+
+	data.addColumn('string', 'Country');
+	data.addColumn('number', 'Value'); 
+	data.addColumn({type:'string', role:'tooltip'});var ivalue = new Array();
+	
+	data.addRows([[{v:'KR-11', f:'서울특별시'},0,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-26', f:'부산광역시'},1,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-27',f:'대구광역시'},2,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-30',f:'대전광역시'},3,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-29',f:'광주광역시'},4,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-28',f:'인천광역시'},5,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-31',f:'울산광역시'},6,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-43',f:'충청북도'},7,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-44',f:'충청남도'},8,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-42',f:'강원도'},9,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-41',f:'경기도'},10,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-47',f:'경상북도'},11,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-48',f:'경상남도'},12,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-49',f:'제주도'},13,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-45',f:'전라북도'},14,'이용자 접속 분포도']]);
+	
+	data.addRows([[{v:'KR-46',f:'전라남도'},15,'이용자 접속 분포도']]);
+
+	var options = {
+		colorAxis:  {minValue: 0, maxValue: 21,  colors: ['#3182BD','#3182BD','#3182BD','#3182BD','#3182BD','#3182BD','#3182BD','#3182BD','#3182BD','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#DEEBF7','#DEEBF7','#DEEBF7','#DEEBF7','#DEEBF7',]},
+		legend: 'none',	
+		backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:0 },	
+		datalessRegionColor: '#f5f5f5',
+		displayMode: 'regions', 
+		enableRegionInteractivity: 'true', 
+		resolution: 'provinces',
+		sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
+		region:'KR', //country code
+		keepAspectRatio: true,
+		width:600,
+		height:400,
+		tooltip: {textStyle: {color: '#444444'}, trigger:'focus'}	
+	};
+	
+	var chart2 = new google.visualization.GeoChart(document.getElementById('visualization')); 
+	google.visualization.events.addListener(chart2, 'select', function() {
+	 	var selection = chart2.getSelection();
+	 	if (selection.length == 1) {
+	 		var selectedRow = selection[0].row;
+	 		var selectedRegion = data.getValue(selectedRow, 0);
+	 		if(ivalue[selectedRegion] != '') {
+	 			document.getElementsByTagName('body')[0].style.background=ivalue[selectedRegion]; 
+	 		}
+	 	}
+	});
+	chart2.draw(data, options);
+}
+ </script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -108,12 +227,18 @@ table th {
 
 		
 <%@ include file="/views/common/menubar_manager.jsp" %>
-<div class="container">
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="container col-8 col-12-medium">
+ <div class="col-6 col-6-medium" id="chart_div"  style="width: 900px; height: 500px; float: left; width: 50%;">
+ </div>
+ <p><b>접속지역 추이</b></p>
+  <div class="col-6 col-6-medium"  id='visualization' style=" float: left; width: 30%;"></div>
+ </div>
+<div class="container col-8 col-12-medium">
+<div id="container" class="col-3 col-12-medium" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
 <br>
 <hr>
 <br>
-<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container2" class="col-3 col-12-medium" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
 	</div>
 <hr style="border-color:yellowgreen ; border-solid:5px" >
 <!--  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -331,6 +456,8 @@ table th {
            name: 'New users'
        }]
    });
+   
+   
       
    </script>
 
