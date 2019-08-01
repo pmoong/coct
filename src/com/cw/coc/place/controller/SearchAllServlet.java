@@ -2,7 +2,6 @@ package com.cw.coc.place.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,18 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.Place;
 
-
 /**
- * Servlet implementation class SearchRoomServlet
+ * Servlet implementation class SearchAllServlet
  */
-@WebServlet("/searchRoom")
-public class SearchRoomServlet extends HttpServlet {
+@WebServlet("/searchAll")
+public class SearchAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SearchRoomServlet() {
+	public SearchAllServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,16 +31,8 @@ public class SearchRoomServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("servlet ? ");
-		String locationName = "";
-		
-		locationName = request.getParameter("locationName");
-		System.out.println("locationName::"+locationName);
-		
-		ArrayList<Place> list = new PlaceService().searchRoomList(locationName);
-		
-		
+		ArrayList<Place> list = new PlaceService().searchAllList();
+
 		String page = ""; 
 		if(list != null) {
 			page = "views/place/searchRoom.jsp";
@@ -56,14 +46,12 @@ public class SearchRoomServlet extends HttpServlet {
 
 	}
 
-
-
-/**
- * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
- */
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	// TODO Auto-generated method stub
-	doGet(request, response);
-}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }
