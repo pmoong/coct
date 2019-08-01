@@ -124,7 +124,7 @@ body {
                <ul>
                   <li><a href="#">계획그리기</a></li>
                   <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
-                  <li><a href="/coc/views/place/reservation.jsp" onclick="reservation()">숙소잡기</a></li>
+                  <li><a href="/coc/random">숙소잡기</a></li>
                   <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
                </ul>
             </nav>
@@ -144,11 +144,11 @@ body {
 			location.href="<%=request.getContextPath()%>/logout";
 		}
 
-
+/* 
 		function reservation(){
-			location.href="/coc/random";
+			location.href="";
 		}
-
+ */
 	</script>
 
 </body>

@@ -80,8 +80,83 @@ public class PlaceDao {
 	}
 
 	public ArrayList<Place> randomPlace(Connection con) {
-		// TODO Auto-generated method stub
-		return null;
+		Statement stmt = null;
+		ArrayList<Place> list = null;
+		ArrayList<Place> randomlist = null;
+		ResultSet rset = null;
+		 
+		
+		String query = prop.getProperty("randomPlaceList");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			list = new ArrayList<Place>();
+			
+			while(rset.next()) {
+				Place p = new Place();
+				
+				p.setcCode(rset.getInt("SEQ_CCODE"));
+				
+				list.add(p);
+			}
+			
+			System.out.println("리스트 사이즈 : " + list.size());
+			
+			int[] random = new int[9];
+			
+			for(int i=0; i < random.length; i++) {
+				random[i] = (int)(Math.random() * list.size() + 1);
+				
+				for(int j=0; j < i; j++) {
+					if(random[j] == random[i]) {
+						i--;
+						break;
+					}
+				}
+			
+			}
+			
+			
+			
+			for(int i = 0; i < random.length; i++) {
+				System.out.println(random[i] + " ");
+				
+				String query1 = prop.getProperty("selectRandomList");
+				
+			
+				stmt = con.createStatement();
+				rset = stmt.executeQuery(query1);
+				randomlist = new ArrayList<Place>();
+				
+				while(rset.next()) {
+					Place p = new Place();
+					
+					p.setcCode(rset.getInt("SEQ_CCODE"));
+					p.setImage(rset.getString("IMAGE"));
+					
+					if(random[i] == rset.getInt("SEQ_CCODE")) {
+						list.add(p);
+					}
+					
+				}
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+
+
+		return list;
 	}
 	 
 	
