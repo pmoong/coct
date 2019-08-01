@@ -366,16 +366,17 @@ public class MemberDao {
 		return result;
   }
 
-	public Member selectSurvey(Connection con) {
+	public Member selectSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		Member m = null;
+		
 		String query = prop.getProperty("selectSurvey");
 		
 		try {
 			pstmt = con.prepareStatement(query);
-
-
+			
+			pstmt.setInt(1, m.getUno());
+			System.out.println("m:::::" + m);
 			rset = pstmt.executeQuery();
 
 			if(rset.next()){
@@ -396,6 +397,7 @@ public class MemberDao {
 			close(pstmt);
 			close(rset);
 		}
+		System.out.println(m);
 		return m;
 	}
 

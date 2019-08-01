@@ -24,9 +24,11 @@ public class UpdateSurveyServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("서블릿!!!");
 		Member m = new Member();
+		
 
+		System.out.println(request.getParameter("uno"));
 		int uno = Integer.parseInt(request.getParameter("uno"));
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
@@ -62,7 +64,7 @@ public class UpdateSurveyServlet extends HttpServlet {
 		
 		
 		if(result > 0 ) {
-			page="/coc/views/member/myPage.jsp";
+			page="/coc/myPage.two";
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", m);
 			response.sendRedirect(page);

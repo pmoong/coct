@@ -164,15 +164,21 @@ public class MemberService {
 		return result;
 	}
 
-	public ArrayList<Object> myPage() {
+	public ArrayList<Object> myPage(Member m) {
 		Connection con = getConnection();
 		ArrayList<Object> list = new ArrayList<Object>();
-		Member m  = new MemberDao().selectSurvey(con);
-		//Board b = new BoardDao().myPageSelect(con);
+		m  = new MemberDao().selectSurvey(con, m);
+		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
+		ArrayList<Board> rv = new BoardDao().reviewSelect(con);
 		 
 		 list.add(m);
-		 //list.add(b);
+		 list.add(bo.get(0));
+		 list.add(bo.get(1));
+		 list.add(rv.get(0));
+		 list.add(rv.get(1));
 		 
+
+		 System.out.println("list :" + list);
 		close(con);
 		
 		return list;

@@ -2,8 +2,15 @@
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-	ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
+	//ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
 	String icode = (String) request.getAttribute("icode");
+	Member m1 = (Member) request.getAttribute("m1");
+	Board bo1 = (Board) request.getAttribute("bo1");
+	Board bo2 = (Board) request.getAttribute("bo2");
+	Board rv1 = (Board) request.getAttribute("rv1");
+	Board rv2 = (Board) request.getAttribute("rv2");
+	
+	
 %>
 
 <!DOCTYPE HTML>
@@ -166,22 +173,17 @@ div>a {
 								<form action="/coc/updateSurvey" method="post">
 									<br>
 									<br>
-									<button typee="submit" style="background: darkgray">저장하기</button>
-									<input type="hidden" name="uno"
-										value="<%=loginUser.getUno() %>"> <input type="hidden"
-										name="id" value="<%=loginUser.getUserId() %>"> <input
-										type="hidden" name="password"
-										value="<%=loginUser.getUserPwd() %>"> <input
-										type="hidden" name="email" value="<%=loginUser.getEmail() %>">
-									<input type="hidden" name="utype"
-										value="<%=loginUser.getuType() %>"> <input
-										type="hidden" name="gender"
-										value="<%=loginUser.getGender() %>"> <input
-										type="hidden" name="age" value="<%=loginUser.getAge() %>">
-									<input type="hidden" name="icode"
-										value="<%=loginUser.getiCode() %>"> <input
-										type="hidden" name="status"
-										value="<%=loginUser.getStatus() %>"></td>
+									<button typee="button" id="saveSurvey" style="background: darkgray">저장하기</button>
+									<input type="hidden" name="uno" value="<%=loginUser.getUno() %>">
+									<input type="hidden" name="id" value="<%=loginUser.getUserId() %>">
+									<input type="hidden" name="password" value="<%=loginUser.getUserPwd() %>">
+									<input type="hidden" name="email" value="<%=loginUser.getEmail() %>">
+									<input type="hidden" name="utype" value="<%=loginUser.getuType() %>">
+									<input type="hidden" name="gender" value="<%=loginUser.getGender() %>">
+									<input type="hidden" name="age" value="<%=loginUser.getAge() %>">
+									<input type="hidden" name="icode" value="<%=loginUser.getiCode() %>">
+									<input type="hidden" name="status" value="<%=loginUser.getStatus() %>">
+							</td>
 							<td colspan="2"><label class="checkbox-inline"><b>분위기
 								</b> </label><br> <br>
 
@@ -341,28 +343,28 @@ div>a {
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-						<th width="100px">글번호</th>
-						<th width="100px">카테고리</th>
-						<th width="100px">글제목</th>
+						<th width="50px">글번호</th>
+						<th width="100px">제목</th>
+						<th width="300px">내용</th>
 						<th width="100px">작성자</th>
-						<th width="100px">조회수</th>
-						<th width="100px">작성일</th>
+						<th width="50px">조회수</th>
+						<th width="120px">작성일</th>
 					</tr>
 					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
+						<td><%= bo1.getbCode() %></td>
+						<td><%= bo1.getbTitle() %></td>
+						<td><%= bo1.getbContent() %></td>
+						<td><%= bo1.getbWriter() %></td>
+						<td><%= bo1.getCount() %></td>
+						<td><%= bo1.getbDate() %></td>
 					</tr>
 					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
+						<td><%= bo2.getbCode() %></td>
+						<td><%= bo2.getbTitle() %></td>
+						<td><%= bo2.getbContent() %></td>
+						<td><%= bo2.getbWriter() %></td>
+						<td><%= bo2.getCount() %></td>
+						<td><%= bo2.getbDate() %></td>
 					</tr>
 				</table>
 			</div>
@@ -374,7 +376,36 @@ div>a {
 				function goNotice(){
 					location.href="/coc/selectList.no"
 				}
-			
+				<%-- $("#saveSurvey").click(function(){
+					
+					var checkbox = document.getElementsByName("checkbox");
+					var option = new Array();
+					  
+					for(var i=0;i<=48;i++ ){
+						option[i] = checkbox[i].checked;
+					}
+					
+				
+					$.ajax({
+						url:"updateSurvey",
+						data:{option:option},
+						type:"post",
+						success:function(data){
+							$("input[name=checkbox]").each(function(){
+								var arr = '<%= loginUser.getiCode() %>'.split(",");
+								
+								for(var i=0;i<arr.length;i++){
+									if($(this).val()== arr[i]){
+										$(this).attr("checked", true);
+									}
+								}
+							});
+						},
+						error:function(data){
+							console.log("실패!");
+						}
+					}); 
+				}); --%>
 			</script>
 
 		<!-- Wrapper for slides -->
@@ -399,28 +430,28 @@ div>a {
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-						<th width="100px">글번호</th>
-						<th width="100px">업체이름</th>
-						<th width="100px">글내용</th>
-						<th width="100px">작성날짜</th>
+						<th width="70px">업체이름</th>
+						<th width="100px">제목</th>
+						<th width="300px">내용</th>
 						<th width="100px">작성자</th>
-						<th width="100px">??</th>
+						<th width="50px">조회수</th>
+						<th width="120px">작성일</th>
 					</tr>
 					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
+						<td><%= rv1.getcCode() %></td>
+						<td><%= rv1.getbTitle() %></td>
+						<td><%= rv1.getbContent() %></td>
+						<td><%= rv1.getbWriter() %></td>
+						<td><%= rv1.getCount() %></td>
+						<td><%= rv1.getbDate() %></td>
 					</tr>
 					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
+						<td><%= rv2.getcCode() %></td>
+						<td><%= rv2.getbTitle() %></td>
+						<td><%= rv2.getbContent() %></td>
+						<td><%= rv2.getbWriter() %></td>
+						<td><%= rv2.getCount() %></td>
+						<td><%= rv2.getbDate() %></td>
 					</tr>
 				</table>
 			</div>
