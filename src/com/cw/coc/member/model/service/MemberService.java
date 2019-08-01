@@ -6,7 +6,6 @@ import static com.cw.coc.common.JDBCTemplate.getConnection;
 import static com.cw.coc.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.cw.coc.board.model.dao.BoardDao;
@@ -14,6 +13,7 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.member.model.vo.Payment;
 
 public class MemberService {
 
@@ -170,12 +170,15 @@ public class MemberService {
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con);
+		ArrayList<Payment> pm = new MemberDao().paymentSelect(con, m.getUno());
 		 
 		 list.add(m);
 		 list.add(bo.get(0));
 		 list.add(bo.get(1));
 		 list.add(rv.get(0));
 		 list.add(rv.get(1));
+		 list.add(pm.get(0));
+		 list.add(pm.get(1));
 		 
 
 		 System.out.println("list :" + list);

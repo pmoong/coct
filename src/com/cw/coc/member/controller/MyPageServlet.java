@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.member.model.vo.Payment;
 
 
 @WebServlet("/myPage")
@@ -54,6 +55,8 @@ public class MyPageServlet extends HttpServlet {
 		Board bo2 = (Board) list.get(2);
 		Board rv1 = (Board) list.get(3);
 		Board rv2 = (Board) list.get(4);
+		Payment pm1 = (Payment) list.get(5);
+		Payment pm2 = (Payment) list.get(6);
 		
 		String page = "";
 
@@ -63,6 +66,8 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("bo2", bo2);
 		request.setAttribute("rv1", rv1);
 		request.setAttribute("rv2", rv2);
+		request.setAttribute("pm1", pm1);
+		request.setAttribute("pm2", pm2);
 		
 		request.getRequestDispatcher(page).forward(request, response);
 

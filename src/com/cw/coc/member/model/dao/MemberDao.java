@@ -16,6 +16,7 @@ import java.util.Random;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.member.model.vo.Payment;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -498,6 +499,50 @@ public class MemberDao {
 	}
 
 
+	public ArrayList<Payment> paymentSelect(Connection con, int uno) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			ArrayList<Payment> pm = null;
+			
+			String query = prop.getProperty("paymentSelect");
+			
+			try {
+				pstmt = con.prepareStatement(query);
+				
+				rset = pstmt.executeQuery();
+				pstmt.setInt(1, uno);
+				
+				pm = new ArrayList<Payment>();
+				
+				while(rset.next()) {
+					 Payment p = new Payment();
+					
+					p.setpCode(rset.getString("PCODE"));
+					p.setUno(rset.getInt("SEQ_UNO"));
+					p.setpDate(rset.getDate("PDATE"));
+					p.setPrice(rset.getInt("PRICE"));
+					p.setpType(rset.getString("PTYPE"));
+					p.setpStatus(rset.getString("PSTATUS"));
+					p.setRsvCode(rset.getInt("SEQ_RSVCODE"));
+					
+					
+					
+					pm.add(p);
+					System.out.println("pm::::::::" + pm);
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+				close(rset);
+			}
+			
+			
+			return pm;
+	}
+
+
 	public int deleteOne(Connection con, int uno) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -519,5 +564,6 @@ public class MemberDao {
 
 		return result;
 	}
+
 
 }
