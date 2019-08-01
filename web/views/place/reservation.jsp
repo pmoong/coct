@@ -697,6 +697,61 @@ body {
 							</div>
 						</div>
 					</div>
+
+
+
+
+
+
+
+					<div align="center">
+						<a href="/coc/searchAll" class="image featured"> <img
+							src="/coc/images/allSpot.PNG" alt=""
+							style="width: 25%; height: 25%;" />
+						</a>
+					</div>
+					<br> <br> <br> <br> <br>
+
+
+
+
+
+					<!-- 
+		<!-- Features2 
+		<div id="features-wrapper">
+			<div class="container">
+				<h3>숙박</h3>
+				<div class="row">
+					<div class="col-4 col-12-medium">
+						<!-- Box 
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="images/pic01.jpg" alt="" /></a>
+							<div class="inner"></div>
+						</section>
+
+					</div>
+					<div class="col-4 col-12-medium">
+
+						<!-- Box 
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="images/pic02.jpg" alt="" /></a>
+							<div class="inner"></div>
+						</section>
+
+					</div>
+					<div class="col-4 col-12-medium">
+
+						<!-- Box 
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="images/pic03.jpg" alt="" /></a>
+							<div class="inner"></div>
+						</section>
+
+					</div>
+
 				</div>
 
 				<!-- Left and right controls -->
