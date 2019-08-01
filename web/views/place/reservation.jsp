@@ -133,7 +133,7 @@ body {
 																<div class="_178faes">
 																	<input class="_14fdu48d" data-veloute="checkin_input"
 																		id="checkin_input" name="checkin" placeholder="년/월/일"
-																		type="text" value="" readonly="">
+																		type="text" value="">
 																</div>
 															</div>
 														</div>
@@ -153,7 +153,7 @@ body {
 																<div class="_178faes">
 																	<input class="_14fdu48d" data-veloute="checkout_input"
 																		id="checkout_input" name="checkout"
-																		placeholder="년/월/일" type="text" value="" readonly="">
+																		placeholder="년/월/일" type="text" value="">
 																</div>
 															</div>
 														</div>
@@ -246,7 +246,7 @@ body {
 							data-veloute="search_bar_small_search_button" class="_1r868w">
 							<div>
 								<button type="submit" class="_1vs0x720" aria-busy="false">
-									<span class="_ftj2sg4">검색</span>
+									<a class="_ftj2sg4">검색</a>
 								</button>
 							</div>
 						</div>
