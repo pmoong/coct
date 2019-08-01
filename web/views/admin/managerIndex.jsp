@@ -174,7 +174,7 @@ button {
 		<div class="outer container">
 		<br>
 		<div class="tableArea">
-			<table align="center" id="listArea">
+			<table align="center" id="MlistArea">
 				<tr>
 					<th width="100px">회원번호</th>
 					<th width="100px">아이디</th>
@@ -311,7 +311,7 @@ button {
 		<div class="outer container">
 		<br>
 		<div class="tableArea">
-			<table align="center" id="listArea">
+			<table align="center" id="BlistArea">
 				<tr>
 					<th width="100px">글번호</th>
 					<th width="100px">구분</th>
@@ -394,14 +394,35 @@ button {
 	<!-- Scripts -->
 	<script>
 		$(function(){
-			$("#listArea td").mouseenter(function(){
+			$("#BlistArea td").mouseenter(function(){
+				
 				$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+				
+			}).mouseout(function(){
+				$(this).parent().css({"background":"white"});
+				
+			}).click(function(){
+				
+				var num = $(this).parent().children("input").val();
+				
+				location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+			});
+		});
+		
+		$(function(){
+			$("#MlistArea td").mouseenter(function(){
+				
+				$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+				
 			}).mouseout(function(){
 				$(this).parent().css({"background":"white"});
 			}).click(function(){
-				var num = $(this).parent().children("input").val();
+				var muno = $(this).parent().children("input").val();
+				alert("3");
 				
-				location.href="<%=request.getContextPath()%>/selectOne.bo?num=" + num;
+				console.log(muno);
+				location.href="<%=request.getContextPath()%>/selectOneRe.ad?muno=" + muno;
+				
 			});
 		});
 	</script>

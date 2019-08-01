@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
 <%
-	Member loginUser = (Member)session.getAttribute("loginUser");
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	
+    Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+
+	List<Board> list = new ArrayList<Board>();
+
+	list = (List)result.get("blist");
+
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
@@ -51,11 +56,8 @@ table {
 </style>
 </head>
 <body>
-
-	<%
-		if (loginUser != null) {
-			System.out.print("여기까지 시도는 했는지?");
-	%>
+	<%@ include file="/views/common/menubar_manager.jsp"%>
+	
 	<div class="outer container">
 		<br>
 		<h2 align="center">게시판</h2>
@@ -90,7 +92,7 @@ table {
 			<% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 1%>'"><</button>
 			<% } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){ 
@@ -107,7 +109,7 @@ table {
 			<% if(currentPage >= maxPage){ %>
 			<button disabled>></button>
 			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 1 %>'">></button>
 			<% } %>
 
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
@@ -122,9 +124,7 @@ table {
 			</select>
 			<input type="search">
 			<button type="submit">검색하기</button>
-			<% if(loginUser != null){ %>
 			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
-			<% } %>
 		</div>
 		
 	</div>
@@ -154,12 +154,7 @@ table {
 	<hr>
 	<!-- Footer -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
-	<%
-		} else {
-			request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
-			request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
-		}
-	%> 
+	
 
 </body>
 </html>

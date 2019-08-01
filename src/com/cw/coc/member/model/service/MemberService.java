@@ -177,5 +177,26 @@ public class MemberService {
 		
 		return list;
 	}
+
+
+	public ArrayList<Member> getMember(int muno) {
+		Connection con = getConnection();
+		ArrayList<Member> list = null;
+		
+		int result = new MemberDao().getIdCheck(con, muno);
+		
+		if(result > 0) {
+			commit(con);
+			System.out.println("selectmember 진행중 1");
+			
+			list = new MemberDao().getMember(con, muno);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		System.out.println("마지막＠＠＠＠＠＠＠＠＠:" + list);
+		return list;
+	}
 	
 }

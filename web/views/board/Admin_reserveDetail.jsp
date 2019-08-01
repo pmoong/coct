@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.cw.coc.board.model.vo.*"%>
+	pageEncoding="UTF-8" import="com.cw.coc.reserve.model.vo.*"%>
 <%
-	Board b = (Board) request.getAttribute("b");
+	Reserve r = (Reserve) request.getAttribute("r");
 	System.out.print("여기까지 호출했는지?");
 %>
 <!DOCTYPE html>

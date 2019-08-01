@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
 
+import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
 
@@ -398,5 +399,100 @@ public class MemberDao {
 		}
 		return m;
 	}
+	
+	
+	public int updateCount(Connection con, int muno) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, muno);
+			pstmt.setInt(2, muno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
+	public ArrayList<Member> getMember(Connection con, int muno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Member m = null;
+		ArrayList<Member> list = null;
+		String query = prop.getProperty("getMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, muno);
+			System.out.println("$$$$$$$$$$$$$$$$$$$$$"+muno);
+			
+			rset = pstmt.executeQuery();
+			
+			System.out.println("sone query : " + query);
+			
+			
+			if(rset.next()) {
+				m = new Member();
+				
+				m.setUno(rset.getInt("SEQ_UNO"));
+				m.setUserId(rset.getString("USER_ID"));
+				m.setUserPwd(rset.getString("USER_PWD"));
+				m.setEmail(rset.getString("EMAIL"));
+				m.setuType(rset.getString("UTYPE"));
+				m.setGender(rset.getString("GENDER"));
+				m.setAge(rset.getInt("AGE"));
+				m.setiCode(rset.getString("ICODE"));
+				
+			}
+			list.add(m);
+			
+			System.out.println("M을 담았다" + m);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		System.out.println("값 리턴하러가기");
+		return list;
+	}
+	
+	public int getIdCheck(Connection con, int muno) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("getIdMember");
+		System.out.println("************************" + query);
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, muno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
