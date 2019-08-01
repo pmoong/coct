@@ -430,8 +430,8 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		Member m = null;
-		ArrayList<Member> list = null;
 		String query = prop.getProperty("getMember");
+		ArrayList<Member> list = null;
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -442,7 +442,7 @@ public class MemberDao {
 			
 			System.out.println("sone query : " + query);
 			
-			
+			list = new ArrayList<Member>();
 			if(rset.next()) {
 				m = new Member();
 				
@@ -457,8 +457,7 @@ public class MemberDao {
 				
 			}
 			list.add(m);
-			
-			System.out.println("M을 담았다" + m);
+			System.out.println("M을 담았다" + list);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -498,6 +497,7 @@ public class MemberDao {
 		
 		return result;
 	}
+
 
 	public ArrayList<Payment> paymentSelect(Connection con, int uno) {
 			PreparedStatement pstmt = null;
@@ -541,4 +541,29 @@ public class MemberDao {
 			
 			return pm;
 	}
+
+
+	public int deleteOne(Connection con, int uno) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		String query = prop.getProperty("deleteOne");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, uno);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+
 }

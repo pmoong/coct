@@ -1,4 +1,4 @@
-package com.cw.coc.admin.controller;
+package com.cw.coc.member.controller;
 
 import java.io.IOException;
 
@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.board.model.sevice.BoardService;
+import com.google.gson.Gson;
+
 
 /**
- * Servlet implementation class DeleteBoardServlet
+ * Servlet implementation class MyPagePwdServlet
  */
-@WebServlet("/deleteBoard.ad")
-public class AdminDeleteBoardServlet extends HttpServlet {
+@WebServlet("/mypagePwd.me")
+public class MyPagePwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminDeleteBoardServlet() {
+    public MyPagePwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +30,13 @@ public class AdminDeleteBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		System.out.println("삭ㅈ제~잘되니?");
+		String userPwd = request.getParameter("userPwd");
 		
-		int result = new BoardService().deleteBoard(bcode);
-		String page = "";
+		System.out.println("$$$$$$ : " + userPwd);
 		
-		if(result > 0) {
-			response.sendRedirect("/selectOneRe.ad");
-		}else {
-			page ="views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 삭제 실패!");
-			request.getRequestDispatcher(page).forward(request, response);
-		}
+		response.setContentType("application/json");
+	      response.setCharacterEncoding("UTF-8");
+	      new Gson().toJson(userPwd, response.getWriter());
 	}
 
 	/**

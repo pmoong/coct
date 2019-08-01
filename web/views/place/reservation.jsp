@@ -203,8 +203,7 @@ body {
 																</div>
 																<span class="_1idvclr"><path
 																		d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
-																		fill-rule="evenodd"></path>
-																	</svg></span>
+																		fill-rule="evenodd"></path> </svg></span>
 															</div>
 														</div>
 													</div>
@@ -231,8 +230,7 @@ body {
 																</div>
 																<span class="_1idvclr"> <path
 																		d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
-																		fill-rule="evenodd"></path>
-																	</svg></span>
+																		fill-rule="evenodd"></path> </svg></span>
 															</div>
 														</div>
 													</div>
@@ -259,6 +257,11 @@ body {
 			</div>
 		</div>
 	</div>
+	<div> <%-- <%
+	for(Place p : randomlist) { %>
+	<button type="button"><p><%System.out.println(p); %></p></button>
+	<%} %> --%>
+	</div>
 
 
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -271,196 +274,40 @@ body {
 			<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
 		</ol>
-
+		
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item">
 				<div id="features-wrapper">
 					<div class="container">
+
 						<div class="row">
-						
-						<%
-							for(Place p : randomlist) {
-						%>
-						
 							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
 									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="<%=p.getImage() %>" alt="" /></a>
+										src="<%=randomlist.get(0).getImage()%>" alt=""/></a>
 									<div class="inner"></div>
 								</section>
 
 							</div>
-						<% 
-						
-							}
-						%>	
-	
+							<div class="col-4 col-12-medium" >
 
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev"
-			style="background: white"> <span
-			class="glyphicon glyphicon-chevron-left"></span> <span
-			class="sr-only">Previous</span>
-		</a> 
-		<a class="right carousel-control" href="#myCarousel"
-			data-slide="next" style="background: white"> <span
-			class="glyphicon glyphicon-chevron-right"></span> <span
-			class="sr-only">Next</span>
-		</a>
-	</div>
-	<!-- ----------------------------- -->
-
-
-	
-			<div id="myCarousel2" class="carousel slide" data-ride="carousel">
-		<div class="container">
-			<h3>
-				콕<small>COC</small>과 함께 서울 전체를 여행 해보세요
-			</h3>
-		</div>
-		
-
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel2" data-slide-to="0" class=""></li>
-			<li data-target="#myCarousel2" data-slide-to="1" class="active"></li>
-			
-		</ol>
-		
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-			<div class="item">
-				<div id="features-wrapper">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-2 col-10-medium">
 								<!-- Box -->
 								<section class="box feature">
-									<div class="img">
-										<a href="/coc/searchRoom?locationName=40" class="image featured"><img
-											src="/coc/images/gangnam.png" alt="" id="blur"
-											style="cursor: pointer" />
-											<div class="content">
-												<!-- <p>Hello!</p> -->
-
-											</div>
-											<div class="img-cover"></div> </a>
-
-									</div>
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(1).getImage()%>" alt="" /></a>
+									<div class="inner"></div>
 								</section>
 
 							</div>
-							<div class="col-2 col-10-medium">
+							<div class="col-4 col-12-medium" >
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/searchRoom?locationName=41" class="image featured"><img
-										src="/coc/images/seocho.gif" alt="" id="blur"
-											style="cursor: pointer"/></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-									
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(2).getImage()%>" alt="" /></a>
+									<div class="inner"></div>
 								</section>
 
 							</div>
@@ -474,129 +321,33 @@ body {
 					<div class="container">
 
 						<div class="row">
-							<div class="col-2 col-10-medium">
-								<!-- Box -->
-								<section class="box feature">
-									<div class="img">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/pic01.jpg" alt="" id="blur"
-											style="cursor: pointer" />
-											<div class="content">
-												<p>Hi!</p>
-
-											</div>
-											<div class="img-cover"></div> </a>
-
-									</div>
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
+							<div class="col-4 col-12-medium" >
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature"> 
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(3).getImage()%>" alt=""/></a>
 									<div class="inner"></div>
 								</section>
 
 							</div>
-							<div class="col-2 col-10-medium">
-
+							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(4).getImage()%>" alt=""/></a>
+									<div class="inner"></div>
 								</section>
 
 							</div>
-							<div class="col-2 col-10-medium">
+
+							<div class="col-4 col-12-medium" >
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic01.jpg" alt="" /></a>
-									
-								</section>
-
-							</div>
-							<div class="col-2 col-10-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotel.jsp" class="image featured"><img
-										src="/coc/images/pic01.jpg" alt="" /></a>
-									
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(5).getImage()%>" alt=""/></a>
+									<div class="inner"></div>
 								</section>
 
 							</div>
@@ -605,41 +356,389 @@ body {
 				</div>
 			</div>
 
-<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel2" data-slide="prev"
-				style="background: white"> <span
-				class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel2"
-				data-slide="next" style="background: white"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
+			<div class="item">
+				<div id="features-wrapper">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-4 col-12-medium" >
+								<!-- Box -->
+								<section class="box feature">
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(6).getImage()%>" alt="" /></a>
+									<div class="inner"></div>
+								</section>
+
+							</div>
+							<div class="col-4 col-12-medium" >
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(7).getImage()%>" alt="" /></a>
+									<div class="inner"></div>
+								</section>
+
+							</div>
+							<div class="col-4 col-12-medium" >
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="reserv_hotelView.jsp" class="image featured"><img
+										src="<%=randomlist.get(8).getImage()%>" alt="" /></a>
+									<div class="inner"></div>
+								</section>
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
-		</div>
-	</div>
+		
 
 
-			
-
-
-		<div align="center">
-			<a href="../images/spot.PNG" class="image featured"> <img
-				src="/coc/images/allSpot.PNG" alt=""
-				style="width: 25%; height: 25%;" />
-			</a>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+							<!-- Left and right controls -->
+							<a class="left carousel-control" href="#myCarousel"
+								data-slide="prev" style="background: white"> <span
+								class="glyphicon glyphicon-chevron-left"></span> <span
+								class="sr-only">Previous</span>
+							</a> <a class="right carousel-control" href="#myCarousel"
+								data-slide="next" style="background: white"> <span
+								class="glyphicon glyphicon-chevron-right"></span> <span
+								class="sr-only">Next</span>
+							</a>
+						</div>
+						<!-- ----------------------------- -->
 
 
 
+						<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+							<div class="container">
+								<h3>
+									콕<small>COC</small>과 함께 서울 전체를 여행 해보세요
+								</h3>
+							</div>
 
 
-		<!-- 
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel2" data-slide-to="1" class=""></li>
+
+							</ol>
+
+
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+								<div class="item active">
+									<div id="features-wrapper">
+										<div class="container">
+
+											<div class="row">
+												<div class="col-2 col-10-medium">
+													<!-- Box -->
+													<section class="box feature">
+														<div class="img">
+															<a href="/coc/searchRoom?locationName=40"
+																class="image featured"><img
+																src="/coc/images/gangnam.png" alt="" id="blur"
+																style="cursor: pointer" />
+																<div class="content">
+																	<!-- <p>Hello!</p> -->
+
+																</div>
+																<div class="img-cover"></div> </a>
+
+														</div>
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="/coc/searchRoom?locationName=41"
+															class="image featured"><img
+															src="/coc/images/seocho.gif" alt="" id="blur"
+															style="cursor: pointer" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic02.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic02.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="item">
+									<div id="features-wrapper">
+										<div class="container">
+
+											<div class="row">
+												<div class="col-2 col-10-medium">
+													<!-- Box -->
+													<section class="box feature">
+														<div class="img">
+															<a href="reserv_hotel.jsp" class="image featured"><img
+																src="/coc/images/pic01.jpg" alt="" id="blur"
+																style="cursor: pointer" />
+																<div class="content">
+																	<p>Hi!</p>
+
+																</div>
+																<div class="img-cover"></div> </a>
+
+														</div>
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic02.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+														<div class="inner"></div>
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic03.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic01.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+												<div class="col-2 col-10-medium">
+
+													<!-- Box -->
+													<section class="box feature">
+														<a href="reserv_hotel.jsp" class="image featured"><img
+															src="/coc/images/pic01.jpg" alt="" /></a>
+
+													</section>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Left and right controls -->
+								<a class="left carousel-control" href="#myCarousel2"
+									data-slide="prev" style="background: white"> <span
+									class="glyphicon glyphicon-chevron-left"></span> <span
+									class="sr-only">Previous</span>
+								</a> <a class="right carousel-control" href="#myCarousel2"
+									data-slide="next" style="background: white"> <span
+									class="glyphicon glyphicon-chevron-right"></span> <span
+									class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<div align="center">
+						<a href="../images/spot.PNG" class="image featured"> <img
+							src="/coc/images/allSpot.PNG" alt=""
+							style="width: 25%; height: 25%;" />
+						</a>
+					</div>
+					<br> <br> <br> <br> <br>
+
+
+
+
+
+					<!-- 
 		<!-- Features2 
 		<div id="features-wrapper">
 			<div class="container">
@@ -727,7 +826,7 @@ body {
 			</div>
 		</div>
 		 -->
-		<!-- 		
+					<!-- 		
 			<!-- Main --
 
 				<div id="main-wrapper">
@@ -770,12 +869,9 @@ body {
 					</div>
 				</div>
 -->
-		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp"%>v>
+					<!-- Footer -->
+					<%@include file="/views/common/footerbar_customer.jsp"%>v>
 
-	</div>
-
-
-
+				</div>
 </body>
 </html>

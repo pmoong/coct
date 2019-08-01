@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.member.model.vo.*, com.cw.coc.board.model.vo.*"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-	ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
-	String icode = (String) request.getAttribute("icode");
-%>
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+
+
+	List<Board> blist = new ArrayList<Board>();
+	List<Member> list = new ArrayList<Member>();
+		
+	list = (List)result.get("list");
+	blist = (List)result.get("blist");
+	
+	System.out.println("b%%%%%%%%%%%%%" + blist);
+	System.out.println("m%%%%%%%%%%%%" + list);
+
+	%>
 
 <!DOCTYPE HTML>
 <!--
@@ -123,7 +132,7 @@ div>a {
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<%@ include file="/views/common/menubar_customer.jsp"%>
+		<%@ include file="/views/common/menubar_manager.jsp"%>
 		<!-- CONTENTS -->
 		<div class="container">
 
@@ -134,54 +143,50 @@ div>a {
 							<td rowspan="4" style="vertical-align: middle"><img
 								id="imgThumb"
 								src="https://static.nid.naver.com/images/web/user/default.png?type=s160"
-								width="40%" height="40%"> <br>
+								width="30%" height="60%"> <br>
 							<br>
 								<button style="background: darkgray">편집</button></td>
 							<td><label id="id">아이디 </label></td>
-							<td><%=loginUser.getUserId()  %></td>
+							<% for(Member m : list) { %>
+							<td><%=m.getUserId()  %></td>
 						</tr>
 						<tr>
 							<td><label>성별</label></td>
 							<td>
-								<% if(loginUser.getGender().equals("M") || loginUser.getGender().equals("남자")){
-					    loginUser.setGender("남자");	
+								<% if(m.getGender().equals("M") || m.getGender().equals("남자")){
+					    m.setGender("남자");	
 					}else{
-						loginUser.setGender("여자");
-					} %> <%= loginUser.getGender() %></td>
+						m.setGender("여자");
+					} %> <%= m.getGender() %></td>
 
 						</tr>
 						<tr>
 							<td><label>이메일</label></td>
-							<td><%=loginUser.getEmail() %></td>
+							<td><%=m.getEmail() %></td>
 						</tr>
 						<tr>
-							<td><label>비밀번호</label></td>
-							<td><input type="password" name="password" id="password">&nbsp;&nbsp;
-								<button style="background: darkgray" id="testbtn">
-									<p>비밀번호변경하기</p>
-								</button></td>
+							&nbsp;&nbsp;
+									<p><button type="submit" style="background: yellowgreen;" value="<%=m.getUno() %>" name="uno" herf="coc/deleteMember.ad">회원정보 삭제하기</button></p>
 						</tr>
 						<tr>
-							<td style="vertical-align: middle"><label>설문조사</label>
-								<form action="/coc/updateSurvey" method="post">
+								<form >
 									<br>
 									<br>
-									<button typee="submit" style="background: darkgray">저장하기</button>
 									<input type="hidden" name="uno"
-										value="<%=loginUser.getUno() %>"> <input type="hidden"
-										name="id" value="<%=loginUser.getUserId() %>"> <input
+										value="<%=m.getUno() %>"> <input type="hidden"
+										name="id" value="<%=m.getUserId() %>"> <input
 										type="hidden" name="password"
-										value="<%=loginUser.getUserPwd() %>"> <input
-										type="hidden" name="email" value="<%=loginUser.getEmail() %>">
+										value="<%=m.getUserPwd() %>"> <input
+										type="hidden" name="email" value="<%=m.getEmail() %>">
 									<input type="hidden" name="utype"
-										value="<%=loginUser.getuType() %>"> <input
+										value="<%=m.getuType() %>"> <input
 										type="hidden" name="gender"
-										value="<%=loginUser.getGender() %>"> <input
-										type="hidden" name="age" value="<%=loginUser.getAge() %>">
+										value="<%=m.getGender() %>"> <input
+										type="hidden" name="age" value="<%=m.getAge() %>">
 									<input type="hidden" name="icode"
-										value="<%=loginUser.getiCode() %>"> <input
+										value="<%=m.getiCode() %>"> <input
 										type="hidden" name="status"
-										value="<%=loginUser.getStatus() %>"></td>
+										value="<%=m.getStatus() %>"></td>
 							
 							</form>
 						</tr>
@@ -192,7 +197,7 @@ div>a {
 			<br>
 			<br>
 		</div>
-
+<% } %>
 		
 
 
@@ -223,8 +228,9 @@ div>a {
 					<th width="100px">작성자</th>
 					<th width="100px">조회수</th>
 					<th width="150px">작성일</th>
+					<th width="150px">비고</th>
 				</tr>
-				<% for(Board b : list){ 
+				<% for(Board b : blist){ 
 				%>
 				<tr>
 					<input type="hidden" value="<%= b.getbCode() %>">
@@ -234,12 +240,15 @@ div>a {
 					<td><%= b.getbWriter() %></td>
 					<td><span><%= b.getCount()%></span></td>
 					<td><%= b.getbDate() %></td>
+					<td><a>삭제</a></td>
 				</tr>
 				<% } %>
+				
 			</table>
 		</div>
 		<br><br><br><br><br>
 	</div>
+	
 			<br>
 			<br>
 			<br>
@@ -297,95 +306,12 @@ div>a {
 
 		<!-- Wrapper for slides -->
 
-		<div class="container">
-			<a href="/coc/views/member/myCoc.jsp">
-				<div class="row">
-					<h3 class="col-8 col-12-medium"
-						style='text-align: left; margin-top: 1%;'>나의콕</h3>
-					<h2 class="col-4 col-12-medium"
-						style='text-align: right; margin-top: 1%;'>></h2>
-				</div>
-			</a>
-			<hr style="border: 1px solid darkgray">
-			<br>
-			<div class="item">
-				<div id="features-wrapper">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-4 col-12-medium">
-								<!-- Box -->
-								<section class="box feature">
-									<a href="#" class="image featured"><img
-										src="../../images/pic01.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="#" class="image featured"><img
-										src="../../images/pic02.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="#" class="image featured"><img
-										src="../../images/pic03.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Footer -->
-			<br>
-			<br>
-			<br>
-		</div>
+		
 
 		<%@include file="/views/common/footerbar_customer.jsp"%>
 	</div>
 	<script>
-
-	//비밀번호 변경
-	$("#testbtn").click(function(){
-		
-		var value = $("#password").val();
-		var check='<%=loginUser.getUserPwd()%>';
-		
-		if(  check==value ){
-			location.href='/coc/views/member/changeUserPwd.jsp';
-		}else{
-			alert("비밀번호를 확인하세요");
-		}
-	});
-	// 취향
-	$(function(){
-		$("input[name=checkbox]").each(function(){
-			var arr = '<%= loginUser.getiCode() %>'.split(",");
-			
-			for(var i=0;i<arr.length;i++){
-				if($(this).val()== arr[i]){
-					$(this).attr("checked", true);
-				}
-			}
-		});
-	});
 	
-	 /*  $(document).ready(function() {
-		location.href="/coc/selectSurvey";
-	}); */
 
 	
 </script>

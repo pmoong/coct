@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -94,14 +96,12 @@ public class PlaceDao {
 			rset = stmt.executeQuery(query);
 			list = new ArrayList<Place>();
 			
+			/*
 			while(rset.next()) {
 				Place p = new Place();
-				
 				p.setcCode(rset.getInt("SEQ_CCODE"));
-				
 				list.add(p);
 			}
-			
 			System.out.println("리스트 사이즈 : " + list.size());
 			
 			int[] random = new int[9];
@@ -115,36 +115,62 @@ public class PlaceDao {
 						break;
 					}
 				}
+			}
+			*/
 			
+			String query1 = prop.getProperty("selectRandomList");
+			randomlist = new ArrayList<Place>();
+			rset = stmt.executeQuery(query1);
+			
+			while(rset.next()) {
+				Place p = new Place();
+				
+				p.setcCode(rset.getInt("SEQ_CCODE"));
+				p.setImage(rset.getString("IMAGE"));
+				randomlist.add(p);
+			}
+			
+			for(Place p : randomlist) {
+				System.out.println(p);
+			}
+			
+			Collections.shuffle(randomlist);
+			
+			System.out.println("===========");
+			for(Place p : randomlist) {
+				System.out.println(p);
 			}
 			
 			
-			
+			/*
 			for(int i = 0; i < random.length; i++) {
 				System.out.println(random[i] + " ");
 				
-				String query1 = prop.getProperty("selectRandomList");
 				
-			
+				
+				
 				stmt = con.createStatement();
-				rset = stmt.executeQuery(query1);
-				randomlist = new ArrayList<Place>();
+				
 				
 				while(rset.next()) {
+					
 					Place p = new Place();
 					
 					p.setcCode(rset.getInt("SEQ_CCODE"));
 					p.setImage(rset.getString("IMAGE"));
 					
 					if(random[i] == rset.getInt("SEQ_CCODE")) {
-						list.add(p);
+						randomlist.add(p);
+							
 					}
+				
 					
 				}
+				System.out.println(randomlist);
 				
 			}
-			
-			
+			*/
+			System.out.println(randomlist);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -155,8 +181,7 @@ public class PlaceDao {
 		}
 		
 
-
-		return list;
+		return randomlist;
 	}
 	 
 	

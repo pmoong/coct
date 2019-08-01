@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*"%>
- <% 
+ <%  
 	
 	ArrayList<CultureVo> list = (ArrayList<CultureVo>)request.getAttribute("list");
 %>

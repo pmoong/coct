@@ -6,11 +6,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import org.apache.catalina.Session;
- 
+  
 public class Condb {
  String sqlURL  = "jdbc:oracle:thin:@localhost:1521:xe";
-     String user = "COC";
-    String password = "COC";
+     String user = "coc";
+    String password = "coc";
      static Connection conn = null;
    /*  String sfirstimage=((String).getAttribute("sfirstimage");
  */
@@ -27,21 +27,10 @@ public class Condb {
      }catch (SQLException e) {
 			e.printStackTrace();
      } catch (ClassNotFoundException e) {
-   // TODO Auto-generated catch block
    e.printStackTrace();
   } 
  }
- /*<%String title =request.getParameter("title");
-  Connection conn =null;
-   
-  
- 	String cfitstimage=request.getParameter("image");
-  ResultSet rs =excuteQuery("select * from seoul where scat2='A0201'"+cfitstimage);
-
- %>	  <result>
- <id><%=rs.getString("TITLE") %>
- <order><%=rs.getString("FIRSTIMAGE") %>
- </order>*/
+ 
  
  public static Connection getConnection(){
    return conn;

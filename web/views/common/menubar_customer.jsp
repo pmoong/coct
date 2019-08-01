@@ -123,9 +123,9 @@ body {
             <nav id="nav" class="nav2">
                <ul>
                   <li><a href="/coc/views/course/course_make.jsp">계획그리기</a></li>
-                  <li><a href="/coc/views/culture.jsp">문화즐기기</a></li>
+                  <li><a href="/coc/culture">문화즐기기</a></li>
                   <li><a href="/coc/random">숙소잡기</a></li>
-                  <li><a href="/coc/views/seoul.jsp">서울나들이</a></li>
+                  <li><a href="/coc/seoul">서울나들이</a></li>
                </ul>
             </nav>
          </header>

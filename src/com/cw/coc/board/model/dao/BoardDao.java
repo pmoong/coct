@@ -468,5 +468,56 @@ public class BoardDao {
 		
 		return rv;
 	}
+
+
+	public ArrayList<Board> getBoard(Connection con ,int muno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Board> rv = null;
+		
+		String query = prop.getProperty("getreview");
+		
+		try {
+			
+			
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, muno);
+			
+			rset = pstmt.executeQuery();
+			
+			rv = new ArrayList<Board>();
+			
+			while(rset.next()) {
+				 Board b = new Board();
+				
+				b.setbCode(rset.getInt("SEQ_BCODE"));
+				b.setbDate(rset.getDate("BDATE"));
+				b.setbTitle(rset.getString("BTITLE"));
+				b.setbContent(rset.getString("BCONTENT"));
+				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
+				b.setcCode(rset.getInt("SEQ_CCODE"));
+				b.setpCode(rset.getString("PCODE"));
+				b.setUno(rset.getInt("SEQ_UNO"));
+				b.setuType(rset.getString("UTYPE"));
+				b.setCount(rset.getInt("COUNT"));
+				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
+				
+				System.out.println("rset.getInt(\"SEQ_BCODE\") ::: " + rset.getInt("SEQ_BCODE"));
+				
+				rv.add(b);
+				System.out.println("rv::::::::" + rv);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		
+		return rv;
+	}
 }
 
