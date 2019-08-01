@@ -29,11 +29,11 @@ public class PlaceService {
 
 		Connection con = getConnection();
 
-		ArrayList<Place> list = new PlaceDao().randomPlace(con);
+		ArrayList<Place> randomlist = new PlaceDao().randomPlace(con);
 
 		close(con);
 
-		return list;	
+		return randomlist;	
 	}
 
 
