@@ -204,5 +204,5 @@ public class MemberService {
 		System.out.println("마지막＠＠＠＠＠＠＠＠＠:" + list);
 		return list;
 	}
-	
+
 }
