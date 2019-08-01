@@ -21,11 +21,11 @@ public class Searchapi {
 	 
 	        String clientId = "8P_zrgkt3dPxfRKO64QZ";
 	        String clientSecret = "xeGEUjrbxb";
-	        int display = 20;
+	        int display = 30;
 	 
 	        try {
 	             String text = URLEncoder.encode(se, "utf-8");
-	             String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&";
+	             String apiURL = "https://openapi.naver.com/v1/search/local.xml?query=" + text + "&display=" + display + "&";
 	              
 	            URL url = new URL(apiURL);
 	            HttpURLConnection con = (HttpURLConnection) url.openConnection();

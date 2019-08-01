@@ -116,9 +116,12 @@ body {
 		<%@ include file="/views/common/menubar_customer.jsp" %>
 		<div class="container">
 			<div id="logo">
-				<fieldset class="field-container" style="width: 160%">
-						<input type="search" name="keyWord" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;" value="<%=keyWord%>"/>
-				</fieldset>
+			<form action="<%= request.getContextPath() %>/search.kw" method="post">
+             <fieldset class="field-container" style="border-radius:20px;">
+             	<input type="search" name="searchKeyword" class="form-control" placeholder="<%=keyWord %>" class="field"  style="border-radius:20px;"/>
+             	<button type="submit" style="float:right; background:darkgray" >검색하기</button>
+             </fieldset>
+             </form>
 			</div>
 
 			<header class="container">
@@ -232,13 +235,15 @@ body {
         		<%} %>
         		
         		<div class="col-3 col-12-medium" >
-        			<div style="float:right"><p>콕</p></div>
+        			<div style="float:right"><button type="button" onclick="plusCoc();" style="background:darkgray">콕</button></div>
 							<a href="<%=link[i]%>" target="_blank"><h2><%=title[i] %></h2></a>
 							<div class="inner">
 								<header>
 								<p><%=address[i] %></p>
         						<p><%=telephone[i] %></p>
         						<p><%=description[i] %></p>
+        						<input type="hidden" name="mapx<%=i %>" value="<%=mapx[i] %>">
+        						<input type="hidden" name="mapy<%=i %>" value="<%=mapy[i] %>">
 								</header>	
 							</div>
 					
@@ -246,220 +251,223 @@ body {
         		
         		<% if(i%4==3){ %>
 					</div>
-        		<%} %>
-        		
-
-       
+        		<%} %>    
      
         <%} %>
-				<!-- <div class="row">
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-								<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-								
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic02.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic03.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-									</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-				</div> -->
-				
-				
-				
-				<!-- <div class="row">
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-								<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-								
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic02.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic03.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-									</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-				</div> -->
-				
-				
-				<!-- <div class="row">
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-								<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-								
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic02.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic03.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-									</header>
-							</div>
-						</section>
-
-					</div>
-					<div class="col-3 col-12-medium">
-
-						Box
-						<section class="box feature">
-							<a href="#" class="image featured"><img
-								src="/coc/images/pic01.jpg" alt=""></a>
-							<div class="inner">
-								<header>
-									<h2>뽕나무족발</h2>
-									<p>02-558-9279</p>
-									<p>서울 강남구 역삼로65길 31</p>
-								</header>
-							</div>
-						</section>
-
-					</div>
-				</div> -->
-			</div>
+        			</div>
 		</div>
+		<script>
+			function plusCoc(){
+				location.href="/coc/cocPlus"
+			}
+		</script>
+				<!-- <div class="row">
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+								<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+								
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic02.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic03.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+									</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+				</div> -->
+				
+				
+				
+				<!-- <div class="row">
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+								<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+								
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic02.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic03.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+									</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+				</div> -->
+				
+				
+				<!-- <div class="row">
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+								<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+								
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic02.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic03.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+									</header>
+							</div>
+						</section>
+
+					</div>
+					<div class="col-3 col-12-medium">
+
+						Box
+						<section class="box feature">
+							<a href="#" class="image featured"><img
+								src="/coc/images/pic01.jpg" alt=""></a>
+							<div class="inner">
+								<header>
+									<h2>뽕나무족발</h2>
+									<p>02-558-9279</p>
+									<p>서울 강남구 역삼로65길 31</p>
+								</header>
+							</div>
+						</section>
+
+					</div>
+				</div> -->
 
 
 		<!--       

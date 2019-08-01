@@ -19,11 +19,11 @@ public class sample1 {
  
         String clientId = "8P_zrgkt3dPxfRKO64QZ";
         String clientSecret = "xeGEUjrbxb";
-        int display = 10;
+        int display = 30;
  
         try {
-             String text = URLEncoder.encode("혜화연극", "utf-8");
-             String apiURL = "https://openapi.naver.com/v1/search/webkr?query=" + text + "&display=" + display + "&";
+             String text = URLEncoder.encode("서울", "utf-8");
+             String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&display=" + display + "&start=31";
               
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -46,7 +46,7 @@ public class sample1 {
  
             br.close();
             con.disconnect();
-            System.out.println(sb); 
+             
             String data = sb.toString();
             String[] array;
             array = data.split("\"");
@@ -79,11 +79,9 @@ public class sample1 {
                     k++;
                 }
             }
+            
             System.out.println(sb);
-            System.out.println("----------------------------");
-            System.out.println("첫번째 타이틀 : " + title[0]);
-            System.out.println("두번째 타이틀 : " + title[1]);
-            System.out.println("세번째 타이틀 : " + title[2]);
+            
         
         } catch (Exception e) {
             System.out.println(e);

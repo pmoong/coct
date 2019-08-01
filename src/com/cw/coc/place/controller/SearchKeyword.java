@@ -15,7 +15,7 @@ import com.cw.coc.place.model.Searchapi;
 @WebServlet("/search.kw")
 public class SearchKeyword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      private static final int display = 20;
+      private static final int display = 30;
     /**
      * @see HttpServlet#HttpServlet()
      */
