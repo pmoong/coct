@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 	//ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
@@ -9,6 +9,8 @@
 	Board bo2 = (Board) request.getAttribute("bo2");
 	Board rv1 = (Board) request.getAttribute("rv1");
 	Board rv2 = (Board) request.getAttribute("rv2");
+	Payment pm1 = (Payment) request.getAttribute("pm1");
+	Payment pm2 = (Payment) request.getAttribute("pm2");
 	
 	
 %>
@@ -480,15 +482,16 @@ div>a {
 				<table align="center" id="listArea">
 					<tr>
 						<th width="100px">예약번호</th>
+						<th width="100px">업체이름</th>
 						<th width="100px">방이름</th>
-						<th width="100px">회원번호</th>
-						<th width="100px">예약한날짜</th>
+						<th width="100px">회원ID</th>
 						<th width="100px">예약한상품날짜</th>
-						<th width="100px">??</th>
+						<th width="100px">진행상황</th>
+						<th width="100px">가격</th>
 					</tr>
 					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
+						<td><%= pm1.getRsvCode() %></td>
+						<td><%=  %></td>
 						<td>ㅇㅇ</td>
 						<td>ㄹㄹ</td>
 						<td>ㄷㄷ</td>
