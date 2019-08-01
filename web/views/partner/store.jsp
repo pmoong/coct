@@ -4,7 +4,6 @@
 
   ArrayList<HashMap<String, Object>> list =
          (ArrayList<HashMap<String, Object>>) request.getAttribute("list");
-
 %>	  
 
 
@@ -118,7 +117,7 @@ table {
             </div>
          
          <% } %>
-      </div>  
+		    </div>  
 			</div>
 		</div>
 		<!--  -->
@@ -128,13 +127,11 @@ table {
 					style='text-align: left; margin-top: 1%;'>룸정보</h3>
 				<span class="col-4 col-12-medium"
 					style="float: right; margin-top: 1%;"> 
-					 
-							<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelroomInfForm.jsp';">편집하기</button>  &nbsp;
+					<button type="button" class="btn btn-default"onclick="location.href='/coc/views/partner/HotelroomInfForm.jsp';">편집하기</button>  &nbsp;
 				</span>
- 
 			</div>
 		</div>
- -->		<!--  -->
+ 		<!--  -->
 		<div class="container">
 			<div class="row">
 				<h3 id="room" class="col-8 col-12-medium"
@@ -184,7 +181,6 @@ table {
 					style="float: right; margin-top: 1%;"> 
 						<button type="button" class="btn btn-default"onclick="gomap();" >편집하기</button> &nbsp; 
  				</span>
-		 
 				<div id="map" class="outer" style="width: 650px; height: 300px;">
 				</div>
 				</div>	
@@ -244,9 +240,6 @@ table {
         }
       })(marker, i));
     }
- 
-   
-    
   </script>
 </body>
 </html>

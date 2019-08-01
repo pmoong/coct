@@ -113,6 +113,13 @@ body {
 #image {
    float: left;
 }
+#el a{
+/* top: 350px; */
+ font-weight:bold;
+ font-size:23px;
+ color:black;
+ margin-left:30px;
+}
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -135,7 +142,7 @@ body {
             </div>
             <div class="right-box">
                <br>
-               <p align="center">채원이네 김치찌개 역삼본점</p>
+               <p align="center">신라스테이</p>
                <br>
                <div id="image">
                   <img src="/coc/images/telephone.png" width="20" height="20" />
@@ -158,25 +165,51 @@ body {
                <p>http://www.cweda.com</p>
             </div>
          </div>
+<br><br>
+<div class="container">
+<div id="el"> 
+<a  href="#intro" >호텔 소개  </a> 
+<a href="#roominf" >룸 정보  </a> 
+<a href="#room" >숙소 시설  </a> 
+<a href="#hotelpolicy" >호텔 정책 </a> 
+<a href="#map" >위치  </a> 
+<a href="#information" >이용정보  </a>
+</div>
+ </div><br><br>
+ 				<!--  -->
+		<div class="container">
+			<div class="row">
+				<h3 id="intro" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>호텔소개</h3>
+			</div>
+			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
+				제주시 중심의 아라동에 위치한 단독주택입니다.<br>
 
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="progress-bar w-75"></div>
-               </div>
-
-               <div class="btn-group">
-                  <a href=""><button id="btn">주요 정보</button> </a> 
-                  <a href=""><button id="btn">가격</button> </a> 
-                  <!-- <a href=""><button id="btn">리뷰</button> </a> --> 
-               </div>
-            </div>
-         </div>
-    
-         
-      </div>
+				집 구성 간략설명드려요<br>
+				총 4층짜리 단독주택으로 집안에는 저희가족 3명(저희부부, 초등생 딸), 마당에는 프렌치불독 한마리가 살고 있답니다.<br> 
+				1층 : 현관, 게스트룸<br>
+				2층 : 게스트 전용 욕실(화장실), 거실, 주방<br>
+				3층,4층 : 저희가족 전용공간<br>
+			</div>
+		</div>
+		<!-- 룸정보 -->
+		<div class="container">
+			<div class="row">
+				<h3 id="roominf" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>룸정보</h3>
+			</div>
+			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
+				<b>주택의 개인실</b>
+				인원2명&emsp;침실1개&emsp;침대1개&emsp;단독사용욕실1개<br>
+				<b>순조로운 체크인 과정</b>
+				최근 숙박한 게스트중 100%가 체크인 과정에 별점 5점을 준 숙소입니다.<br>
+				<b>높은 청결도</b>
+				최근 게스트 14명이 이 숙소가 티 없이 깨끗하다고 후기를 남겼습니다.<br>
+			</div>
+		</div>
+		<br><br>
 	<!-- 방 정보 -->
-	<div style="border:1px solid black">
+<!-- 	<div>
 		<table>
 			<tr>
 				<th>Standard Room</th>			
@@ -194,11 +227,67 @@ body {
 				<td><h3>40,000</h3></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 	
-	
-	
-	
+			<div class="container" align="center">
+         <div class="cocInfo" id="cocInfo" align="center">
+         <a href="reserv_hotel.jsp">
+            <div class="left-box">
+               <img src="/coc/images/seoul1.PNG" width="300" height="200" />
+            </div>
+            <div class="right-box">
+               <br>
+               <h2 align="center"><b>Standard Room</b></h2>
+               <br>
+               <div id="image">
+               <br>
+               </div>
+               <br><br>
+               <div id="image">
+                  <h2 width="20" height="20">숙박</h2>
+               </div>
+               <h3>40,000</h3>
+               </a>
+            </div>
+         </div>
+         <br>
+	 		<!-- 숙소시설 -->
+		<div class="container">
+			<div class="row">
+				<h3 id="room" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>숙소시설</h3>
+
+			</div> 
+		</div> 
+ 		<!-- 호텔정책 -->
+		<div class="container">
+			<div class="row">
+				<h3 id="hotelpolicy" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
+
+			</div> 
+		</div> 
+	 		<!-- 위치 -->
+		<div class="container">
+			<div class="row">
+				<h3 id="map" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>위치</h3>
+			</div> 
+			<div id="map" class="outer" style="width: 650px; height: 300px;">
+		</div> 
+ 		<!-- 이용정보 -->
+		<div class="container">
+			<div class="row">
+				<h3 id="information" class="col-8 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>이용정보</h3>
+			</div> 
+			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
+				<b>편의 시설</b>
+				주방<br>
+				무선 인터넷<br>
+				건물 내 무료 주차<br>
+			</div>
+		</div> 	
 	
 	
 	<br><br><br><br>
@@ -206,7 +295,35 @@ body {
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 
 	</div>
+  <script type="text/javascript">
+    var locations = [
+      ['신라스테이', 37.504788, 127.041312, 28] 
+    ];
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: new google.maps.LatLng(37.504788, 127.041312),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        
+        }
+      })(marker, i));
+    }
+  </script>
 
 </body>
 </html>
