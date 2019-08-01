@@ -9,8 +9,8 @@
 	Board bo2 = (Board) request.getAttribute("bo2");
 	Board rv1 = (Board) request.getAttribute("rv1");
 	Board rv2 = (Board) request.getAttribute("rv2");
-	Payment pm1 = (Payment) request.getAttribute("pm1");
-	Payment pm2 = (Payment) request.getAttribute("pm2");
+	//Payment pm1 = (Payment) request.getAttribute("pm1");
+	//Payment pm2 = (Payment) request.getAttribute("pm2");
 %>
 
 <!DOCTYPE HTML>
@@ -488,8 +488,8 @@ div>a {
 						<th width="100px">가격</th>
 					</tr>
 					<tr>
-						<td><%= pm1.getRsvCode() %></td>
-						<td><%=  %></td>
+						<td></td>
+						<td></td>
 						<td>ㅇㅇ</td>
 						<td>ㄹㄹ</td>
 						<td>ㄷㄷ</td>
