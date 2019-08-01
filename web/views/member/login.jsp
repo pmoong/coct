@@ -91,7 +91,7 @@ body {
 
 			if($.trim($("#userPwd").val()) == ""){
 				alert("패스워드를 입력해주세요");
-				$("#userPws").focus();
+				$("#userPwd").focus();
 				return false;
 			}
 			document.body.appendChild(form);

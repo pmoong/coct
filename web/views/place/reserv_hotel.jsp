@@ -181,20 +181,25 @@ body {
 				<label id="intro" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>기본정보</label>
 			</div>
-			<div border="1px solid black" style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
-				8.3평, 더블침대 1개<br><br>
-				에어컨, TV, 냉장고, 커피포트, 전자식 금고<br>
+			<div style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
+				심플하고 모던한 디자인이 돋보이는 객실<br><br>
+				객실 상황에 따라 일부 날짜는 조기 마감될 수 있습니다.<br>
+				상기 금액은 스탠다드 객실 기준이며, 객실 타입 및 뷰에 따라 금액이 변경될 수 있습니다.<br>
+				체크인은 오후 2시 이후, 체크아웃은 정오까지 입니다.<br>
+				성인 2인 1실 기준 1박 요금이며, 세금은 별도입니다.<br>
+				피트니스 센터는 안전상의 이유로 16세 이상 입장 가능합니다.<br>
 			</div>
 		</div>
  		<!--  -->
 		<div class="container" style="margin-left:15%;">
 			<div class="row">
 				<label id="intro" class="col-8 col-12-medium"
-					style='text-align: left; margin-top: 1%;'>예약공지</label>
+					style='text-align: left; margin-top: 1%;'>포함혜택</label>
 			</div>
-			<div border="1px solid black" style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
-				8.3평, 더블침대 1개<br><br>
-				에어컨, TV, 냉장고, 커피포트, 전자식 금고<br>
+			<div style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
+				스탠다드 객실 1실 1박<br>
+				제이준 마스크 시트 2매<br>
+				무료 WIFI / 피트니스 센터 무료 이용 / 아베다 어메니티<br>
 			</div>
 		</div>
  		<!--  -->
@@ -203,9 +208,11 @@ body {
 				<label id="intro" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>취소규정</label>
 			</div>
-			<div border="1px solid black" style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
-				8.3평, 더블침대 1개<br><br>
-				에어컨, TV, 냉장고, 커피포트, 전자식 금고<br>
+			<div style="width:100%; text-align:left; margin-left:10%; margin-top:1%;">
+				숙박예정일 1일전 18시까지는 위약금 없이 취소 및 변경됩니다.<br>
+				숙박예정일 1일전 18시 이후 취소/변경 및 노쇼(No-show) 시,<br>
+				성수기(4,5,6,10,11월, 12/24일, 12/31일): 최초 1일 숙박 요금의 80%가 위약금으로 부과됩니다.<br>
+				비수기(성수기 외 기간): 최초 1일 숙박요금의 10%가 위약금으로 부과됩니다.<br>
 			</div>
 		</div>
 	

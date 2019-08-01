@@ -188,6 +188,11 @@ body {
 					$("#email").focus();
 					return false;
 				}
+				if($.trim($("#check_code").val()) == ""){
+					alert("인증번호 입력하세요");
+					$("#check_code").focus();
+					return false;
+				}
 				
 				if($.trim($("#userPwd").val()) == "" 
 						&& $.trim($("#userPwd2").val()) == ""){
