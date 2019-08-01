@@ -18,17 +18,10 @@ public class LogmentDao {
 	  }
 		 public static void main(String[] args) {
 	 
-	  File file = new File("LOGMENT.xml");
+	  File file = new File("logment2.xml");
 	  
 	  LogmentParser LogmentParser = new LogmentParser(file);
-	  System.out.println("CultureParser"+LogmentParser);
-	  
 	  List<LogmentVo> tmp = LogmentParser.parse("item");
-	  if (tmp == null) {
-			System.out.println("b");
-
-		} 
-	  System.out.println("dmdk");
 	  
 	  try {
 		Condb condb = new Condb();
@@ -37,23 +30,25 @@ public class LogmentDao {
 	}    
 	  Connection conn = Condb.getConnection();
 	 	 
-	   String sql="INSERT INTO LOGMENT VALUES(?,?,?,?,?,?,?,?)";
+	   String sql="INSERT INTO LOGMENT VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	   try {
 	   for(int i=0; i<tmp.size() ; i++){
 	    PreparedStatement stmt = conn.prepareStatement(sql);
 	     
 	    stmt.setString(1, tmp.get(i).getLtitle());
-/*	    stmt.setString(, tmp.get(i).getLaddr());
-*/	    stmt.setString(2, tmp.get(i).getLtel());
-	    stmt.setInt(3, tmp.get(i).getLcontenttypeid());
-	    stmt.setString(4, tmp.get(i).getLcat1());
-	    stmt.setString(5, tmp.get(i).getLcat2());
-	    stmt.setString(6, tmp.get(i).getLcat3());
-	    stmt.setString(7, tmp.get(i).getLmapx());
-	    stmt.setString(8, tmp.get(i).getLmapy());
-	    stmt.setString(9, tmp.get(i).getLfirstimage());
-	    System.out.println(sql);
-	    stmt.executeUpdate();
+	    stmt.setString(2, tmp.get(i).getLaddr());
+	    stmt.setInt(3, tmp.get(i).getLsigungucode());
+	    
+	    stmt.setString(4, tmp.get(i).getLtel());
+	    stmt.setInt(5, tmp.get(i).getLcontenttypeid());
+	    stmt.setString(6, tmp.get(i).getLcat1());
+	    stmt.setString(7, tmp.get(i).getLcat2());
+	    stmt.setString(8, tmp.get(i).getLcat3());
+	    stmt.setString(9, tmp.get(i).getLmapx());
+	    stmt.setString(10, tmp.get(i).getLmapy());
+	    stmt.setString(11, tmp.get(i).getLfirstimage());
+ 	    stmt.executeUpdate();
+ 	    
 	    System.out.println("sucess to save");
 	   }
 	  } catch (SQLException e) {
