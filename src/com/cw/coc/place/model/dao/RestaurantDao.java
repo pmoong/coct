@@ -41,7 +41,7 @@ public class RestaurantDao {
 	}
 	    con = Condb.getConnection();
 	   
-	   String sql ="INSERT INTO RESTAURANT VALUES(?,?,?,?,?,?,?,?,?,?)";
+	   String sql ="INSERT INTO RESTAURANT VALUES(SEQ_CCODE.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
 	   try {
 	   for(int i=0; i<tmp.size() ; i++){
 	    stmt = con.prepareStatement(sql);
