@@ -497,6 +497,7 @@ public class MemberDao {
 		return result;
 	}
 
+
 	public int deleteOne(Connection con, int uno) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -518,4 +519,5 @@ public class MemberDao {
 
 		return result;
 	}
+
 }

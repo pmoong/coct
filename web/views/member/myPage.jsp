@@ -9,7 +9,8 @@
 	Board bo2 = (Board) request.getAttribute("bo2");
 	Board rv1 = (Board) request.getAttribute("rv1");
 	Board rv2 = (Board) request.getAttribute("rv2");
-	
+	String pw = (String)request.getAttribute("userPwd");
+	System.out.println("$$$$$$$####$# : " + pw);
 	
 %>
 
@@ -163,8 +164,8 @@ div>a {
 						</tr>
 						<tr>
 							<td><label>비밀번호</label></td>
-							<td><input type="password" name="password" id="password">&nbsp;&nbsp;
-								<button style="background: darkgray" id="testbtn">
+							<td><input type="password" name="userPwd" id="userPwd">&nbsp;&nbsp;
+								<button style="background: darkgray" id="testbtn" onclick="pwdCheck();">
 									<p>비밀번호변경하기</p>
 								</button></td>
 						</tr>
@@ -176,7 +177,7 @@ div>a {
 									<button typee="button" id="saveSurvey" style="background: darkgray">저장하기</button>
 									<input type="hidden" name="uno" value="<%=loginUser.getUno() %>">
 									<input type="hidden" name="id" value="<%=loginUser.getUserId() %>">
-									<input type="hidden" name="password" value="<%=loginUser.getUserPwd() %>">
+									<input type="hidden" name="userPwd" value="<%=loginUser.getUserPwd() %>">
 									<input type="hidden" name="email" value="<%=loginUser.getEmail() %>">
 									<input type="hidden" name="utype" value="<%=loginUser.getuType() %>">
 									<input type="hidden" name="gender" value="<%=loginUser.getGender() %>">
@@ -572,19 +573,33 @@ div>a {
 		<%@include file="/views/common/footerbar_customer.jsp"%>
 	</div>
 	<script>
-
 	//비밀번호 변경
-	$("#testbtn").click(function(){
+		function pwdCheck(){
+			var userPwd = $("#userPwd").val();
+			var check='<%=loginUser.getUserPwd()%>';
+			
+			$.ajax({
+				url:"/coc/mypagePwd.me",
+				type:"post",
+				data:{userPwd:userPwd},
+				success:function(data){
+					console.log("들어왔다");
+					//var pw = data.userPwd;
+					var pw = '<%=request.getAttribute("userPwd")%>';
+					console.log(pw);
+					
+					if(check == userPwd){
+						location.href='/coc/views/member/changeUserPwd.jsp';
+					}else{
+						alert("비밀번호를 확인하세요");
+					}
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
 		
-		var value = $("#password").val();
-		var check='<%=loginUser.getUserPwd()%>';
-		
-		if(  check==value ){
-			location.href='/coc/views/member/changeUserPwd.jsp';
-		}else{
-			alert("비밀번호를 확인하세요");
-		}
-	});
+		}	
 	// 취향
 	$(function(){
 		$("input[name=checkbox]").each(function(){

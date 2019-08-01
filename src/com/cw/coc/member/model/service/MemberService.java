@@ -206,6 +206,7 @@ public class MemberService {
 	}
 
 
+
 	public int deleteMember(int uno) {
 		Connection con = getConnection();
 
@@ -220,4 +221,5 @@ public class MemberService {
 		return result;
 	}
 	
+
 }
