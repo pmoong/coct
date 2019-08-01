@@ -418,7 +418,6 @@ button {
 				$(this).parent().css({"background":"white"});
 			}).click(function(){
 				var muno = $(this).parent().children("input").val();
-				alert("3");
 				
 				console.log(muno);
 				location.href="<%=request.getContextPath()%>/selectOneRe.ad?muno=" + muno;

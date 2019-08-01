@@ -204,5 +204,20 @@ public class MemberService {
 		System.out.println("마지막＠＠＠＠＠＠＠＠＠:" + list);
 		return list;
 	}
+
+
+	public int deleteMember(int uno) {
+		Connection con = getConnection();
+
+		int result = new MemberDao().deleteOne(con, uno);
+
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		return result;
+	}
 	
 }
