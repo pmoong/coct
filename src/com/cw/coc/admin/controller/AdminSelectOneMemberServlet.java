@@ -2,6 +2,8 @@ package com.cw.coc.admin.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +36,8 @@ public class AdminSelectOneMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Member m = new Member();
+		
+		Map<String,ArrayList> result = new HashMap<String, ArrayList>();
 		System.out.println("나와라");
 		
 		int muno = Integer.parseInt(request.getParameter("muno"));
@@ -45,14 +49,21 @@ public class AdminSelectOneMemberServlet extends HttpServlet {
 	
 
 		ArrayList<Member> list = new MemberService().getMember(muno);
-
+		ArrayList<Board> blist = new BoardService().getBoard(muno);
 		String page = "";
 		
-		System.out.println("라스트 리스트 홀리 펀치라인"  + list);
-		page = "/views/member/MemberPage.jsp";
-		request.setAttribute("list2", list);
+		if(result != null) {
+		result.put("list", list);
+		result.put("blist", blist);
+		
+		
+		System.out.println("라스트 리스트 홀리 펀치라인"  + result);
+		page = "/views/admin/MemberPage.jsp";
+		request.setAttribute("result", result);
 		
 		request.getRequestDispatcher(page).forward(request, response);
+		
+		}
 	}
 
 	/**
