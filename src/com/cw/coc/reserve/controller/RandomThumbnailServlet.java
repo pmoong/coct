@@ -32,13 +32,14 @@ public class RandomThumbnailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Place> list = new PlaceService().randomPlace();
+		ArrayList<Place> randomlist = new PlaceService().randomPlace();
 		
+		System.out.println("randomlist 서블릿 " + randomlist.get(0));
 
 		String page = "";
-		if(list != null) { 
+		if(randomlist != null) { 
 			page = "views/place/reservation.jsp";
-			request.setAttribute("list", list);
+			request.setAttribute("randomlist", randomlist);
 		}else {
 			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "랜덤 안돼~~~");
