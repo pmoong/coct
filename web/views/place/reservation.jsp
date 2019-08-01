@@ -727,7 +727,7 @@ body {
 
 
 					<div align="center">
-						<a href="../images/spot.PNG" class="image featured"> <img
+						<a href="/coc/searchAll" class="image featured"> <img
 							src="/coc/images/allSpot.PNG" alt=""
 							style="width: 25%; height: 25%;" />
 						</a>
