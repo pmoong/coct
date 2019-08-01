@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
+<%
+	ArrayList<Place> randomlist = (ArrayList<Place>) request.getAttribute("randomlist");
+%>
 <!DOCTYPE HTML>
 <!-- 
 	Verti by HTML5 UP
@@ -274,123 +277,25 @@ body {
 			<div class="item">
 				<div id="features-wrapper">
 					<div class="container">
-
 						<div class="row">
+						
+						<%
+							for(Place p : randomlist) {
+						%>
+						
 							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
 									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/shillastay.jpg" alt="" /></a>
+										src="<%=p.getImage() %>" alt="" /></a>
 									<div class="inner"></div>
 								</section>
 
 							</div>
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="item active">
-				<div id="features-wrapper">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic01.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium" >
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="item">
-				<div id="features-wrapper">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-4 col-12-medium" >
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic01.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic02.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
-										src="/coc/images/pic03.jpg" alt="" /></a>
-									<div class="inner"></div>
-								</section>
-
-							</div>
-							
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+						<% 
+						
+							}
+						%>	
 	
 
 		<!-- Left and right controls -->
@@ -599,7 +504,7 @@ body {
 							<div class="col-2 col-10-medium">
 
 								<!-- Box -->
-								<section class="box feature">
+								<section class="box feature"> 
 									<a href="reserv_hotel.jsp" class="image featured"><img
 										src="/coc/images/pic03.jpg" alt="" /></a>
 
