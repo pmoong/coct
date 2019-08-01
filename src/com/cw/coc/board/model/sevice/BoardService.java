@@ -8,7 +8,8 @@ import java.util.HashMap;
 import com.cw.coc.board.model.dao.BoardDao;
 import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
- 
+import com.cw.coc.member.model.dao.MemberDao;
+
 import static com.cw.coc.common.JDBCTemplate.*;
 import static com.cw.coc.common.JDBCTemplate.close;
 import static com.cw.coc.common.JDBCTemplate.getConnection;
@@ -148,6 +149,20 @@ public class BoardService {
 		
 		
 		 
+	}
+	public ArrayList<Board> getBoard(int muno) {
+		Connection con = getConnection();
+		ArrayList<Board> list = new ArrayList<Board>();
+		
+		ArrayList<Board> rv = new BoardDao().getBoard(con, muno);
+		 
+		 list.addAll(rv);
+		 
+
+		 System.out.println("list :" + list);
+		close(con);
+		
+		return list;
 	}
 
 
