@@ -170,15 +170,15 @@ public class MemberService {
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con);
-		ArrayList<Payment> pm = new MemberDao().paymentSelect(con, m.getUno());
+		//ArrayList<Payment> pm = new MemberDao().paymentSelect(con, m.getUno());
 		 
 		 list.add(m);
 		 list.add(bo.get(0));
 		 list.add(bo.get(1));
 		 list.add(rv.get(0));
 		 list.add(rv.get(1));
-		 list.add(pm.get(0));
-		 list.add(pm.get(1));
+		 //list.add(pm.get(0));
+		 //,list.add(pm.get(1));
 		 
 
 		 System.out.println("list :" + list);
