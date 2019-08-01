@@ -30,14 +30,14 @@ import com.cw.coc.reserve.model.vo.rPageInfo;
 /**
  * Servlet implementation class SelectBoardListServlet
  */
-@WebServlet("/List.ad")
-public class AdminSelectListServlet extends HttpServlet {
+@WebServlet("/ListB.ad")
+public class AdminBListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminSelectListServlet() {
+    public AdminBListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -105,27 +105,27 @@ public class AdminSelectListServlet extends HttpServlet {
 				new aPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
 	
 		ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
-		ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
-		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
-		ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
-		ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
+		//ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
+		//ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
+		//ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
+		//ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
 		
 		result.put("blist", blist);	
-		result.put("mlist", mlist);
-		result.put("rlist", rlist);
-		result.put("plist", plist);
-		result.put("alist", alist);
+		//result.put("mlist", mlist);
+		//result.put("rlist", rlist);
+		//result.put("plist", plist);
+		//result.put("alist", alist);
 		//result.put("pi", pi);
-		System.out.println("result : " +result);
+		//System.out.println("result : " +result);
 		
-		System.out.println("pi5 : " + pi5);
-		System.out.println("aLIST : " + alist);
+		//System.out.println("pi5 : " + pi5);
+		//System.out.println("aLIST : " + alist);
 		String page = "";
 		
 		if(result != null) {
 			
 				
-			page = "views/admin/managerIndex.jsp";
+			page = "views/board/Admin_boardList2.jsp";
 			//request.setAttribute("blist", blist);
 			request.setAttribute("result", result);
 			System.out.println("★★★★");
