@@ -78,7 +78,7 @@ table>tr>td{
 						<input type="hidden" id="hiddenid" name="utype" value="<%= loginUser.getuType()%>">
 						<input type="hidden" id="hiddenid" name="gender" value="<%= loginUser.getGender()%>">
 						<input type="hidden" id="hiddenid" name="age" value="<%= loginUser.getAge()%>">
-						<input type="hidden" id="hiddenid" name="survey" value="<%= loginUser.getSurvey()%>">
+						<input type="hidden" id="hiddenid" name="survey" value="<%= loginUser.getiCode() %>">
 						
 						<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
 					</tr>
