@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*"%>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 	//ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
@@ -9,8 +9,7 @@
 	Board bo2 = (Board) request.getAttribute("bo2");
 	Board rv1 = (Board) request.getAttribute("rv1");
 	Board rv2 = (Board) request.getAttribute("rv2");
-	Payment pm1 = (Payment) request.getAttribute("pm1");
-	Payment pm2 = (Payment) request.getAttribute("pm2");
+	
 %>
 
 <!DOCTYPE HTML>
@@ -480,16 +479,15 @@ div>a {
 				<table align="center" id="listArea">
 					<tr>
 						<th width="100px">예약번호</th>
-						<th width="100px">업체이름</th>
 						<th width="100px">방이름</th>
-						<th width="100px">회원ID</th>
+						<th width="100px">회원번호</th>
+						<th width="100px">예약한날짜</th>
 						<th width="100px">예약한상품날짜</th>
-						<th width="100px">진행상황</th>
-						<th width="100px">가격</th>
+						<th width="100px">??</th>
 					</tr>
 					<tr>
-						<td><%= pm1.getRsvCode() %></td>
-						<td><%=  %></td>
+						<td>ㅁㅁ</td>
+						<td>ㄴㄴ</td>
 						<td>ㅇㅇ</td>
 						<td>ㄹㄹ</td>
 						<td>ㄷㄷ</td>
@@ -577,22 +575,18 @@ div>a {
 		function pwdCheck(){
 			var userPwd = $("#userPwd").val();
 			var check='<%=loginUser.getUserPwd()%>';
-			
 			$.ajax({
 				url:"/coc/mypagePwd.me",
 				type:"post",
 				data:{userPwd:userPwd},
 				success:function(data){
-					console.log("들어왔다");
-					//var pw = data.userPwd;
-					var pw = '<%=request.getAttribute("userPwd")%>';
-					console.log(pw);
-					
-					if(check == userPwd){
-						location.href='/coc/views/member/changeUserPwd.jsp';
-					}else{
-						alert("비밀번호를 확인하세요");
-					}
+					var pw = data;
+						
+						if(check == pw){
+							location.href='/coc/views/member/changeUserPwd.jsp';
+						}else{
+							alert("비밀번호를 확인하세요");
+						}
 				},
 				error:function(){
 					console.log("실패!");
