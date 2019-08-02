@@ -129,6 +129,7 @@ public class PlaceDao {
 				
 				p.setcCode(rset.getInt("SEQ_CCODE"));
 				p.setImage(rset.getString("IMAGE"));
+				p.setpName(rset.getString("PNAME"));
 				randomlist.add(p);
 			}
 			
@@ -228,6 +229,11 @@ public class PlaceDao {
 		
 		
 		return list;
+	}
+
+	public ArrayList<Place> rsvRoomInfo(Connection con) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	 
 	

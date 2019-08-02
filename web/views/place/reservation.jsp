@@ -285,9 +285,9 @@ body {
 							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(0).getImage()%>" alt=""/></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(0).getpName() %></div>
 								</section>
 
 							</div>
@@ -295,9 +295,9 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(1).getImage()%>" alt="" /></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(1).getpName() %></div>
 								</section>
 
 							</div>
@@ -305,9 +305,9 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(2).getImage()%>" alt="" /></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(2).getpName() %></div>
 								</section>
 
 							</div>
@@ -325,29 +325,29 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(3).getImage()%>" alt=""/></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(3).getpName() %></div>
 								</section>
 
 							</div>
 							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(4).getImage()%>" alt=""/></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(4).getpName() %></div>
 								</section>
-
+				
 							</div>
 
 							<div class="col-4 col-12-medium" >
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(5).getImage()%>" alt=""/></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(5).getpName() %></div>
 								</section>
 
 							</div>
@@ -364,9 +364,9 @@ body {
 							<div class="col-4 col-12-medium" >
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(6).getImage()%>" alt="" /></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(6).getpName() %></div>
 								</section>
 
 							</div>
@@ -374,9 +374,9 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(7).getImage()%>" alt="" /></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(7).getpName() %></div>
 								</section>
 
 							</div>
@@ -384,9 +384,9 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="reserv_hotelView.jsp" class="image featured"><img
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
 										src="<%=randomlist.get(8).getImage()%>" alt="" /></a>
-									<div class="inner"></div>
+									<div class="inner"><%=randomlist.get(8).getpName() %></div>
 								</section>
 
 							</div>
@@ -447,11 +447,9 @@ body {
 												src="/coc/images/gangnam.png" alt="" id="blur"
 												style="cursor: pointer;" />
 												<div class="content">
-													<!-- <p>Hello!</p> -->
-
+													<!-- <p>Hello!</p> --> 
 												</div>
 												<div class="img-cover"></div> </a>
-
 										</div>
 									</section>
 

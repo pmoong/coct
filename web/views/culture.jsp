@@ -166,7 +166,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                src="/coc/images/culture.PNG"  width="500" height="400" /></a>
+                                src="/coc/images/culture/desertfair.PNG"  width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
 
@@ -176,7 +176,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="/coc/images/culture2.PNG" width="500" height="400"   /></a>
+                                 src="/coc/images/culture/Firstfullmoon.PNG" width="500" height="400"   /></a>
                               <div class="inner"></div>
                            </section>
 
@@ -185,7 +185,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture4.PNG"  width="500" height="400"   /></a>
+                                  src="/coc/images/culture/rose.PNG"  width="500" height="400"   /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -203,7 +203,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture3.PNG"  width="500" height="400" /></a>
+                                  src="/coc/images/culture/musicfestival.PNG"  width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -211,7 +211,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture.PNG""  width="500" height="400"  /></a>
+                                  src="/coc/images/culture/kpop.PNG"  width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -221,7 +221,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                src="/coc/images/culture3.PNG"  width="500" height="400"  /></a>
+                                src="/coc/images/culture/musical1.PNG"  width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -238,7 +238,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture4.PNG" width="500" height="400" /></a>
+                                  src="/coc/images/culture/theater cat.PNG" width="500" height="400" /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -247,7 +247,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture4.PNG" width="500" height="400"  /></a>
+                                  src="/coc/images/culture/Traditional Music.PNG" width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>
@@ -256,7 +256,7 @@ height:230px;
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                  src="/coc/images/culture4.PNG" width="500" height="400"  /></a>
+                                  src="/coc/images/culture/walking.PNG" width="500" height="400"  /></a>
                               <div class="inner"></div>
                            </section>
                         </div>

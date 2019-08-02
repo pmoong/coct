@@ -3,7 +3,7 @@ package com.cw.coc.place.model.vo;
   
 public  class RestaurantVo {
 	
-	 private int cCode; 
+	private int cCode; 
 	 private String rtitle;
 	 private String raddr;
 	 private String rtel;
@@ -17,7 +17,7 @@ public  class RestaurantVo {
 	 
 	 public RestaurantVo() {}
 
-	public RestaurantVo(int cCode, String rtitle, String raddr,String rtel, int rcontenttypeid, String rcat1, String rcat2,
+	public RestaurantVo( int cCode, String rtitle, String raddr,String rtel, int rcontenttypeid, String rcat1, String rcat2,
 			String rcat3, String rmapx, String rmapy, String rfirstimage) {
 		super();
 		this.cCode = cCode;
@@ -33,7 +33,7 @@ public  class RestaurantVo {
 		this.rfirstimage = rfirstimage;
 	}
 	
-	public int getcCode() {
+public int getcCode() {
 		return cCode;
 	}
 	
@@ -57,7 +57,7 @@ public  class RestaurantVo {
 		this.raddr = raddr;
 	}
 
- 
+
  
 
 	public String getRtel() {
@@ -126,7 +126,7 @@ public  class RestaurantVo {
 
 	@Override
 	public String toString() {
-		return "RestaurantVo [rtitle=" + rtitle + ", raddr=" + raddr + ", rtel=" + rtel + ", rcontenttypeid="
+		return "RestaurantVo [cCode-"+cCode+",rtitle=" + rtitle + ", raddr=" + raddr + ", rtel=" + rtel + ", rcontenttypeid="
 				+ rcontenttypeid + ", rcat1=" + rcat1 + ", rcat2=" + rcat2 + ", rcat3=" + rcat3 + ", rmapx=" + rmapx
 				+ ", rmapy=" + rmapy + ", rfirstimage=" + rfirstimage + "]";
 	}

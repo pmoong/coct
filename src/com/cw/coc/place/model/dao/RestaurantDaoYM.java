@@ -54,6 +54,7 @@ public class RestaurantDaoYM {
 			list = new ArrayList<RestaurantVo>();
 			while(rset.next()) {
 				RestaurantVo rt = new RestaurantVo();
+				/*rt.setcCode(rset.getcCode("SEQ_CCODE"));*/
 				rt.setcCode(rset.getInt("SEQ_CCODE"));
 				rt.setRtitle(rset.getString("RTITLE"));
 				rt.setRaddr(rset.getString("RADDR"));

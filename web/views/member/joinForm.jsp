@@ -281,8 +281,9 @@ body {
             }     
          }
       }
-=======
-		$(function(){
+
+	$(function(){
+
  			$("form").submit(function(){
 				if($.trim($("#userId").val()) == ""){
 					alert("아이디 입력하세요");
@@ -313,7 +314,7 @@ body {
 				}
 				return true;
 			}); 
-		});
+
      	function goMain(){
 			location.href="<%=request.getContextPath()%>/index.jsp";
 		}   	 
