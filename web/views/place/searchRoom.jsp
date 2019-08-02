@@ -81,7 +81,7 @@ body {
 					<%} %>
 					<div class="col-3 col-12-medium">
 						<div class="hotel" align="center">
-							<a href="/coc/views/place/reserv_hotelView.jsp" class="image featured"> <input
+							<a href="/coc/reserveRoomInfo" class="image featured"> <input
 								type="hidden" value="<%= p.getcCode()%>"> <img
 								src="<%=p.getImage()%>" style="width: 110%; /* margin: auto; */">
 								<p>
