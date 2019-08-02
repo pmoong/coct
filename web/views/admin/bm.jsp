@@ -166,9 +166,9 @@
 				<div class="row">
     <!--탭 메뉴 영역 -->
     <ul class="tabs">
-        <li><a href="#tab1">tab1</a></li>
-        <li><a href="#tab2">tab2</a></li>
-        <li><a href="#tab3">tab3</a></li>
+        <li><a href="#tab1"></a></li>
+        <li><a href="#tab2"></a></li>
+        <li><a href="#tab3"></a></li>
     </ul>
     <!--탭 콘텐츠 영역 -->
     <div class="tab_container">
@@ -178,7 +178,6 @@
            <h3 class="col-4 col-12-medium" style='text-align: left ; margin-top:2%; border:red'><a href="/coc/ListN.ad">공지사항</a></h3>
 			<div class="outer container">
 		<br>
-		<h2 align="center">게시판</h2>
 		<div class="tableArea">
 			<table align="center" id="listArea">
 				<tr>
@@ -253,12 +252,155 @@
         <div id="tab2" class="tab_content">
            <!--Content-->
            <h3 class="col-4 col-12-medium" style='text-align: left ; margin-top:1%;'><a href="../admin/reviewManager.jsp">리뷰관리</a></h3>
+           <div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">글번호</th>
+					<th width="100px">구분</th>
+					<th width="300px">글제목</th>
+					<th width="100px">작성자</th>
+					<th width="100px">조회수</th>
+					<th width="150px">작성일</th>
+				</tr>
+				<%-- <% for(Board b : list){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= b.getbCode() %>">
+					<td><%= b.getbCode() %></td>
+					<td><%= b.getbType() %></td>
+					<td><%= b.getbTitle() %></td>
+					<td><%= b.getbWriter() %></td>
+					<td><span><%= b.getCount()%></span></td>
+					<td><%= b.getbDate() %></td>
+				</tr>
+				<% } %> --%>
+			</table>
+		</div>
+		<br><br><br><br><br>
+		<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
+			
+			<%-- <% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% }else { %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){ 
+				if(currentPage == p){
+			%>
+					<button disabled><%= p %></button>
+			<% } else { %>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
+			<% 
+				}
+			}
+			%>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% }else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<% } %>
+
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> --%>
+		</div>
+		
+		<div class="searchArea" align="center">
+			<select id="searchCondition" name="searchCondition">
+				<option value="category">카테고리</option>
+				<option value="writer">작성자</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="search">
+			<button type="submit">검색하기</button>
+			<% if(loginUser != null){ %>
+			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
+			<% } %>
+		</div>
+		
+	</div>
         </div>
         
         <div id="tab3" class="tab_content">
            <!--Content-->
            	<h3 class="col-4 col-12-medium" style='text-align: left ; margin-top:1%;'><a href="../admin/customerService.jsp">고객센터</a></h3>
+        <div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
+				<tr>
+					<th width="100px">글번호</th>
+					<th width="100px">구분</th>
+					<th width="300px">글제목</th>
+					<th width="100px">작성자</th>
+					<th width="100px">조회수</th>
+					<th width="150px">작성일</th>
+				</tr>
+				<%-- <% for(Board b : list){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= b.getbCode() %>">
+					<td><%= b.getbCode() %></td>
+					<td><%= b.getbType() %></td>
+					<td><%= b.getbTitle() %></td>
+					<td><%= b.getbWriter() %></td>
+					<td><span><%= b.getCount()%></span></td>
+					<td><%= b.getbDate() %></td>
+				</tr>
+				<% } %> --%>
+			</table>
+		</div>
+		<br><br><br><br><br>
+		<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
+			
+			<%-- <% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% }else { %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){ 
+				if(currentPage == p){
+			%>
+					<button disabled><%= p %></button>
+			<% } else { %>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
+			<% 
+				}
+			}
+			%>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% }else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<% } %>
+
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> --%>
+		</div>
+		
+		<div class="searchArea" align="center">
+			<select id="searchCondition" name="searchCondition">
+				<option value="category">카테고리</option>
+				<option value="writer">작성자</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="search">
+			<button type="submit">검색하기</button>
+			<% if(loginUser != null){ %>
+			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
+			<% } %>
+		</div>
+		
+	</div>
         </div>
+        
 
     </div>
 
@@ -268,51 +410,16 @@
 					
 				
 					
-				</div>
+				</div> 
 			</div>
 			<!-- Wrapper for slides -->
 			
-
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/pic01.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/pic02.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/pic03.jpg" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+				
 
 
 		

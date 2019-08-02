@@ -18,9 +18,15 @@ public class SearchService {
 		return list;
 	}
 
-	public ArrayList<CultureVo> searchtot() {
+	public ArrayList<CultureVo> searchAllList() {
 Connection con=getConnection();
 ArrayList<CultureVo> list = new CultureDao().searchtot(con);
 return list;
+	}
+
+	public ArrayList<CultureVo> searchtot() {
+		Connection con=getConnection();
+		ArrayList<CultureVo> list = new CultureDao().searchtot(con);
+		return list;
 	}
  }
