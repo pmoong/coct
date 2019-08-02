@@ -53,8 +53,12 @@ public class MyPageServlet extends HttpServlet {
 		Member m1 = (Member) list.get(0);
 		Board bo1 = (Board) list.get(1);
 		Board bo2 = (Board) list.get(2);
-		Board rv1 = (Board) list.get(3);
-		Board rv2 = (Board) list.get(4);
+		if(list != null && list.size() > 10) {
+			Board rv1 = (Board) list.get(3);
+			Board rv2 = (Board) list.get(4);
+			request.setAttribute("rv1", rv1);
+			request.setAttribute("rv2", rv2);
+		}
 		//Payment pm1 = (Payment) list.get(5);
 		//Payment pm2 = (Payment) list.get(6);
 		
@@ -64,8 +68,6 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("m1", m1);
 		request.setAttribute("bo1", bo1);
 		request.setAttribute("bo2", bo2);
-		request.setAttribute("rv1", rv1);
-		request.setAttribute("rv2", rv2);
 		//request.setAttribute("pm1", pm1);
 		//request.setAttribute("pm2", pm2);
 		

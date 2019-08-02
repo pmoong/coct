@@ -330,13 +330,13 @@ div>a {
 
 		<!-- 공지사항 -->
 		<div class="container">
-			<!-- <a  href="/coc/views/board/noticeList.jsp"> -->
-			<a onclick="goNotice();">
+			<a  onclick="goNotice();">
+			<!-- <a onclick="goNotice();">   -->
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>공지사항</h3>
 					<h2 class="col-4 col-12-medium"
-						style='text-align: right; margin-top: 1%;'>></h2>
+						style='text-align: right; margin-top: 1%;'></h2>
 				</div>
 			</a>
 			<hr style="border: 1px solid darkgray">
@@ -375,38 +375,8 @@ div>a {
 		</div>
 		<script>
 				function goNotice(){
-					location.href="/coc/selectList.no"
+					location.href="/coc/selectNoticeList.no"
 				}
-				<%-- $("#saveSurvey").click(function(){
-					
-					var checkbox = document.getElementsByName("checkbox");
-					var option = new Array();
-					  
-					for(var i=0;i<=48;i++ ){
-						option[i] = checkbox[i].checked;
-					}
-					
-				
-					$.ajax({
-						url:"updateSurvey",
-						data:{option:option},
-						type:"post",
-						success:function(data){
-							$("input[name=checkbox]").each(function(){
-								var arr = '<%= loginUser.getiCode() %>'.split(",");
-								
-								for(var i=0;i<arr.length;i++){
-									if($(this).val()== arr[i]){
-										$(this).attr("checked", true);
-									}
-								}
-							});
-						},
-						error:function(data){
-							console.log("실패!");
-						}
-					}); 
-				}); --%>
 			</script>
 
 		<!-- Wrapper for slides -->
@@ -584,13 +554,11 @@ div>a {
 				type:"post",
 				data:{userPwd:userPwd},
 				success:function(data){
-					console.log("들어왔다");
-					//var pw = data.userPwd;
-					var pw = '<%=request.getAttribute("userPwd")%>';
+					var pw = data;
 					console.log(pw);
 					
-					if(check == userPwd){
-						location.href='/coc/views/member/changeUserPwd.jsp';
+					if(check == pw){
+						location.href='/co`c/views/member/changeUserPwd.jsp';
 					}else{
 						alert("비밀번호를 확인하세요");
 					}
@@ -622,4 +590,5 @@ div>a {
 </script>
 
 </body>
+
 </html>

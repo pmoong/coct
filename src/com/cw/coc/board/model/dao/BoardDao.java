@@ -70,6 +70,7 @@ public class BoardDao {
 		ArrayList<Board> list = null;
 		String query = prop.getProperty("selectListWithPaging");
 		
+		System.out.println("dao!!!!!!!");
 		try {
 			pstmt = con.prepareStatement(query);
 
@@ -421,41 +422,44 @@ public class BoardDao {
 	}
 
 
-	public ArrayList<Board> reviewSelect(Connection con) {
+	public ArrayList<Board> reviewSelect(Connection con, int uno) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> rv = null;
 		
 		String query = prop.getProperty("reviewSelect");
 		
+		System.out.println(uno);
+		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, uno);
 			
 			rset = pstmt.executeQuery();
 			
 			rv = new ArrayList<Board>();
-			
-			while(rset.next()) {
-				 Board b = new Board();
+			if(rset != null) {
 				
-				b.setbCode(rset.getInt("SEQ_BCODE"));
-				b.setbDate(rset.getDate("BDATE"));
-				b.setbTitle(rset.getString("BTITLE"));
-				b.setbContent(rset.getString("BCONTENT"));
-				b.setbType(rset.getString("BTYPE"));
-				b.setbWriter(rset.getString("BWRITER"));
-				b.setcCode(rset.getInt("SEQ_CCODE"));
-				b.setpCode(rset.getString("PCODE"));
-				b.setUno(rset.getInt("SEQ_UNO"));
-				b.setuType(rset.getString("UTYPE"));
-				b.setCount(rset.getInt("COUNT"));
-				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
-				
-				System.out.println("rset.getInt(\"SEQ_BCODE\") ::: " + rset.getInt("SEQ_BCODE"));
-				
-				rv.add(b);
-				System.out.println("rv::::::::" + rv);
-				
+				while(rset.next()) {
+					Board b = new Board();
+					
+					b.setbCode(rset.getInt("SEQ_BCODE"));
+					b.setbDate(rset.getDate("BDATE"));
+					b.setbTitle(rset.getString("BTITLE"));
+					b.setbContent(rset.getString("BCONTENT"));
+					b.setbType(rset.getString("BTYPE"));
+					b.setbWriter(rset.getString("BWRITER"));
+					b.setcCode(rset.getInt("SEQ_CCODE"));
+					b.setpCode(rset.getString("PCODE"));
+					b.setUno(rset.getInt("SEQ_UNO"));
+					b.setuType(rset.getString("UTYPE"));
+					b.setCount(rset.getInt("COUNT"));
+					b.setModifiyDate(rset.getDate("MODIFY_DATE"));
+					
+					
+					rv.add(b);
+					
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -501,11 +505,9 @@ public class BoardDao {
 				b.setuType(rset.getString("UTYPE"));
 				b.setCount(rset.getInt("COUNT"));
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
-				
-				System.out.println("rset.getInt(\"SEQ_BCODE\") ::: " + rset.getInt("SEQ_BCODE"));
+			
 				
 				rv.add(b);
-				System.out.println("rv::::::::" + rv);
 				
 			}
 		} catch (SQLException e) {

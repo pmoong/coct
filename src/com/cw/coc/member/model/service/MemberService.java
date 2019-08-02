@@ -169,14 +169,16 @@ public class MemberService {
 		ArrayList<Object> list = new ArrayList<Object>();
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
-		ArrayList<Board> rv = new BoardDao().reviewSelect(con);
+		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
 		//ArrayList<Payment> pm = new MemberDao().paymentSelect(con, m.getUno());
 		 
 		 list.add(m);
 		 list.add(bo.get(0));
 		 list.add(bo.get(1));
-		 list.add(rv.get(0));
-		 list.add(rv.get(1));
+		 if(rv != null && rv.size() > 0) {
+			 list.add(rv.get(0));
+			 list.add(rv.get(1));
+		 }
 		 //list.add(pm.get(0));
 		 //,list.add(pm.get(1));
 		 

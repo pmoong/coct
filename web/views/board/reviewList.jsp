@@ -55,10 +55,10 @@ select{
 		<div class="tableArea">
 			<table align="center" id="listArea">
 				<tr>
-					<th>글번호</th>
-					<th width="300px">글제목</th>
+					<th width="80px">글번호</th>
+					<th width="400px">글제목</th>
 					<th width="100px">작성자</th>
-					<th>조회수</th>
+					<th width="80px">조회수</th>
 					<th width="100px">작성일</th>
 				</tr>
 				<tr>
