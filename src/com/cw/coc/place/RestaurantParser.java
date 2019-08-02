@@ -54,7 +54,7 @@ public class RestaurantParser {
     nodeList = document.getElementsByTagName(tagName);
     for(int i = 0; i < nodeList.getLength() ; i ++){
      Element element = (Element) nodeList.item(i);
-     
+    int cCode =Integer.parseInt(this.getTagValue("areacode",element));
      String rtitle = this.getTagValue("title", element);
      String raddr1 = this.getTagValue("addr1",element);
      String rtel =this.getTagValue("tel",element);
@@ -68,7 +68,7 @@ public class RestaurantParser {
    	System.out.println("ctitle" +rtitle);
 
       
-     listOfData.add(new RestaurantVo(rtitle,raddr1,rtel,rcontenttypeid,rcat1,rcat2,rcat3 ,rmapx,rmapy,rfirstimage));
+     listOfData.add(new RestaurantVo(cCode,rtitle,raddr1,rtel,rcontenttypeid,rcat1,rcat2,rcat3 ,rmapx,rmapy,rfirstimage));
     }
     
   return listOfData;

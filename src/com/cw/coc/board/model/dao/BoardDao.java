@@ -1,11 +1,10 @@
 package com.cw.coc.board.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.close;
- 
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
+import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
-import com.cw.coc.member.model.vo.Member;
  
 
 public class BoardDao {
@@ -571,5 +570,23 @@ public class BoardDao {
 		
 		return list;
 	}
+
+//ㄱ페이징 처리
+ 	public static BoardDao getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public int getBoardListCount(HashMap<String, Object> listOpt) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+ 
+ 
 }
 

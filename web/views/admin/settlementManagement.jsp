@@ -82,7 +82,7 @@ table {
 
 				<div class="outer">
 			<br>
-			<h2 align="center">예약관리</h2>
+			<h2 align="center">정산관리</h2>
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>

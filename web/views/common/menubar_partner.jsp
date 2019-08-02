@@ -97,7 +97,7 @@ li a.active {
 						
 									
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
-						<li><a href="../../index.jsp" style='color:gray;'>로그아웃</a></li>
+						<li><a href="/coc/logout" style='color:gray;'>로그아웃</a></li>
 					</ul>
 				</nav>
 			</header>
