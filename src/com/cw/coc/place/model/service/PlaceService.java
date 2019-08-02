@@ -46,5 +46,15 @@ public class PlaceService {
 		return list;	
 	}
 
+	public ArrayList<Place> rsvRoomInfo() {
+		Connection con = getConnection();
+
+		ArrayList<Place> list = new PlaceDao().rsvRoomInfo(con);
+
+		close(con);
+ 
+		return list;
+	}
+
 
 }
