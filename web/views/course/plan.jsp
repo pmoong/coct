@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*"%>
 	<%
-  ArrayList<CultureVo> list1=(ArrayList<CultureVo>)request.getAttribute("list1");
+  ArrayList<CultureVo> list=(ArrayList<CultureVo>)request.getAttribute("list");
 /* ArrayList<SeoulVo> list1=(ArrayList<SeoulVo>)request.getAttribute("list");
  */	%>
 <!DOCTYPE html>
@@ -84,15 +84,11 @@ textarea {
 .plan2 {
 	margin: 50px 0;
 }
-.tab_menu{
-	background:white;
-}
+ 
 .selected{
 	background:darkgray;
 }
-button:hover{
-	background:white !important;
-}
+ 
 .tab_menu{
 	float:left;
 	width:25%;
@@ -102,11 +98,6 @@ button:hover{
 	border:1px solid black;
 	
 }
-.plus_menu{
-	
-}
-
- 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </style>
@@ -128,7 +119,7 @@ button:hover{
 				<div class="searchArea" align="center">
 				 
 				<select id="searchCondition" name="searchCondition" style="width:13%;">
-				<option value="category" >목록</option>
+				<option value="category" >목록▼</option>
 				<option value="culture">문화</option>
 				<option value="logment">숙박</option>
 				<option value="restaurant">식당</option>
@@ -138,8 +129,8 @@ button:hover{
 				<button type="submit" class="btn btn-default" >검색하기</button> 
   			
 				 
-					<!-- 
-					<button id="btn1" class="tab_menu" onclick="selTab('1')">문화</button>
+					 
+					<!-- <button id="btn1" class="tab_menu" onclick="selTab('1')">문화</button>
 					<button id="btn2" class="tab_menu" onclick="selTab('2')">숙박</button>
 					<button id="btn3" class="tab_menu" onclick="selTab('3')">식당</button>
 					<button id="btn4" class="tab_menu" onclick="selTab('4')">관광</button>
@@ -151,14 +142,14 @@ button:hover{
 						$("#btn"+id).addClass("selected");
 						
 						prv_id=id;
-					}
-				</script> -->
-				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/restaurant'" style="width:17%;">-->문화</button>
-					<button id="btn2" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'"style="width:17%;">-->숙박</button>
+					} -->
+				</script> 
+				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/restaurant'" style="width:17%;">문화</button>
+					<button id="btn2" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'"style="width:17%;">숙박</button>
 				<button id="btn3" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'" style="width:17%;">식당</button>
 					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/seoul'" style="width:17%;">서울</button>
 			  	<textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-		<% 	for(CultureVo c:list1){	%>
+		<% 	for(CultureVo c:list){	%>
  <%=c.getCtitle() %><%} %></textarea>
  	</div></div></div>
 		
@@ -321,15 +312,17 @@ button:hover{
 			      center: new google.maps.LatLng(37.504788, 127.041312),
 			      mapTypeId: google.maps.MapTypeId.ROADMAP
 			    });
-
 			    var infowindow = new google.maps.InfoWindow();
-
 			    var marker, i;
-
 			    for (i = 0; i < locations.length; i++) {  
 			      marker = new google.maps.Marker({
 			        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
-			        map: map
+			        map: map,
+			        icon:'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+			        label:{ //색
+			        	text:'검색',
+			        	color:'#fffff'
+			        }
 			      });
 
 			      google.maps.event.addListener(marker, 'click', (function(marker, i) {
