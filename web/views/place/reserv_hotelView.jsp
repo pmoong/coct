@@ -13,6 +13,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
+
 <style>
 body {
    background: white;
@@ -281,11 +282,15 @@ body {
 				<h3 id="information" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>이용정보</h3>
 			</div> 
-			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
-				<b>편의 시설</b>
-				주방<br>
-				무선 인터넷<br>
-				건물 내 무료 주차<br>
+			<div style="width:100%; text-align:left; margin-left:15%">
+				주방상기 모든 이미지는 연출 컷으로 실제와 다를 수 있습니다.<br>
+				객실 상황에 따라 패키지가 조기 마감될 수 있습니다.<br>
+				체크인은 오후 2시 이후, 체크아웃은 정오까지 입니다.<br>
+				해당 기프트는 체크인 시 프론트에서 전달 드립니다.<br>
+				해당 패키지 상품에 객실 또는 공연 관람 중 한 가지라도 이용하였다면 취소 불가입니다.<br>
+				(부분 취소 및 변경 절대 불가, 공연 좌석 등급 변경 불가)<br>
+				성인 2인 1실 기준 1박 요금이며, 세금은 별도입니다.<br>
+				피트니스 센터는 안전상의 이유로 16세 이상 입장 가능합니다.<br>
 			</div>
 		</div> 	
 	

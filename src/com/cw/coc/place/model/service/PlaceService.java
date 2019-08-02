@@ -36,5 +36,15 @@ public class PlaceService {
 		return randomlist;	
 	}
 
+	public ArrayList<Place> searchAllList() {
+		Connection con = getConnection();
+
+		ArrayList<Place> list = new PlaceDao().searchAllList(con);
+
+		close(con);
+ 
+		return list;	
+	}
+
 
 }

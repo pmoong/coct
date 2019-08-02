@@ -38,7 +38,7 @@ body {
 	width: 220px;
 	border: 1px solid white;
 	display: inline-block;
-	margin: 30px;
+	/* margin: 30px; */
 	/* align: center; */
 }
 
@@ -73,16 +73,17 @@ body {
 				<!-- 썸네일 리스트 영역 -->
 				<% 
 						for (Place p : list) {
-						int i=0;
+						for(int i=0; i<list.size(); i++){
+							if(i == 0) {
 					%>
 				<% if(i%4==0){ %>
 				<div class="row">
 					<%} %>
 					<div class="col-3 col-12-medium">
 						<div class="hotel" align="center">
-							<a href="reserv_hotel.jsp" class="image featured"> <input
+							<a href="/coc/views/place/reserv_hotelView.jsp" class="image featured"> <input
 								type="hidden" value="<%= p.getcCode()%>"> <img
-								src="<%=p.getImage()%>" style="width: 110%; margin: auto;">
+								src="<%=p.getImage()%>" style="width: 110%; /* margin: auto; */">
 								<p>
 									<br> <b><%=p.getpName() %></b>
 								</p>
@@ -90,12 +91,13 @@ body {
 							</a>
 						</div>
 					</div>
-					<% if(i%4==3){ %>
+					<%  if(i == 7 && i== 3){ %>
 				</div>
-				<%} %>
-
-				<%
-						i++;
+				<%} 
+					}%>
+						
+				<%	
+						}
 						}
 					%>
 			</div>

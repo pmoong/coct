@@ -50,9 +50,9 @@ public class PlaceDao {
 			stmt = con.createStatement();
 			
 			rset = stmt.executeQuery(query);
-			
 			list = new ArrayList<Place>();
-			
+				
+				
 			while(rset.next()) {
 				Place p = new Place();
 				
@@ -70,6 +70,8 @@ public class PlaceDao {
 					list.add(p);
 				}
 			}
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -182,6 +184,50 @@ public class PlaceDao {
 		
 
 		return randomlist;
+	}
+
+	public ArrayList<Place> searchAllList(Connection con) {
+		Statement stmt = null;
+		ArrayList<Place> list = null;
+		ResultSet rset = null;
+		 
+		
+		String query = prop.getProperty("searchAll");
+		
+		try {
+			
+			
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			list = new ArrayList<Place>();
+				
+				
+			while(rset.next()) {
+				Place p = new Place();
+				
+				p.setcCode(rset.getInt("SEQ_CCODE"));
+				p.setpName(rset.getString("PNAME"));
+				p.setpAddress(rset.getString("PADDRESS"));
+				p.setImage(rset.getString("IMAGE"));
+				p.setuType(rset.getString("UTYPE"));
+				p.setiCode(rset.getInt("ICODE"));
+				p.setiContent(rset.getString("ICONTENT"));
+				
+					list.add(p);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		
+		return list;
 	}
 	 
 	

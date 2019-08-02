@@ -2,6 +2,7 @@ package com.cw.coc.place.model.service;
 
 import static com.cw.coc.common.JDBCTemplate.close;
 
+
 import static com.cw.coc.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -48,6 +49,14 @@ Connection con = getConnection();
  		close(con);
 		
 		return list;
+	}
+
+	public ArrayList<CultureVo> selectcoc() {
+Connection con=getConnection();
+ArrayList<CultureVo>list =new CultureDao().selectcoc(con);
+close(con);
+
+return list;
 	}
 
 	 

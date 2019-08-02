@@ -41,7 +41,7 @@ public class SearchRoomServlet extends HttpServlet {
 		System.out.println("locationName::"+locationName);
 		
 		ArrayList<Place> list = new PlaceService().searchRoomList(locationName);
-	
+		
 		
 		String page = ""; 
 		if(list != null) {

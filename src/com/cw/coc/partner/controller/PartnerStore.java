@@ -34,8 +34,6 @@ public class PartnerStore extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<HashMap<String, Object>> list =new BoardService().selectconList();
 		
-		System.out.println("controller list : " + list);
-		
 		String page = "";
 		
 		if(list != null) {

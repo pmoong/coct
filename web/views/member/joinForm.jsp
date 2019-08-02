@@ -175,6 +175,7 @@ body {
       <br> <br>
       <hr>
       <script>
+
       $(function(){
           $("form").submit(function(){
             if($.trim($("#userId").val()) == ""){
@@ -280,6 +281,112 @@ body {
             }     
          }
       }
+=======
+		$(function(){
+ 			$("form").submit(function(){
+				if($.trim($("#userId").val()) == ""){
+					alert("아이디 입력하세요");
+					$("#userId").focus();
+					return false;
+				}
+				
+				if($.trim($("#email").val()) == ""){
+					alert("이메일 입력하세요");
+					$("#email").focus();
+					return false;
+				}
+				if($.trim($("#check_code").val()) == ""){
+					alert("인증번호 입력하세요");
+					$("#check_code").focus();
+					return false;
+				}
+				
+				if($.trim($("#userPwd").val()) == "" 
+						&& $.trim($("#userPwd2").val()) == ""){
+					$("#userPwd").focus();
+					return false;
+				}
+				
+				if($.trim($("#age").val()) == ""){
+					$("#age").focus();
+					return false;
+				}
+				return true;
+			}); 
+		});
+     	function goMain(){
+			location.href="<%=request.getContextPath()%>/index.jsp";
+		}   	 
+		function insertMember(){
+			$("form").submit();
+			location.href="joinInterest.jsp";
+		}
+		function idCheck(){
+			var userId = $("#userId").val();
+	        var ch = userId.charAt(0);
+			
+			
+			$.ajax({
+				url:"/coc/idCheck.me",
+				type:"post",
+				data:{userId:userId},
+				success:function(data){
+					
+					if(data === "fail"){
+						
+						document.getElementById('checkId').style.color = "red";
+						document.getElementById('checkId').innerHTML = "중복된 아이디입니다"; 
+						
+					}else {
+			            if (!(ch >= '0' && ch <= '9') && !(ch >= 'a' && ch <= 'z')&&!(ch >= 'A' && ch <= 'Z')) {
+			                //alert("아이디는 영문 대소문자, 숫자만 입력가능합니다.");
+			                document.getElementById('checkId').style.color = "red";
+							document.getElementById('checkId').innerHTML = "아이디는 영문 대소문자, 숫자만 입력가능합니다."; 
+			                document.f.id.focus();
+			                document.f.id.select();
+			            }else {
+			            	
+						document.getElementById('checkId').style.color = "gray";
+						document.getElementById('checkId').innerHTML = "사용가능한 아이디입니다";
+			            }
+					}
+					
+				},
+				error:function(){
+					console.log("실패!");
+				}
+			});
+		}
+		function emailCheck(){
+			//인증번호 검사
+			var f1 = document.forms[0];
+			var v1 = f1.check_code.value;
+			var v2 = f1.code_check.value;
+			
+			if(v1 != v2) {
+				document.getElementById('checkCode').style.color = "red";
+				document.getElementById('checkCode').innerHTML = "잘못된 인증번호입니다";
+			}else{
+				document.getElementById('checkCode').style.color = "gray";
+				document.getElementById('checkCode').innerHTML = "인증되었습니다";
+			}
+			
+		}
+		function checkPwd(){
+			var f1 = document.forms[0];
+			var pw1 = f1.userPwd.value;
+			var pw2 = f1.userPwd2.value;
+			
+			if(pw1.length > 5){
+				if(pw1!=pw2){
+				   document.getElementById('checkPwd').style.color = "red";
+				   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치하지 않습니다"; 
+				}else{
+				   document.getElementById('checkPwd').style.color = "gray";
+				   document.getElementById('checkPwd').innerHTML = "비밀번호가 일치합니다";    
+				}	  
+			}
+		}
 
       function email1(){
          //var email = $('#email').val();

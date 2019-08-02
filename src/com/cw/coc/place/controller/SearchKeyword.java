@@ -1,6 +1,8 @@
 package com.cw.coc.place.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.Searchapi;
+import com.cw.coc.place.model.service.RestaurantServiceYM;
+import com.cw.coc.place.model.vo.RestaurantVo;
 
 /**
  * Servlet implementation class SearchKeyword
@@ -29,7 +33,18 @@ public class SearchKeyword extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String keyWord = request.getParameter("searchKeyword");
-		Searchapi sa = new Searchapi();
+		
+		ArrayList<RestaurantVo> list = new RestaurantServiceYM().searchRestaurant(keyWord);
+		String page="";
+		
+		request.setAttribute("keyWord", keyWord);
+		request.setAttribute("list", list);
+		page="/views/searchResultPage.jsp";
+		
+		request.getRequestDispatcher(page).forward(request, response);
+		
+		
+		/*Searchapi sa = new Searchapi();
 		StringBuilder sb = sa.search(keyWord);
 		String data = sb.toString();
         String[] array;
@@ -77,7 +92,7 @@ public class SearchKeyword extends HttpServlet {
 		request.setAttribute("mapx", mapx);
 		request.setAttribute("mapy", mapy);
 		
-		request.getRequestDispatcher(page).forward(request, response);
+		request.getRequestDispatcher(page).forward(request, response);*/
         
         
 	}
