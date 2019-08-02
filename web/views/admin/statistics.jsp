@@ -57,7 +57,7 @@
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
-      }
+      };
     </script>
 <script type='text/javascript' src='http://www.google.com/jsapi'></script>
 <script type='text/javascript'>google.load('visualization', '1', {'packages': ['geochart']});
@@ -130,7 +130,7 @@ function drawVisualization() {
 	 	}
 	});
 	chart2.draw(data, options);
-}
+};
  </script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
