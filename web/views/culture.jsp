@@ -294,7 +294,7 @@ height:230px;
  <%  for(CultureVo c : list){   		   %> 
  					
 					
-					<div id="history" style="display:inline; float: left;  ">
+					<div id="history" style="display:inline; float: left;">
  					<b>타이틀: </b><%= c.getCtitle() %><br> 
  				<img src="<%= c.getCfirstimage() %>"width="80%" height="80%"><br>
 					<b>주소: </b><%= c.getCaddr() %> 

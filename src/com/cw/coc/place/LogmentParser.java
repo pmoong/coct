@@ -49,54 +49,33 @@ public class LogmentParser {
  }
  
   public List<LogmentVo> parse(String tagName){
-	  System.out.println("a");
      List<LogmentVo> listOfData = new ArrayList<LogmentVo>();
     nodeList = document.getElementsByTagName(tagName);
-    System.out.println(nodeList);
-    if (nodeList == null) {
-   	 System.out.println("bb");
-    } 
     for(int i = 0; i < nodeList.getLength() ; i ++){
      Element element = (Element) nodeList.item(i);
-     System.out.println("element"+element);
-     String ltitle = this.getTagValue("title", element);
-     System.out.println("ltitle"+ltitle);
-       
-     
+      String ltitle = this.getTagValue("title", element);
+      System.out.println(ltitle);
+     String laddr = this.getTagValue("addr1", element);
+     int lsigungucode =Integer.parseInt(this.getTagValue("sigungucode",element));
+     System.out.println(lsigungucode);
      String ltel =this.getTagValue("tel",element);
-     System.out.println(ltel);
-     int lcontenttypeid =Integer.parseInt(this.getTagValue("contenttypeid",element));
+      int lcontenttypeid =Integer.parseInt(this.getTagValue("contenttypeid",element));
      String lcat1 =this.getTagValue("cat1", element);
      String lcat2 =this.getTagValue("cat2", element);
      String lcat3 =this.getTagValue("cat3", element);
      String lmapx =this.getTagValue("mapx", element); 		 
      String lmapy =this.getTagValue("mapy", element); 	 
      String lfirstimage =this.getTagValue("firstimage", element);
-     if (lfirstimage == null) {
-    	 System.out.println("bb");
-     } 
  
-   	listOfData.add(new LogmentVo(ltitle,ltel,lcontenttypeid,lcat1,lcat2,lcat3,lmapx,lmapy,lfirstimage));
+   	listOfData.add(new LogmentVo(ltitle,laddr,lsigungucode,ltel,lcontenttypeid,lcat1,lcat2,lcat3,lmapx,lmapy,lfirstimage));
     }
-    System.out.println("listOfData"+listOfData);
-  return listOfData;
+   return listOfData;
  }
  
   private static String getTagValue(String tag, Element eElement) {
-   System.out.println("1");
 	  NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
 	   Node nValue = (Node) nlList.item(0); 
 	   
-	   System.out.println("2");
-	   if (nlList == null ||nValue ==null) {
-		   System.out.println("b");
-		   
-	   } 
-	   	
-		
-		 
-		System.out.println("nValue"+nValue);
-		System.out.println("nlList"+nlList);
 		return nValue.getNodeValue();
 	}
 

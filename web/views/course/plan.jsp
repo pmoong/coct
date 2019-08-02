@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*"%>
+	<%
+  ArrayList<CultureVo> list1=(ArrayList<CultureVo>)request.getAttribute("list1");
+/* ArrayList<SeoulVo> list1=(ArrayList<SeoulVo>)request.getAttribute("list");
+ */	%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>CoC</title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC3OcLTHF_YKhnSKPLLUbrFNNaiD8vjnOQ" ></script>
 
 <style>
 body{
 	background:white;
 }
-.left-box {
-  background: red;
-  float: left;
+#map {
+   float: left;
   width: 60%;
 }
 .right-box {
@@ -65,10 +69,18 @@ textarea {
 }
 #btn {
 	background:white;
-}
+} 
 .btn {
 	background:white;
+ 
 }
+
+.tab_menu {
+	background:white;
+	margin :1%;
+	margin-left :4%;
+}
+
 .plan2 {
 	margin: 50px 0;
 }
@@ -93,22 +105,40 @@ button:hover{
 .plus_menu{
 	
 }
+
+ 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </style>
 </head>
+
 <body>
 	<%@ include file="../common/menubar_customer.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="left-box">
+			 <div id="map"   >
 				<h1 id="pm">
 					<a href="#">+</a>
 					<a href="#">-</a>
 				</h1>
 			</div>
+
 			<div class="right-box">
-				<span class="demoSpan1"></span>
-				<input type="search" style="width:100%; height:40px;">
-				<br>
+				<!-- <span class="demoSpan1"></span> -->
+				<div class="searchArea" align="center">
+				 
+				<select id="searchCondition" name="searchCondition" style="width:13%;">
+				<option value="category" >목록</option>
+				<option value="culture">문화</option>
+				<option value="logment">숙박</option>
+				<option value="restaurant">식당</option>
+				<option value="place">관광</option> 
+				</select> 
+				<input type="search" style="width:62%; height:35px;">
+				<button type="submit" class="btn btn-default" >검색하기</button> 
+  			
+				 
+					<!-- 
 					<button id="btn1" class="tab_menu" onclick="selTab('1')">문화</button>
 					<button id="btn2" class="tab_menu" onclick="selTab('2')">숙박</button>
 					<button id="btn3" class="tab_menu" onclick="selTab('3')">식당</button>
@@ -122,10 +152,16 @@ button:hover{
 						
 						prv_id=id;
 					}
-				</script>
-				<textarea rows="10" cols="50" name="contents"style="overflow-y:scroll; width:100%" readonly></textarea>
-			</div>
-		</div>
+				</script> -->
+				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/restaurant'" style="width:17%;">-->문화</button>
+					<button id="btn2" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'"style="width:17%;">-->숙박</button>
+				<button id="btn3" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'" style="width:17%;">식당</button>
+					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/seoul'" style="width:17%;">서울</button>
+			  	<textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
+		<% 	for(CultureVo c:list1){	%>
+ <%=c.getCtitle() %><%} %></textarea>
+ 	</div></div></div>
+		
 		<div class="bottom" id="bottom">
 			<div class="h12">
 				<h1>콕과 함께 당신의 여행을 콕 찍어 그려보세요</h1><br>
@@ -249,7 +285,61 @@ button:hover{
 					prv_id=id;
 				}
 			}
+			function goculture(){
+				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
+				<% 	for(CultureVo c:list){	%>
+		 <%=c.getCtitle() %><%} %></textarea> --%>
+		 alert("으아");
+			}
+			function gologment(){
+				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
+				<% 	for(CultureVo c:list){	%>
+		 <%=c.getCtitle() %><%} %></textarea> --%>
+		 alert("으아");
+			}
+			function goseoul(){
+				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
+				<% 	for(CultureVo c:list){	%>
+		 <%=c.getCtitle() %><%} %></textarea> --%>
+		 alert("으아");
+			}
+			function goculture(){
+				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
+				<% 	for(CultureVo c:list){	%>
+		 <%=c.getCtitle() %><%} %></textarea> --%>
+		 alert("으아");
+			}
+			</script>
 			
+			
+			  <script type="text/javascript">
+			 var locations = [
+			      ['신라스테이', 37.504788, 127.041312, 28] 
+			    ];
+			    var map = new google.maps.Map(document.getElementById('map'), {
+			      zoom: 16,
+			      center: new google.maps.LatLng(37.504788, 127.041312),
+			      mapTypeId: google.maps.MapTypeId.ROADMAP
+			    });
+
+			    var infowindow = new google.maps.InfoWindow();
+
+			    var marker, i;
+
+			    for (i = 0; i < locations.length; i++) {  
+			      marker = new google.maps.Marker({
+			        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
+			        map: map
+			      });
+
+			      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			        return function() {
+			          infowindow.setContent(locations[i][0]);
+			          infowindow.open(map, marker);
+			        
+			        }
+			      })(marker, i));
+			    }
 			</script>
 			
 			

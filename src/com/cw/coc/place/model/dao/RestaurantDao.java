@@ -1,12 +1,14 @@
 package com.cw.coc.place.model.dao;
 
-import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.*;
+
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cw.coc.place.Condb;
@@ -69,4 +71,8 @@ public class RestaurantDao {
 		  close(con);
  	  }
 	}
+		public ArrayList<RestaurantVo> selecttot(Connection con) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }
