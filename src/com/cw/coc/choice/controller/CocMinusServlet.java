@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.choice.model.sevice.CocService;
 
 /**
- * Servlet implementation class CocPlusServlet
+ * Servlet implementation class CocMinusServlet
  */
-@WebServlet("/cocPlus")
-public class CocPlusServlet extends HttpServlet {
+@WebServlet("/cocMinus")
+public class CocMinusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CocPlusServlet() {
+    public CocMinusServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +31,7 @@ public class CocPlusServlet extends HttpServlet {
 		int cCode = Integer.parseInt(request.getParameter("cCode"));
 		int loginUserNo = Integer.parseInt(request.getParameter("uno"));
 		
-		int result = new CocService().insertCoc(cCode, loginUserNo);
-		
+		int result = new CocService().deleteCoc(cCode, loginUserNo);
 		
 	}
 

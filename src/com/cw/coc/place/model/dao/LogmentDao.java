@@ -30,7 +30,7 @@ public class LogmentDao {
 	}    
 	  Connection conn = Condb.getConnection();
 	 	 
-	   String sql="INSERT INTO LOGMENT VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	   String sql="INSERT INTO LOGMENT VALUES(SEQ_CCODE.NEXTVAL, ?,?,?,?,?,?,?,?,?,?,?)";
 	   try {
 	   for(int i=0; i<tmp.size() ; i++){
 	    PreparedStatement stmt = conn.prepareStatement(sql);

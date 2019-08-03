@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.cw.coc.place.controller.SearchKeyword, com.cw.coc.place.model.vo.RestaurantVo, java.util.*" %>
+	pageEncoding="UTF-8" import="com.cw.coc.place.controller.SearchKeyword, com.cw.coc.place.model.vo.RestaurantVo, java.util.*, com.cw.coc.choice.model.vo.Coc, com.cw.coc.place.model.vo.LogmentVoYM" %>
 <%
 	String keyWord = (String) request.getAttribute("keyWord");
 
 	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("list");
-
+	ArrayList<Coc> cocList = (ArrayList<Coc>) request.getAttribute("cocList");
+	ArrayList<LogmentVoYM> logList = (ArrayList<LogmentVoYM>) request.getAttribute("logList");
 	/* String[] title = (String[]) request.getAttribute("title");
 	String[] link = (String[]) request.getAttribute("link");
 	String[] category = (String[]) request.getAttribute("category");
@@ -120,6 +121,7 @@ body {
 			<div id="logo">
 			<form action="<%= request.getContextPath() %>/search.kw" method="post">
              <fieldset class="field-container" style="border-radius:20px;">
+             <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
              	<input type="search" name="searchKeyword" class="form-control" placeholder="<%=keyWord %>" class="field"  style="border-radius:20px;"/>
              	<button type="submit" style="float:right; background:darkgray" >검색하기</button>
              </fieldset>
@@ -227,30 +229,38 @@ body {
 
 
 		<div id="features-wrapper">
-			<div class="container">
+			<div class="container"><h2>식당</h2>
 			<% 
 						int i=0;
 					for (RestaurantVo r : rt) {
 					%>
 				<% if(i%4==0){ %>
 				<div class="row">
-					<%} %>
-					<div class="col-3 col-12-medium" >
-        			<div style="float:right"><button type="button" id="plusCoc" style="background:darkgray">콕</button></div>
+					<%} int cnt=0; %>
+					<%-- <form action="<%=request.getContextPath() %>/cocPlus" method="post"> --%>
+					<div class="col-3 col-12-medium">
+					<%for(int j=0; j<cocList.size(); j++){ %>
+					<%  if(cocList.get(j).getcCode() == r.getcCode()) {%>
+					<%  cnt++;%>
+					
+					<%}else{ %>
+	        		<% } %>
+        			<%} %>
+        			<%if(cnt!=0){ %>
+					<div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
+        			<%}else{ %>
+        			<div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
+        			<%} %>
 							<img src="<%=r.getRfirstimage() %>" style="width: 110%; margin: auto;">
 							<div class="inner">
 							<h2><%=r.getRtitle() %></h2>
 							<p><%=r.getRaddr() %></p>
 							<p><%=r.getRtel() %></p>
-							<input type="hidden" name="cCode" value="<%= r.getcCode() %>">
-							<input type="hidden" name="Rtitle" value="<%= r.getRtitle() %>">
-							<input type="hidden" name="Raddr" value="<%=r.getRaddr() %>">
-        					<input type="hidden" name="Rtel" value="<%=r.getRtel() %>">						
-							<input type="hidden" name="mapx" value="<%=r.getRmapx() %>">
-        					<input type="hidden" name="mapy" value="<%=r.getRmapy() %>">
-        					<input type="hidden" name="loginUserNo" value="<%=loginUser.getUno() %>">
+							<input type="hidden" id="cCode<%=i %>" name="cCode<%=i %>" value="<%= r.getcCode() %>">
+        					<%-- <input type="hidden" name="loginUserNo" value="<%=loginUser.getUno() %>"> --%>
 						</div>
 					</div>
+					<!-- </form> -->
 					<% if(i%4==3){ %>
 				</div>
 				<%} %>
@@ -259,16 +269,56 @@ body {
 
         			</div>
 		</div>
-		<script>
-			$(function(){
-				$("#plusCoc").click(function(){
-					alert("클릭");
-					var num = $(this).parent().children('[name="cCode"]').val();
-					location.href="<%=request.getContextPath()%>/cocPlus";
-				});
-			});
-				
-		</script>
+		
+		<div id="features-wrapper">
+			<div class="container"><h2>숙박</h2>
+			<% if(i%4!=0){
+					i++;
+				}
+			if(i%4!=0){
+				i++;
+			}
+			if(i%4!=0){
+				i++;
+			}
+					
+					for (LogmentVoYM lm : logList) {
+					%>
+				<% if(i%4==0){ %>
+				<div class="row">
+					<%} int cnt=0; %>
+					<%-- <form action="<%=request.getContextPath() %>/cocPlus" method="post"> --%>
+					<div class="col-3 col-12-medium">
+					<%for(int j=0; j<cocList.size(); j++){ %>
+					<%  if(cocList.get(j).getcCode() == lm.getcCode()) {%>
+					<%  cnt++;%>
+					
+					<%}else{ %>
+	        		<% } %>
+        			<%} %>
+        			<%if(cnt!=0){ %>
+					<div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
+        			<%}else{ %>
+        			<div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
+        			<%} %>
+							<img src="<%=lm.getLfirstimage() %>" style="width: 110%; margin: auto;">
+							<div class="inner">
+							<h2><%=lm.getLtitle() %></h2>
+							<p><%=lm.getLaddr() %></p>
+							<p><%=lm.getLtel() %></p>
+							<input type="hidden" id="cCode<%=i %>" name="cCode<%=i %>" value="<%= lm.getcCode() %>">
+        					<%-- <input type="hidden" name="loginUserNo" value="<%=loginUser.getUno() %>"> --%>
+						</div>
+					</div>
+					<!-- </form> -->
+					<% if(i%4==3){ %>
+				</div>
+				<%} %>
+					<%	i++; %>
+				<%} %>
+
+        			</div>
+		</div>
 				
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>
@@ -277,6 +327,35 @@ body {
 
 	<!-- Scripts -->
 	<script>
+		function plusCoc(id){	
+			var cCode = $("#cCode"+id).val();
+			var uno = <%=loginUser.getUno()%>;
+			$.ajax({
+				url:"cocPlus",
+				type:"post",
+				data:{cCode:cCode, uno:uno},
+				success:function(data){
+					$("#plusCoc"+id).css('background-color','yellow');
+					$("#plusCoc"+id).removeAttr("onclick");
+					$("#plusCoc"+id).attr("onclick", "minusCoc("+id+")");
+				}
+			});	
+		}
+		
+		function minusCoc(id){	
+			var cCode = $("#cCode"+id).val();
+			var uno = <%=loginUser.getUno()%>;
+			$.ajax({
+				url:"cocMinus",
+				type:"post",
+				data:{cCode:cCode, uno:uno},
+				success:function(data){
+					$("#minusCoc"+id).css('background-color','darkgray');
+					$("#minusCoc"+id).removeAttr("onclick");
+					$("#minusCoc"+id).attr("onclick", "plusCoc("+id+")");
+				}
+			});	
+		}
 
 	</script>
 
