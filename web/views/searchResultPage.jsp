@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.cw.coc.place.controller.SearchKeyword, com.cw.coc.place.model.vo.RestaurantVo, java.util.*, com.cw.coc.choice.model.vo.Coc, com.cw.coc.place.model.vo.LogmentVoYM" %>
+	pageEncoding="UTF-8" import="com.cw.coc.place.controller.SearchKeyword, com.cw.coc.place.model.vo.RestaurantVo, java.util.*, com.cw.coc.choice.model.vo.Coc, 
+	com.cw.coc.place.model.vo.LogmentVoYM, com.cw.coc.place.model.vo.CultureVoYM, com.cw.coc.place.model.vo.SeoulVoYM" %>
 <%
 	String keyWord = (String) request.getAttribute("keyWord");
 
 	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("list");
 	ArrayList<Coc> cocList = (ArrayList<Coc>) request.getAttribute("cocList");
 	ArrayList<LogmentVoYM> logList = (ArrayList<LogmentVoYM>) request.getAttribute("logList");
+	ArrayList<CultureVoYM> cList = (ArrayList<CultureVoYM>) request.getAttribute("cList");
+	ArrayList<SeoulVoYM> sList = (ArrayList<SeoulVoYM>) request.getAttribute("sList");
 	/* String[] title = (String[]) request.getAttribute("title");
 	String[] link = (String[]) request.getAttribute("link");
 	String[] category = (String[]) request.getAttribute("category");
@@ -104,6 +107,9 @@ body {
 #banner-wrapper .feature{
 	border:3px solid #FFD700 !important;
 	border-radius:5px !important;
+}
+#searchTitle{
+	color:green;
 }
 
 </style>
@@ -229,7 +235,8 @@ body {
 
 
 		<div id="features-wrapper">
-			<div class="container"><h2>식당</h2>
+			<div class="container"><h1 id="searchTitle">식당</h1>
+			<hr>
 			<% 
 						int i=0;
 					for (RestaurantVo r : rt) {
@@ -271,7 +278,8 @@ body {
 		</div>
 		
 		<div id="features-wrapper">
-			<div class="container"><h2>숙박</h2>
+			<div class="container"><h1 id="searchTitle">숙박</h1>
+			<hr>
 			<% if(i%4!=0){
 					i++;
 				}
@@ -319,6 +327,108 @@ body {
 
         			</div>
 		</div>
+		
+		<div id="features-wrapper">
+			<div class="container"><h1 id="searchTitle">서울즐기기</h1>
+			<hr>
+			<% if(i%4!=0){
+					i++;
+				}
+			if(i%4!=0){
+				i++;
+			}
+			if(i%4!=0){
+				i++;
+			}
+					
+					for (SeoulVoYM so : sList) {
+					%>
+				<% if(i%4==0){ %>
+				<div class="row">
+					<%} int cnt=0; %>
+					<%-- <form action="<%=request.getContextPath() %>/cocPlus" method="post"> --%>
+					<div class="col-3 col-12-medium">
+					<%for(int j=0; j<cocList.size(); j++){ %>
+					<%  if(cocList.get(j).getcCode() == so.getcCode()) {%>
+					<%  cnt++;%>
+					
+					<%}else{ %>
+	        		<% } %>
+        			<%} %>
+        			<%if(cnt!=0){ %>
+					<div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
+        			<%}else{ %>
+        			<div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
+        			<%} %>
+							<img src="<%=so.getFirstimage() %>" style="width: 110%; margin: auto;">
+							<div class="inner">
+							<h2><%=so.getTitle() %></h2>
+							<p><%=so.getAddr1() %></p>
+							<input type="hidden" id="cCode<%=i %>" name="cCode<%=i %>" value="<%= so.getcCode() %>">
+        					<%-- <input type="hidden" name="loginUserNo" value="<%=loginUser.getUno() %>"> --%>
+						</div>
+					</div>
+					<!-- </form> -->
+					<% if(i%4==3){ %>
+				</div>
+				<%} %>
+					<%	i++; %>
+				<%} %>
+
+        			</div>
+		</div>
+		
+		
+		<div id="features-wrapper">
+			<div class="container"><h1 id="searchTitle">문화즐기기</h1>
+			<hr>
+			<% if(i%4!=0){
+					i++;
+				}
+			if(i%4!=0){
+				i++;
+			}
+			if(i%4!=0){
+				i++;
+			}
+					
+					for (CultureVoYM ct : cList) {
+					%>
+				<% if(i%4==0){ %>
+				<div class="row">
+					<%} int cnt=0; %>
+					<%-- <form action="<%=request.getContextPath() %>/cocPlus" method="post"> --%>
+					<div class="col-3 col-12-medium">
+					<%for(int j=0; j<cocList.size(); j++){ %>
+					<%  if(cocList.get(j).getcCode() == ct.getcCode()) {%>
+					<%  cnt++;%>
+					
+					<%}else{ %>
+	        		<% } %>
+        			<%} %>
+        			<%if(cnt!=0){ %>
+					<div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
+        			<%}else{ %>
+        			<div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
+        			<%} %>
+							<img src="<%=ct.getFirstimage() %>" style="width: 110%; margin: auto;">
+							<div class="inner">
+							<h2><%=ct.getCtitle() %></h2>
+							<p><%=ct.getCaddr() %></p>
+							<input type="hidden" id="cCode<%=i %>" name="cCode<%=i %>" value="<%= ct.getcCode() %>">
+        					<%-- <input type="hidden" name="loginUserNo" value="<%=loginUser.getUno() %>"> --%>
+						</div>
+					</div>
+					<!-- </form> -->
+					<% if(i%4==3){ %>
+				</div>
+				<%} %>
+					<%	i++; %>
+				<%} %>
+
+        			</div>
+		</div>
+		
 				
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>

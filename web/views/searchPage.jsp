@@ -165,7 +165,7 @@ tr, th, td{
          </div>
          <br>
          <br>
-               <div style="padding-left:10%;">
+               <!-- <div style="padding-left:10%;">
          	<div class="">
          		<table id="board" style="width:85%; height:85%; border:1px solid skyblue">
          			<tbody>
@@ -303,17 +303,9 @@ tr, th, td{
          			</tbody>
          		</table>
          	</div>
-         </div>
+         </div> -->
          <script>
-         	$(function(){
-         		$("#test1").click(function(){
-         			$('<td><input type="radio" value="1" style="width:10px; height:10px; border:1px solid black">1명</td>'
-         					+'<td><input type="checkbox" value="2" style="width:10px; height:10px; border:1px solid black">2명</td>'
-         					+'<td><input type="checkbox" value="3" style="width:10px; height:10px; border:1px solid black">3~4명</td>'
-         					+'<td><input type="checkbox" value="4" style="width:10px; height:10px; border:1px solid black">단체</td>').appendTo("#test1v");
-         		});
-         	})
-         
+         	
          </script>
                
                

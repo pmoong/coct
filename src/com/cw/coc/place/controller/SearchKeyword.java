@@ -12,10 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.choice.model.sevice.CocService;
 import com.cw.coc.choice.model.vo.Coc;
 import com.cw.coc.place.model.Searchapi;
+import com.cw.coc.place.model.service.CultureServiceYM;
 import com.cw.coc.place.model.service.LogmentServiceYM;
 import com.cw.coc.place.model.service.RestaurantServiceYM;
+import com.cw.coc.place.model.service.SeoulServiceYM;
+import com.cw.coc.place.model.vo.CultureVoYM;
 import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.RestaurantVo;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 
 /**
  * Servlet implementation class SearchKeyword
@@ -41,14 +45,18 @@ public class SearchKeyword extends HttpServlet {
 		
 		ArrayList<RestaurantVo> list = new RestaurantServiceYM().searchRestaurant(keyWord);
 		ArrayList<LogmentVoYM> logList = new LogmentServiceYM().searchLogmentYM(keyWord);
+		ArrayList<CultureVoYM> cList = new CultureServiceYM().searchCultureVoYM(keyWord);
+		ArrayList<SeoulVoYM> sList = new SeoulServiceYM().searchSeoulVoYM(keyWord);
 		ArrayList<Coc> cocList = new CocService().isCoc(userNo);
 		
 		String page="";
 		
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("list", list);
-		request.setAttribute("logList", logList);
 		request.setAttribute("cocList", cocList);
+		request.setAttribute("logList", logList);
+		request.setAttribute("cList", cList);
+		request.setAttribute("sList", sList);
 		page="/views/searchResultPage.jsp";
 		
 		request.getRequestDispatcher(page).forward(request, response);
