@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
-import com.cw.coc.member.model.vo.Payment;
+import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.reserve.model.vo.Reserve;
 
 
 @WebServlet("/myPage")
@@ -51,23 +52,31 @@ public class MyPageServlet extends HttpServlet {
 
 		ArrayList<Object> list = new MemberService().myPage(m);
 		Member m1 = (Member) list.get(0);
-		Board bo1 = (Board) list.get(1);
-		Board bo2 = (Board) list.get(2);
-		if(list != null && list.size() > 10) {
-			Board rv1 = (Board) list.get(3);
-			Board rv2 = (Board) list.get(4);
-			request.setAttribute("rv1", rv1);
-			request.setAttribute("rv2", rv2);
-		}
+		ArrayList<Board> bo = (ArrayList<Board>)list.get(1);
+		ArrayList<Board> rv = (ArrayList<Board>) list.get(2);
+		
+		//이용내역
+		ArrayList<Place> uh = (ArrayList<Place>) list.get(3);
+		System.out.println("uh!!!!" + uh);
+		
+/*		Place p1 = uh.get(0),uh.;
+		Place p2 = ;*/
+		
+		ArrayList<Reserve> r = (ArrayList<Reserve>) list.get(3);
+		//Reserve r1 =  r.get(1);
+		
+		//System.out.println("p1:::::::" + p1);
+		//System.out.println("r1:::::::" + r1);
+		
 		//Payment pm1 = (Payment) list.get(5);
 		//Payment pm2 = (Payment) list.get(6);
 		
 		String page = "";
-
 		page = "/views/member/myPage.jsp";
+		request.setAttribute("list", list);
 		request.setAttribute("m1", m1);
-		request.setAttribute("bo1", bo1);
-		request.setAttribute("bo2", bo2);
+		request.setAttribute("bo", bo);
+		request.setAttribute("rv", rv);
 		//request.setAttribute("pm1", pm1);
 		//request.setAttribute("pm2", pm2);
 		

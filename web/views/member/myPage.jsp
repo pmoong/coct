@@ -2,16 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-	//ArrayList<Object> list2 = (ArrayList<Object>) request.getAttribute("list2");
+	
+	//ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("list");
 	String icode = (String) request.getAttribute("icode");
-	Member m1 = (Member) request.getAttribute("m1");
-	Board bo1 = (Board) request.getAttribute("bo1");
-	Board bo2 = (Board) request.getAttribute("bo2");
-	Board rv1 = (Board) request.getAttribute("rv1");
-	Board rv2 = (Board) request.getAttribute("rv2");
+	
+	ArrayList<Board> bo = (ArrayList<Board>) request.getAttribute("bo");
+	ArrayList<Board> rv = (ArrayList<Board>) request.getAttribute("rv");
 	//Payment pm1 = (Payment) request.getAttribute("pm1");
 	//Payment pm2 = (Payment) request.getAttribute("pm2");
+	
+	System.out.print("bo!!!!!:" + bo);
 %>
 
 <!DOCTYPE HTML>
@@ -344,29 +344,26 @@ div>a {
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-						<th width="50px">글번호</th>
-						<th width="100px">제목</th>
-						<th width="300px">내용</th>
-						<th width="100px">작성자</th>
-						<th width="50px">조회수</th>
-						<th width="120px">작성일</th>
-					</tr>
-					<tr>
-						<td><%= bo1.getbCode() %></td>
-						<td><%= bo1.getbTitle() %></td>
-						<td><%= bo1.getbContent() %></td>
-						<td><%= bo1.getbWriter() %></td>
-						<td><%= bo1.getCount() %></td>
-						<td><%= bo1.getbDate() %></td>
-					</tr>
-					<tr>
-						<td><%= bo2.getbCode() %></td>
-						<td><%= bo2.getbTitle() %></td>
-						<td><%= bo2.getbContent() %></td>
-						<td><%= bo2.getbWriter() %></td>
-						<td><%= bo2.getCount() %></td>
-						<td><%= bo2.getbDate() %></td>
-					</tr>
+							<th width="80px">글번호</th>
+							<th width="400px">글제목</th>
+							<th width="100px">작성자</th>
+							<th width="80px">조회수</th>
+							<th width="100px">작성일</th>
+						</tr>
+						 <%
+							for (Board b : bo) {
+						%>
+						<tr>
+							<input type="hidden" value="<%=b.getbCode()%>">
+							<td><%=b.getbCode()%></td>
+							<td><%=b.getbTitle()%></td>
+							<td><%=b.getbWriter()%></td>
+							<td><span><%=b.getCount()%></span></td>
+							<td><%=b.getbDate()%></td>
+						</tr>
+						<%
+							}
+						%> 
 				</table>
 			</div>
 			<br>
@@ -408,22 +405,22 @@ div>a {
 						<th width="50px">조회수</th>
 						<th width="120px">작성일</th>
 					</tr>
-					<tr>
-						<td><%= rv1.getcCode() %></td>
-						<td><%= rv1.getbTitle() %></td>
-						<td><%= rv1.getbContent() %></td>
-						<td><%= rv1.getbWriter() %></td>
-						<td><%= rv1.getCount() %></td>
-						<td><%= rv1.getbDate() %></td>
-					</tr>
-					<tr>
-						<td><%= rv2.getcCode() %></td>
-						<td><%= rv2.getbTitle() %></td>
-						<td><%= rv2.getbContent() %></td>
-						<td><%= rv2.getbWriter() %></td>
-						<td><%= rv2.getCount() %></td>
-						<td><%= rv2.getbDate() %></td>
-					</tr>
+					 <%
+							for (Board r : rv) {
+						%>
+						<tr>
+							<input type="hidden" value="<%=r.getbCode()%>">
+							<td><%=r.getbCode()%></td>
+							<td><%=r.getbTitle()%></td>
+							<td><%=r.getbContent()%></td>
+							<td><%= r.getbWriter() %></td>
+							<td><span><%=r.getCount()%></span></td>
+							<td><%=r.getbDate()%></td>
+						</tr>
+						<%
+							}
+						%> 
+					
 				</table>
 			</div>
 			<br>
