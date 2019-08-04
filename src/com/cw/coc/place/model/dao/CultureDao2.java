@@ -18,7 +18,7 @@ public class CultureDao2 {
   }
 	 public static void main(String[] args) {
  
-  File file = new File("seoul1.xml");
+  File file = new File("culture2.xml");
   
   CultureParser CultureParser = new CultureParser(file);
   System.out.println("CultureParser"+CultureParser);

@@ -219,7 +219,6 @@ body {
          var userId = $("#userId").val();
            var ch = userId.charAt(0);
          
-         
          $.ajax({
             url:"/coc/idCheck.me",
             type:"post",
@@ -235,13 +234,12 @@ body {
                      if (!(ch >= '0' && ch <= '9') && !(ch >= 'a' && ch <= 'z')&&!(ch >= 'A' && ch <= 'Z')) {
                          //alert("아이디는 영문 대소문자, 숫자만 입력가능합니다.");
                          document.getElementById('checkId').style.color = "red";
-                     document.getElementById('checkId').innerHTML = "아이디는 영문 대소문자, 숫자만 입력가능합니다."; 
+                	     document.getElementById('checkId').innerHTML = "아이디는 영문 대소문자, 숫자만 입력가능합니다."; 
                          document.f.id.focus();
                          document.f.id.select();
                      }else {
-                        
-                  document.getElementById('checkId').style.color = "gray";
-                  document.getElementById('checkId').innerHTML = "사용가능한 아이디입니다";
+		                 document.getElementById('checkId').style.color = "gray";
+		                 document.getElementById('checkId').innerHTML = "사용가능한 아이디입니다";
                      }
                }
                
@@ -282,39 +280,6 @@ body {
          }
       }
 
-	$(function(){
-
- 			$("form").submit(function(){
-				if($.trim($("#userId").val()) == ""){
-					alert("아이디 입력하세요");
-					$("#userId").focus();
-					return false;
-				}
-				
-				if($.trim($("#email").val()) == ""){
-					alert("이메일 입력하세요");
-					$("#email").focus();
-					return false;
-				}
-				if($.trim($("#check_code").val()) == ""){
-					alert("인증번호 입력하세요");
-					$("#check_code").focus();
-					return false;
-				}
-				
-				if($.trim($("#userPwd").val()) == "" 
-						&& $.trim($("#userPwd2").val()) == ""){
-					$("#userPwd").focus();
-					return false;
-				}
-				
-				if($.trim($("#age").val()) == ""){
-					$("#age").focus();
-					return false;
-				}
-				return true;
-			}); 
-
      	function goMain(){
 			location.href="<%=request.getContextPath()%>/index.jsp";
 		}   	 
@@ -325,7 +290,6 @@ body {
 		function idCheck(){
 			var userId = $("#userId").val();
 	        var ch = userId.charAt(0);
-			
 			
 			$.ajax({
 				url:"/coc/idCheck.me",

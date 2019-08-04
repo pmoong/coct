@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.service.SeoulService;
-import com.cw.coc.place.model.vo.CultureVo;
+import com.cw.coc.place.model.vo.SeoulVo;
 
 /**
  * Servlet implementation class CulturetotalServlet
@@ -28,7 +28,7 @@ public class SeoulServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<CultureVo> list = new SeoulService().selecttotList();
+		ArrayList<SeoulVo> list = new SeoulService().selecttotList();
 		
 		System.out.println("controller list : " + list);
 		

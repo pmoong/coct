@@ -1,4 +1,4 @@
-/*package com.cw.coc.place.model.dao;
+package com.cw.coc.place.model.dao;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class SeoulDao2 {
   }
 	 public static void main(String[] args) {
  
-  File file = new File("seoul.xml");
+  File file = new File("seoul2.xml");
   
   SeoulParser SeoulParser = new SeoulParser(file);
   System.out.println("CultureParser"+SeoulParser);
@@ -64,5 +64,3 @@ public class SeoulDao2 {
  
 } 
 
-
-*/
