@@ -438,7 +438,7 @@ public class BoardDao {
 			rset = pstmt.executeQuery();
 			
 			rv = new ArrayList<Board>();
-			if(rset != null) {
+			
 				
 				while(rset.next()) {
 					Board b = new Board();
@@ -460,7 +460,7 @@ public class BoardDao {
 					rv.add(b);
 					
 				}
-			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

@@ -11,12 +11,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.Random;
 
-import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.member.model.vo.Payment;
+import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.reserve.model.vo.Reserve;
+import com.cw.coc.room.model.vo.Room;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -378,7 +379,6 @@ public class MemberDao {
 			pstmt = con.prepareStatement(query);
 			
 			pstmt.setInt(1, m.getUno());
-			System.out.println("m:::::" + m);
 			rset = pstmt.executeQuery();
 
 			if(rset.next()){
@@ -399,7 +399,6 @@ public class MemberDao {
 			close(pstmt);
 			close(rset);
 		}
-		System.out.println(m);
 		return m;
 	}
 	
@@ -563,6 +562,68 @@ public class MemberDao {
 		}
 
 		return result;
+	}
+
+	public ArrayList<Object> useHistory(Connection con, int uno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Object> uh = null;
+		
+		String query = prop.getProperty("selectHistory");
+	
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, uno);
+			
+			rset = pstmt.executeQuery();
+			
+			uh = new ArrayList<Object>();
+			
+			while(rset.next()) {
+				 Payment pm = new Payment();
+				 Place p = new Place();
+				 Reserve rs = new Reserve();
+				 Room r = new Room();
+				 Member m = new Member();
+				 
+				 
+				p.setpName(rset.getString("PNAME"));
+				rs.setRsvCode(rset.getInt("SEQ_RSVCODE"));
+				r.setRmName(rset.getString("RMNAME"));
+				m.setUserId(rset.getString("USER_ID"));
+				rs.setCiDate(rset.getDate("CIDATE"));
+				r.setPrice(rset.getInt("PRICE"));
+				pm.setpStatus(rset.getString("PSTATUS"));
+							
+				
+				
+				ArrayList<Place> p1 = new ArrayList<Place>();
+				ArrayList<Reserve> rs1 = new ArrayList<Reserve>();
+				ArrayList<Room> r1 = new ArrayList<Room>();
+				ArrayList<Member> m1 = new ArrayList<Member>();
+				ArrayList<Payment> pm1 = new ArrayList<Payment>();
+				
+				p1.add(p);
+				uh.add(p1);
+				rs1.add(rs);
+				uh.add(rs1);
+				r1.add(r);
+				uh.add(r1);
+				m1.add(m);
+				uh.add(m1);
+				pm1.add(pm);
+				uh.add(pm1);				
+				
+				
+			}
+			System.out.println("uh::::::1212::" + uh);
+			System.out.println(uh.size());
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return uh;
 	}
 
 
