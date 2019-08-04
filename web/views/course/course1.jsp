@@ -170,7 +170,14 @@ color:#51c4a5;
          <div class="container">
    <div class="con"> 
    
- <h3><b>여행 상세보기</b></h3>
+ <div style="align:center;">
+	 <h3><b>경리단 로얄리스트</b></h3>
+	 데이트하면 경리단길, 경리단길 하면 데이트!<br>
+	 경리단길 데이트를 하려면 먼저 허기진 배를 달래줘야겠는데..<br>
+	 어디서 먹어야 할지 모르곘다면 먹을집 식당에서 맛있는 한식을 먼저 즐기고 난 후,<br>
+	 연인과 손잡고 경리단길을 오순도순 함께 걸어봐요~<br>
+	여기에 미술소품에서 아기자기한 소품까지! 역시 경리단길 데이트가 최고여
+ </div>
   <br><br>
 
 <img src="/coc/images/lline.PNG" style="width:100%; padding-bottom:80px;">

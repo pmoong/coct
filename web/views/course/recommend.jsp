@@ -174,7 +174,7 @@ body {
 <a id="bb" href="#">신규</a>
 <br><br>
    
-   <a href="/coc/views/course/recommenddetail.jsp">  <div class="pic1"> 
+   <a href="/coc/views/course/course1.jsp">  <div class="pic1"> 
    <div class="text1"  > 
       <p>남산 주변 관광 즐기기 </p>
    </div> 
