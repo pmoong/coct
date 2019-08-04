@@ -336,8 +336,8 @@ body {
 				data:{cCode:cCode, uno:uno},
 				success:function(data){
 					$("#plusCoc"+id).css('background-color','yellow');
-					$("#plusCoc"+id).removeAttr("onclick");
-					$("#plusCoc"+id).attr("onclick", "minusCoc("+id+")");
+					$("#plusCoc"+id).attr("onclick","minusCoc("+id+")").unbind('click');
+					$("#plusCoc"+id).attr('id','minusCoc'+id);
 				}
 			});	
 		}
@@ -351,12 +351,11 @@ body {
 				data:{cCode:cCode, uno:uno},
 				success:function(data){
 					$("#minusCoc"+id).css('background-color','darkgray');
-					$("#minusCoc"+id).removeAttr("onclick");
-					$("#minusCoc"+id).attr("onclick", "plusCoc("+id+")");
+					$("#minusCoc"+id).attr("onclick","plusCoc("+id+")").unbind('click');
+					$("#minusCoc"+id).attr('id','plusCoc'+id);
 				}
 			});	
 		}
-
 	</script>
 
 	
