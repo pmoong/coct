@@ -282,39 +282,7 @@ body {
          }
       }
 
-	$(function(){
-
- 			$("form").submit(function(){
-				if($.trim($("#userId").val()) == ""){
-					alert("아이디 입력하세요");
-					$("#userId").focus();
-					return false;
-				}
-				
-				if($.trim($("#email").val()) == ""){
-					alert("이메일 입력하세요");
-					$("#email").focus();
-					return false;
-				}
-				if($.trim($("#check_code").val()) == ""){
-					alert("인증번호 입력하세요");
-					$("#check_code").focus();
-					return false;
-				}
-				
-				if($.trim($("#userPwd").val()) == "" 
-						&& $.trim($("#userPwd2").val()) == ""){
-					$("#userPwd").focus();
-					return false;
-				}
-				
-				if($.trim($("#age").val()) == ""){
-					$("#age").focus();
-					return false;
-				}
-				return true;
-			}); 
-
+	
      	function goMain(){
 			location.href="<%=request.getContextPath()%>/index.jsp";
 		}   	 
