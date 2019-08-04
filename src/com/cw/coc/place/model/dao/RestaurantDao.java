@@ -2,7 +2,6 @@ package com.cw.coc.place.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.*;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -35,8 +34,6 @@ public class RestaurantDao {
 		e1.printStackTrace();   
 	}finally {
  		close(con);
-	   
- 
 	}
 	    con = Condb.getConnection();
 	   
@@ -69,9 +66,6 @@ public class RestaurantDao {
 		  close(con);
  	  }
 	}
-		public ArrayList<RestaurantVo> selecttot(Connection con) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+		 
 	
 }

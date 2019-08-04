@@ -208,6 +208,32 @@ public class CultureDao {
 		
 		return list ;
 	}
+	public ArrayList<CultureVo> searchplanlogment(Connection con) {
+		Statement stmt =null;
+		ResultSet rset =null;
+		ArrayList<CultureVo> list=null;
+		String query=prop.getProperty("searchplanlogment");
+		
+		try {
+			stmt=con.createStatement();
+			rset=stmt.executeQuery(query);
+			list=new ArrayList<CultureVo>();
+			while(rset.next()) {
+				CultureVo c=new CultureVo();
+				c.setCtitle(rset.getString("CTITLE"));
+				 c.setCaddr(rset.getString("CADDR")); 
+				  c.setCfirstimage(rset.getString("CFIRSTIMAGE"));  
+				list.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+			close(rset);
+		}
+		return list ;
+	}
 	  
  
 	 

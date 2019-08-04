@@ -9,27 +9,55 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.course.model.sevice.SearchService;
-import com.cw.coc.place.model.vo.CultureVo;
+import com.cw.coc.place.model.service.PlaceService;
+import com.cw.coc.place.model.vo.PageInfo;
+import com.cw.coc.place.model.vo.Place;
 
 /**
  * Servlet implementation class Plan
  */
-@WebServlet("/PlanLogment")
-public class LogmentServlet extends HttpServlet {
+@WebServlet("/PlanCulture")
+public class PlanCulture extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
-    public LogmentServlet() {
+    public PlanCulture() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<CultureVo> list =new SearchService().searchtot();
+ 		int currentPage;
+		int limit;
+		int maxPage;
+
+		int startPage;
+		int endPage;
+ 		currentPage=1;
+		if(request.getParameter("currentPage")!=null) {
+			currentPage=Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		limit =5;
+				
+		int listCount =new PlaceService().getListCount();
+		
+
+		maxPage=(int)((double)listCount/limit+0.95);
+		startPage=(((int)((double)currentPage/limit+0.95))-1)*10 +1;
+		
+		endPage=startPage +10 -1;
+		
+		if(maxPage <endPage) {
+			endPage = maxPage;
+		}
+		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
+ 		ArrayList<Place> list = new PlaceService().selectculture(currentPage,limit);
+
   		String page="";
 		
 		if(list != null){
 			page="views/course/plan.jsp";
 			request.setAttribute("list", list);
+			request.setAttribute("pi", pi);
 		}else {
 			page="views/common/errorPage.jsp";
 			request.setAttribute("msg", "실패!");

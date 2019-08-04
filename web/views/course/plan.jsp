@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*"%>
+	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*, javax.tools.Tool"%>
 	<%
-  ArrayList<CultureVo> list=(ArrayList<CultureVo>)request.getAttribute("list");
-/* ArrayList<SeoulVo> list1=(ArrayList<SeoulVo>)request.getAttribute("list");
- */	%>
+  ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
+	 PageInfo pi =(PageInfo)request.getAttribute("pi");
+	    int listCount =pi.getListCount();
+	    int currentPage =pi.getCurrentPage();
+	    int maxPage=pi.getMaxPage();
+	    int startPage=pi.getStartPage();
+	    int endPage=pi.getEndPage();
+  	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,50 +121,78 @@ textarea {
 
 			<div class="right-box">
 				<!-- <span class="demoSpan1"></span> -->
-				<div class="searchArea" align="center">
-				 
-				<select id="searchCondition" name="searchCondition" style="width:13%;">
-				<option value="category" >목록▼</option>
+ 				 	<form id="search" method="get" action="search.hj">
+				<select class="btn btn-default" name="searchkey" style="width:70px;">
+					<option value="category" >목록▼</option>
+				<option value="total">전체</option>
 				<option value="culture">문화</option>
 				<option value="logment">숙박</option>
 				<option value="restaurant">식당</option>
-				<option value="place">관광</option> 
+				<option value="seoul">서울</option> 
+				<option value="addr">주소</option> 
 				</select> 
-				<input type="search" style="width:62%; height:35px;">
-				<button type="submit" class="btn btn-default" >검색하기</button> 
-  			
-				 
-					 
-					<!-- <button id="btn1" class="tab_menu" onclick="selTab('1')">문화</button>
-					<button id="btn2" class="tab_menu" onclick="selTab('2')">숙박</button>
-					<button id="btn3" class="tab_menu" onclick="selTab('3')">식당</button>
-					<button id="btn4" class="tab_menu" onclick="selTab('4')">관광</button>
-				<script>
-					var prv_id="1";
-					function selTab(id){
-						if(prv_id)
-						$("#btn"+prv_id).removeClass("selected");
-						$("#btn"+id).addClass("selected");
-						
-						prv_id=id;
-					} -->
-				</script> 
-				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/restaurant'" style="width:17%;">문화</button>
+			   <input type="search" name= "searchvalue"  style="width:62%; height:35px;" placeholder='검색어를 입력하세요'>
+				<button type="submit" class="btn btn-default" >검색하기</button>    
+ </form> 
+ 
+  		
+ 				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanCulture'" style="width:17%;">문화</button>
 					<button id="btn2" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'"style="width:17%;">숙박</button>
-				<button id="btn3" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'" style="width:17%;">식당</button>
-					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/seoul'" style="width:17%;">서울</button>
-			  	<textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-		<% 	for(CultureVo c:list){	%>
- <%=c.getCtitle() %><%} %></textarea>
- 	</div></div></div>
+				<button id="btn3" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanRestuarant'" style="width:17%;">식당</button>
+					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanSeoul'" style="width:17%;">서울</button>
+		 
+ 				
+ 				   <table border="1">
+<tr>
+<th>타이틀</th>
+</tr>
+<% for(Place p :list){ %>
+<tr id="title">
+   
+<td id="title"><%=p.getpName() %></td>
+<td class="pname">
+  	<form method="get" action="coc.hj"  >
+<input id=coc type="submit" value="콕" > </form> </td>
+
+</tr>
+<%} %> 
+</table>
+ 				
+<div class="pagingArea" align="center">
+<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=1'"><<</button>
+
+	<% if(currentPage <=1){ %>
+	<button class="btn btn-default" disabled>< </button>
+	<%}else{ %>
+	<button  class="btn btn-default" onclick ="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=currentPage -1 %>'"> <</button>
+	<%} %>
+	
+	<%for(int p = startPage; p <= endPage; p++){ 
+		if(currentPage == p){
+	%>
+		<button class="btn btn-default" disabled><%=p %> </button>
+	<%}else{ %>
+		<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=<%=p %>'" > <%=p %> </button>
+	<%}
+	}
 		
+	%>
+<% if(currentPage >= maxPage){ %>
+	<button class="btn btn-default" disabled> > </button>
+	<%}else{ %>
+	<button  class="btn btn-default" onclick ="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=currentPage +1 %>'"> ></button>
+	<%} %>
+ 
+
+<button class="btn btn-default" onclick="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=maxPage %>'">>></button>
+</div></div></div> </div>
+ 
+  
 		<div class="bottom" id="bottom">
 			<div class="h12">
 				<h1>콕과 함께 당신의 여행을 콕 찍어 그려보세요</h1><br>
 				<h2>첫 번째 목적지를 설정해볼까요?</h2><br><br><br>
 			</div>
-			
-			
 			
 			<div id="rowDay1" class="row">
 				<div class="count">
@@ -175,8 +208,6 @@ textarea {
 					<button type="button" id="rowPlus1" class="circle2" style="float:right" onclick="rowPlus('1')">+</button>
 				</div>
 			</div>
-			
-			
 			<script>
 			var prv_id="1";
 			var dth;
@@ -276,37 +307,47 @@ textarea {
 					prv_id=id;
 				}
 			}
-			function goculture(){
-				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-				<% 	for(CultureVo c:list){	%>
-		 <%=c.getCtitle() %><%} %></textarea> --%>
-		 alert("으아");
-			}
-			function gologment(){
-				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-				<% 	for(CultureVo c:list){	%>
-		 <%=c.getCtitle() %><%} %></textarea> --%>
-		 alert("으아");
-			}
-			function goseoul(){
-				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-				<% 	for(CultureVo c:list){	%>
-		 <%=c.getCtitle() %><%} %></textarea> --%>
-		 alert("으아");
-			}
-			function goculture(){
-				<%-- <textarea  rows="10" cols="50" name="contents" style="resize: vertical" readonly>
-				<% 	for(CultureVo c:list){	%>
-		 <%=c.getCtitle() %><%} %></textarea> --%>
-		 alert("으아");
-			}
-			</script>
+			 
+ 	 $("tr#title td").click(function(){
+ 		 var str="";
+ 		 var tdArr =new Array();
+ 		 
+ 		 var tr=$(this);
+		var td=tr.children();
+		
+		console.log("tr.text"+tr.text());
+		
+		td.each(function(i){
+			tdArr.puch(td.eq(i).text());
 			
-			
+		});
+ 		 
+		 console.log(tdArr);
+		 $(this).css("font-weight","bold");
+/* 		var str=document.getElementsByTagName('td')[this].childNodes[0].nodeValue;
+ */
+ 
+ 	 });
+	 
+	 </script> 
+	 
+	   <script type="text/javascript">
+	   var id = $('#coc').val(); // 
+	   var tmp = document.getElementsByName('coc').value; 
+	   // var tmp = document.getElementById('exam').value; 
+	   // form은 폼명 // vat tmp = document.form.exam[0].value; // tmp = $("#exam").get(0).value; 
+	   // JQuery 방식 // tmp = $("#exam").val(); 
+	   // 태그 내 value값 가져오기 </script> 
+	   
+	   
+	   
 			  <script type="text/javascript">
-			 var locations = [
-			      ['신라스테이', 37.504788, 127.041312, 28] 
-			    ];
+	 
+			 var locations =   
+				 
+					  [
+					 ['신라스테이', 37.504788, 127.041312, 28] 
+			    ];  
 			    var map = new google.maps.Map(document.getElementById('map'), {
 			      zoom: 16,
 			      center: new google.maps.LatLng(37.504788, 127.041312),
@@ -334,8 +375,6 @@ textarea {
 			      })(marker, i));
 			    }
 			</script>
-			
-			
 	</div>
 	<%@include file="/views/common/footerbar_customer.jsp"%>
 	</div>
