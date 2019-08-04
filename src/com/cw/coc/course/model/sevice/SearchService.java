@@ -1,13 +1,15 @@
 package com.cw.coc.course.model.sevice;
 
+import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.cw.coc.course.model.dao.SearchDao;
 import com.cw.coc.place.model.dao.CultureDao;
 import com.cw.coc.place.model.vo.CultureVo;
-import com.cw.coc.common.JDBCTemplate.*;
-
-import static com.cw.coc.common.JDBCTemplate.*;
+import com.cw.coc.place.model.vo.Place;
 public class SearchService {
 
 	
@@ -29,4 +31,6 @@ return list;
 		ArrayList<CultureVo> list = new CultureDao().searchtot(con);
 		return list;
 	}
+
+	
  }

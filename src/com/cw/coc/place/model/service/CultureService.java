@@ -59,6 +59,14 @@ close(con);
 return list;
 	}
 
+	public ArrayList<CultureVo> searchplanlogment() {
+		Connection con=getConnection();
+		ArrayList<CultureVo>list =new CultureDao().searchplanlogment(con);
+		close(con);
+
+		return list;
+	}
+
 	 
 	 
 	

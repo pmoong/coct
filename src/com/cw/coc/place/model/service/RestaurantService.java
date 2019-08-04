@@ -1,4 +1,4 @@
-package com.cw.coc.place.model.service;
+/*package com.cw.coc.place.model.service;
 
 
 import java.sql.Connection;
@@ -22,3 +22,4 @@ public class RestaurantService {
  	}
 
 }
+*/

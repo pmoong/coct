@@ -1,7 +1,6 @@
 package com.cw.coc.place.controller.Seoul;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.service.SeoulService;
-import com.cw.coc.place.model.vo.SeoulVo;
+import com.cw.coc.place.model.vo.CultureVo;
 
 /**
  * Servlet implementation class CulturetotalServlet
@@ -29,7 +28,7 @@ public class SeoulServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-ArrayList<SeoulVo> list = new SeoulService().selecttotList();
+		ArrayList<CultureVo> list = new SeoulService().selecttotList();
 		
 		System.out.println("controller list : " + list);
 		
