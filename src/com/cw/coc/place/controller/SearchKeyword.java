@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cw.coc.choice.model.sevice.CocService;
+import com.cw.coc.choice.model.vo.Coc;
 import com.cw.coc.place.model.Searchapi;
+import com.cw.coc.place.model.service.LogmentServiceYM;
 import com.cw.coc.place.model.service.RestaurantServiceYM;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.RestaurantVo;
 
 /**
@@ -33,12 +37,18 @@ public class SearchKeyword extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String keyWord = request.getParameter("searchKeyword");
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		
 		ArrayList<RestaurantVo> list = new RestaurantServiceYM().searchRestaurant(keyWord);
+		ArrayList<LogmentVoYM> logList = new LogmentServiceYM().searchLogmentYM(keyWord);
+		ArrayList<Coc> cocList = new CocService().isCoc(userNo);
+		
 		String page="";
 		
 		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("list", list);
+		request.setAttribute("logList", logList);
+		request.setAttribute("cocList", cocList);
 		page="/views/searchResultPage.jsp";
 		
 		request.getRequestDispatcher(page).forward(request, response);

@@ -152,12 +152,11 @@ tr, th, td{
             <div id="main-wrapper">
                <div class="container">
                
-	<a href="searchResultPage.jsp">test버튼</a>
-               
                <div style="padding-left:20%">
                
              <form action="<%= request.getContextPath() %>/search.kw" method="post">
              <fieldset class="field-container" style="border-radius:20px;">
+            	<input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
              	<input type="search" name="searchKeyword" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;"/>
              	<button type="submit" style="float:right; background:darkgray" >검색하기</button>
              </fieldset>
