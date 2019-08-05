@@ -2,6 +2,7 @@ package com.cw.coc.course.controller.Place;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,9 +33,9 @@ public class PlaceCocMinusServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int cCode =Integer.parseInt(request.getParameter("cCode"));
-		int UserNo =Integer.parseInt(request.getParameter("uno"));
+		int loginUserNo =Integer.parseInt(request.getParameter("uno"));
 		
-		int result =new PlaceCocService().PlacedeleteCoc(cCode,UserNo);
+		int result =new PlaceCocService().PlacedeleteCoc(cCode,loginUserNo);
 		
 	
 	}
