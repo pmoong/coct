@@ -16,7 +16,10 @@ import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.member.model.vo.Payment;
 import com.cw.coc.place.model.vo.CultureVoYM;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.RestaurantVo;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 import com.cw.coc.reserve.model.vo.Reserve;
 import com.cw.coc.room.model.vo.Room;
 
@@ -666,7 +669,7 @@ public class MemberDao {
 		ResultSet rset = null;
 		ArrayList<CultureVoYM> ct = null;
 
-		String query = prop.getProperty("selectPlace");
+		String query = prop.getProperty("selectCulture");
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -679,20 +682,118 @@ public class MemberDao {
 			while(rset.next()){
 				CultureVoYM c = new CultureVoYM();
 				
-				c.setpName(rset.getString("PNAME"));
-				p.setImage(rset.getString("IMAGE"));
-				p.setpAddress(rset.getString("PADDRESS"));
+				c.setCtitle(rset.getString("CTITLE"));
+				c.setFirstimage(rset.getString("CFIRSTIMAGE"));
 				
-				ct.add(p);
+				ct.add(c);
 			}
-			
+			System.out.println("ct:::::::::" + ct);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 			close(rset);
 		}
-		return pl;
+		return ct;
+	}
+
+	public ArrayList<LogmentVoYM> myCocLogment(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<LogmentVoYM> lm = null;
+
+		String query = prop.getProperty("selectLogment");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, m.getUno());
+			rset = pstmt.executeQuery();
+			
+			lm = new ArrayList<LogmentVoYM>();
+
+			while(rset.next()){
+				LogmentVoYM l = new LogmentVoYM();
+				
+				l.setLtitle(rset.getString("LTITLE"));
+				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
+				
+				lm.add(l);
+			}
+			System.out.println("lm:::::::::" + lm);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return lm;
+	}
+
+	public ArrayList<RestaurantVo> myCocRestaurant(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<RestaurantVo> rt = null;
+
+		String query = prop.getProperty("selectRestaurant");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, m.getUno());
+			rset = pstmt.executeQuery();
+			
+			rt = new ArrayList<RestaurantVo>();
+
+			while(rset.next()){
+				RestaurantVo r = new RestaurantVo();
+				
+				r.setRtitle(rset.getString("RTITLE"));
+				r.setRfirstimage(rset.getString("RFIRSTIMAGE"));
+				
+				rt.add(r);
+			}
+			System.out.println("rt:::::::::" + rt);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return rt;
+	}
+
+	public ArrayList<SeoulVoYM> myCocSeoul(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<SeoulVoYM> sl = null;
+
+		String query = prop.getProperty("selectSeoul");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, m.getUno());
+			rset = pstmt.executeQuery();
+			
+			sl = new ArrayList<SeoulVoYM>();
+
+			while(rset.next()){
+				SeoulVoYM s = new SeoulVoYM();
+				
+				s.setTitle(rset.getString("STITLE"));
+				s.setFirstimage(rset.getString("SFIRSTIMAGE"));
+				
+				sl.add(s);
+			}
+			System.out.println("rt:::::::::" + sl);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return sl;
 	}
 }
 

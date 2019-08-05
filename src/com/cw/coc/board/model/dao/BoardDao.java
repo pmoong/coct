@@ -639,9 +639,56 @@ public class BoardDao {
 	}
 
 
+	public ArrayList<Board> selectReviewList(Connection con, int currentPage, int limit) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Board> list = null;
+		String query = prop.getProperty("selectBListWithPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			System.out.println("qu" + query);
+			//조회를 시작할 행 번호와 마지막 행 번호 계산
+			int startRow = (currentPage - 1) * limit + 1;
+			int endRow = startRow + limit - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<Board>();
 
+			while(rset.next()) {
+				Board b = new Board();
+				
+				b.setbCode(rset.getInt("SEQ_BCODE"));
+				b.setbDate(rset.getDate("BDATE"));
+				b.setbTitle(rset.getString("BTITLE"));
+				b.setbContent(rset.getString("BCONTENT"));
+				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
+				b.setcCode(rset.getInt("SEQ_CCODE"));
+				b.setpCode(rset.getString("PCODE"));
+				b.setUno(rset.getInt("SEQ_UNO"));
+				b.setuType(rset.getString("UTYPE"));
+				b.setCount(rset.getInt("COUNT"));
+				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
+				
+				
+				list.add(b);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 
- 
  
 }
 

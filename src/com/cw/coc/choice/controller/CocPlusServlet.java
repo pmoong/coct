@@ -31,6 +31,8 @@ public class CocPlusServlet extends HttpServlet {
 		int cCode = Integer.parseInt(request.getParameter("cCode"));
 		int loginUserNo = Integer.parseInt(request.getParameter("uno"));
 		
+		System.out.println("loginUserNo");
+		
 		int result = new CocService().insertCoc(cCode, loginUserNo);
 		
 		

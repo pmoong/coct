@@ -101,12 +101,12 @@ button {
 					
 					<%-- 페이징처리 --%>
 		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList?currentPage=1'"><<</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList.no?currentPage=1'"><<</button>
 			
 			<% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList?currentPage=<%=currentPage - 1%>'"><</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList.no?currentPage=<%=currentPage - 1%>'"><</button>
 			<% } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){ 
@@ -114,7 +114,7 @@ button {
 			%>
 					<button disabled><%= p %></button>
 			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList?currentPage=<%=p%>'"><%= p %></button>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList.no?currentPage=<%=p%>'"><%= p %></button>
 			<% 
 				}
 			   } 
@@ -123,10 +123,10 @@ button {
 			<% if(currentPage >= maxPage){ %>
 			<button disabled>></button>
 			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList?currentPage=<%=currentPage + 1 %>'">></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList.no?currentPage=<%=currentPage + 1 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList?currentPage=<%=maxPage%>'">>></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectNoticeList.no?currentPage=<%=maxPage%>'">>></button>
 		</div>
 					<div class="searchArea" align="center">
 						<select id="searchCondition" name="searchCondition">

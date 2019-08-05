@@ -14,12 +14,12 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.board.model.vo.PageInfo;
 
 
-@WebServlet("/selectNoticeList.no")
-public class SelectNoticeListServlet extends HttpServlet {
+@WebServlet("/selectList.rv")
+public class SelectReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public SelectNoticeListServlet() {
+    public SelectReviewServlet() {
         super();
     }
 
@@ -61,7 +61,7 @@ public class SelectNoticeListServlet extends HttpServlet {
 		PageInfo pi = 
 				new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Board> list = new BoardService().selectList(currentPage, limit);
+		ArrayList<Board> list = new BoardService().selectReviewList(currentPage, limit);
 		String page = "";
 		
 		if(list != null) {
@@ -75,9 +75,9 @@ public class SelectNoticeListServlet extends HttpServlet {
 		
 		request.getRequestDispatcher(page).forward(request, response);
 	}
-
-	
+		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doGet(request, response);
 	}
 
