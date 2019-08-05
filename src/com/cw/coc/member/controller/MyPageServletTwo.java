@@ -21,7 +21,7 @@ public class MyPageServletTwo extends HttpServlet {
        
     
     public MyPageServletTwo() {
-        super();
+        super(); 
     }
 
 	
