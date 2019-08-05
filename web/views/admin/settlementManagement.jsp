@@ -1,11 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*, com.cw.coc.allpayment.model.vo.*"%>
+<%
+
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+	
+	
+	List<Board> list = new ArrayList<Board>();
+	List<Member> mlist = new ArrayList<Member>();
+	List<Reserve> rlist = new ArrayList<Reserve>();
+	List<Partner> plist = new ArrayList<Partner>();
+	List<AllPayment> alist = new ArrayList<AllPayment>();
+			
+	list = (List)result.get("blist");
+	mlist = (List)result.get("mlist");
+	rlist = (List)result.get("rlist");
+	plist = (List)result.get("plist");
+	alist = (List)result.get("alist");
+	
+	System.out.println("※");
+	System.out.println(alist);
+
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	System.out.print("여기까지 호출했는지?");
+	
+	
+	
+%>
 <html>
 <head>
 <title>CoC</title>
@@ -25,7 +50,7 @@ body {
 
 .outer {
 	width: 800px;
-	height: 500px;
+	height: 700px;
 	background: white;
 	color: black;
 	margin-left: auto;
@@ -84,24 +109,60 @@ table {
 			<br>
 			<h2 align="center">정산관리</h2>
 			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">예약번호</th>
-						<th width="100px">방이름</th>
-						<th width="100px">회원번호</th>
-						<th width="100px">예약한날짜</th>
-						<th width="100px">??</th>
-					</tr>
-					<%-- 	<% for(Notice n : list){ %>
+				<div class="outer container">
+		<br>
+		<div class="tableArea">
+			<table align="center" id="listArea">
 				<tr>
-					<td><%= n.getNno() %></td>
-					<td><%= n.getnTitle() %></td>
-					<td><%= n.getnWriter() %></td>
-					<td><%= n.getnCount() %></td>
-					<td><%= n.getnDate() %></td>
+					<th width="100px">업체번호</th>
+					<th width="100px">상호명</th>
+					<th width="300px">결제금액</th>
+					<th width="100px">결제일</th>
 				</tr>
-				<% } %> --%>
-				</table>
+				
+				
+				<% for(AllPayment a : alist){ 
+					
+				%>
+				<tr>
+					<td><%= a.getcCode() %></td>
+					<td><%= a.getpName() %></td>
+					<td><%= a.getPrice() %></td>
+					<td><%= a.getpDate() %></td>
+				</tr>
+				<% } %>
+			</table>
+		</div>
+<br><br>
+<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
+			
+			<% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% }else { %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){ 
+				if(currentPage == p){
+			%>
+					<button disabled><%= p %></button>
+			<% } else { %>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
+			<% 
+				}
+			}
+			%>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% }else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<% } %>
+
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
+		</div>
+		<br><br><br>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">
 						<option value="writer">작성자</option>
@@ -113,6 +174,8 @@ table {
 					<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
 					<%-- <% } %> --%>
 				</div>
+				
+		
 			</div>
 		</div>
 			</div>

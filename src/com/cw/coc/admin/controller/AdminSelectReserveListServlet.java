@@ -30,14 +30,14 @@ import com.cw.coc.reserve.model.vo.rPageInfo;
 /**
  * Servlet implementation class SelectBoardListServlet
  */
-@WebServlet("/selectMemberList.ad")
-public class AdminSelectMemberListServlet extends HttpServlet {
+@WebServlet("/selectReserveList.ad")
+public class AdminSelectReserveListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminSelectMemberListServlet() {
+    public AdminSelectReserveListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -75,7 +75,7 @@ public class AdminSelectMemberListServlet extends HttpServlet {
 		System.out.println("RlistCount : " + rlistCount);
 		System.out.println("PlistCount : " + plistCount);
 		//총 페이지 수 계산
-		maxPage = (int)((double)mlistCount / limit + 0.9);
+		maxPage = (int)((double)rlistCount / limit + 0.9);
 		
 		
 		//현재 페이지에서 보여줄 시작 페이지 숫자
@@ -125,7 +125,7 @@ public class AdminSelectMemberListServlet extends HttpServlet {
 		if(result != null) {
 			
 				
-			page = "views/admin/memberManagement.jsp";
+			page = "views/admin/rm.jsp";
 			//request.setAttribute("blist", blist);
 			request.setAttribute("result", result);
 			System.out.println("★★★★");
