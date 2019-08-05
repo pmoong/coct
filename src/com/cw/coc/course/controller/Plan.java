@@ -30,7 +30,9 @@ public class Plan extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	HttpSession session = request.getSession();
 	Member loginUser =(Member)session.getAttribute("loginUser");
-	int userNo = loginUser.getUno();
+ 	int userNo = loginUser.getUno();
+	
+	
 	ArrayList<PlaceCocVo> PlacecocList = new PlaceCocService().PlaceisCoc(userNo);
 	/*int userNo=Integer.parseInt(request.getParameter("userNo"));
 	System.out.println("userNo:"+userNo);
