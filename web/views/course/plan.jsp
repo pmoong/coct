@@ -1,9 +1,7 @@
-<%--   <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%--   /* <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo"%>
 	<%
   ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
-  ArrayList<PlaceCocVo> placecoc =(ArrayList<PlaceCocVo>)request.getAttribute("placecoc");
- 	
 	PageInfo pi =(PageInfo)request.getAttribute("pi");
 	    int listCount =pi.getListCount();
 	    int currentPage =pi.getCurrentPage();
@@ -112,6 +110,7 @@ textarea {
 
 <body>
 	<%@ include file="../common/menubar_customer.jsp"%>
+	 <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
 	<div class="container">
 		<div class="row">
 			 <div id="map"   >
@@ -381,14 +380,13 @@ textarea {
 	<%@include file="/views/common/footerbar_customer.jsp"%>
 	</div>
 </body>
-</html>  
- --%>
+</html>   --%>
 
 
 
 
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo"%>
 	<%
   ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
@@ -501,34 +499,30 @@ border:0;
 outline:0;
 }
 
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</style>
 </head>
 
 <body>
 	<%@ include file="../common/menubar_customer.jsp"%>
-<!-- 	<div class="container">
-		<div class="row">
-			 <div id="map"   >
-				<h1 id="pm">
-					<a href="#">+</a>
-					<a href="#">-</a>
-				</h1>
-			</div>
- --><div class="container">
+ <div class="container">
 			<div id="logo">
 			<form action="<%= request.getContextPath() %>/plan" method="post">
              <fieldset class="field-container" style="border-radius:20px;">
-             <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
+             <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>"/>
 <%--              	<input type="search" name="searchKeyword" class="form-control" placeholder="<%=keyWord %>" class="field"  style="border-radius:20px;"/>
- --%>             	<!-- <button type="submit" style="float:right; background:darkgray" >검색하기</button> -->
-             </fieldset>
+ --%>              </fieldset>
              </form>
 			</div>
+  	<div class="container">
+		<div class="row">
+			 <div id="map"   >
+				<h1 id="pm">
+				</h1>
+			</div> 
 			<div class="right-box">
-				<!-- <span class="demoSpan1"></span> -->
- 				 	<form id="search" method="get" action="search.hj">
+  				 	<form id="search" method="get" action="search.hj">
 				<select class="btn btn-default" name="searchkey" style="width:70px;">
 					<option value="category" >목록▼</option>
 				<option value="total">전체</option>
@@ -552,48 +546,52 @@ outline:0;
  				   <table border="1">
 <tr>
 <th>타이틀</th>
-</tr>
-<% 
-int i=0;
-for(Place p :list){ %>
+
+
+<% for(Place pl :list){ %>
 <tr id="title">
    
-<td id="title"><%=p.getpName() %></td>
-<%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>">
- --%></tr></table>
-  <td class="pname"> 
-   	<%if(i%4 ==0 ){ %>
- <%} int cnt=0;%>
- 					<div class="col-3 col-12-medium">
- 
+<td id="title"><%=pl.getpName() %></td>
+<td class="pname"></td>
+
+</tr>
+<%} %> 
+</table>
+   <%-- 
+ <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getcCode()%>">
+ <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getcCode()%>">
+ --%>
+   	<%-- <%if(i%4 ==0 ){ %>
+   <%} int cnt=0;%>
    <%for(int j=0; j<PlacecocList.size(); j++){%>
  <% if(PlacecocList.get(j).getcCode()==p.getcCode()) {%>  
 <%  cnt++;%>					
 <%}else{ %>
 <% } %>
-<%} %>
- 	<%if(cnt!=0){ %>
-<div style="float:right"><button type="submit" id="minuscoc" class="cocbtn<%=i %>" onclick="minuscoc(<%=i%>)" style="color:black">콕</button></div>
+ <%} %> 
+ 	<%if(cnt!=0){ %>  
+ <div style="float:right"> </td><button type="submit" id="minusCoc" <%=i %>" onclick="minusCoc(<%=i%>)" style="color:black">콕</button></div>
 <%}else{ %>
- <div style="float:right"><button type="submit" id="pluscoc" class="cocbtn<%=i %>" onclick="minuscoc(<%=i%>)" style="color:#bf8ed1; font-weight: bolder">콕</button></div>
+ <div style="float:right"> <button type="submit" id="plusCoc"  <%=i %>" onclick="plusCoc(<%=i%>)" style="color:white; font-weight: bolder">콕</button></div>
 <%} %>
-<p><%=p.getMapx() %></p>
-<p><%=p.getMapy() %></p>
+<td id="title"><%=p.getpName() %></td>
+<p><%=p.getMapy() %></p> --%>
 
-<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getcCode() %>">
-<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapx() %>">
-<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>">
+<%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getcCode() %>">
+ --%>  <%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapx() %>">
+<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>"> 
 
-<!-- <input id=coc type="submit" value="콕" ></td>
- -->
-</tr>
-<% if(i%4 ==3){ %>
-
-</table>
-<%} %>
-</div> 	
+ <!-- <input id=coc type="submit" value="콕" ></td>
+ --> -->
+ </div>
+ <% if(i%4 ==3){ %>
+</div>
+ <%} %>
 <%	i++; %>
 	<%} %>	 	
+</div> 	
+	</td>
+ --%>
 <div class="pagingArea" align="center">
 <button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=1'"><<</button>
 
@@ -621,7 +619,7 @@ for(Place p :list){ %>
  
 
 <button class="btn btn-default" onclick="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=maxPage %>'">>></button>
-</div></div></div> </div>
+</div></div></div></div>
  
   
 		<div class="bottom" id="bottom">
@@ -744,7 +742,7 @@ for(Place p :list){ %>
 				}
 			}
 			 
- 	 $("tr#title td").click(function(){
+/*  	 $("tr#title td").click(function(){
  		 var str="";
  		 var tdArr =new Array();
  		 
@@ -759,13 +757,13 @@ for(Place p :list){ %>
 		});
  		 
 		 console.log(tdArr);
-		 $(this).css("font-weight","bold");
-/* 		var str=document.getElementsByTagName('td')[this].childNodes[0].nodeValue;
- */
+		 $(this).css("font-weight","bold"); 
+  		var str=document.getElementsByTagName('td')[this].childNodes[0].nodeValue;
  
- 	 });
-	 
-	 </script> 
+ 
+  	 });
+	  */
+	 </script>    
 	 <script>
 		function plusCoc(id){	
 			var cCode = $("#cCode"+id).val();
@@ -797,7 +795,7 @@ for(Place p :list){ %>
 			});	
 		}
 	</script>
-	   <script type="text/javascript">
+	 <!--   <script type="text/javascript">
 	   var id = $('#coc').val(); // 
 	   var tmp = document.getElementsByName('coc').value; 
 	   // var tmp = document.getElementById('exam').value; 
@@ -806,9 +804,50 @@ for(Place p :list){ %>
 	   // 태그 내 value값 가져오기 </script> 
 	   
 	   
-	   
-			  <script type="text/javascript">
+	    -->
+			  <!-- <script type="text/javascript">
 	 
+			 var locations =   
+				 
+					  [
+					 ['신라스테이', 37.504788, 127.041312, 28] 
+			    ];  
+			    var map = new google.maps.Map(document.getElementById('map'), {
+			      zoom: 16,
+			      center: new google.maps.LatLng(37.504788, 127.041312),
+			      mapTypeId: google.maps.MapTypeId.ROADMAP
+			    });
+			    var infowindow = new google.maps.InfoWindow();
+			    var marker, i;
+			    for (i = 0; i < locations.length; i++) {  
+			      marker = new google.maps.Marker({
+			        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
+			        map: map,
+			        icon:'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+			        label:{ //색
+			        	text:'검색',
+			        	color:'#fffff'
+			        }
+			      });
+
+			      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			        return function() {
+			          infowindow.setContent(locations[i][0]);
+			          infowindow.open(map, marker);
+			        
+			        }
+			      })(marker, i));
+			    }
+			</script> -->
+			
+			<script type="text/javascript">
+	        $address =$views[''];
+	        function getGeoInfo_googleMap($address){
+	        	
+	        	
+	        	
+	        	
+	        }
 			 var locations =   
 				 
 					  [
@@ -845,4 +884,4 @@ for(Place p :list){ %>
 	<%@include file="/views/common/footerbar_customer.jsp"%>
 	</div>
 </body>
-</html> 
+</html>  

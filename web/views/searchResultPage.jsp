@@ -293,8 +293,7 @@ body {
 					for (LogmentVoYM lm : logList) {
 					%>
 				<% if(i%4==0){ %>
-				<div class="row">
-					<%} int cnt=0; %>
+ 					<%} int cnt=0; %>
 					<%-- <form action="<%=request.getContextPath() %>/cocPlus" method="post"> --%>
 					<div class="col-3 col-12-medium">
 					<%for(int j=0; j<cocList.size(); j++){ %>
