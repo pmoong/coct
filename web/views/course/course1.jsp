@@ -163,27 +163,12 @@ color:#51c4a5;
   <body class="is-preload homepage">
 	<!-- Header -->
 	<%@ include file="/views/common/menubar_customer.jsp" %>
-	
+
+	<img src="/coc/images/cc.jfif" style="width:80%; height:400px; margin-left:10%;">
+	<br>
 	<h3 style="margin-left:20%;"><b>경리단 로얄리스트</b></h3>
 	<br><br><br>
-	
-	<div style="border-radius:50%; float:left;">
-		<div>
-			<label>먹을집식당</label><br>
-			<img src="/coc/images/c1_1.PNG" style="border-radius:50%;width:20%;">
-		</div>
-		<div>
-			<label>경리단길</label><br>		
-			<img src="/coc/images/c1_4.PNG" style="border-radius:50%;width:20%;">
-		</div>
-		<div>
-			<label>미술소품</label><br>		
-			<img src="/coc/images/c1_6.PNG" style="border-radius:50%;width:20%;">
-		</div>
-	</div>
-	
-	
-	
+
 	<div role="tabpanel" style="margin-left:20%; margin-right:20%;">
 
 	  <!-- Nav tabs -->
@@ -413,7 +398,7 @@ color:#51c4a5;
 		  		<br><br>
 		  </div>
 		</div>
-
+</div>
 	</div>
 
 
