@@ -69,7 +69,7 @@ table>tr>td{
 		<div class="container">
 				
 		<div align="center">
-			<form id="changeUserPasswordForm" action="<%=request.getContextPath() %>/updatePassword" method="post">
+			<form id="changeUserPasswordForm" action="<%=request.getContextPath() %>/updatePassword.me" method="post">
 				<table align="center" class="pwdChangeArea">
 					<tr>
 						<input type="hidden" id="testid" name="uno" value="<%= loginUser.getUno()%>">

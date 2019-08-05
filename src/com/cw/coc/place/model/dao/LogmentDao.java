@@ -1,11 +1,19 @@
 package com.cw.coc.place.model.dao;
 
+import static com.cw.coc.common.JDBCTemplate.close;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.LogmentParser;
@@ -56,4 +64,73 @@ public class LogmentDao {
 	   e.printStackTrace();
 	  }
 	}
+		
+		 
+		 private Properties prop = new Properties();
+		  
+			public LogmentDao() {
+				
+		 		
+				String fileName = 
+						LogmentDao.class.getResource("/sql/place/logment-query.properties").getPath();
+				
+				try {
+					prop.load(new FileReader(fileName));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			public ArrayList<LogmentVo> searchRoomList(Connection con, String locationName) {
+				Statement stmt = null;
+				ArrayList<LogmentVo> list = null;
+				ResultSet rset = null;
+				 
+				
+				String query = prop.getProperty("searchRoomList");
+				
+				try {
+					
+					
+					stmt = con.createStatement();
+					
+					rset = stmt.executeQuery(query);
+					list = new ArrayList<LogmentVo>();
+						
+						
+					while(rset.next()) {
+						LogmentVo l = new LogmentVo();
+						
+						l.setLtitle(rset.getString("LTITLE"));
+						l.setLaddr(rset.getString("LADDR"));
+						l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
+						l.setLtel(rset.getString("LTEL"));
+						l.setLcontenttypeid(rset.getInt("LCONTENTTYPEID"));
+						l.setLcat1(rset.getString("LCAT1"));
+						l.setLcat2(rset.getString("LCAT2"));
+						l.setLcat3(rset.getString("LCAT3"));
+						l.setLmapx(rset.getString("LMAPX"));
+						l.setLmapy(rset.getString("LMAPY"));
+						l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
+						
+						if(Integer.parseInt(locationName) ==  rset.getInt("LSIGUNGUCODE")) {
+							
+							list.add(l);
+						}
+					}
+					
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(stmt);
+				}
+				
+				
+				return list;
+			}
 }

@@ -26,7 +26,7 @@ public class SeoulDao2 {
   List<SeoulVo> tmp = SeoulParser.parse("item");
   
   System.out.println("dmdk");
-  
+   
   try {
 	Condb condb = new Condb();
 } catch (IOException e1) {

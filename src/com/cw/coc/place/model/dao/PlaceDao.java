@@ -37,7 +37,7 @@ public class PlaceDao {
 		}
 	}
 
-	public ArrayList<Place> searchRoomList(Connection con, String locationName) {
+	/*public ArrayList<Place> searchRoomList(Connection con, String locationName) {
 		Statement stmt = null;
 		ArrayList<Place> list = null;
 		ResultSet rset = null;
@@ -82,7 +82,7 @@ public class PlaceDao {
 		
 		
 		return list;
-	}
+	}*/
 
 	public ArrayList<Place> randomPlace(Connection con) {
 		Statement stmt = null;
