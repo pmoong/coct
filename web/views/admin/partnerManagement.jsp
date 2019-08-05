@@ -1,11 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*, com.cw.coc.allpayment.model.vo.*" %>
+<%
+
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+	
+	
+	List<Partner> plist = new ArrayList<Partner>();
+			
+	plist = (List)result.get("plist");
+	
+
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	System.out.print("여기까지 호출했는지?");
+	
+%>
 <html>
 <head>
 <title>CoC</title>
@@ -23,7 +36,7 @@ body {
 	color: black !important;
 }
 .outer {
-	width: 800px;
+	width: 1000px;
 	height: 500px;
 	background: white;
 	color: black;
@@ -38,8 +51,8 @@ table {
 }
 
 .tableArea {
-	width: 650px;
-	height: 350px;
+	width: 100%;
+	height: 20% px;
 	margin: 0 auto;
 }
 
@@ -81,24 +94,25 @@ table {
 			<br>
 			<h2 align="center">제휴사관리</h2>
 			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">회원번호</th>
-						<th width="100px">업체이름</th>
-						<th width="100px">회원ID</th>
-						<th width="100px">가입날짜</th>
-						<th width="100px">아이디권한</th>
-						<th width="100px">??</th>
-					</tr>
-					<%-- 	<% for(Notice n : list){ %>
+			<table align="center" id="listArea">
 				<tr>
-					<td><%= n.getNno() %></td>
-					<td><%= n.getnTitle() %></td>
-					<td><%= n.getnWriter() %></td>
-					<td><%= n.getnCount() %></td>
-					<td><%= n.getnDate() %></td>
+					<th width="200px">회원번호</th>
+					<th width="300px">상호명</th>
+					<th width="250px">전화번호</th>
+					<th width="150px">업체담당자명</th>
+					<th width="100px">구분</th>
 				</tr>
-				<% } %> --%>
+				<% for(Partner p : plist){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= p.getUno() %>">
+					<td><%= p.getUno() %></td>
+					<td><%= p.getComName() %></td>
+					<td><%= p.getPhone() %></td>
+					<td><%= p.getPicName() %></td>
+					<td><%= p.getBusType() %></td>
+				</tr>
+				<% } %>
 				</table>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">

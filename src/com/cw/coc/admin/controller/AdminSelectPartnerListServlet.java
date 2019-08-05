@@ -30,14 +30,14 @@ import com.cw.coc.reserve.model.vo.rPageInfo;
 /**
  * Servlet implementation class SelectBoardListServlet
  */
-@WebServlet("/selectMemberList.ad")
-public class AdminSelectMemberListServlet extends HttpServlet {
+@WebServlet("/selectPartnerList.ad")
+public class AdminSelectPartnerListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminSelectMemberListServlet() {
+    public AdminSelectPartnerListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -104,36 +104,34 @@ public class AdminSelectMemberListServlet extends HttpServlet {
 		aPageInfo pi5 = 
 				new aPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
 	
-		ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
+	/*	ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
 		ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
-		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
+		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);*/
 		ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
-		ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
+		//ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
 		
-		result.put("blist", blist);	
+		/*result.put("blist", blist);	
 		result.put("mlist", mlist);
-		result.put("rlist", rlist);
+		result.put("rlist", rlist);*/
 		result.put("plist", plist);
-		result.put("alist", alist);
+		/*result.put("alist", alist);*/
 		//result.put("pi", pi);
 		System.out.println("result : " +result);
 		
-		System.out.println("pi5 : " + pi5);
-		System.out.println("aLIST : " + alist);
-		String page = "";
+				String page = "";
 		
 		if(result != null) {
 			
 				
-			page = "views/admin/memberManagement.jsp";
+			page = "views/admin/partnerManagement.jsp";
 			//request.setAttribute("blist", blist);
+			System.out.println(result);
 			request.setAttribute("result", result);
 			System.out.println("★★★★");
-			System.out.println(result);
 			request.setAttribute("pi", pi);
 		}else {
 			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "게시판 조회 실패!");
+			request.setAttribute("msg", "파트너 조회 실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
