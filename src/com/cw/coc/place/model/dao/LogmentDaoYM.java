@@ -45,6 +45,7 @@ public class LogmentDaoYM {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, keyWord);
+			pstmt.setString(2, keyWord);
 			rset = pstmt.executeQuery();
 			
 			list = new ArrayList<LogmentVoYM>();
