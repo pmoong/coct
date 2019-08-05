@@ -59,7 +59,7 @@ body {
 				
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<button type="submit" id="btn100" class="btn btn-default">
+							<button type="submit" id="btn100" class="btn btn-default" onclick="login();">
 							&emsp;&emsp;&emsp;&emsp;&emsp;로그인&emsp;&emsp;&emsp;&emsp;&emsp;</button>
 						</div>
 					</div>
@@ -98,7 +98,13 @@ body {
 			form.submit(); 
 		}
 		
-
+		function login(){
+			if($("#userPwd").val().length() == 10){
+				alert("비밀번호를 변경해주세요.");
+				location.href="/coc/views/member/myPage.jsp";
+			}
+			console.log($("#userPwd").val().length());
+		}
 		<%-- $(function(){
 			$("#btn100").click(function(){
 				var userId = $("#userId").val();

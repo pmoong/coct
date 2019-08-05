@@ -162,7 +162,8 @@ color:#51c4a5;
   <body class="is-preload homepage">
 	<!-- Header -->
 	<%@ include file="/views/common/menubar_customer.jsp" %>
-	
+		<img src="/coc/images/ccc.jpg" style="width:80%; height:400px; margin-left:10%;">
+	<br>
 	<h3 style="margin-left:20%;"><b>한복입궁 가자 궁</b></h3>
 	<br><br><br>
 	<div role="tabpanel" style="margin-left:20%; margin-right:20%;">
