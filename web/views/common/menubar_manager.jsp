@@ -89,8 +89,8 @@ li a.active {
 						<li><a href="/coc/List.ad">홈</a></li>
 						<li><a href="/coc/views/admin/statistics.jsp">통계</a></li>
 						<li><a href="/coc/views/admin/rm.jsp">예약관리</a></li>
-						<li><a href="/coc/views/admin/memberManagement.jsp">회원관리</a></li>
-						<li><a href="/coc/views/admin/partnerManagement.jsp">제휴사관리</a></li>
+						<li><a href="/coc/selectMemberList.ad">회원관리</a></li>
+						<li><a href="/coc/selectPartnerList.ad">제휴사관리</a></li>
 						<li><a href="/coc/views/admin/bm.jsp">게시판관리</a></li>
 						<li><a href="/coc/views/admin/settlementManagement.jsp">정산내역</a></li>
 						<li><a href="/coc/views/admin/courseManagement.jsp">코스</a></li>

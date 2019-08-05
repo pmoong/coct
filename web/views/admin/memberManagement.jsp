@@ -1,11 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*, com.cw.coc.allpayment.model.vo.*"%>
+<%
+
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+	
+	
+	List<Member> mlist = new ArrayList<Member>();
+			
+	mlist = (List)result.get("mlist");
+	
+
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	System.out.print("여기까지 호출했는지?");
+	
+	
+	
+%>
 <html>
 <head>
 <title>CoC</title>
@@ -24,8 +39,8 @@ body {
 }
 
 .outer {
-	width: 800px;
-	height: 500px;
+	width: 1500px;
+	height: 1000px;
 	background: white;
 	color: black;
 	margin-left: auto;
@@ -39,8 +54,8 @@ table {
 }
 
 .tableArea {
-	width: 650px;
-	height: 350px;
+	width: 800px;
+	height: 750px;
 	margin: 0 auto;
 }
 
@@ -79,29 +94,28 @@ table {
 		<!-- Wrapper for slides -->
 
 
-		<div class="outer">
-			<br>
-			<h2 align="center">회원관리</h2>
-			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">회원번호</th>
-						<th width="100px">회원ID</th>
-						<th width="100px">이메일</th>
-						<th width="100px">가입날짜</th>
-						<th width="100px">아이디권한</th>
-						<th width="100px">??</th>
-					</tr>
-					<%-- 	<% for(Notice n : list){ %>
+		<div class="tableArea">
+			<table align="center" id="MlistArea">
 				<tr>
-					<td><%= n.getNno() %></td>
-					<td><%= n.getnTitle() %></td>
-					<td><%= n.getnWriter() %></td>
-					<td><%= n.getnCount() %></td>
-					<td><%= n.getnDate() %></td>
+					<th width="100px">회원번호</th>
+					<th width="100px">아이디</th>
+					<th width="300px">이메일</th>
+					<th width="100px">구분</th>
+					<th width="100px">성별</th>
 				</tr>
-				<% } %> --%>
-				</table>
+				<% for(Member m : mlist){ 
+				%>
+				<tr>
+					<input type="hidden" value="<%= m.getUno() %>">
+					<td><%= m.getUno() %></td>
+					<td><%= m.getUserId() %></td>
+					<td><%= m.getEmail() %></td>
+					<td><%= m.getuType() %></td>
+					<td><%= m.getGender() %></td>
+				</tr>
+				<% } %>
+			</table>
+		</div>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">
 						<option value="writer">작성자</option>
@@ -130,7 +144,24 @@ table {
 	</div>
 
 	<!-- Scripts -->
-
+	<script >
+	
+	$(function(){
+		$("#MlistArea td").mouseenter(function(){
+			
+			$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+			
+		}).mouseout(function(){
+			$(this).parent().css({"background":"white"});
+		}).click(function(){
+			var muno = $(this).parent().children("input").val();
+			
+			console.log(muno);
+			location.href="<%=request.getContextPath()%>/selectOneRe.ad?muno=" + muno;
+			
+		});
+	});
+	</script>
 
 </body>
 </html>

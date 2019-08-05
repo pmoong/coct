@@ -34,8 +34,8 @@ public class BoardService {
 	}
 	public ArrayList<Board> selectList(int currentPage, int limit) {
 		Connection con = getConnection();
-		
 		ArrayList<Board> list = new BoardDao().selectList(con, currentPage, limit);
+		
 		
 		close(con);
 		
