@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*" %>
 <%
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
 %>
 <!DOCTYPE HTML>
 <!--
@@ -51,52 +57,33 @@ select{
 		<div class="container" align="center">
 			<div class="outer">
 		<br>
-		<h2 align="center">나의리뷰</h2>
-		<div class="tableArea">
-			<table align="center" id="listArea">
-				<tr>
-					<th width="80px">글번호</th>
-					<th width="400px">글제목</th>
-					<th width="100px">작성자</th>
-					<th width="80px">조회수</th>
-					<th width="100px">작성일</th>
-				</tr>
-				<tr>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-				</tr>
-				<tr>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-				</tr>
-				<tr>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-				</tr>
-				<tr>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-				</tr>
-				<tr>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-					<td>값받아오기</td>
-				</tr>
-				<%-- <%for(Notice n : list){ %>
+		<h2 align="center">나의 리뷰</h2>
+				<div class="tableArea">
+					<table align="center" id="listArea">
+						<tr>
+							<th width="80px">글번호</th>
+							<th width="400px">글제목</th>
+							<th width="100px">작성자</th>
+							<th width="80px">조회수</th>
+							<th width="100px">작성일</th>
+						</tr>
+						<%
+							for (Board b : list) {
+						%>
+						<tr>
+							<input type="hidden" value="<%=b.getbCode()%>">
+							<td><%=b.getbCode()%></td>
+							<td><%=b.getbTitle()%></td>
+							<td><%=b.getbWriter()%></td>
+							<td><span><%=b.getCount()%></span></td>
+							<td><%=b.getbDate()%></td>
+						</tr>
+						<%
+							}
+						%>
+						
+						
+						<%-- <%for(Notice n : list){ %>
 				<tr>
 					<td><%=n.getNno() %></td>
 					<td><%=n.getnTitle() %></td>
@@ -105,28 +92,74 @@ select{
 					<td><%=n.getnDate() %></td>
 				</tr>
 				<%} %> --%>
-			</table>
-			<div class="searchArea" align="center">
-				<select id="searchCondition" name="searchCondition">
-					<option value="wirter">작성자</option>
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-				</select>
-				<input type="search">
-				<button type="submit" style="background:darkgray">검색하기</button>
-				<% if(loginUser!=null&&loginUser.getUserId().equals("admin")){ %>
-				<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-				<%} %>
-			</div>
+					</table>
+					
+					<%-- 페이징처리 --%>
+		<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=1'"><<</button>
+			
+			<% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% }else { %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage - 1%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){ 
+				if(currentPage == p){
+			%>
+					<button disabled><%= p %></button>
+			<% } else { %>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=p%>'"><%= p %></button>
+			<% 
+				}
+			   } 
+			%>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% }else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage + 1 %>'">></button>
+			<% } %>
+
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=maxPage%>'">>></button>
 		</div>
-	</div>
+					<div class="searchArea" align="center">
+						<select id="searchCondition" name="searchCondition">
+							<option value="wirter">작성자</option>
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select> <input type="search">
+						<button type="submit" style="background: darkgray">검색하기</button>
+						<%
+							if (loginUser != null && loginUser.getUserId().equals("admin")) {
+						%>
+						<button
+							onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+						<%
+							}
+						%>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- Footer -->
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 
 	</div>
-
+	<script>
+		$(function(){
+			$("#listArea td").mouseenter(function(){
+				$(this).parent().css({"background":"red", "cursor":"pointer"});
+			}).mouseout(function(){
+				$(this).parent().css({"background":"white"});
+			}).click(function(){
+				var num = $(this).parent().children("input").val();
+				
+				//location.href="<%=request.getContextPath()%>/selectOne.o?num=" + num;
+			});
+		});
+	</script>
 
 
 </body>

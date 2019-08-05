@@ -595,7 +595,7 @@ public class MemberDao {
 				rs.setRsvCode(rset.getInt("SEQ_RSVCODE"));
 				r.setRmName(rset.getString("RMNAME"));
 				m.setUserId(rset.getString("USER_ID"));
-				rs.setCiDate(rset.getDate("CIDATE"));
+				rs.setCiDate(rset.getDate("CIDATE")); 
 				r.setPrice(rset.getInt("PRICE"));
 				pm.setpStatus(rset.getString("PSTATUS"));
 
