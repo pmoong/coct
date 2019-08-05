@@ -193,5 +193,7 @@ Connection con = getConnection();
 		return list;
 	}
 
+	 public void insertMassiveArticleInBoard(File destFile);
+
 	}
 	
