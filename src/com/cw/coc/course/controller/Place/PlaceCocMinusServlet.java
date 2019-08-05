@@ -1,7 +1,6 @@
-package com.cw.coc.course.controller;
+package com.cw.coc.course.controller.Place;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,18 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.course.model.sevice.Place.PlaceCocService;
 
- 
-@WebServlet("/search2")
-public class SearchServlet2 extends HttpServlet {
+/**
+ * Servlet implementation class PlaceCocMinusServlet
+ */
+@WebServlet("/placecocminushj")
+public class PlaceCocMinusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet2() {
+    public PlaceCocMinusServlet() {
         super();
+        
         // TODO Auto-generated constructor stub
     }
 
@@ -28,14 +30,15 @@ public class SearchServlet2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Board> list = new ArrayList<Board>();
-		/*Connection con =null;
 		
-		con=dbopen.getConnection();
-		sql= new StringBuffer();
-		*/
- 
-	} 
+		int cCode =Integer.parseInt(request.getParameter("cCode"));
+		int UserNo =Integer.parseInt(request.getParameter("uno"));
+		
+		int result =new PlaceCocService().PlacedeleteCoc(cCode,UserNo);
+		
+	
+	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

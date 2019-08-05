@@ -34,7 +34,7 @@ public class CultureDao2 {
 }
   Connection conn = Condb.getConnection();
  	 
-   String sql ="INSERT INTO SEOUL VALUES(?,?,?,?,?,?,?,?,?)";
+   String sql ="INSERT INTO CULTURE VALUES(?,?,?,?,?,?,?,?,?)";
    try {
    for(int i=0; i<tmp.size() ; i++){
     PreparedStatement stmt = conn.prepareStatement(sql);

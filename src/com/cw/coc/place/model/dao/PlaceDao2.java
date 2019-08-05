@@ -40,25 +40,22 @@ import com.cw.coc.place.model.vo.Place;
   
   
   conn = Condb.getConnection();
-    String sql ="INSERT INTO PLACE VALUES(?,?,?,?,?,?,?,?,?)";
+    String sql ="INSERT INTO PLACE VALUES(SEQ_CCODE.NEXTVAL,?,?,?,?,?,?,?,?)";
    try {
    for(int i=0; i<tmp.size() ; i++){
     stmt = conn.prepareStatement(sql);
-    stmt.setInt(1, tmp.get(i).getcCode());
-System.out.println(tmp.get(i).getcCode());    
-    
-     stmt.setString(2, tmp.get(i).getpName());
+     stmt.setString(1, tmp.get(i).getpName());
      
     System.out.println(tmp.get(i).getpName());
-    stmt.setString(3, tmp.get(i).getpAddress());
-    stmt.setString(4, tmp.get(i).getImage());
-    stmt.setString(5, tmp.get(i).getuType());
-    stmt.setString(6, tmp.get(i).getiCode());
-    stmt.setString(7, tmp.get(i).getiContent()); 
-    stmt.setString(8, tmp.get(i).getMapx());
+    stmt.setString(2, tmp.get(i).getpAddress());
+    stmt.setString(3, tmp.get(i).getImage());
+    stmt.setString(4, tmp.get(i).getuType());
+    stmt.setString(5, tmp.get(i).getiCode());
+    stmt.setString(6, tmp.get(i).getiContent()); 
+    stmt.setString(7, tmp.get(i).getMapx());
     System.out.println(tmp.get(i).getMapx());
     
-     stmt.setString(9, tmp.get(i).getMapy());
+     stmt.setString(8, tmp.get(i).getMapy());
      System.out.println(tmp.get(i).getMapy());   
    
      

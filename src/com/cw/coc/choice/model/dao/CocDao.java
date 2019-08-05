@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.cw.coc.board.model.dao.BoardDao;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.choice.model.vo.Coc;
+import com.cw.coc.course.model.vo.Place.PlaceCocVo;
 import com.cw.coc.place.model.vo.RestaurantVo;
 
 public class CocDao {
@@ -31,6 +32,7 @@ public class CocDao {
 	}
 	
 
+	
 	public int insertCoc(Connection con, Coc c) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -134,5 +136,7 @@ public class CocDao {
 		
 		return result;
 	}
+
+
 	
 }
