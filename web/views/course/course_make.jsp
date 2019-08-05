@@ -50,13 +50,13 @@ body {
 				<div class="row">
 					<div class="col-7 col-12-medium" align="center">
 						<h2 align="center">콕과 함께 당신의</h2>
-						<br> <span style="float: left; width: 200px; height: 200px;"><a
-							href="/coc/plan" class="button  icon solid planbtn" align="center">계획 그리기</a></span> <span
-							style="float: right; width: 200px; height: 200px;"><a
-							href="/coc/views/course/recommend.jsp" class="button icon solid planbtn"align="center">계획 추천받기</a></span> <br>
-						<br> <br> <br>
-						<hr>
- 						<div><input type="date" name="date">~<input type="date" name="date"></div>
+						<br> <br><br><br>
+						<span style="float: left; width: 200px; height: 200px;">
+							<a href="/coc/plan" class="button  icon solid planbtn" align="center">계획 그리기</a>
+						</span>
+						<span style="float: right; width: 200px; height: 200px;">
+							<a href="/coc/views/course/recommend.jsp" class="button icon solid planbtn"align="center">계획 추천받기</a>
+						</span> <br>
 					</div>
 					<div class="col-5 col-12-medium">
 						<div class="outer" style="background: skyblue;"></div>
