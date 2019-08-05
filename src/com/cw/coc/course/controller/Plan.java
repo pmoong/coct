@@ -12,10 +12,15 @@ import javax.servlet.http.HttpSession;
 
 import com.cw.coc.course.model.sevice.Place.PlaceCocService;
 import com.cw.coc.course.model.vo.Place.PlaceCocVo;
+import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.service.PlaceService;
+import com.cw.coc.place.model.vo.CultureVoYM;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.PageInfo;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.RestaurantVo;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 
  
 @WebServlet("/plan")
@@ -28,25 +33,12 @@ public class Plan extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession session = request.getSession();
+	/*HttpSession session = request.getSession();
 	Member loginUser =(Member)session.getAttribute("loginUser");
  	int userNo = loginUser.getUno();
 	
-	
 	ArrayList<PlaceCocVo> PlacecocList = new PlaceCocService().PlaceisCoc(userNo);
-	/*int userNo=Integer.parseInt(request.getParameter("userNo"));
-	System.out.println("userNo:"+userNo);
-/*	int userNo = Integer.getParameter("userNo");
-
-
-	/*System.out.println("userNo"+userNo);
-		if (userNo == null) {
-			userNo = "0";
-		}
-		int userNo = Integer.parseInt(userNo);*/
-		
-/*		String userNo1 =request.getParameter("userNo").trim();
-*/		int currentPage;
+ 		int currentPage;
 		int limit;
 		int maxPage;
 		int startPage;
@@ -83,15 +75,27 @@ public class Plan extends HttpServlet {
 			request.setAttribute("msg", "실패!");
 		}
  
-	 /*/
-			request.setAttribute("list", list);
-			request.setAttribute("pi", pi);
-			request.setAttribute("PlacecocList", PlacecocList);
- 			System.out.println("list:"+list);
- 			page="views/course/plan.jsp";
- 		*/	
-		request.getRequestDispatcher(page).forward(request, response);
+		request.getRequestDispatcher(page).forward(request, response);*/
 		
+		HttpSession session = request.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		
+		ArrayList<Object> list = new MemberService().myCoc(m);
+		
+		ArrayList<Place> pl = (ArrayList<Place>)list.get(0);
+		ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>) list.get(1);
+		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) list.get(2);
+		ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) list.get(3);
+		ArrayList<SeoulVoYM> sl = (ArrayList<SeoulVoYM>) list.get(4);
+		
+		String page = "";
+		page="views/course/plan.jsp";
+		request.setAttribute("pl", pl);
+		request.setAttribute("ct", ct);
+		request.setAttribute("lm", lm);
+		request.setAttribute("rt", rt);
+		request.setAttribute("sl", sl);
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

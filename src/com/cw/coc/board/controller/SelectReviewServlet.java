@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.board.model.vo.PageInfo;
+import com.cw.coc.member.model.vo.Member;
 
 
 @WebServlet("/selectList.rv")
@@ -25,6 +27,9 @@ public class SelectReviewServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		
 		int currentPage;		//현재 페이지를 표시할 변수
 		int limit;				//한 페이지에 보여질 게시물 수
 		int maxPage;			//전체 페이지에서 가장 마지막 페이지
@@ -42,7 +47,7 @@ public class SelectReviewServlet extends HttpServlet {
 		limit = 10;
 		
 		//전체 목록 갯수를 리턴받음 
-		int listCount = new BoardService().getListCount();
+		int listCount = new BoardService().getReviewListCount(m.getUno());
 				
 		//총 페이지 수 계산
 		maxPage = (int)((double)listCount / limit + 0.9);
@@ -65,7 +70,7 @@ public class SelectReviewServlet extends HttpServlet {
 		String page = "";
 		
 		if(list != null) {
-			page = "views/board/noticeList.jsp";
+			page = "views/board/reviewList.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 		}else {

@@ -138,6 +138,7 @@ div>a {
 				<table align="center" class="infoArea">
 					<tbody>
 						<tr>
+						<%-- <form action="<%=request.getContextPath()%>/insert.tn"" method="post" encType="multipart/form-data"></form> --%>
 							<td rowspan="4" style="vertical-align: middle"><img
 								id="imgThumb"
 								src="https://static.nid.naver.com/images/web/user/default.png?type=s160"
@@ -330,7 +331,7 @@ div>a {
 		<!-- 공지사항 -->
 		<div class="container">
 			<a  onclick="goNotice();">
-			<!-- <a onclick="goNotice();">   -->
+			
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>공지사항</h3>
@@ -383,8 +384,8 @@ div>a {
 
 		<!-- Features1 -->
 		<div class="container">
-			<!-- <a onclick="goReview();"> -->
-			<a href="/coc/views/board/reviewList.jsp">
+			<a onclick="goReview();">
+			<!-- <a href="/coc/views/board/reviewList.jsp"> -->
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>나의리뷰</h3>
