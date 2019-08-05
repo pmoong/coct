@@ -236,7 +236,7 @@ body {
 							<!-- Box -->
 							<section class="box feature">
 								<a href="#" class="image featured"><img
-									src="../../images/gd1.PNG" alt="" /></a>
+									src="../../images/c1.jpg" alt="" /></a>
 								<div class="inner"></div>
 							</section>
 
@@ -246,7 +246,7 @@ body {
 							<!-- Box -->
 							<section class="box feature">
 								<a href="#" class="image featured"><img
-									src="../../images/gd2.PNG" alt="" /></a>
+									src="../../images/c2.jpg" alt="" /></a>
 								<div class="inner"></div>
 							</section>
 
@@ -256,7 +256,7 @@ body {
 							<!-- Box -->
 							<section class="box feature">
 								<a href="#" class="image featured"><img
-									src="../../images/gd3.png" alt="" /></a>
+									src="../../images/c3.jpg" alt="" /></a>
 								<div class="inner"></div>
 							</section>
 
