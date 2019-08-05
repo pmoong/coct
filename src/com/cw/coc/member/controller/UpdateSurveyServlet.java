@@ -24,14 +24,11 @@ public class UpdateSurveyServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("서블릿!!!");
 		Member m = new Member();
 		
-
-		System.out.println(request.getParameter("uno"));
 		int uno = Integer.parseInt(request.getParameter("uno"));
 		String id = request.getParameter("id");
-		String password = request.getParameter("password");
+		String userPwd = request.getParameter("userPwd");
 		String email = request.getParameter("email");
 		String utype = request.getParameter("utype");
 		String gender = request.getParameter("gender");
@@ -39,10 +36,10 @@ public class UpdateSurveyServlet extends HttpServlet {
 		int status = Integer.parseInt(request.getParameter("status"));
 		String[] icodeArr = request.getParameterValues("checkbox"); 
 		String icode = "";
-
+		System.out.println("pwd:::::" + userPwd);
 		m.setUno(uno);
 		m.setUserId(id);
-		m.setUserPwd(password);
+		m.setUserPwd(userPwd);
 		m.setEmail(email);
 		m.setuType(utype);
 		m.setGender(gender);
@@ -68,7 +65,7 @@ public class UpdateSurveyServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", m);
 			response.sendRedirect(page);
-			
+			 
 		}else {
 
 		}
