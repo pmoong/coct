@@ -150,7 +150,6 @@ color:#51c4a5;
  
 }
 #map_ma {width:100%; height:400px; clear:both; border:solid 1px red;}
-
   </style>
   <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -164,34 +163,15 @@ color:#51c4a5;
 	<!-- Header -->
 	<%@ include file="/views/common/menubar_customer.jsp" %>
 	
-	<h3 style="margin-left:20%;"><b>경리단 로얄리스트</b></h3>
+	<h3 style="margin-left:20%;"><b>한복입궁 가자 궁</b></h3>
 	<br><br><br>
-	
-	<div style="border-radius:50%; float:left;">
-		<div>
-			<label>먹을집식당</label><br>
-			<img src="/coc/images/c1_1.PNG" style="border-radius:50%;width:20%;">
-		</div>
-		<div>
-			<label>경리단길</label><br>		
-			<img src="/coc/images/c1_4.PNG" style="border-radius:50%;width:20%;">
-		</div>
-		<div>
-			<label>미술소품</label><br>		
-			<img src="/coc/images/c1_6.PNG" style="border-radius:50%;width:20%;">
-		</div>
-	</div>
-	
-	
-	
 	<div role="tabpanel" style="margin-left:20%; margin-right:20%;">
 
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
 	    <li role="presentation" class="active"><a href="#dateStart" aria-controls="dateStart" role="tab" data-toggle="tab"><b>데이트 시작</b></a></li>
-	    <li role="presentation"><a href="#d1" aria-controls="d1" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span></a></li>
-	    <li role="presentation"><a href="#d2" aria-controls="d2" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></a></li>
-	    <li role="presentation"><a href="#d3" aria-controls="d3" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></li>
+	    <li role="presentation"><a href="#d1" aria-controls="d1" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></a></li>
+	    <li role="presentation"><a href="#d2" aria-controls="d2" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-queen" aria-hidden="true"></span></a></li>
 	    <li role="presentation"><a href="#dateEnd" aria-controls="dateEnd" role="tab" data-toggle="tab"><b>데이트 끝</b></a></li>
 	  </ul>
 	
@@ -199,11 +179,11 @@ color:#51c4a5;
 		<div class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="dateStart">
 		  	 <div style="margin-left:10%;"><br><br>
-				 <label>데이트하면 경리단길, 경리단길 하면 데이트!</label><br><br>
-				 <label>경리단길 데이트를 하려면 먼저 허기진 배를 달래줘야겠는데..</label><br><br>
-				 <label>어디서 먹어야 할지 모르곘다면 먹을집 식당에서 맛있는 한식을 먼저 즐기고 난 후,</label><br><br>
-				 <label>연인과 손잡고 경리단길을 오순도순 함께 걸어봐요~</label><br><br>
-				<label>여기에 미술소품에서 아기자기한 소품까지! 역시 경리단길 데이트가 최고여~</label>
+				 <label></label><br><br>
+				 <label>서울에서 전통과 현대를 두루 느낄 수 있는 인사동!</label><br><br>
+				 <label>오늘은 인사동을 시작으로 고궁을 둘러보며 우리나라의 멋을 느껴봐요.</label><br><br>
+				 <label>그냥 돌기에 심심하다면 고운 한복 맞춰 입고 한복 자락 휘날리며</label><br><br>
+				<label>우아하게 궁 데이트를 해봅시다</label>
 	 		</div><br><br>
 		  	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
@@ -216,18 +196,13 @@ color:#51c4a5;
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
-				      <img src="/coc/images/c1_2.PNG" alt="">
+				      <img src="/coc/images/c3_2.jpg" alt="">
 				      <div class="carousel-caption">
 				        ...
 				      </div>
 				    </div>
 				    <div class="item">
-				      <img src="/coc/images/c1_4.PNG" alt="">
-				      <div class="carousel-caption">
-				      </div>
-				    </div>
-				    <div class="item">
-				      <img src="/coc/images/c1_6.PNG" alt="">
+				      <img src="/coc/images/c3_3.jpg" alt="">
 				      <div class="carousel-caption">
 				      </div>
 				    </div>
@@ -248,21 +223,20 @@ color:#51c4a5;
 		  <div role="tabpanel" class="tab-pane fade" id="d1">
 			  	
 		  	<div style="margin-left:10%; margin-right:10%; margin-top:5%;">
-			  	<label>자극이 판티는 시대에서, 두부 특유의 담백함으로 안정을 찾게 해주는 웰빙음식점입니다.</label> <br><br>
-		  		<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&emsp;<label style="margin-left:1%;">0543-3109-6668</label><br><br>
+			  	<label>이렇게 에쁜 줄 몰랐어!! 한복 입고 내 인생 최고로 예쁜 인생샷을 남겨봐요</label> <br><br>
+		  		<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&emsp;
+		  		<label style="margin-left:1%;">0543-3109-6668</label><br><br>
 		  		<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&emsp;
-		  		<label>2인 순두부정식 + 초당두부정식&emsp;&emsp;&emsp;22,000원</label>
+		  		<label>테마한복 90분 체험 (2인)&emsp;&emsp;&emsp;40,000원</label>
 		  		<button class="btn btn-default" style="margin-left:30%; " onclick="location.href='/coc/images/c1_menu.PNG'">메뉴판 보기</button><br><br>
 		  		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&emsp;
-		  		<label>서울특별시 용산구 이태원로 226-3</label><br><label style="margin-left:5%;">녹사평역 2번출구 도보 14분</label><br><br>
+		  		<label>서울특별시 종로구 소격동 109</label><br><label style="margin-left:5%;">안국역 2번 출구 도보 11분</label><br><br>
 		  		<span class="glyphicon glyphicon-time" aria-hidden="true"></span>&emsp;
 		  		<label>영업 시간 : </label><br>
-		  		<label style="margin-left:5%;">평일 11:00 ~ 15:00, 17:00 ~ 22:00 (Last order 21:00)</label><br>
-		  		<label style="margin-left:5%;">토요일 11:00 ~ 22:00 (Last order 21:00)</label><br>
-		  		<label style="margin-left:5%;">일요일 11:00 ~ 21:00 (Last order 20:00)</label><br>
-		  		<label style="margin-left:5%;">휴무일 : 화요일</label><br><br>
+		  		<label style="margin-left:5%;">10:00 ~ 20:00 (입장마감 18ㅣ30)</label><br>
+		  		<label style="margin-left:5%;">휴무일 : 연중무휴</label><br><br>
 		  		<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&emsp;
-		  		<label>주차 가능</label>
+		  		<label>주차 불가능</label>
 		  	</div><br><br>
 		  	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
@@ -275,13 +249,13 @@ color:#51c4a5;
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
-				      <img src="/coc/images/c1_1.PNG" alt="">
+				      <img src="/coc/images/c3_1.jpg" alt="">
 				      <div class="carousel-caption">
 				        ...
 				      </div>
 				    </div>
 				    <div class="item">
-				      <img src="/coc/images/c1_2.PNG" alt="">
+				      <img src="/coc/images/c3_2.jpg" alt="">
 				      <div class="carousel-caption">
 				      </div>
 				    </div>
@@ -303,9 +277,15 @@ color:#51c4a5;
 		  <div role="tabpanel" class="tab-pane fade" id="d2">
 		  		
 		  	<div style="margin-left:10%; margin-right:10%; margin-top:5%;">
-			  	<label>커피 한 잔 들고 걷기만 해도 영화가 되는 곳이에요</label> <br><br>
+			  	<label>한복입으면 무료입장! 사계정 각각의 매력을 자랑하는 아름다운 경복궁이에요</label> <br><br>
+		  		<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&emsp;
+		  		<label>입장료 (만 25세 이상)&emsp;&emsp;&emsp;3,000원</label><br>
+		  		<label style="margin-left:5%;">입장료 (만 24세 이하)&emsp;&emsp;&emsp;0원</label><br><br>
 		  		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&emsp;
-		  		<label>서울특별시 용산구 이태원동 685</label><br><label style="margin-left:5%;">녹사평역 2번출구 도보 14분</label><br><br>
+		  		<label>서울특별시 종로구 세종로 1-91</label><br><label style="margin-left:5%;">경복궁역 4번 출구 도보 6분</label><br><br>
+		  		<span class="glyphicon glyphicon-time" aria-hidden="true"></span>&emsp;
+		  		<label>영업 시간 : </label><br>
+		  		<label style="margin-left:5%;">휴무일 : 연중무휴</label><br><br>
 		  		<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&emsp;
 		  		<label>주차 불가능</label>
 		  	</div><br><br>
@@ -320,17 +300,12 @@ color:#51c4a5;
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
-				      <img src="/coc/images/c1_3.PNG" alt="">
+				      <img src="/coc/images/c3_3.jpg" alt="">
 				      <div class="carousel-caption">
 				      </div>
 				    </div>
 				    <div class="item">
-				      <img src="/coc/images/c1_4.PNG" alt="">
-				      <div class="carousel-caption">
-				      </div>
-				    </div>
-				    <div class="item">
-				      <img src="/coc/images/c1_5.PNG" alt="">
+				      <img src="/coc/images/c3_4.jpg" alt="">
 				      <div class="carousel-caption">
 				      </div>
 				    </div>
@@ -348,68 +323,21 @@ color:#51c4a5;
 			</div>
 		  	
 		  </div>
-		  <!-- date3 -->
-		  <div role="tabpanel" class="tab-pane fade" id="d3">
-		  		<div style="margin-left:10%;"><br><br>
-				 <label>소규모 매장이지만 없는 게 없는 만물상 같은 소품샵이에요</label><br><br><br>
-				 <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&emsp;<label style="margin-left:1%;">0543-3109-7683</label><br><br>
-		  		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&emsp;
-		  		<label>서울특별시 용산구 이태원로 255-46</label><br><label style="margin-left:5%;">녹사평역 2번출구 도보 13분</label><br><br>
-		  		<span class="glyphicon glyphicon-time" aria-hidden="true"></span>&emsp;
-		  		<label>영업 시간 : </label><br>
-		  		<label style="margin-left:5%;">일요일 11:00 ~ 21:00</label><br>
-		  		<label style="margin-left:5%;">휴무일 : 월요일</label><br><br>
-		  		<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&emsp;
-		  		<label>주차 불가능</label>
-	 		</div><br><br>
-		  	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				  </ol>
-				
-				  <!-- Wrapper for slides -->
-				  <div class="carousel-inner" role="listbox">
-				    <div class="item active">
-				      <img src="/coc/images/c1_6.PNG" alt="">
-				      <div class="carousel-caption">
-				      </div>
-				    </div>
-				    <div class="item">
-				      <img src="/coc/images/c1_7.PNG" alt="">
-				      <div class="carousel-caption">
-				      </div>
-				    </div>
-				  </div>
-				
-				  <!-- Controls -->
-				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				    <span class="sr-only">Previous</span>
-				  </a>
-				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
-			</div>
-		  </div>
 		  
 		  <div role="tabpanel" class="tab-pane fade" id="dateEnd">
 		  	<div style="margin-left:10%;"><br><br>
 		 	 	<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&emsp;
-				<label>2시간 / 22,000원</label>
+				<label>3.5시간 / 60,700원</label>
 				<br><br><br>
-		  		<label>먹을집식당 <small>Restaurant</small></label><label style="margin-left:45%">22,000원</label><br><br>
-		  		<label>경리단길 <small>Walk</small></label><label style="margin-left:53%">0원</label><br><br>
-		  		<label>미술소품 <small>Viewing</small></label><label style="margin-left:51%">0원</label><br><br><br>
+		  		<label>한복남 경복궁점 <small>Restaurant</small></label><label style="margin-left:45%">22,000원</label><br><br>
+		  		<label>경복궁 <small>Walk</small></label><label style="margin-left:53%">0원</label><br><br>
 		  		<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&emsp;
-		  		<label>먹을집 식당은 진짜 집밥을 먹는 것처럼 맛있었어요!</label><br>
-		  		<label style="margin-left:5%;">경리단길에서 맛있는 한식 먹기 힘든데 먹을집에서 맛있게 먹었어요!</label><br><br>
+		  		<label>한복집은 다양한 종류의 한복을 시간제한 없이 고르고 입어볼 수 있어서 좋아요.</label><br>
+		  		<label style="margin-left:5%;">머리띠 복주머니까지 추가금액없이 대여 가능하다는 것도 장점!</label><br><br>
+		  		<label style="margin-left:5%;">한복입고 소꿉놀이는 경복궁과 지하철역에서 매우 가까웠어요</label><br><br>
 		  		<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&emsp;
-		  		<label>미술소품은 생각보다 내부가 작아요~ </label><br>
-		  		<label style="margin-left:5%;">경리단길도 사람이 은근 많아서 사람 많은거 싫어하시는 분은 비추입니다.</label><br>
+		  		<label>한복을 고르는 데에 시간제한이 없어서인지 예약을 하지 않으면 꽤 많이 기다려야해요. </label><br>
+		  		<label style="margin-left:5%;">또, 규모가 작아서 손님이 많을 경우 원하는 사이즈와 디자인의 한복을 고르지 못할 수도 있어요</label><br>
 		  		<br><br>
 		  </div>
 		</div>
