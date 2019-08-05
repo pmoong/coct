@@ -21,13 +21,13 @@ import com.cw.coc.room.model.vo.Room;
 
 public class MemberDao {
 	private Properties prop = new Properties();
-	
+
 	public MemberDao() {
 		String fileName = MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
-		
+
 		try {
 			prop.load(new FileReader(fileName));
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -37,23 +37,23 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("checkStatus");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, reqMember.getUserId());
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			String userId = "";
 			String userPwd = "";
-			
+
 			if(rset.next()) {
 				userId = rset.getString("USER_ID");
 				userPwd = rset.getString("USER_PWD");
 			}
-			
+
 			if(reqMember.getUserId().equals(userId) &&
 					reqMember.getUserPwd().equals(userPwd)) {
 				result = LoginServlet.LOGIN_OK;
@@ -63,16 +63,16 @@ public class MemberDao {
 			}else {
 				result = LoginServlet.ID_NOT_EXIST;
 			}
-			
-		
+
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
-		
+
+
 		return result;
 	}
 
@@ -80,19 +80,19 @@ public class MemberDao {
 		Member loginUser = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("selectOne");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, reqMember.getUserId());
 			pstmt.setString(2, reqMember.getUserPwd());
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				loginUser = new Member();
-				
+
 				loginUser.setUno(rset.getInt("SEQ_UNO"));
 				loginUser.setUserId(rset.getString("USER_ID"));
 				loginUser.setUserPwd(rset.getString("USER_PWD"));
@@ -102,15 +102,15 @@ public class MemberDao {
 				loginUser.setAge(rset.getInt("AGE"));
 				loginUser.setiCode(rset.getString("ICODE"));
 			}
-		
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(rset);
 			close(pstmt);
 		}
-		
-		
+
+
 		return loginUser;
 	}
 
@@ -130,7 +130,7 @@ public class MemberDao {
 			pstmt.setString(5, m.getGender());
 			pstmt.setInt(6, m.getAge());
 			pstmt.setString(7, m.getiCode());
-			
+
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -138,17 +138,17 @@ public class MemberDao {
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
-	
+
 	public int updateSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 
 		String query = prop.getProperty("updateSurvey");
-		
+
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -169,80 +169,80 @@ public class MemberDao {
 
 	public int idCheck(Connection con, String userId) {
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("idCheck");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				result = rset.getInt(1);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
 	public int updatePassword(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		
+
 		String query = prop.getProperty("updatePassword");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, m.getUserPwd());
 			pstmt.setString(2, m.getUserId());
-			
+
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
 	public int emailCheck(Connection con, String email) {
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("emailCheck");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, email);
 
-      
-			
+
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				result = rset.getInt(1);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -251,23 +251,23 @@ public class MemberDao {
 		ResultSet rset = null;
 		ArrayList<Member> mlist = null;
 		String query = prop.getProperty("selectListWithMPaging");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			System.out.println("mquery : " + query);
-			
+
 			//조회를 시작할 행 번호와 마지막 행 번호 계산
 			int startRow = (currentPage - 1) * limit + 1;
 			int endRow = startRow + limit - 1;
-			
+
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
 			rset = pstmt.executeQuery();
-			
+
 			mlist = new ArrayList<Member>();
 			while(rset.next()) {
 				Member m = new Member();
-				
+
 				m.setUno(rset.getInt("SEQ_UNO"));
 				m.setUserId(rset.getString("USER_ID"));
 				m.setUserPwd(rset.getString("USER_PWD"));
@@ -276,19 +276,19 @@ public class MemberDao {
 				m.setGender(rset.getString("GENDER"));
 				m.setAge(rset.getInt("AGE"));
 				m.setiCode(rset.getString("ICODE"));
-				
-				
+
+
 				mlist.add(m);
 			}
 			System.out.println("board m list = " + mlist);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return mlist;
 	}
 
@@ -296,27 +296,27 @@ public class MemberDao {
 		Statement stmt = null;
 		int listCount = 0;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("selectListCount");
-		
-		
+
+
 		try {
 			stmt = con.createStatement();
 
 			rset = stmt.executeQuery(query);
-			
+
 			if(rset.next()) {
 				listCount = rset.getInt(1);
 			}
-			
-			
+
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(stmt);
 			close(rset);
 		}
-		
+
 		return listCount;
 	}
 
@@ -324,20 +324,20 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String userId = "";
-		
+
 		String query = prop.getProperty("findId");
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, email);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			while(rset.next()){
 				userId = rset.getString("USER_ID");
 			}
 			System.out.println("userId from Dao : " + userId);
-      
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -350,34 +350,34 @@ public class MemberDao {
 	public int findPwd(Connection con, String userId, String userPwd, String email) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		
+
 		String query = prop.getProperty("findPwd");	
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userPwd);
 			pstmt.setString(2, userId);
 			pstmt.setString(3, email);
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
 		return result;
-  }
+	}
 
 	public Member selectSurvey(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("selectSurvey");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
-			
+
 			pstmt.setInt(1, m.getUno());
 			rset = pstmt.executeQuery();
 
@@ -401,27 +401,27 @@ public class MemberDao {
 		}
 		return m;
 	}
-	
-	
+
+
 	public int updateCount(Connection con, int muno) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		
+
 		String query = prop.getProperty("updateCount");
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, muno);
 			pstmt.setInt(2, muno);
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -431,20 +431,20 @@ public class MemberDao {
 		Member m = null;
 		String query = prop.getProperty("getMember");
 		ArrayList<Member> list = null;
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, muno);
 			System.out.println("$$$$$$$$$$$$$$$$$$$$$"+muno);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			System.out.println("sone query : " + query);
-			
+
 			list = new ArrayList<Member>();
 			if(rset.next()) {
 				m = new Member();
-				
+
 				m.setUno(rset.getInt("SEQ_UNO"));
 				m.setUserId(rset.getString("USER_ID"));
 				m.setUserPwd(rset.getString("USER_PWD"));
@@ -453,7 +453,7 @@ public class MemberDao {
 				m.setGender(rset.getString("GENDER"));
 				m.setAge(rset.getInt("AGE"));
 				m.setiCode(rset.getString("ICODE"));
-				
+
 			}
 			list.add(m);
 			System.out.println("M을 담았다" + list);
@@ -463,82 +463,82 @@ public class MemberDao {
 			close(pstmt);
 			close(rset);
 		}
-		
+
 		System.out.println("값 리턴하러가기");
 		return list;
 	}
-	
+
 	public int getIdCheck(Connection con, int muno) {
 		int result = 0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
+
 		String query = prop.getProperty("getIdMember");
 		System.out.println("************************" + query);
-		
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, muno);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			if(rset.next()) {
 				result = rset.getInt(1);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
 
 	public ArrayList<Payment> paymentSelect(Connection con, int uno) {
-			PreparedStatement pstmt = null;
-			ResultSet rset = null;
-			ArrayList<Payment> pm = null;
-			
-			String query = prop.getProperty("paymentSelect");
-			
-			try {
-				pstmt = con.prepareStatement(query);
-				
-				rset = pstmt.executeQuery();
-				pstmt.setInt(1, uno);
-				
-				pm = new ArrayList<Payment>();
-				
-				while(rset.next()) {
-					 Payment p = new Payment();
-					
-					p.setpCode(rset.getString("PCODE"));
-					p.setUno(rset.getInt("SEQ_UNO"));
-					p.setpDate(rset.getDate("PDATE"));
-					p.setPrice(rset.getInt("PRICE"));
-					p.setpType(rset.getString("PTYPE"));
-					p.setpStatus(rset.getString("PSTATUS"));
-					p.setRsvCode(rset.getInt("SEQ_RSVCODE"));
-					
-					
-					
-					pm.add(p);
-					System.out.println("pm::::::::" + pm);
-					
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-				close(rset);
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Payment> pm = null;
+
+		String query = prop.getProperty("paymentSelect");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			rset = pstmt.executeQuery();
+			pstmt.setInt(1, uno);
+
+			pm = new ArrayList<Payment>();
+
+			while(rset.next()) {
+				Payment p = new Payment();
+
+				p.setpCode(rset.getString("PCODE"));
+				p.setUno(rset.getInt("SEQ_UNO"));
+				p.setpDate(rset.getDate("PDATE"));
+				p.setPrice(rset.getInt("PRICE"));
+				p.setpType(rset.getString("PTYPE"));
+				p.setpStatus(rset.getString("PSTATUS"));
+				p.setRsvCode(rset.getInt("SEQ_RSVCODE"));
+
+
+
+				pm.add(p);
+				System.out.println("pm::::::::" + pm);
+
 			}
-			
-			
-			return pm;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+
+
+		return pm;
 	}
 
 
@@ -568,25 +568,25 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Object> uh = null;
-		
+
 		String query = prop.getProperty("selectHistory");
-	
+
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, uno);
-			
+
 			rset = pstmt.executeQuery();
-			
+
 			uh = new ArrayList<Object>();
-			
+
 			while(rset.next()) {
-				 Payment pm = new Payment();
-				 Place p = new Place();
-				 Reserve rs = new Reserve();
-				 Room r = new Room();
-				 Member m = new Member();
-				 
-				 
+				Payment pm = new Payment();
+				Place p = new Place();
+				Reserve rs = new Reserve();
+				Room r = new Room();
+				Member m = new Member();
+
+
 				p.setpName(rset.getString("PNAME"));
 				rs.setRsvCode(rset.getInt("SEQ_RSVCODE"));
 				r.setRmName(rset.getString("RMNAME"));
@@ -594,15 +594,15 @@ public class MemberDao {
 				rs.setCiDate(rset.getDate("CIDATE"));
 				r.setPrice(rset.getInt("PRICE"));
 				pm.setpStatus(rset.getString("PSTATUS"));
-							
-				
-				
+
+
+
 				ArrayList<Place> p1 = new ArrayList<Place>();
 				ArrayList<Reserve> rs1 = new ArrayList<Reserve>();
 				ArrayList<Room> r1 = new ArrayList<Room>();
 				ArrayList<Member> m1 = new ArrayList<Member>();
 				ArrayList<Payment> pm1 = new ArrayList<Payment>();
-				
+
 				p1.add(p);
 				uh.add(p1);
 				rs1.add(rs);
@@ -613,18 +613,52 @@ public class MemberDao {
 				uh.add(m1);
 				pm1.add(pm);
 				uh.add(pm1);				
-				
-				
+
+
 			}
 			System.out.println("uh::::::1212::" + uh);
 			System.out.println(uh.size());
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return uh;
 	}
 
+	public ArrayList<Place> myCocPlace(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Place> pl = null;
 
+		String query = prop.getProperty("selectPlace");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, m.getUno());
+			rset = pstmt.executeQuery();
+			
+			pl = new ArrayList<Place>();
+
+			while(rset.next()){
+				Place p = new Place();
+				
+				p.setpName(rset.getString("PNAME"));
+				p.setImage(rset.getString("IMAGE"));
+				p.setpAddress(rset.getString("PADDRESS"));
+				
+				pl.add(p);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return pl;
+	}
 }
+
+

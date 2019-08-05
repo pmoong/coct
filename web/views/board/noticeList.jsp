@@ -39,6 +39,11 @@ body {
 select {
 	-webkit-appearance: menulist !important;
 }
+button { 
+	background:white;
+	color:black;
+
+}
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

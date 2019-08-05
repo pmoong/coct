@@ -11,7 +11,6 @@
 	//Payment pm1 = (Payment) request.getAttribute("pm1");
 	//Payment pm2 = (Payment) request.getAttribute("pm2");
 	
-	System.out.print("bo!!!!!:" + bo);
 %>
 
 <!DOCTYPE HTML>
@@ -482,7 +481,8 @@ div>a {
 		<!-- Wrapper for slides -->
 
 		<div class="container">
-			<a href="/coc/views/member/myCoc.jsp">
+			<a onclick="myCoc();">
+			<!-- <a href="/coc/views/member/myCoc.jsp"> -->
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>나의콕</h3>
@@ -544,6 +544,7 @@ div>a {
 	//비밀번호 변경
 		function pwdCheck(){
 			var userPwd = $("#userPwd").val();
+			console.log(userPwd);
 			var check='<%=loginUser.getUserPwd()%>';
 			
 			$.ajax({
@@ -551,11 +552,12 @@ div>a {
 				type:"post",
 				data:{userPwd:userPwd},
 				success:function(data){
+					console.log(userPwd);
 					var pw = data;
 					console.log(pw);
 					
 					if(check == pw){
-						location.href='/co`c/views/member/changeUserPwd.jsp';
+						location.href='/coc/views/member/changeUserPwd.jsp';
 					}else{
 						alert("비밀번호를 확인하세요");
 					}
@@ -579,9 +581,11 @@ div>a {
 		});
 	});
 	
-	 /*  $(document).ready(function() {
-		location.href="/coc/selectSurvey";
-	}); */
+	// 콕
+	function myCoc(){
+		location.href="/coc/myCoc"
+	}
+	 
 
 	
 </script>

@@ -13,10 +13,7 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
-import com.cw.coc.member.model.vo.Payment;
 import com.cw.coc.place.model.vo.Place;
-import com.cw.coc.reserve.model.vo.Reserve;
-import com.cw.coc.room.model.vo.Room;
 
 public class MemberService {
 
@@ -174,10 +171,10 @@ public class MemberService {
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
 		ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno()); 
-		//ArrayList<String> uh = new MemberDao().useHistory(con, m.getUno());
 		
 		
-		ArrayList<Place> p1 = (ArrayList<Place>) uh.get(0);
+		
+		/*ArrayList<Place> p1 = (ArrayList<Place>) uh.get(0);
 		ArrayList<Reserve> rs1 = (ArrayList<Reserve>) uh.get(1);
 		ArrayList<Room> r1 = (ArrayList<Room>) uh.get(2);
 		ArrayList<Member> m1 = (ArrayList<Member>) uh.get(3);
@@ -186,11 +183,11 @@ public class MemberService {
 		ArrayList<Reserve> rs2 = (ArrayList<Reserve>) uh.get(6);
 		ArrayList<Room> r2 = (ArrayList<Room>) uh.get(7);
 		ArrayList<Member> m2 = (ArrayList<Member>) uh.get(8);
-		ArrayList<Payment> pm2 = (ArrayList<Payment>) uh.get(9);
+		ArrayList<Payment> pm2 = (ArrayList<Payment>) uh.get(9);*/
 		 list.add(m);
 		 list.add(bo);
 		 list.add(rv);
-		 list.add(uh);
+		 //list.add(uh);
 		 /*list.add(p1);
 		 list.add(rs1);
 		 list.add(r1);
@@ -203,12 +200,7 @@ public class MemberService {
 		 list.add(pm2);*/
 		 
 		 
-		 
-		 System.out.println("listsize:::::::" + list.size());
-		 
-		 
-		 
-		 System.out.println("list!!!!!!:" + list);
+
 		 //list.add(pm.get(0));
 		 //,list.add(pm.get(1));
 
@@ -253,6 +245,27 @@ public class MemberService {
 
 		return result;
 	}
+
+
+	public ArrayList<Object> myCoc(Member m) {
+		Connection con = getConnection();
+		ArrayList<Object> list = new ArrayList<Object>();
+		
+		
+		ArrayList<Place> pl = new MemberDao().myCocPlace(con, m);
+		
+		System.out.println("pl:::::::" + pl);
+		
+		list.add(pl);
+		
+
+		close(con);
+		
+		return list;	
+	}
+
+
+	
 	
 
 }

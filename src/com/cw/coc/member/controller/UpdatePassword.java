@@ -27,19 +27,18 @@ public class UpdatePassword extends HttpServlet {
 
 		String userId = request.getParameter("id");
 		//int uno = Integer.parseInt(request.getParameter("uno"));
-		String password1 = request.getParameter("pass1");
-		String password2 = request.getParameter("pass2");
+		String userPwd = request.getParameter("pass1");
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		int age = Integer.parseInt(request.getParameter("age"));
-		String icode = request.getParameter("survey");
+		String icode = request.getParameter("icode");
 
 
 		Member m = new Member();
 
 		//m.setUno(uno);
 		m.setUserId(userId);
-		m.setUserPwd(password1);
+		m.setUserPwd(userPwd);
 		m.setGender(gender);
 		m.setEmail(email);
 		m.setAge(age);
@@ -50,7 +49,7 @@ public class UpdatePassword extends HttpServlet {
 		String page = "";
 
 		if(result > 0 ) {
-			page="views/member/myPage.jsp";
+			page="myPageServletTwo";
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", m);
 			request.getSession().setAttribute("loginUser", m);
