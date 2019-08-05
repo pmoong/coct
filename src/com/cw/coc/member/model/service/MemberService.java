@@ -13,6 +13,7 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.place.model.vo.CultureVoYM;
 import com.cw.coc.place.model.vo.Place;
 
 public class MemberService {
@@ -253,10 +254,10 @@ public class MemberService {
 		
 		
 		ArrayList<Place> pl = new MemberDao().myCocPlace(con, m);
+		ArrayList<CultureVoYM> ct = new MemberDao().myCocCulture(con, m);
 		
-		System.out.println("pl:::::::" + pl);
 		
-		list.add(pl);
+		list.add(pl); 
 		
 
 		close(con);
