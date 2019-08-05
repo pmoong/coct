@@ -86,7 +86,7 @@ public class AdminSelectBoardListServlet extends HttpServlet {
 		
 		request.getRequestDispatcher(page).forward(request, response);
 	}	
-
+ 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

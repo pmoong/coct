@@ -18,7 +18,7 @@ import com.cw.coc.member.model.vo.Member;
 @WebServlet("/insert.ad")
 public class AdminInsertBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -60,7 +60,7 @@ public class AdminInsertBoardServlet extends HttpServlet {
 		String page = "";
 		
 		if(result > 0) {
-			response.sendRedirect(request.getContextPath() + "/selectList.ad");
+			response.sendRedirect(request.getContextPath() + "/List.ad");
 			//request.getRequestDispatcher("selectList.bo").forward(request, response);
 		}else {
 			request.setAttribute("msg", "게시판 작성 실패!");

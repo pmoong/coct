@@ -27,24 +27,17 @@ import com.cw.coc.reserve.model.sevice.ReserveService;
 import com.cw.coc.reserve.model.vo.Reserve;
 import com.cw.coc.reserve.model.vo.rPageInfo;
 
-/**
- * Servlet implementation class SelectBoardListServlet
- */
+
 @WebServlet("/ListN.ad")
 public class AdminNListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+  
     public AdminNListServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int currentPage;		//현재 페이지를 표시할 변수
 		int limit;				//한 페이지에 보여질 게시물 수
@@ -139,11 +132,8 @@ public class AdminNListServlet extends HttpServlet {
 		request.getRequestDispatcher(page).forward(request, response);
 	}	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

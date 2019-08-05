@@ -196,7 +196,7 @@
 			<div class="outer container">
 		<br>
 		<div class="tableArea">
-			<table align="center" id="listArea">
+			<table align="center" id="BlistArea">
 				<tr>
 					<th width="100px">글번호</th>
 					<th width="100px">구분</th>
@@ -377,7 +377,23 @@
 		
 
 	</div>
-
-
+	<script>
+	$(function(){
+		$("#BlistArea td").mouseenter(function(){
+			
+			$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+			
+		}).mouseout(function(){
+			$(this).parent().css({"background":"white"});
+			
+		}).click(function(){
+			
+			var num = $(this).parent().children("input").val();
+			
+			location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+		});
+	});
+	</script>
+	
 </body>
 </html>

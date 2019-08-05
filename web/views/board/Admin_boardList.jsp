@@ -86,12 +86,12 @@ table {
 		</div>
 		<br><br><br><br><br>
 		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/List.ad?currentPage=1'"><<</button>
 			
 			<% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<button onclick="location.href='<%=request.getContextPath()%>/List.ad?currentPage=<%=currentPage - 5%>'"><</button>
 			<% } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){ 
@@ -99,7 +99,7 @@ table {
 			%>
 					<button disabled><%= p %></button>
 			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
+					<button onclick="location.href='<%=request.getContextPath()%>/List.ad?currentPage=<%=p%>'"><%= p %></button>
 			<% 
 				}
 			}
@@ -108,10 +108,10 @@ table {
 			<% if(currentPage >= maxPage){ %>
 			<button disabled>></button>
 			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/List.ad?currentPage=<%=currentPage + 5 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
+			<button onclick="location.href='<%=request.getContextPath()%>/List.ad?currentPage=<%=maxPage%>'">>></button>
 		</div>
 		
 		<div class="searchArea" align="center">

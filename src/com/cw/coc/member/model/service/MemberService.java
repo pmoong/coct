@@ -14,7 +14,10 @@ import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.vo.CultureVoYM;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.RestaurantVo;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 
 public class MemberService {
 
@@ -255,11 +258,18 @@ public class MemberService {
 		
 		ArrayList<Place> pl = new MemberDao().myCocPlace(con, m);
 		ArrayList<CultureVoYM> ct = new MemberDao().myCocCulture(con, m);
+		ArrayList<LogmentVoYM> lm = new MemberDao().myCocLogment(con, m);
+		ArrayList<RestaurantVo> rt = new MemberDao().myCocRestaurant(con, m);
+		ArrayList<SeoulVoYM> sl = new MemberDao().myCocSeoul(con, m);
 		
 		
-		list.add(pl); 
+		list.add(pl);
+		list.add(ct);
+		list.add(lm);
+		list.add(rt);
+		list.add(sl);
 		
-
+ 
 		close(con);
 		
 		return list;	

@@ -12,7 +12,7 @@ public class CultureVoYM {
 	private String cmapx;
 	private String cmapy;
 	private String firstimage;
-	
+	 
 	public CultureVoYM() {}
 
 	public CultureVoYM(int cCode, String ctitle, String caddr, int ccontenttypeid, String ccat1, String ccat2,
