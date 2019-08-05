@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*, com.cw.coc.member.model.vo.*"%>    
+<%
+	ArrayList<Place> pl = (ArrayList<Place>) request.getAttribute("pl");
+%>
+<!DOCTYPE html">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -93,32 +95,21 @@ $(function () {
     <div class="tab_container">
         <div id="tab1" class="tab_content">
 			<div class="row">
+					<% 
+						for (Place p : pl) {
+						%>
 				<div class="col-4 col-12-medium">
 					<!-- Box -->
 					<section class="box feature">
 						<a href="#" class="image featured"><img
-							src="../../images/pic01.jpg" alt="" /></a>
+							src="<%= p.getImage() %>" alt="" />
+							<%= p.getpName() %>
+							</a>
 					</section>
-
 				</div>
-				<div class="col-4 col-12-medium">
-
-					<!-- Box -->
-					<section class="box feature">
-						<a href="#" class="image featured"><img
-							src="../../images/pic02.jpg" alt="" /></a>
-					</section>
-
-				</div>
-				<div class="col-4 col-12-medium">
-
-					<!-- Box -->
-					<section class="box feature">
-						<a href="#" class="image featured"><img
-							src="../../images/pic03.jpg" alt="" /></a>
-					</section>
-
-				</div>
+					<% 
+						}
+					%>
 			</div>
         </div>
         <!-- #tab1 -->

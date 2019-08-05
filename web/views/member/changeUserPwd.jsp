@@ -78,9 +78,9 @@ table>tr>td{
 						<input type="hidden" id="hiddenid" name="utype" value="<%= loginUser.getuType()%>">
 						<input type="hidden" id="hiddenid" name="gender" value="<%= loginUser.getGender()%>">
 						<input type="hidden" id="hiddenid" name="age" value="<%= loginUser.getAge()%>">
-						<input type="hidden" id="hiddenid" name="survey" value="<%= loginUser.getiCode() %>">
+						<input type="hidden" id="hiddenid" name="icode" value="<%= loginUser.getiCode() %>">
 						
-						<td colspan="2"><input type="password" name="pass1" class="form-control" placeholder="새 비밀번호" id="pass1"></td>
+						<td colspan="2"><input type="password" name="userPwd" class="form-control" placeholder="새 비밀번호" id="userPwd"></td>
 					</tr>
 					<tr>
 						<td colspan="2"><input type="password" name="pass2" class="form-control" placeholder="새 비밀번호 확인" id="pass2"></td>
@@ -100,8 +100,9 @@ table>tr>td{
 </div>
 <script>
 	$("#submitBtn").click(function(){
-		var pass1 = $("#pass1").val();
+		var pass1 = $("#userPwd").val();
 		var pass2 = $("#pass2").val();
+		console.log(pass1)
 		
 
 		if(pass1 == pass2){

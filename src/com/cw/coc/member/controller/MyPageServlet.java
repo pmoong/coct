@@ -56,13 +56,13 @@ public class MyPageServlet extends HttpServlet {
 		ArrayList<Board> rv = (ArrayList<Board>) list.get(2);
 		
 		//이용내역
-		ArrayList<Place> uh = (ArrayList<Place>) list.get(3);
-		System.out.println("uh!!!!" + uh);
+		//ArrayList<Place> uh = (ArrayList<Place>) list.get(3);
+		//System.out.println("uh!!!!" + uh);
 		
 /*		Place p1 = uh.get(0),uh.;
 		Place p2 = ;*/
 		
-		ArrayList<Reserve> r = (ArrayList<Reserve>) list.get(3);
+		//ArrayList<Reserve> r = (ArrayList<Reserve>) list.get(3);
 		//Reserve r1 =  r.get(1);
 		
 		//System.out.println("p1:::::::" + p1);
