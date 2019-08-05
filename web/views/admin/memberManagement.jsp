@@ -40,7 +40,7 @@ body {
 
 .outer {
 	width: 1500px;
-	height: 1000px;
+	height: 700px;
 	background: white;
 	color: black;
 	margin-left: auto;
@@ -55,7 +55,7 @@ table {
 
 .tableArea {
 	width: 800px;
-	height: 750px;
+	height: 450px;
 	margin: 0 auto;
 }
 
@@ -116,6 +116,36 @@ table {
 				<% } %>
 			</table>
 		</div>
+		<br><br>
+		<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
+			
+			<% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% }else { %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){ 
+				if(currentPage == p){
+			%>
+					<button disabled><%= p %></button>
+			<% } else { %>
+					<button onclick="location.href='<%=request.getContextPath()%>/selectMemberList.ad?currentPage=<%=p%>'"><%= p %></button>
+			<% 
+				}
+			}
+			%>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% }else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
+			<% } %>
+
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
+		</div>
+		<br><br><br>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">
 						<option value="writer">작성자</option>

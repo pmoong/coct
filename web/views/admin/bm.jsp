@@ -1,11 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+	pageEncoding="UTF-8" import=" java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.reserve.model.vo.*, com.cw.coc.allpayment.model.vo.*"%>
+<%
+
+	Map<String,ArrayList<Object>> result = (HashMap<String,ArrayList<Object>>) request.getAttribute("result");
+	
+	
+	List<Board> nlist = new ArrayList<Board>();
+	List<Board> rlist = new ArrayList<Board>();
+			
+	nlist = (List)result.get("nlist");
+	rlist = (List)result.get("rlist");
+	
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	System.out.print("여기까지 호출했는지?");
+	
+	
+	
+%>
 <html>
 <head>
 <title>CoC</title>
@@ -75,11 +91,13 @@
             clear: both;
             float: left; 
             width: 100%;
+            hieght: 700px;
             background: #fff;
         }
         .tab_content {
+        width: 100%;
+            hieght: 700px;
             padding: 20px;
-            font-size: 1.2em;
         }
 
 #test {
@@ -88,7 +106,7 @@
 }
 .outer {
 		width:800px;
-		height:500px;
+		height:700px;
 		background:white;
 		color:black;
 		margin-left:auto;
@@ -168,7 +186,6 @@
     <ul class="tabs">
         <li><a href="#tab1"></a></li>
         <li><a href="#tab2"></a></li>
-        <li><a href="#tab3"></a></li>
     </ul>
     <!--탭 콘텐츠 영역 -->
     <div class="tab_container">
@@ -188,25 +205,25 @@
 					<th width="100px">조회수</th>
 					<th width="150px">작성일</th>
 				</tr>
-				<%-- <% for(Board b : list){ 
+				 <% for(Board n : nlist){ 
 				%>
 				<tr>
-					<input type="hidden" value="<%= b.getbCode() %>">
-					<td><%= b.getbCode() %></td>
-					<td><%= b.getbType() %></td>
-					<td><%= b.getbTitle() %></td>
-					<td><%= b.getbWriter() %></td>
-					<td><span><%= b.getCount()%></span></td>
-					<td><%= b.getbDate() %></td>
+					<input type="hidden" value="<%= n.getbCode() %>">
+					<td><%= n.getbCode() %></td>
+					<td><%= n.getbType() %></td>
+					<td><%= n.getbTitle() %></td>
+					<td><%= n.getbWriter() %></td>
+					<td><span><%= n.getCount()%></span></td>
+					<td><%= n.getbDate() %></td>
 				</tr>
-				<% } %> --%>
+				<% } %> 
 			</table>
 		</div>
 		<br><br><br><br><br>
 		<div class="pagingArea" align="center">
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
 			
-			<%-- <% if(currentPage <= 1){ %>
+			 <% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
@@ -229,7 +246,7 @@
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> --%>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> 
 		</div>
 		
 		<div class="searchArea" align="center">
@@ -264,25 +281,25 @@
 					<th width="100px">조회수</th>
 					<th width="150px">작성일</th>
 				</tr>
-				<%-- <% for(Board b : list){ 
+				 <% for(Board r : rlist){ 
 				%>
 				<tr>
-					<input type="hidden" value="<%= b.getbCode() %>">
-					<td><%= b.getbCode() %></td>
-					<td><%= b.getbType() %></td>
-					<td><%= b.getbTitle() %></td>
-					<td><%= b.getbWriter() %></td>
-					<td><span><%= b.getCount()%></span></td>
-					<td><%= b.getbDate() %></td>
+					<input type="hidden" value="<%= r.getbCode() %>">
+					<td><%= r.getbCode() %></td>
+					<td><%= r.getbType() %></td>
+					<td><%= r.getbTitle() %></td>
+					<td><%= r.getbWriter() %></td>
+					<td><span><%= r.getCount()%></span></td>
+					<td><%= r.getbDate() %></td>
 				</tr>
-				<% } %> --%>
+				<% } %> 
 			</table>
 		</div>
 		<br><br><br><br><br>
 		<div class="pagingArea" align="center">
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
 			
-			<%-- <% if(currentPage <= 1){ %>
+		 <% if(currentPage <= 1){ %>
 			<button disabled><</button>
 			<% }else { %>
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
@@ -305,7 +322,7 @@
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> --%>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> 
 		</div>
 		
 		<div class="searchArea" align="center">
@@ -325,78 +342,7 @@
 	</div>
         </div>
         
-        <div id="tab3" class="tab_content">
-           <!--Content-->
-           	<h3 class="col-4 col-12-medium" style='text-align: left ; margin-top:1%;'><a href="../admin/customerService.jsp">고객센터</a></h3>
-        <div class="outer container">
-		<br>
-		<div class="tableArea">
-			<table align="center" id="listArea">
-				<tr>
-					<th width="100px">글번호</th>
-					<th width="100px">구분</th>
-					<th width="300px">글제목</th>
-					<th width="100px">작성자</th>
-					<th width="100px">조회수</th>
-					<th width="150px">작성일</th>
-				</tr>
-				<%-- <% for(Board b : list){ 
-				%>
-				<tr>
-					<input type="hidden" value="<%= b.getbCode() %>">
-					<td><%= b.getbCode() %></td>
-					<td><%= b.getbType() %></td>
-					<td><%= b.getbTitle() %></td>
-					<td><%= b.getbWriter() %></td>
-					<td><span><%= b.getCount()%></span></td>
-					<td><%= b.getbDate() %></td>
-				</tr>
-				<% } %> --%>
-			</table>
-		</div>
-		<br><br><br><br><br>
-		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=1'"><<</button>
-			
-			<%-- <% if(currentPage <= 1){ %>
-			<button disabled><</button>
-			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage - 5%>'"><</button>
-			<% } %>
-			
-			<% for(int p = startPage; p <= endPage; p++){ 
-				if(currentPage == p){
-			%>
-					<button disabled><%= p %></button>
-			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=p%>'"><%= p %></button>
-			<% 
-				}
-			}
-			%>
-			
-			<% if(currentPage >= maxPage){ %>
-			<button disabled>></button>
-			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=currentPage + 5 %>'">></button>
-			<% } %>
-
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button> --%>
-		</div>
-		
-		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="category">카테고리</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="search">
-			<button type="submit">검색하기</button>
-			<% if(loginUser != null){ %>
-			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
-			<% } %>
-		</div>
+       
 		
 	</div>
         </div>
@@ -404,14 +350,13 @@
 
     </div>
 
-</div>
+
 				
 					
 					
 				
 					
 				</div> 
-			</div>
 			<!-- Wrapper for slides -->
 			
 			<br>

@@ -174,6 +174,15 @@ public class BoardService {
 		
 		return list;
 	}
+	public ArrayList<Board> selectRList(int currentPage, int limit) {
+		Connection con = getConnection();
+		
+		ArrayList<Board> list = new BoardDao().selectRList(con, currentPage, limit);
+		
+		close(con);
+		
+		return list;
+		}
 
 	}
 	

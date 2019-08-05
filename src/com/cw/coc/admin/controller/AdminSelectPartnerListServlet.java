@@ -61,7 +61,7 @@ public class AdminSelectPartnerListServlet extends HttpServlet {
 		}
 		
 		//한 페이지에 보여질 목록 갯수
-		limit =20;
+		limit =10;
 		
 		//전체 목록 갯수를 리턴받음
 		int blistCount = new BoardService().getListCount();
@@ -75,7 +75,7 @@ public class AdminSelectPartnerListServlet extends HttpServlet {
 		System.out.println("RlistCount : " + rlistCount);
 		System.out.println("PlistCount : " + plistCount);
 		//총 페이지 수 계산
-		maxPage = (int)((double)blistCount / limit + 0.9);
+		maxPage = (int)((double)plistCount / limit + 0.9);
 		
 		
 		//현재 페이지에서 보여줄 시작 페이지 숫자

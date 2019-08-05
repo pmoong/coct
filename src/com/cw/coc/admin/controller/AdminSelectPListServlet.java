@@ -30,14 +30,14 @@ import com.cw.coc.reserve.model.vo.rPageInfo;
 /**
  * Servlet implementation class SelectBoardListServlet
  */
-@WebServlet("/selectMemberList.ad")
-public class AdminSelectMemberListServlet extends HttpServlet {
+@WebServlet("/ListP.ad")
+public class AdminSelectPListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminSelectMemberListServlet() {
+    public AdminSelectPListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -61,21 +61,15 @@ public class AdminSelectMemberListServlet extends HttpServlet {
 		}
 		
 		//한 페이지에 보여질 목록 갯수
-		limit =10;
+		limit =5;
 		
 		//전체 목록 갯수를 리턴받음
-		int blistCount = new BoardService().getListCount();
-		int mlistCount = new MemberService().getListCount();
-		int rlistCount = new ReserveService().getListCount();
-		int plistCount = new PartnerService().getListCount();
-		int alistCount = new AllPaymentService().getListCount();
 		
-		System.out.println("listCount : " + blistCount);
-		System.out.println("mlistCount : " + mlistCount);
-		System.out.println("RlistCount : " + rlistCount);
-		System.out.println("PlistCount : " + plistCount);
+		int plistCount = new PartnerService().getListCount();
+		
+		
 		//총 페이지 수 계산
-		maxPage = (int)((double)mlistCount / limit + 0.9);
+		maxPage = (int)((double)plistCount / limit + 0.9);
 		
 		
 		//현재 페이지에서 보여줄 시작 페이지 숫자
@@ -90,42 +84,23 @@ public class AdminSelectMemberListServlet extends HttpServlet {
 		}
 		
 		PageInfo pi = 
-				new PageInfo(currentPage, blistCount, limit, maxPage, startPage, endPage);
+				new PageInfo(currentPage, plistCount, limit, maxPage, startPage, endPage);
 		
-		mPageInfo pi2 = 
-				new mPageInfo(currentPage, mlistCount, limit, maxPage, startPage, endPage);
-		
-		rPageInfo pi3 = 
-				new rPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
-		
-		pPageInfo pi4 = 
-				new pPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
-		
-		aPageInfo pi5 = 
-				new aPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
 	
-		ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
-		ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
-		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
-		ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
+	
+		
 		ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
 		
-		result.put("blist", blist);	
-		result.put("mlist", mlist);
-		result.put("rlist", rlist);
-		result.put("plist", plist);
+	
 		result.put("alist", alist);
 		//result.put("pi", pi);
-		System.out.println("result : " +result);
 		
-		System.out.println("pi5 : " + pi5);
-		System.out.println("aLIST : " + alist);
 		String page = "";
 		
 		if(result != null) {
 			
 				
-			page = "views/admin/memberManagement.jsp";
+			page = "views/admin/settlementManagement.jsp";
 			//request.setAttribute("blist", blist);
 			request.setAttribute("result", result);
 			System.out.println("★★★★");
