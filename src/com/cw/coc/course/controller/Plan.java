@@ -1,4 +1,4 @@
-/*package com.cw.coc.course.controller;
+package com.cw.coc.course.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,17 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cw.coc.course.model.sevice.Place.PlaceCocService;
 import com.cw.coc.course.model.vo.Place.PlaceCocVo;
+import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.PageInfo;
 import com.cw.coc.place.model.vo.Place;
 
  
-*//**
- * Servlet implementation class Plan
- *//*
 @WebServlet("/plan")
 public class Plan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,17 +28,23 @@ public class Plan extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	int userNo=Integer.parseInt(request.getParameter("userNo"));
-	String userNo = request.getParameter("userNo");
-	
-	System.out.println("userNo"+userNo);
+	HttpSession session = request.getSession();
+	Member loginUser =(Member)session.getAttribute("loginUser");
+	int userNo = loginUser.getUno();
+	ArrayList<PlaceCocVo> PlacecocList = new PlaceCocService().PlaceisCoc(userNo);
+	/*int userNo=Integer.parseInt(request.getParameter("userNo"));
+	System.out.println("userNo:"+userNo);
+/*	int userNo = Integer.getParameter("userNo");
+
+
+	/*System.out.println("userNo"+userNo);
 		if (userNo == null) {
 			userNo = "0";
 		}
-		int userNo = Integer.parseInt(userNo);
+		int userNo = Integer.parseInt(userNo);*/
 		
-		String userNo1 =request.getParameter("userNo").trim();
-		int currentPage;
+/*		String userNo1 =request.getParameter("userNo").trim();
+*/		int currentPage;
 		int limit;
 		int maxPage;
 		int startPage;
@@ -62,12 +67,10 @@ public class Plan extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
+		ArrayList<Place> list =new PlaceService().selectList(currentPage,limit);
 		
- 		ArrayList<Place> list =new PlaceService().selectList(currentPage,limit);
- 		String page="";
-		ArrayList<PlaceCocVo> PlacecocList = new PlaceCocService().PlaceisCoc(userNo1);
-		System.out.println("placeCoc:"+PlacecocList);
-		 if(list != null){
+		String page="";
+ 		 if(list != null){
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 			request.setAttribute("PlacecocList", PlacecocList);
@@ -77,15 +80,14 @@ public class Plan extends HttpServlet {
 			page="views/common/errorPage.jsp";
 			request.setAttribute("msg", "실패!");
 		}
-	 
-		request.getRequestDispatcher(page).forward(request, response); 
  
+	 /*/
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 			request.setAttribute("PlacecocList", PlacecocList);
-			page="views/course/plan.jsp";
  			System.out.println("list:"+list);
- 			
+ 			page="views/course/plan.jsp";
+ 		*/	
 		request.getRequestDispatcher(page).forward(request, response);
 		
 	}
@@ -96,4 +98,3 @@ public class Plan extends HttpServlet {
 	}
 
 }
-*/

@@ -29,8 +29,8 @@ public class PlaceCocServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int cCode =Integer.parseInt(request.getParameter("cCode"));
-		int UserNo =Integer.parseInt(request.getParameter("uno"));
-		int result =new PlaceCocService().PlacedeleteCoc(cCode,UserNo);
+		int loginUserNo =Integer.parseInt(request.getParameter("uno"));
+		int result =new PlaceCocService().PlacedeleteCoc(cCode,loginUserNo);
 		
 	
 	

@@ -508,7 +508,7 @@ outline:0;
 
 <body>
 	<%@ include file="../common/menubar_customer.jsp"%>
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="row">
 			 <div id="map"   >
 				<h1 id="pm">
@@ -516,7 +516,16 @@ outline:0;
 					<a href="#">-</a>
 				</h1>
 			</div>
-
+ --><div class="container">
+			<div id="logo">
+			<form action="<%= request.getContextPath() %>/plan" method="post">
+             <fieldset class="field-container" style="border-radius:20px;">
+             <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>">
+<%--              	<input type="search" name="searchKeyword" class="form-control" placeholder="<%=keyWord %>" class="field"  style="border-radius:20px;"/>
+ --%>             	<!-- <button type="submit" style="float:right; background:darkgray" >검색하기</button> -->
+             </fieldset>
+             </form>
+			</div>
 			<div class="right-box">
 				<!-- <span class="demoSpan1"></span> -->
  				 	<form id="search" method="get" action="search.hj">
@@ -550,8 +559,8 @@ for(Place p :list){ %>
 <tr id="title">
    
 <td id="title"><%=p.getpName() %></td>
-<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>">
-</tr></table>
+<%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>">
+ --%></tr></table>
   <td class="pname"> 
    	<%if(i%4 ==0 ){ %>
  <%} int cnt=0;%>
@@ -762,7 +771,7 @@ for(Place p :list){ %>
 			var cCode = $("#cCode"+id).val();
 			var uno = <%=loginUser.getUno()%>;
 			$.ajax({
-				url:"cocPlus",
+				url:"placepluscochj",
 				type:"post",
 				data:{cCode:cCode, uno:uno},
 				success:function(data){
@@ -777,7 +786,7 @@ for(Place p :list){ %>
 			var cCode = $("#cCode"+id).val();
 			var uno = <%=loginUser.getUno()%>;
 			$.ajax({
-				url:"cocMinus",
+				url:"placecocminushj",
 				type:"post",
 				data:{cCode:cCode, uno:uno},
 				success:function(data){
