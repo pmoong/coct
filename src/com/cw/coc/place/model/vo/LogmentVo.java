@@ -17,7 +17,7 @@ public class LogmentVo {
 	 
 	 
 	 
-	 
+	 	public LogmentVo() {}
 	public LogmentVo(String ltitle, String laddr, int lsigungucode, String ltel, int lcontenttypeid, String lcat1,
 			String lcat2, String lcat3, String lmapx, String lmapy, String lfirstimage) {
 		super();

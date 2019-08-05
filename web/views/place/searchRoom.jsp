@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
 <%
-   ArrayList<Place> list = (ArrayList<Place>) request.getAttribute("list");
+   ArrayList<LogmentVo> list = (ArrayList<LogmentVo>) request.getAttribute("list");
    String locationName = (String) request.getAttribute("locationName"); 
 %>
 <!DOCTYPE HTML>
@@ -73,32 +73,32 @@ body {
 
             <!-- 썸네일 리스트 영역 -->
             <% 
-                  for (Place p : list) {
-                  for(int i=0; i<list.size(); i++){
-                     if(i == 0) {
+                  for (int i =0; i < list.size(); i++) {
+                 	LogmentVo l = list.get(i);
+                      if(i == 0 || i%4==0){
                %>
-            <% if(i%4==0){ %>
-            <div class="row">
+            	 <div class="row">
+           
                <%} %>
+               
                <div class="col-3 col-12-medium">
                   <div class="hotel" align="center">
                      <a href="/coc/reserveRoomInfo" class="image featured"> <input
-                        type="hidden" value="<%= p.getcCode()%>"> <img
-                        src="<%=p.getImage()%>" style="width: 110%; /* margin: auto; */">
+                        type="hidden" value="<%= l.getLsigungucode()%>"> <img
+                        src="<%=l.getLfirstimage()%>" style="width: 110%; /* margin: auto; */">
                         <p>
-                           <br> <b><%=p.getpName() %></b>
+                           <br> <b><%=l.getLtitle() %></b>
                         </p>
                         <p id="price">104,833원/1박</p>
                      </a>
                   </div>
                </div>
-               <%  if(i == 7 && i== 3){ %>
-            </div>
-            <%} 
-               }%>
+            
+            <% if(i%4 == 3){
+               %>
+               </div>   
+            <%  } 
                   
-            <%   
-                  }
                   }
                %>
          </div>
@@ -118,69 +118,7 @@ body {
    <!-- Footer -->
    <%@include file="/views/common/footerbar_customer.jsp"%>
 
-   </div>
-
-   <div id="page-wrapper">
-
-      <!-- Header -->
-      <div class="container">
-
-         <div align="center">
-            <h2 style="margin-left: -6%;">
-               <b>숙소 검색 결과</b> <small style="margin-left: 50%;"><a
-                  href="#">인기순</a> <b>/</b> <a href="#"> 추천순</a></small>
-            </h2>
-            <div class="hotelList" style="display: inline-block;"></div>
-
-
-            <!-- 썸네일 리스트 영역 -->
-            <% 
-                  for (Place p : list) {
-                  for(int i=0; i<list.size(); i++){
-                     if(i == 0) {
-               %>
-            <% if(i%4==0){ %>
-            <div class="row">
-               <%} %>
-               <div class="col-3 col-12-medium">
-                  <div class="hotel" align="center">
-                     <a href="/coc/views/place/reserv_hotelView.jsp" class="image featured"> <input
-                        type="hidden" value="<%= p.getcCode()%>"> <img
-                        src="<%=p.getImage()%>" style="width: 110%; /* margin: auto; */">
-                        <p>
-                           <br> <b><%=p.getpName() %></b>
-                        </p>
-                        <p id="price">104,833원/1박</p>
-                     </a>
-                  </div>
-               </div>
-               <%  if(i == 7 && i== 3){ %>
-            </div>
-            <%} 
-               }%>
-                  
-            <%   
-                  }
-                  }
-               %>
-         </div>
-
-
-
-
-         <!-- 썸네일 리스트 영역 끝 -->
-      </div>
-   </div>
-
-
-
-   <!-- ----------------------------- -->
-
-
-   <!-- Footer -->
-   <%@include file="/views/common/footerbar_customer.jsp"%>
-
-   </div>
+   
 
 </body>
 </html>

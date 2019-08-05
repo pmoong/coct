@@ -442,7 +442,7 @@ body {
 									<!-- Box -->
 									<section class="box feature">
 										<div class="img">
-											<a href="/coc/searchRoom?locationName=40"
+											<a href="/coc/searchRoom?locationName=1"
 												class="image featured"><img
 												src="/coc/images/gangnam.png" alt="" id="blur"
 												style="cursor: pointer;" />

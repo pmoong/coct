@@ -16,7 +16,7 @@ public class PlaceService {
 	
 	private static final String word = null;
 
-	public ArrayList<Place> searchRoomList(String locationName) {
+	/*public ArrayList<Place> searchRoomList(String locationName) {
 		Connection con = getConnection();
 
 		ArrayList<Place> list = new PlaceDao().searchRoomList(con, locationName);
@@ -25,7 +25,7 @@ public class PlaceService {
  
 		return list;	
 	}
-
+*/
 	public ArrayList<Place> randomPlace() {
 
 		Connection con = getConnection();
