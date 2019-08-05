@@ -13,7 +13,7 @@ import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
 
 
-@WebServlet("/updatePassword")
+@WebServlet("/updatePassword.me")
 public class UpdatePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,7 @@ public class UpdatePassword extends HttpServlet {
 
 		String userId = request.getParameter("id");
 		//int uno = Integer.parseInt(request.getParameter("uno"));
-		String userPwd = request.getParameter("pass1");
+		String userPwd = request.getParameter("userPwd");
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		int age = Integer.parseInt(request.getParameter("age"));
@@ -43,16 +43,15 @@ public class UpdatePassword extends HttpServlet {
 		m.setEmail(email);
 		m.setAge(age);
 		m.setiCode(icode);
-
+	
 		int result = new MemberService().updatePassword(m);
 
 		String page = "";
 
-		if(result > 0 ) {
-			page="myPageServletTwo";
+		if(result > 0 ) {	
+			page="/coc/myPage.two";
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", m);
-			request.getSession().setAttribute("loginUser", m);
 			response.sendRedirect(page);
 		}else {
 

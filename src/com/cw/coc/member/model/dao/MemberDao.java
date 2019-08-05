@@ -15,6 +15,7 @@ import java.util.Properties;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.member.model.vo.Payment;
+import com.cw.coc.place.model.vo.CultureVoYM;
 import com.cw.coc.place.model.vo.Place;
 import com.cw.coc.reserve.model.vo.Reserve;
 import com.cw.coc.room.model.vo.Room;
@@ -214,7 +215,7 @@ public class MemberDao {
 		}
 
 		return result;
-	}
+	} 
 
 	public int emailCheck(Connection con, String email) {
 		int result = 0;
@@ -649,6 +650,40 @@ public class MemberDao {
 				p.setpAddress(rset.getString("PADDRESS"));
 				
 				pl.add(p);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return pl;
+	}
+
+	public ArrayList<CultureVoYM> myCocCulture(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<CultureVoYM> ct = null;
+
+		String query = prop.getProperty("selectPlace");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, m.getUno());
+			rset = pstmt.executeQuery();
+			
+			ct = new ArrayList<CultureVoYM>();
+
+			while(rset.next()){
+				CultureVoYM c = new CultureVoYM();
+				
+				c.setpName(rset.getString("PNAME"));
+				p.setImage(rset.getString("IMAGE"));
+				p.setpAddress(rset.getString("PADDRESS"));
+				
+				ct.add(p);
 			}
 			
 		} catch (SQLException e) {

@@ -37,7 +37,7 @@ public class SeoulDaoYM {
 			e.printStackTrace();
 		}
 	}
-	
+	 
 	public static void saveDB(List<SeoulVo> xmlList){
 		  
 	  }
