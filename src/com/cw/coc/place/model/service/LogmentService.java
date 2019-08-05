@@ -7,7 +7,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.cw.coc.place.model.dao.LogmentDao;
+import com.cw.coc.place.model.dao.PlaceDao;
 import com.cw.coc.place.model.vo.LogmentVo;
+import com.cw.coc.place.model.vo.Place;
 
 
 public class LogmentService {
@@ -21,6 +23,26 @@ public class LogmentService {
  
 		return list;	
 	}
-	
+
+	public ArrayList<LogmentVo> randomPlace() {
+		
+			Connection con = getConnection();
+
+			ArrayList<LogmentVo> randomlist = new LogmentDao().randomPlace(con);
+
+			close(con);
+
+			return randomlist;	
+		}
+
+	public ArrayList<LogmentVo> rsvRoomInfo() {
+		Connection con = getConnection();
+
+		ArrayList<LogmentVo> list = new LogmentDao().rsvRoomInfo(con);
+
+		close(con);
+ 
+		return list;
+	}
 	
 }

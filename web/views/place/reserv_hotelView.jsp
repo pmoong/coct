@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
+<%
+	ArrayList<LogmentVo> rsvRoomInfo = (ArrayList<LogmentVo>) request.getAttribute("rsvRoomInfo");
+%>	
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
@@ -143,7 +146,7 @@ body {
             </div>
             <div class="right-box">
                <br>
-               <p align="center">신라스테이</p>
+               <p align="center"><%= %></p>
                <br>
                <div id="image">
                   <img src="/coc/images/telephone.png" width="20" height="20" />

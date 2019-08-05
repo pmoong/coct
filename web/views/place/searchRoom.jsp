@@ -46,6 +46,13 @@ body {
    opacity: 0.8;
    cursor: pointer;
 }
+
+.max-small {
+    width: auto; height: auto;
+    max-width: 300px;
+    max-height: 200px;
+}
+
 </style>
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -84,12 +91,12 @@ body {
                <div class="col-3 col-12-medium">
                   <div class="hotel" align="center">
                      <a href="/coc/reserveRoomInfo" class="image featured"> <input
-                        type="hidden" value="<%= l.getLsigungucode()%>"> <img
+                        type="hidden" value="<%= l.getLsigungucode()%>"> <img class="max-small"
                         src="<%=l.getLfirstimage()%>" style="width: 110%; /* margin: auto; */">
                         <p>
                            <br> <b><%=l.getLtitle() %></b>
                         </p>
-                        <p id="price">104,833원/1박</p>
+                        <!-- <p id="price">104,833원/1박</p> -->
                      </a>
                   </div>
                </div>
