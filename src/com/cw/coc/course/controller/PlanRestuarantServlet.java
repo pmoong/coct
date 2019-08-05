@@ -50,8 +50,8 @@ public class PlanRestuarantServlet extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
- 		ArrayList<Place> list =new PlaceService().selectrestaurant(currentPage,limit);
-
+/* 		ArrayList<Place> list =new PlaceService().selectrestaurant(currentPage,limit);
+*/
   		String page="";
 		
 		if(list != null){

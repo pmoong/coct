@@ -296,7 +296,7 @@ height:230px;
 					
 					<div id="history" style="display:inline; float: left;">
  					<b>타이틀: </b><%= c.getCtitle() %><br> 
- 				<img src="<%= c.getCfirstimage() %>"width="80%" height="80%"><br>
+ 				<img src="<%= c.getCfirstimage() %>"width="200px" height="200px"><br>
 					<b>주소: </b><%= c.getCaddr() %> 
 				     </div>
 			 <%} %>
