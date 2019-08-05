@@ -1,6 +1,7 @@
 package com.cw.coc.place.model.dao;
 import static com.cw.coc.common.JDBCTemplate.*;
 
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
-import com.cw.coc.common.JDBCTemplate;
+import com.cw.coc.common.JDBCTemplate.*;
 import com.cw.coc.place.model.vo.Place;
  
 public class search {
@@ -353,4 +354,3 @@ public class search {
  
 
 
-출처: https://all-record.tistory.com/129 [세상의 모든 기록]

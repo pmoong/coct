@@ -1,6 +1,7 @@
 package com.cw.coc.choice.model.sevice;
 
 import static com.cw.coc.common.JDBCTemplate.close;
+
 import static com.cw.coc.common.JDBCTemplate.commit;
 import static com.cw.coc.common.JDBCTemplate.getConnection;
 import static com.cw.coc.common.JDBCTemplate.rollback;

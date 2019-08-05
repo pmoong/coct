@@ -37,22 +37,22 @@ public class RestaurantDao {
 	}
 	    con = Condb.getConnection();
 	   
-	   String sql ="INSERT INTO RESTAURANT VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	   String sql ="INSERT INTO RESTAURANT VALUES(SEQ_CCODE.NEXTVAL,?,?,?,?,?,?,?,?,?,? )";
 	   try { 
 	   for(int i=0; i<tmp.size() ; i++){
 		   
 	    stmt = con.prepareStatement(sql);
-	    stmt.setInt(1,tmp.get(i).getcCode());
-	    stmt.setString(2, tmp.get(i).getRtitle());
-	    stmt.setString(3, tmp.get(i).getRaddr());
-	    stmt.setString(4, tmp.get(i).getRtel());
-	    stmt.setInt(5, tmp.get(i).getRcontenttypeid());
-	    stmt.setString(6, tmp.get(i).getRcat1());
-	    stmt.setString(7, tmp.get(i).getRcat2());
-	    stmt.setString(8, tmp.get(i).getRcat3());
-	    stmt.setString(9, tmp.get(i).getRmapx());
-	    stmt.setString(10, tmp.get(i).getRmapy());
-	    stmt.setString(11, tmp.get(i).getRfirstimage());
+	   /* stmt.setInt(1,tmp.get(i).getcCode());*/
+	    stmt.setString(1, tmp.get(i).getRtitle());
+	    stmt.setString(2, tmp.get(i).getRaddr());
+	    stmt.setString(3, tmp.get(i).getRtel());
+	    stmt.setInt(4, tmp.get(i).getRcontenttypeid());
+	    stmt.setString(5, tmp.get(i).getRcat1());
+	    stmt.setString(6, tmp.get(i).getRcat2());
+	    stmt.setString(7, tmp.get(i).getRcat3());
+	    stmt.setString(8, tmp.get(i).getRmapx());
+	    stmt.setString(9, tmp.get(i).getRmapy());
+	    stmt.setString(10, tmp.get(i).getRfirstimage());
 	    
 	    stmt.executeUpdate();
 	    System.out.println("sucess to save");
