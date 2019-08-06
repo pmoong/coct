@@ -717,6 +717,121 @@ public class BoardDao {
 
 		return listCount;
 	}
+	
+	public ArrayList<HashMap<String, Object>> statics(Connection con) {
+		Statement stmt = null;
+		ArrayList<HashMap<String, Object>> list = null;
+		HashMap<String, Object> hmap = null;
+
+		ResultSet rset = null;
+		String query = prop.getProperty("statics");//결제금액
+
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+
+			list = new ArrayList<HashMap<String, Object>>();
+
+			while(rset.next()) {
+				hmap = new HashMap<String,Object>();
+
+				hmap.put("reason1", rset.getString("PDATE"));
+				hmap.put("reason2", rset.getString("PRICE"));
+
+				list.add(hmap);
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+
+		return list;
+	}
+
+
+	public ArrayList<HashMap<String, Object>> statics2(Connection con) {
+		PreparedStatement pstmt = null;
+		ArrayList<HashMap<String, Object>> list = null;
+		HashMap<String, Object> hmap = null;
+
+		ResultSet rset = null;
+		String query = prop.getProperty("statics2");//예약일, 상품일
+
+		try {
+			
+			pstmt = con.prepareStatement(query);
+			for(int i = 1; i >= 12 ; i++  ) {
+			
+				pstmt.setInt(1, i);
+			
+			}
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<HashMap<String, Object>>();
+
+			while(rset.next()) {
+				hmap = new HashMap<String,Object>();
+
+				hmap.put("reser1", rset.getString("RSVDATE"));
+				hmap.put("reser2", rset.getString("CIDATE"));
+
+				list.add(hmap);
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+
+		return list;
+	}
+
+
+	public ArrayList<HashMap<String, Object>> statics3(Connection con) {
+		Statement stmt = null;
+		ArrayList<HashMap<String, Object>> list = null;
+		HashMap<String, Object> hmap = null;
+
+		ResultSet rset = null;
+		String query = prop.getProperty("statics3");//
+
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+
+			list = new ArrayList<HashMap<String, Object>>();
+
+			while(rset.next()) {
+				hmap = new HashMap<String,Object>();
+
+				hmap.put("member1", rset.getString("SEQ_UNO"));
+				hmap.put("member2", rset.getString("GENDER"));
+
+				list.add(hmap);
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+
+		return list;
+	}
 }
 
 
