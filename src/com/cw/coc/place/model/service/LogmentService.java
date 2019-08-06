@@ -8,37 +8,43 @@ import java.util.ArrayList;
 
 import com.cw.coc.place.model.dao.LogmentDao;
 import com.cw.coc.place.model.vo.LogmentVo;
-import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.LogmentVoYM;
+import com.cw.coc.room.model.vo.Room;
 
 
 public class LogmentService {
 
-	public ArrayList<LogmentVo> searchRoomList(String locationName) {
+	public ArrayList<LogmentVoYM> searchRoomList(String locationName) {
 		Connection con = getConnection();
 
-		ArrayList<LogmentVo> list = new LogmentDao().searchRoomList(con, locationName);
+		ArrayList<LogmentVoYM> list = new LogmentDao().searchRoomList(con, locationName);
 
 		close(con);
  
 		return list;	
 	}
 
-	public ArrayList<LogmentVo> randomPlace() {
+	public ArrayList<LogmentVoYM> randomPlace() {
 		
 			Connection con = getConnection();
 
-			ArrayList<LogmentVo> randomlist = new LogmentDao().randomPlace(con);
+			ArrayList<LogmentVoYM> randomlist = new LogmentDao().randomPlace(con);
 
 			close(con);
 
 			return randomlist;	
 		}
 
-	public ArrayList<LogmentVo> rsvRoomInfo(String ltitle) {
+	public ArrayList<Object> rsvRoomInfo(String ltitle) {
 		Connection con = getConnection();
-
-		ArrayList<LogmentVo> list = new LogmentDao().rsvRoomInfo(con, ltitle);
-
+		ArrayList<Object> list = new ArrayList<Object>();
+		ArrayList<LogmentVoYM> lm = new LogmentDao().rsvRoomInfo(con, ltitle);
+		int ccode = lm.get(0).getcCode();
+		ArrayList<Room> rm = new RoomDao().roomInfo(con, ccode);
+		
+		
+		list.add(lm);
+		list.add(rm);
 		close(con);
  
 		return list;

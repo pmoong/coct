@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
 <%
-	ArrayList<LogmentVo> randomlist = (ArrayList<LogmentVo>) request.getAttribute("randomlist");
+	ArrayList<LogmentVoYM> randomlist = (ArrayList<LogmentVoYM>) request.getAttribute("randomlist");
 %>
 <!DOCTYPE HTML>
 <!-- 
@@ -315,7 +315,7 @@ body {
 										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(0).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(0).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -330,7 +330,7 @@ body {
 										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(1).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(1).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -345,7 +345,7 @@ body {
 										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(2).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(2).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -370,7 +370,7 @@ body {
 										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(3).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(3).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -384,7 +384,7 @@ body {
 										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(4).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(4).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -400,7 +400,7 @@ body {
 										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(5).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(5).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -439,7 +439,7 @@ body {
 										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(7).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(7).getLtitle()%>"></div>
 								</section>
 
 							</div>
@@ -454,7 +454,7 @@ body {
 										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(8).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(8).getLtitle()%>"></div>
 								</section>
 
 							</div>

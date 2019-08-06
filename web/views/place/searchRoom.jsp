@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
 <%
-   ArrayList<LogmentVo> list = (ArrayList<LogmentVo>) request.getAttribute("list");
+   ArrayList<LogmentVoYM> list = (ArrayList<LogmentVoYM>) request.getAttribute("list");
    String locationName = (String) request.getAttribute("locationName"); 
 %>
 <!DOCTYPE HTML>
@@ -81,29 +81,39 @@ body {
             <!-- 썸네일 리스트 영역 -->
             <% 
                   for (int i =0; i < list.size(); i++) {
-                 	LogmentVo l = list.get(i);
-                      if(i == 0 || i%4==0){
+                 	LogmentVoYM l = list.get(i);
+                      if(i==0 || i%4==0){
                %>
             	 <div class="row">
-           
+           			
                <%} %>
-               
+              
                <div class="col-3 col-12-medium">
                   <div class="hotel" align="center">
-                     <a href="/coc/reserveRoomInfo" class="image featured"> <input
-                        type="hidden" value="<%= l.getLsigungucode()%>"> <img class="max-small"
-                        src="<%=l.getLfirstimage()%>" style="width: 110%; /* margin: auto; */">
+                   
+               <form action="/coc/reserveRoomInfo" method="post">
+               <input type="hidden" name="ltitle" value="<%=l.getLtitle()%>">
+                     <div type="button"  class="image featured"> <input
+                        type="hidden" value="<%= l.getLsigungucode()%>"><button style="background:white"> <img class="max-small"
+                        src="<%=l.getLfirstimage()%>" style="width: 110%; /* margin: auto; */"></button>
+                           </form>
                         <p>
                            <br> <b><%=l.getLtitle() %></b>
                         </p>
+                      </div>
                         <!-- <p id="price">104,833원/1박</p> -->
-                     </a>
+               
                   </div>
+                    
                </div>
+            
+               
             
             <% if(i%4 == 3){
                %>
-               </div>   
+              
+               </div> 
+                
             <%  } 
                   
                   }

@@ -18,8 +18,10 @@ import java.util.Properties;
 
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.LogmentParser;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.LogmentVo;
-import com.cw.coc.place.model.vo.Place;
+
+import oracle.net.aso.l;
 
 
 public class LogmentDao {
@@ -86,9 +88,9 @@ public class LogmentDao {
 		}
 	}
 
-	public ArrayList<LogmentVo> searchRoomList(Connection con, String locationName) {
+	public ArrayList<LogmentVoYM> searchRoomList(Connection con, String locationName) {
 		Statement stmt = null;
-		ArrayList<LogmentVo> list = null;
+		ArrayList<LogmentVoYM> list = null;
 		ResultSet rset = null;
 
 
@@ -100,12 +102,13 @@ public class LogmentDao {
 			stmt = con.createStatement();
 
 			rset = stmt.executeQuery(query);
-			list = new ArrayList<LogmentVo>();
+			list = new ArrayList<LogmentVoYM>();
 
 
 			while(rset.next()) {
-				LogmentVo l = new LogmentVo();
-
+				LogmentVoYM l = new LogmentVoYM();
+				
+				
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
 				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
@@ -137,11 +140,11 @@ public class LogmentDao {
 	}
 
 
-	public ArrayList<LogmentVo> randomPlace(Connection con) {
+	public ArrayList<LogmentVoYM> randomPlace(Connection con) {
 
 		Statement stmt = null;
-		ArrayList<LogmentVo> list = null;
-		ArrayList<LogmentVo> randomlist = null;
+		ArrayList<LogmentVoYM> list = null;
+		ArrayList<LogmentVoYM> randomlist = null;
 		ResultSet rset = null;
 
 
@@ -151,16 +154,17 @@ public class LogmentDao {
 			stmt = con.createStatement();
 
 			rset = stmt.executeQuery(query);
-			list = new ArrayList<LogmentVo>();
+			list = new ArrayList<LogmentVoYM>();
 
 
 			String query1 = prop.getProperty("selectRandomList");
-			randomlist = new ArrayList<LogmentVo>();
+			randomlist = new ArrayList<LogmentVoYM>();
 			rset = stmt.executeQuery(query1);
 
 			while(rset.next()) {
-				LogmentVo l = new LogmentVo();
-
+				LogmentVoYM l = new LogmentVoYM();
+				
+				l.setcCode(rset.getInt("SEQ_CCODE"));
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
 				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
@@ -175,14 +179,14 @@ public class LogmentDao {
 				randomlist.add(l);
 			}
 
-			for(LogmentVo l : randomlist) {
+			for(LogmentVoYM l : randomlist) {
 				System.out.println(l);
 			}
 
 			Collections.shuffle(randomlist);
 
 			System.out.println("===========");
-			for(LogmentVo l : randomlist) {
+			for(LogmentVoYM l : randomlist) {
 				System.out.println(l);
 			}
 
@@ -199,9 +203,9 @@ public class LogmentDao {
 
 		return randomlist;
 	}
-	public ArrayList<LogmentVo> rsvRoomInfo(Connection con, String ltitle) {
+	public ArrayList<LogmentVoYM> rsvRoomInfo(Connection con, String ltitle) {
 		Statement stmt = null;
-		ArrayList<LogmentVo> list = null;
+		ArrayList<LogmentVoYM> lm = null;
 		ResultSet rset = null;
 
 
@@ -213,14 +217,15 @@ public class LogmentDao {
 			stmt = con.createStatement();
 
 			rset = stmt.executeQuery(query);
-			list = new ArrayList<LogmentVo>();
+			lm = new ArrayList<LogmentVoYM>();
 			
 			System.out.println("@@@" + ltitle);
 			
 			while(rset.next()) {
 			
-				LogmentVo l = new LogmentVo();
-
+				LogmentVoYM l = new LogmentVoYM();
+				
+				l.setcCode(rset.getInt("SEQ_CCODE"));
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
 				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
@@ -232,14 +237,11 @@ public class LogmentDao {
 				l.setLmapx(rset.getString("LMAPX"));
 				l.setLmapy(rset.getString("LMAPY"));
 				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
-				
-				System.out.println("l:::::::" + l.getLtitle());
-			
-				
+								
 				if (l.getLtitle().equals(ltitle)) {
 					
-					System.out.println("if@@@@@@@@@");
-					list.add(l);
+					
+					lm.add(l);
 				}
 			}
 
@@ -252,6 +254,6 @@ public class LogmentDao {
 		}
 
 
-		return list;
+		return lm;
 	}
 }

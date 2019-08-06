@@ -16,6 +16,7 @@ import java.util.Properties;
 import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
+import com.cw.coc.member.model.vo.Member;
 
 
 public class BoardDao {
@@ -823,6 +824,78 @@ public class BoardDao {
 
 		return list;
 	}
+
+
+	public Board selectOneReview(Connection con, int num, Member m) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Board b = null;
+
+		String query = prop.getProperty("selectOneReview");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, m.getUno());
+			pstmt.setInt(2, num);
+
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
+				b = new Board();
+
+				b.setbCode(rset.getInt("SEQ_BCODE"));
+				b.setbDate(rset.getDate("BDATE"));
+				b.setbTitle(rset.getString("BTITLE"));
+				b.setbContent(rset.getString("BCONTENT"));
+				b.setbType(rset.getString("BTYPE"));
+				b.setbWriter(rset.getString("BWRITER"));
+				b.setcCode(rset.getInt("SEQ_CCODE"));
+				b.setpCode(rset.getString("PCODE"));
+				b.setUno(rset.getInt("SEQ_UNO"));
+				b.setuType(rset.getString("UTYPE"));
+				b.setCount(rset.getInt("COUNT"));
+				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
+
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return b;
+	}
+
+
+	public int updateReview(Connection con, Member m, Board b, int num) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateReview");
+		
+		try {
+			
+			System.out.println("BBBBB:"+ b);
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, b.getbTitle());
+			pstmt.setString(2, b.getbContent());
+			pstmt.setInt(3, b.getUno());
+			pstmt.setInt(4, num);
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println("dao b::::" + b);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
 }
 
 
