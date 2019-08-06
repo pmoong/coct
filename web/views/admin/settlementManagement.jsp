@@ -115,7 +115,7 @@ table {
 			<table align="center" id="listArea">
 				<tr>
 					<th width="100px">업체번호</th>
-					<th width="100px">상호명</th>
+					<th width="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상호명</th>
 					<th width="300px">결제금액</th>
 					<th width="100px">결제일</th>
 				</tr>
@@ -191,7 +191,25 @@ table {
 		
 
 	</div>
+<script>
 
+$(function(){
+	$("#listArea td").mouseenter(function(){
+		
+		$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+		
+	}).mouseout(function(){
+		$(this).parent().css({"background":"white"});
+		
+	}).click(function(){
+		
+		var num = $(this).parent().children("input").val();
+		
+		location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+	});
+});
+
+</script>
 
 
 </body>

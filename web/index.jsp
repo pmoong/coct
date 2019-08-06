@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
-<%
-	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
-	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
-	System.out.println("!!!::::::::"+ rt.get(0).getRtitle());
+   <%
+	ArrayList<LogmentVo> randomlist = (ArrayList<LogmentVo>) request.getAttribute("randomlist");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -80,20 +78,8 @@ body {
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap" rel="stylesheet">
-<script>
-rCheck = false;
-function duck()
-{
-	if (!rCheck) {
-		select();
-		rCheck = true;
-	}else{
-		location.href="/coc/random2";		
-	}
-}
-</script>
 </head>
-<body onload=duck()>
+<body class="is-preload homepage">
    <div id="page-wrapper">
 
       <!-- Header -->
@@ -113,7 +99,7 @@ function duck()
 	               </div>
                <div style="float:right; margin-right:20%;">
                	 <div style="margin-top:100%;">
-                     <div><a href="/coc/plan" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 그리기&nbsp;</label></a></div>
+                     <div><a href="#" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 그리기&nbsp;</label></a></div>
                      <div style="height:20px;"></div>
                      <div><a href="/coc/views/course/recommend.jsp" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 추천받기&nbsp;</label></a></div>
                      <div style="height:80px;"></div>
@@ -125,205 +111,157 @@ function duck()
       </div>
 
 
-		<!--  식당  -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<div class="container">
-			<h3>식당</h3>
-		</div>
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-		</ol>
+	<!-- 식당 -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         <div class="container">
+            <h3>식당</h3>
+         </div>
+         <!-- Indicators -->
+         <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+         </ol>
 
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-			<div class="item">
-				<div id="features-wrapper">
-					<div class="container">
+         <!-- Wrapper for slides -->
+         <div class="carousel-inner">
+            <div class="item">
+               <div id="features-wrapper">
+                  <div class="container">
 
-						<div class="row">
-							<div class="col-4 col-12-medium">
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(0).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(0).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(0).getRtitle()%></div>
-								</section>
+                     <div class="row">
+                        <div class="col-4 col-12-medium">
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic01.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-							<div class="col-4 col-12-medium">
+                        </div>
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(1).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(1).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(1).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic02.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-							<div class="col-4 col-12-medium">
+                        </div>
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(2).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(2).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(2).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic03.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-			<div class="item active">
-				<div id="features-wrapper">
-					<div class="container">
+            <div class="item active">
+               <div id="features-wrapper">
+                  <div class="container">
 
-						<div class="row">
-							<div class="col-4 col-12-medium">
+                     <div class="row">
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(3).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(3).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(3).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic02.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-							<div class="col-4 col-12-medium">
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(4).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(4).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(4).getRtitle()%></div>
-								</section>
+                        </div>
+                        <div class="col-4 col-12-medium">
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic01.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
+                        </div>
 
-							<div class="col-4 col-12-medium">
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(5).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(5).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(5).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic03.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-			<div class="item">
-				<div id="features-wrapper">
-					<div class="container">
+            <div class="item">
+               <div id="features-wrapper">
+                  <div class="container">
 
-						<div class="row">
-							<div class="col-4 col-12-medium">
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(6).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(6).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(6).getRtitle()%></div>
-								</section>
+                     <div class="row">
+                        <div class="col-4 col-12-medium">
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic01.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-							<div class="col-4 col-12-medium">
+                        </div>
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(7).getRtitle()%>">
-									<div type="button" class="image featured"><button  style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(7).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(7).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic02.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
-							<div class="col-4 col-12-medium">
+                        </div>
+                        <div class="col-4 col-12-medium">
 
-								<!-- Box -->
-								<section class="box feature">
-									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=rt.get(8).getRtitle()%>">
-									<div type="button" class="image featured"><button style="background:white"><img
-										class="max-small"
-										src="<%=rt.get(8).getRfirstimage()%>" alt="" /></button></div>
-									</form>
-									
-									<div class="inner"><%=rt.get(8).getRtitle()%></div>
-								</section>
+                           <!-- Box -->
+                           <section class="box feature">
+                              <a href="#" class="image featured"><img
+                                 src="images/pic03.jpg" alt="" /></a>
+                              <div class="inner"></div>
+                           </section>
 
-							</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
 
-						</div>
-					</div>
-				</div>
+            </div>
+         </div>
 
-			</div>
-		</div>
-
-
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev"
-			style="background: white"> <span
-			class="glyphicon glyphicon-chevron-left"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel"
-			data-slide="next" style="background: white"> <span
-			class="glyphicon glyphicon-chevron-right"></span> <span
-			class="sr-only">Next</span>
-		</a>
-	</div>
+         <!-- Left and right controls -->
+         <a class="left carousel-control" href="#myCarousel" data-slide="prev"
+            style="background: white"> <span
+            class="glyphicon glyphicon-chevron-left"></span> <span
+            class="sr-only">Previous</span>
+         </a> <a class="right carousel-control" href="#myCarousel"
+            data-slide="next" style="background: white"> <span
+            class="glyphicon glyphicon-chevron-right"></span> <span
+            class="sr-only">Next</span>
+         </a>
+      </div>
 
 
 		<!--  숙소  -->
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="container">
-			<h3>숙소</h3>
+			<h3>제휴</h3>
 		</div>
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -343,13 +281,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(0).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(0).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(0).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(0).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(0).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -358,13 +296,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(1).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(1).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(1).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(1).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(1).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -373,13 +311,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(2).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(2).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(2).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(2).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(2).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -398,13 +336,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(3).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(3).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(3).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(3).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(3).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -412,13 +350,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(4).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(4).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(4).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(4).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(4).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -428,13 +366,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(5).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(5).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(5).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(5).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(5).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -452,13 +390,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(6).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(6).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(6).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(6).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(6).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -467,13 +405,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(7).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(7).getLtitle()%>">
 									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(7).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(7).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(7).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -482,13 +420,13 @@ function duck()
 								<!-- Box -->
 								<section class="box feature">
 									<form action="/coc/reserveRoomInfo" method="post">
-									<input type="hidden" name="ltitle" value="<%=lm.get(8).getLtitle()%>">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(8).getLtitle()%>">
 									<div type="button" class="image featured"><button style="background:white"><img
 										class="max-small"
-										src="<%=lm.get(8).getLfirstimage()%>" alt="" /></button></div>
+										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=lm.get(8).getLtitle()%></div>
+									<div class="inner"><%=randomlist.get(8).getLtitle()%></div>
 								</section>
 
 							</div>

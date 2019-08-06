@@ -109,12 +109,14 @@ public class AdminSelectListServlet extends HttpServlet {
 		ArrayList<Reserve> rlist = new ReserveService().selectList(currentPage, limit);
 		ArrayList<Partner> plist = new PartnerService().selectList(currentPage, limit);
 		ArrayList<AllPayment> alist = new AllPaymentService().selectList(currentPage, limit);
+		ArrayList<Object> as= new BoardService().statics();
 		
 		result.put("blist", blist);	
 		result.put("mlist", mlist);
 		result.put("rlist", rlist);
 		result.put("plist", plist);
 		result.put("alist", alist);
+		result.put("as", as);	
 		//result.put("pi", pi);
 		System.out.println("result : " +result);
 		
