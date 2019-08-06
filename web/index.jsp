@@ -94,8 +94,8 @@ body {
                </div>
                <div class="col-5 col-12-medium">
                   <ul>
-                     <li><a href="#" class="button large icon solid planbtn">계획 그리기</a></li>
-                     <li><a href="#" class="button large icon solid planbtn">계획 추천받기</a></li>
+                     <li><a href="#" class="btn btn-default">계획 그리기</a></li>
+                     <li><a href="#" class="button large icon solid planbtn button-default">계획 추천받기</a></li>
                   </ul>
                </div>
             </div>
@@ -396,16 +396,18 @@ body {
       </div>
       
       
-      
+      <!--  추천코스 -->
       <div id="myCarousel3" class="carousel slide" data-ride="carousel">
          <div class="container">
             <h3>추천코스</h3>
          </div>
          <!-- Indicators -->
          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
             <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="4" class=""></li>
          </ol>
 
          <!-- Wrapper for slides -->
@@ -415,45 +417,16 @@ body {
                   <div class="container">
 
                      <div class="row">
-                        <div class="col-3 col-12-medium">
+                        <div class="col-12 col-12-medium">
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
+                                 src="images/c1.jpg" alt="" /></a>
                               <div class="inner"></div>
                            </section>
 
                         </div>
-                        <div class="col-3 col-12-medium">
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
-                        <div class="col-3 col-12-medium">
-
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
-                        <div class="col-3 col-12-medium">
-
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
                      </div>
                   </div>
                </div>
@@ -464,47 +437,16 @@ body {
                   <div class="container">
 
                      <div class="row">
-                        <div class="col-3 col-12-medium">
-
+                        <div class="col-12 col-12-medium">
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
-                        <div class="col-3 col-12-medium">
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
+                                 src="images/c2.jpg" alt="" /></a>
                               <div class="inner"></div>
                            </section>
 
                         </div>
 
-                        <div class="col-3 col-12-medium">
-
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
-                        <div class="col-3 col-12-medium">
-
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
-                        
                      </div>
                   </div>
                </div>
@@ -513,47 +455,55 @@ body {
             <div class="item">
                <div id="features-wrapper">
                   <div class="container">
-
                      <div class="row">
-                        <div class="col-3 col-12-medium">
+                        <div class="col-12 col-12-medium">
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
+                                 src="images/c3.jpg" alt="" /></a>
                               <div class="inner"></div>
                            </section>
 
                         </div>
-                        <div class="col-3 col-12-medium">
 
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+                        <div class="item">
+               <div id="features-wrapper">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-12 col-12-medium">
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
+                                 src="images/c4.jpg" alt="" /></a>
                               <div class="inner"></div>
                            </section>
 
                         </div>
-                        <div class="col-3 col-12-medium">
 
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+                        <div class="item">
+               <div id="features-wrapper">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-12 col-12-medium">
                            <!-- Box -->
                            <section class="box feature">
                               <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
+                                 src="images/c5.jpg" alt="" /></a>
                               <div class="inner"></div>
                            </section>
 
                         </div>
-                        <div class="col-3 col-12-medium">
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
-
-                        </div>
                      </div>
                   </div>
                </div>
@@ -573,138 +523,6 @@ body {
          </a>
       </div>
       
-
-<!-- 
-      <!-- Features2 
-      <div id="features-wrapper">
-         <div class="container">
-            <h3>숙박</h3>
-            <div class="row">
-               <div class="col-4 col-12-medium">
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic01.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-               <div class="col-4 col-12-medium">
-
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic02.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-               <div class="col-4 col-12-medium">
-
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic03.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <!-- Features3 
-      <div id="features-wrapper">
-         <div class="container">
-            <h3>추천코스</h3>
-            <div class="row">
-               <div class="col-3 col-12-medium">
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic01.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-               <div class="col-3 col-12-medium">
-
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic02.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-               <div class="col-3 col-12-medium">
-
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic03.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-               <div class="col-3 col-12-medium">
-
-                  <!-- Box 
-                  <section class="box feature">
-                     <a href="#" class="image featured"><img
-                        src="images/pic03.jpg" alt="" /></a>
-                     <div class="inner"></div>
-                  </section>
-
-               </div>
-
-            </div>
-         </div>
-      </div>
-       -->
-      <!--       
-         <!-- Main --
-
-            <div id="main-wrapper">
-               <div class="container">
-                  <div class="row gtr-200">
-                     <div class="col-4 col-12-medium">
-
-                        Sidebar
-                           <div id="sidebar">
-                              <section class="widget thumbnails">
-                                 <h3>Interesting stuff</h3>
-                                 <div class="grid">
-                                    <div class="row gtr-50">
-                                       <div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
-                                       <div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
-                                       <div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
-                                       <div class="col-6"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
-                                    </div>
-                                 </div>
-                                 <a href="#" class="button icon fa-file-alt">More</a>
-                              </section>
-                           </div>
-
-                     </div>
-                     <div class="col-8 col-12-medium imp-medium">
-
-                        Content
-                           <div id="content">
-                              <section class="last">
-                                 <h2>So what's this all about?</h2>
-                                 <p>This is <strong>Verti</strong>, a free and fully responsive HTML5 site template by <a href="http://html5up.net">HTML5 UP</a>.
-                                 Verti is released under the <a href="http://html5up.net/license">Creative Commons Attribution license</a>, so feel free to use it for any personal or commercial project you might have going on (just don't forget to credit us for the design!)</p>
-                                 <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper bibendum ipsum, et tristique augue fringilla eu. Vivamus id risus vel dolor auctor euismod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. Aliquam luctus mattis lectus sit amet phasellus quam turpis.</p>
-                                 <a href="#" class="button icon solid fa-arrow-circle-right">Continue Reading</a>
-                              </section>
-                           </div>
-
-                     </div>
-                  </div>
-               </div>
-            </div>
--->
       <!-- Footer -->
       
       <%@include file="/views/common/footerbar_customer.jsp" %>

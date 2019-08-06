@@ -68,153 +68,24 @@ body {
 		<br>
 
 
-		<!-- Wrapper for slides -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<div class="container">
-				<h3>인기루트로 여행시작하기</h3>
+		<hr style="border-color: skyblue">
+		<div class="container">
+			<div class="row">
+				<h3 class="col-12 col-12-medium"
+					style='text-align: left; margin-top: 1%;'>인기루트, 지금 바로 확인하세요</h3>
 			</div>
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root1.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root2.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root3.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item active">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root1.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root2.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root3.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
-
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root1.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root2.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img
-											src="../../images/root3.PNG" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev"
-				style="background: white"> <span
-				class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel"
-				data-slide="next" style="background: white"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
 		</div>
-		<!-- ----------------------------- -->
+		<hr style="border-color: skyblue">
+		<div>
+			<div class="col-12 col-12-medium" style="margin-left:17%; margin-right:14%;">
+				<!-- Box -->
+				<section class="box feature">
+					<a href="/coc/views/course/course1.jsp" class="image featured"><img
+						src="../../images/c1.jpg" alt="" /></a>
+				</section>
 
+			</div>
+		</div>
 
 		<hr style="border-color: skyblue">
 		<div class="container">
@@ -232,52 +103,47 @@ body {
 				<div class="container">
 
 					<div class="row">
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/c1.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
+						<div class="col-12 col-12-medium" style="margin-left:8%; margin-right:8%;">
 
 							<!-- Box -->
 							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/c3.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
-
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
-									src="../../images/c5.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
-
-							<!-- Box -->
-							<section class="box feature">
-								<a href="#" class="image featured"><img
+								<a href="/coc/views/course/course2.jsp" class="image featured"><img
 									src="../../images/c2.jpg" alt="" /></a>
-								<div class="inner"></div>
 							</section>
 
 						</div>
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
+						<div class="col-12 col-12-medium" style="margin-left:8%; margin-right:8%;">
 
 							<!-- Box -->
 							<section class="box feature">
-								<a href="#" class="image featured"><img
+								<a href="/coc/views/course/course3.jsp" class="image featured"><img
+									src="../../images/c3.jpg" alt="" /></a>
+							</section>
+
+						</div>
+						<div class="col-12 col-12-medium" style="margin-left:8%; margin-right:8%;">
+							<!-- Box -->
+							<section class="box feature">
+								<a href="/coc/views/course/course1.jsp" class="image featured"><img
+									src="../../images/c1.jpg" alt="" /></a>
+							</section>
+
+						</div>
+						<div class="col-12 col-12-medium" style="margin-left:8%; margin-right:8%;">
+
+							<!-- Box -->
+							<section class="box feature">
+								<a href="/coc/views/course/course3.jsp" class="image featured"><img
+									src="../../images/c5.jpg" alt="" /></a>
+							</section>
+
+						</div>
+						<div class="col-12 col-12-medium" style="margin-left:8%; margin-right:8%;">
+
+							<!-- Box -->
+							<section class="box feature">
+								<a href="/coc/views/course/course1.jsp" class="image featured"><img
 									src="../../images/c4.jpg" alt="" /></a>
-								<div class="inner"></div>
 							</section>
 
 						</div>
@@ -298,11 +164,6 @@ body {
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-
-
-
 
 	<!-- Footer -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
