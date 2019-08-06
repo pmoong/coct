@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	//로그인 처리를 위한 상수 필드 선언
-	public static final int LOGIN_OK = 1;
+	public static final int LOGIN_OK = 1; 
 	public static final int WRONG_PASSWORD = 0;
 	public static final int ID_NOT_EXIST = -1;	
 	

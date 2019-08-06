@@ -199,11 +199,11 @@ public class BoardService {
 
 		close(con);
 
-	 public void insertMassiveArticleInBoard(File destFile);
-
 		return listCount;
 
+
 	}
+//	public void insertMassiveArticleInBoard(File destFile);
 
 }
 

@@ -22,7 +22,7 @@ import com.cw.coc.place.model.vo.RestaurantVo;
 import com.cw.coc.place.model.vo.SeoulVoYM;
 import com.cw.coc.reserve.model.vo.Reserve;
 import com.cw.coc.room.model.vo.Room;
-
+ 
 public class MemberDao {
 	private Properties prop = new Properties();
 
