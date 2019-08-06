@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cw.coc.place.model.service.PlaceService;
-import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.service.LogmentService;
+import com.cw.coc.place.model.vo.LogmentVo;
 
 /**
  * Servlet implementation class ReserveRoomInfoServlet
@@ -31,7 +31,7 @@ public class ReserveRoomInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Place> rsvRoomInfo = new PlaceService().rsvRoomInfo();
+		ArrayList<LogmentVo> rsvRoomInfo = new LogmentService().rsvRoomInfo();
 
 
 		String page = "";

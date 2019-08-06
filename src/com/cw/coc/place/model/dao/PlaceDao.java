@@ -84,7 +84,7 @@ public class PlaceDao {
 		return list;
 	}*/
 
-	public ArrayList<Place> randomPlace(Connection con) {
+	/*public ArrayList<Place> randomPlace(Connection con) {
 		Statement stmt = null;
 		ArrayList<Place> list = null;
 		ArrayList<Place> randomlist = null;
@@ -99,7 +99,7 @@ public class PlaceDao {
 			rset = stmt.executeQuery(query);
 			list = new ArrayList<Place>();
 			
-			/*
+			
 			while(rset.next()) {
 				Place p = new Place();
 				p.setcCode(rset.getInt("SEQ_CCODE"));
@@ -119,7 +119,7 @@ public class PlaceDao {
 					}
 				}
 			}
-			*/
+			
 			
 			String query1 = prop.getProperty("selectRandomList");
 			randomlist = new ArrayList<Place>();
@@ -146,7 +146,7 @@ public class PlaceDao {
 			}
 			
 			
-			/*
+			
 			for(int i = 0; i < random.length; i++) {
 				System.out.println(random[i] + " ");
 				
@@ -173,7 +173,7 @@ public class PlaceDao {
 				System.out.println(randomlist);
 				
 			}
-			*/
+			
 			System.out.println(randomlist);
 			
 		} catch (SQLException e) {
@@ -186,9 +186,9 @@ public class PlaceDao {
 		
 
 		return randomlist;
-	}
+	}*/
 
-	public ArrayList<Place> searchAllList(Connection con) {
+	/*public ArrayList<Place> searchAllList(Connection con) {
 		Statement stmt = null;
 		ArrayList<Place> list = null;
 		ResultSet rset = null;
@@ -235,7 +235,7 @@ public class PlaceDao {
 	public ArrayList<Place> rsvRoomInfo(Connection con) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	public ArrayList<Place> selectlogment(Connection con, int currentPage, int limit) {
 		PreparedStatement pstmt=null;

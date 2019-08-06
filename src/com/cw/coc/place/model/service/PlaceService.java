@@ -27,7 +27,7 @@ public class PlaceService {
 		return list;	
 	}
 */
-	public ArrayList<Place> randomPlace() {
+	/*public ArrayList<Place> randomPlace() {
 
 		Connection con = getConnection();
 
@@ -36,9 +36,9 @@ public class PlaceService {
 		close(con);
 
 		return randomlist;	
-	}
+	}*/
 
-	public ArrayList<Place> searchAllList() {
+	/*public ArrayList<Place> searchAllList() {
 		Connection con = getConnection();
 
 		ArrayList<Place> list = new PlaceDao().searchAllList(con);
@@ -56,7 +56,7 @@ public class PlaceService {
 		close(con);
  
 		return list;
-	}
+	}*/
 
 	public ArrayList<Place> selectrestaurant(int currentPage, int limit ,Member m) {
 		Connection con = getConnection();

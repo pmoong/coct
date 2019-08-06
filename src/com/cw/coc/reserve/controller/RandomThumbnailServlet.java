@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cw.coc.place.model.service.LogmentService;
 import com.cw.coc.place.model.service.PlaceService;
+import com.cw.coc.place.model.vo.LogmentVo;
 import com.cw.coc.place.model.vo.Place;
 
 
@@ -32,7 +34,7 @@ public class RandomThumbnailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Place> randomlist = new PlaceService().randomPlace();
+		ArrayList<LogmentVo> randomlist = new LogmentService().randomPlace();
 		
 		System.out.println("randomlist 서블릿 " + randomlist.get(0));
 

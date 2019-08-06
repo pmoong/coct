@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
 <%
-	ArrayList<Place> randomlist = (ArrayList<Place>) request.getAttribute("randomlist");
+	ArrayList<LogmentVo> randomlist = (ArrayList<LogmentVo>) request.getAttribute("randomlist");
 %>
 <!DOCTYPE HTML>
 <!-- 
@@ -16,9 +16,24 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="/Scripts/jquery-1.9.0.js" type="text/javascript"></script> 
+<script src="/Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery.ui.datepicker-ko.js" type="text/javascript"></script>
+
+ 
 <style>
 body {
 	background: white;
+}
+
+.max-small {
+	width: auto;
+	height: auto;
+	max-width: 300px;
+	max-height: 200px;
 }
 
 #test {
@@ -56,6 +71,7 @@ body {
 	text-align: justify !important;
 	color: #ffffff !important;
 }
+.ui-datepicker{ font-size: 13.2px; width: 293px; height:295px; z-index:100; margin:0px;}
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -63,6 +79,7 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 
 </head>
 <%@ include file="/views/common/menubar_customer.jsp"%>
@@ -135,8 +152,11 @@ body {
 															<div class="_fm9j1ug">
 																<div class="_178faes">
 																	<input class="_14fdu48d" data-veloute="checkin_input"
-																		id="checkin_input" name="checkin" placeholder="년/월/일"
-																		type="text" value="">
+																		name="checkin" placeholder="년/월/일"
+																		type="text" id="datepicker">
+																		
+																		
+														
 																</div>
 															</div>
 														</div>
@@ -209,7 +229,7 @@ body {
 													</div>
 												</div>
 											</div>
-											<div class="_1tgv80u">
+											<!-- 	<div class="_1tgv80u">
 												<div style="margin-top: 20px; margin-bottom: 8px">
 													<label class="_rin72m" for="children"><span
 														class="_1ep1f1h7">어린이</span></label>
@@ -235,7 +255,7 @@ body {
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 										</div>
 									</div>
 
@@ -257,7 +277,8 @@ body {
 			</div>
 		</div>
 	</div>
-	<div> <%-- <%
+	<div>
+		<%-- <%
 	for(Place p : randomlist) { %>
 	<button type="button"><p><%System.out.println(p); %></p></button>
 	<%} %> --%>
@@ -274,7 +295,7 @@ body {
 			<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
 		</ol>
-		
+
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item">
@@ -282,32 +303,35 @@ body {
 					<div class="container">
 
 						<div class="row">
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(0).getImage()%>" alt=""/></a>
-									<div class="inner"><%=randomlist.get(0).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(0).getLtitle()%></div>
 								</section>
 
 							</div>
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(1).getImage()%>" alt="" /></a>
-									<div class="inner"><%=randomlist.get(1).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(1).getLtitle()%></div>
 								</section>
 
 							</div>
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(2).getImage()%>" alt="" /></a>
-									<div class="inner"><%=randomlist.get(2).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(2).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -321,33 +345,36 @@ body {
 					<div class="container">
 
 						<div class="row">
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(3).getImage()%>" alt=""/></a>
-									<div class="inner"><%=randomlist.get(3).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(3).getLtitle()%></div>
 								</section>
 
 							</div>
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(4).getImage()%>" alt=""/></a>
-									<div class="inner"><%=randomlist.get(4).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(4).getLtitle()%></div>
 								</section>
-				
+
 							</div>
 
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(5).getImage()%>" alt=""/></a>
-									<div class="inner"><%=randomlist.get(5).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(5).getLtitle()%></div>
 								</section>
 
 							</div>
@@ -361,340 +388,355 @@ body {
 					<div class="container">
 
 						<div class="row">
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(6).getImage()%>" alt="" /></a>
-									<div class="inner"><%=randomlist.get(6).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(6).getLtitle()%></div>
 								</section>
 
 							</div>
-							<div class="col-4 col-12-medium" >
-
-								<!-- Box -->
-								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(7).getImage()%>" alt="" /></a>
-									<div class="inner"><%=randomlist.get(7).getpName() %></div>
-								</section>
-
-							</div>
-							<div class="col-4 col-12-medium" >
+							<div class="col-4 col-12-medium">
 
 								<!-- Box -->
 								<section class="box feature">
 									<a href="/coc/reserveRoomInfo" class="image featured"><img
-										src="<%=randomlist.get(8).getImage()%>" alt="" /></a>
-									<div class="inner"><%=randomlist.get(8).getpName() %></div>
+										class="max-small"
+										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(7).getLtitle()%></div>
 								</section>
 
 							</div>
-							
+							<div class="col-4 col-12-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/reserveRoomInfo" class="image featured"><img
+										class="max-small"
+										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></a>
+									<div class="inner"><%=randomlist.get(8).getLtitle()%></div>
+								</section>
+
+							</div>
+
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-		
-
-
-							<!-- Left and right controls -->
-							<a class="left carousel-control" href="#myCarousel"
-								data-slide="prev" style="background: white"> <span
-								class="glyphicon glyphicon-chevron-left"></span> <span
-								class="sr-only">Previous</span>
-							</a> <a class="right carousel-control" href="#myCarousel"
-								data-slide="next" style="background: white"> <span
-								class="glyphicon glyphicon-chevron-right"></span> <span
-								class="sr-only">Next</span>
-							</a>
-						</div>
-						<!-- ----------------------------- -->
 
 
 
-						<div id="myCarousel2" class="carousel slide" data-ride="carousel">
-							<div class="container">
-								<h3>
-									콕<small>COC</small>과 함께 서울 전체를 여행 해보세요
-								</h3>
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev"
+			style="background: white"> <span
+			class="glyphicon glyphicon-chevron-left"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel"
+			data-slide="next" style="background: white"> <span
+			class="glyphicon glyphicon-chevron-right"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+	<!-- ----------------------------- -->
+
+
+
+	<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+		<div class="container">
+			<h3>
+				콕<small>COC</small>과 함께 서울 전체를 여행 해보세요
+			</h3>
+		</div>
+
+
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel2" data-slide-to="1" class=""></li>
+
+		</ol>
+
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<div id="features-wrapper">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<div class="img">
+										<a href="/coc/searchRoom?locationName=1"
+											class="image featured"><img src="/coc/images/gangnam.png"
+											alt="" id="blur" style="cursor: pointer;" />
+											<div class="content">
+												<!-- <p>Hello!</p> -->
+											</div>
+											<div class="img-cover"></div> </a>
+									</div>
+								</section>
+
 							</div>
+							<div class="col-2 col-10-medium">
 
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=2" class="image featured"><img
+										src="/coc/images/gangdong.png" alt=""
+										style="cursor: pointer; margin: center;" /></a>
 
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-								<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-								<li data-target="#myCarousel2" data-slide-to="1" class=""></li>
+								</section>
 
-							</ol>
+							</div>
+							<div class="col-2 col-10-medium">
 
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=3" class="image featured"><img
+										src="/coc/images/gangbuk.jfif" alt="" /></a>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item active">
-					<div id="features-wrapper">
-						<div class="container">
+								</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-							<div class="row">
-								<div class="col-2 col-10-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<div class="img">
-											<a href="/coc/searchRoom?locationName=1"
-												class="image featured"><img
-												src="/coc/images/gangnam.png" alt="" id="blur"
-												style="cursor: pointer;" />
-												<div class="content">
-													<!-- <p>Hello!</p> --> 
-												</div>
-												<div class="img-cover"></div> </a>
-										</div>
-									</section>
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=4" class="image featured"><img
+										src="/coc/images/gangseo.png" alt="" /></a>
 
-								</div>
-								<div class="col-2 col-10-medium">
+								</section>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="/coc/searchRoom?locationName=41"
-											class="image featured"><img
-											src="/coc/images/gangdong.png" alt=""
-											style="cursor: pointer; margin:center;" /></a>
+							</div>
+							<div class="col-2 col-10-medium">
 
-									</section>
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=6" class="image featured"><img
+										src="/coc/images/gwangjin2.png" alt="" /></a>
 
-								</div>
-								<div class="col-2 col-10-medium">
+								</section>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/gangbuk.jfif" alt="" /></a>
+							</div>
+							<div class="col-2 col-10-medium">
 
-									</section>
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=5" class="image featured"><img
+										src="/coc/images/gwannak.png" alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/gangseo.png" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=8" class="image featured"><img
+										src="/coc/images/geumcheon.jfif" alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/gwangjin2.png" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=9" class="image featured"><img
+										src="/coc/images/nowon.png" alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/gwannak.png" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=12"
+										class="image featured"><img src="/coc/images/dongjak.png"
+										alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/geumcheon.jfif" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=10"
+										class="image featured"><img src="/coc/images/dobong.png"
+										alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/nowon.png" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=11"
+										class="image featured"><img
+										src="/coc/images/dongdaemun.jfif" alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/dongjak.png" alt="" /></a>
+								</section>
 
-									</section>
+							</div>
+							<div class="col-2 col-10-medium">
 
-								</div>
-								<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=22"
+										class="image featured"><img
+										src="/coc/images/eunpyeong.png" alt="" /></a>
 
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/dobong.png" alt="" /></a>
+								</section>
 
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/dongdaemun.jfif" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/eunpyeong.png" alt="" /></a>
-
-									</section>
-
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class="item">
-					<div id="features-wrapper">
-						<div class="container">
+			<div class="item">
+				<div id="features-wrapper">
+					<div class="container">
 
-							<div class="row">
-								<div class="col-2 col-10-medium">
-									<!-- Box -->
-									<section class="box feature">
-										<div class="img">
-											<a href="reserv_hotel.jsp" class="image featured"><img
-												src="/coc/images/mapo.png" alt="" id="blur"
-												style="cursor: pointer" />
-												<div class="content">
-													<p>Hi!</p>
+						<div class="row">
+							<div class="col-2 col-10-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<div class="img">
+										<a href="/coc/searchRoom?locationName=13"
+											class="image featured"><img src="/coc/images/mapo.png"
+											alt="" id="blur" style="cursor: pointer" />
+											<div class="content">
+												<p>Hi!</p>
 
-												</div>
-												<div class="img-cover"></div> </a>
+											</div>
+											<div class="img-cover"></div> </a>
 
-										</div>
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/jongno.png" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/junggu.png" alt="" /></a>
-
-									</section>
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/jungnang.png" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/seodeamoon.jfif" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/seongbuk.png" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/seongdong.jfif" alt="" /></a>
-										<div class="inner"></div>
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/songpa.jfif" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/yangcheon.jfif" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/yeongdeungpo.png" alt="" /></a>
-
-									</section>
-
-								</div>
-								<div class="col-2 col-10-medium">
-
-									<!-- Box -->
-									<section class="box feature">
-										<a href="reserv_hotel.jsp" class="image featured"><img
-											src="/coc/images/yongsan.jfif" alt="" /></a>
-
-									</section>
-
-								</div>
+									</div>
+								</section>
 
 							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=23"
+										class="image featured"><img src="/coc/images/jongno.png"
+										alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=24"
+										class="image featured"><img src="/coc/images/junggu.png"
+										alt="" /></a>
+
+								</section>
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=25"
+										class="image featured"><img src="/coc/images/jungnang.png"
+										alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=14"
+										class="image featured"><img
+										src="/coc/images/seodeamoon.jfif" alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=17"
+										class="image featured"><img src="/coc/images/seongbuk.png"
+										alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=16"
+										class="image featured"><img
+										src="/coc/images/seongdong.jfif" alt="" /></a>
+									<div class="inner"></div>
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=18"
+										class="image featured"><img src="/coc/images/songpa.jfif"
+										alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=19"
+										class="image featured"><img
+										src="/coc/images/yangcheon.jfif" alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=20"
+										class="image featured"><img
+										src="/coc/images/yeongdeungpo.png" alt="" /></a>
+
+								</section>
+
+							</div>
+							<div class="col-2 col-10-medium">
+
+								<!-- Box -->
+								<section class="box feature">
+									<a href="/coc/searchRoom?locationName=21"
+										class="image featured"><img src="/coc/images/yongsan.jfif"
+										alt="" /></a>
+
+								</section>
+
+							</div>
+
 						</div>
 					</div>
+				</div>
 
 
 
@@ -702,19 +744,19 @@ body {
 
 
 
-					<div align="center">
+				<!-- <div align="center">
 						<a href="/coc/searchAll" class="image featured"> <img
 							src="/coc/images/allSpot.PNG" alt=""
 							style="width: 25%; height: 25%;" />
 						</a>
-					</div>
-					<br> <br> <br> <br> <br>
+					</div> -->
+				<br> <br> <br> <br> <br>
 
 
 
 
 
-					<!-- 
+				<!-- 
 		<!-- Features2 
 		<div id="features-wrapper">
 			<div class="container">
@@ -765,12 +807,13 @@ body {
 			</div>
 		</div>
 	</div>
+	
+	
 
 
+	<!-- Footer -->
+	<%@include file="/views/common/footerbar_customer.jsp"%>v>
 
-					<!-- Footer -->
-					<%@include file="/views/common/footerbar_customer.jsp"%>v>
-
-				</div>
+	</div>
 </body>
 </html>
