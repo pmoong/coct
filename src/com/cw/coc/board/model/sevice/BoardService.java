@@ -202,6 +202,48 @@ public class BoardService {
 
 
 	}
+	public ArrayList<HashMap<String, Object>> statics() {
+		Connection con = getConnection();
+
+		ArrayList<HashMap<String,Object>> list = new BoardDao().statics(con);
+
+
+		close(con);
+
+
+
+
+
+		return list;
+}
+	public ArrayList<HashMap<String, Object>> statics2() {
+		Connection con = getConnection();
+
+		ArrayList<HashMap<String,Object>> list = new BoardDao().statics2(con);
+
+
+		close(con);
+
+
+
+
+
+		return list;
+	}
+	public ArrayList<HashMap<String, Object>> statics3() {
+		Connection con = getConnection();
+
+		ArrayList<HashMap<String,Object>> list = new BoardDao().statics3(con);
+
+
+		close(con);
+
+
+
+
+
+		return list;
+	}
 //	public void insertMassiveArticleInBoard(File destFile);
 
 }
