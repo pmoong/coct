@@ -123,11 +123,11 @@ padding-left:30px !important;
  }
  #history{
  width:230px;
-height:230px; 
+height:230px;` 
  
- /*  margin:2%; */
+  /* margin:2%; */
   margin-left:2%;
-  margin-bottom:2%;
+  margin-bottom:4%;
   
 }
   </style>

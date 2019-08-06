@@ -60,13 +60,13 @@ public class PlanCulture extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);*/
- 		ArrayList<CultureVoYM> list = new PlaceService().selectculture(m);
+ 		ArrayList<CultureVoYM> listcul = new PlaceService().selectculture(m);
 System.out.println("list");
   		String page="";
-		System.out.println("list"+list);
-		if(list != null){
+		System.out.println("listcul"+listcul);
+		if(listcul != null){
 			page="views/course/plan.jsp";
-			request.setAttribute("cocl", list);
+			request.setAttribute("listcul", listcul);
 			request.setAttribute("PlacecocList", PlacecocList);
  		}else {
 			page="views/common/errorPage.jsp";

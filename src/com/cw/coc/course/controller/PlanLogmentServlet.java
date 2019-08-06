@@ -61,12 +61,12 @@ public class PlanLogmentServlet extends HttpServlet {
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage)
 		ArrayList<LogmentVoYM> list =new PlaceService().selectlogment(currentPage,limit,m);;*/
-		ArrayList<LogmentVoYM> list =new PlaceService().selectlogment(m);
+		ArrayList<LogmentVoYM> listlog =new PlaceService().selectlogment(m);
   		String page="";
 		
-		if(list != null){
+		if(listlog != null){
 			page="views/course/plan.jsp";
-			request.setAttribute("list", list);
+			request.setAttribute("listlog", listlog);
 			request.setAttribute("PlacecocList", PlacecocList);
 
 /*			request.setAttribute("pi", pi);

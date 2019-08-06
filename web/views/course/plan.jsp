@@ -1,23 +1,18 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo,com.cw.coc.choice.model.vo.Coc"%>
+	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo"%>
 	<%
     ArrayList<PlaceCocVo> PlacecocList=(ArrayList<PlaceCocVo>)request.getAttribute("PlacecocList");
- 	 ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
-  
- 		ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>)request.getAttribute("ct");
+ 	 	ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>)request.getAttribute("ct");
 		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>)  request.getAttribute("lm");
 		ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
 		ArrayList<SeoulVoYM> sl = (ArrayList<SeoulVoYM>) request.getAttribute("sl"); 
-/* 		ArrayList<LogmentVoYM> list =new PlaceService().selectlogment(m);
- */   /* ArrayList<Coc> list =(ArrayList<Coc>)request.getAttribute("list");
-   */
-	/* PageInfo pi =(PageInfo)request.getAttribute("pi");
-	    int listCount =pi.getListCount();
-	    int currentPage =pi.getCurrentPage();
-	    int maxPage=pi.getMaxPage();
-	    int startPage=pi.getStartPage();
-	    int endPage=pi.getEndPage(); */
+ 		System.out.println("ct"+ct);
+ 		System.out.println("ct"+rt);
+		  
+ 	  
+	  
   	%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,90 +150,70 @@ outline:0;
  </form> 
  
   		
- 				<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanCulture'" style="width:17%;">문화</button>
+ 			<%-- 	<button id="btn1" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanCulture'" style="width:17%;">문화</button>
 					<button id="btn2" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanLogment'"style="width:17%;">숙박</button>
 				<button id="btn3" class="tab_menu"onclick="location.href='<%=request.getContextPath() %>/PlanRestuarant'" style="width:17%;">식당</button>
-					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanSeoul'" style="width:17%;">서울</button>
-		 
- 				
+					<button id="btn4" class="tab_menu" onclick="location.href='<%=request.getContextPath() %>/PlanSeoul'" style="width:17%;">서울</button> --%>
+		   	<button id="btn1" class="tab_menu" onclick="Culture()" style="width:17%;">문화</button>
+					<button id="btn2" class="tab_menu"onclick="PlanLogment()"style="width:17%;">숙박</button>
+				<button id="btn3" class="tab_menu"onclick="PlanRestuarant()" style="width:17%;">식당</button>
+					<button id="btn4" class="tab_menu" onclick="PlanSeoul()" style="width:17%;">서울</button> 
  				   <table border="1">
+ 				   
+ <%-- 				   <div class="tab_container">
+ 				   
+ 			<div id="Btn1" class="tab_content">
+				<%for (CultureVoYM c : ct) {%>
 <tr>
-<th>타이틀</th></tr>
-
-<%--  
-<% for(Place p: list){ %> 
-<tr id="title">
-  <%p.getcCode();%>
-  
-  <%}%>  --%> 
-  
-  
-<%-- <td id="title"><%=p.getCaddr()%></td>
- <td class="pname"></td>
- <%} %> 
-</tr>
- 
-</table></div></div></div> --%>
- 
-   	<%-- <%if(i%4 ==0 ){ %>
-   <%} int cnt=0;%>
-   <%for(int j=0; j<PlacecocList.size(); j++){%>
- <% if(PlacecocList.get(j).getcCode()==p.getcCode()) {%>  
-<%  cnt++;%>					
-<%}else{ %>
-<% } %>
- <%} %> 
- 	<%if(cnt!=0){ %>  
- <div style="float:right"> </td><button type="submit" id="minusCoc" <%=i %>" onclick="minusCoc(<%=i%>)" style="color:black">콕</button></div>
-<%}else{ %>
- <div style="float:right"> <button type="submit" id="plusCoc"  <%=i %>" onclick="plusCoc(<%=i%>)" style="color:white; font-weight: bolder">콕</button></div>
-<%} %>
-<td id="title"><%=p.getpName() %></td>
-<p><%=p.getMapy() %></p> --%>
-
-<%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getcCode() %>">
- --%>  <%-- <input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapx() %>">
-<input type="hidden" id="cCode<%=i%>" name="cCode<%=i %>" value="<%=p.getMapy() %>"> 
-
- <!-- <input id=coc type="submit" value="콕" ></td>
- --> -->
- </div>
- <% if(i%4 ==3){ %>
-</div>
- <%} %>
-<%	i++; %>
-	<%} %>	 	
-</div> 	
-	</td>
- --%>
-<%-- <div class="pagingArea" align="center">
-<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=1'"><<</button>
-
-	<% if(currentPage <=1){ %>
-	<button class="btn btn-default" disabled>< </button>
-	<%}else{ %>
-	<button  class="btn btn-default" onclick ="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=currentPage -1 %>'"> <</button>
-	<%} %>
-	
-	<%for(int p = startPage; p <= endPage; p++){ 
-		if(currentPage == p){
-	%>
-		<button class="btn btn-default" disabled><%=p %> </button>
-	<%}else{ %>
-		<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=<%=p %>'" > <%=p %> </button>
-	<%}
-	}
+ 			<th>	 <%=c.getCtitle()%> <br>
+ 				 <%=c.getCaddr()%> </th>  
+</tr></div>
+				<%} %>
+			 <div id="Btn2" class="tab_content">
+						<%for (LogmentVoYM l : lm) {%>
+<tr>
+ 				 <th><%=l.getLtitle()%>   <br>
+ 				  <%=l.getLaddr()%> </th>
+</tr></div>
+				<%} %>
+		<div id="Btn3" class="tab_content">
+								<%for (RestaurantVo r : rt) {%>
+<tr>
+ 				<th> <%=r.getRtitle()%>   <br>
+ 				 <%=r.getRaddr()%></th>
+</tr></div>
+				<%} %>
+				
+				<div id="Btn4" class="tab_content">
+								<%for (SeoulVoYM s : sl) {%>
+<tr>
+ 				<th> <%=s.getTitle()%>  <br>
+ 				 <%=s.getAddr1()%></th>
+</tr></div>
+				<%} %>
 		
-	%>
-<% if(currentPage >= maxPage){ %>
-	<button class="btn btn-default" disabled> > </button>
-	<%}else{ %>
-	<button  class="btn btn-default" onclick ="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=currentPage +1 %>'"> ></button>
-	<%} %>
- 
+		
+								
+</table> 
+								 --%>
+								
+								
+								
+						</section>
+					</div>
+				</div></div></div>
+				
+</div>
+</div>
+</div>
+<script>
 
-<button class="btn btn-default" onclick="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=maxPage %>'">>></button>
-</div></div></div></div> --%>
+
+
+</script>
+  
+
+ 
  
   
 		<div class="bottom" id="bottom">
@@ -267,15 +242,7 @@ outline:0;
 					<button type="button" id="rowPlus1" class="circle2" style="float:right" onclick="rowPlus('1')">+</button>
 				</div>
 			</div>
-			
-	 
- 
-			
-			
-			
-			
-			
-			
+	 			
 			<script>
 			var prv_id="1";
 			var dth;
@@ -378,60 +345,41 @@ outline:0;
 				}
 			}
 			 
-/*  	 $("tr#title td").click(function(){
- 		 var str="";
- 		 var tdArr =new Array();
- 		 
- 		 var tr=$(this);
-		var td=tr.children();
-		5
-		console.log("tr.text"+tr.text());
-		
-		td.each(function(i){
-			tdArr.puch(td.eq(i).text());
-			
-		});
- 		 
-		 console.log(tdArr);
-		 $(this).css("font-weight","bold"); 
-  		var str=document.getElementsByTagName('td')[this].childNodes[0].nodeValue;
  
- 
-  	 });
-	  */
 	 </script>    
 	 <script>
-		function plusCoc(id){	
-			var cCode = $("#cCode"+id).val();
-
-			var uno = <%=loginUser.getUno()%>;
-			$.ajax({
-				url:"placepluscochj",
-				type:"post",
-				data:{cCode:cCode, uno:uno},
-				success:function(data){
-					$("#plusCoc"+id).css('background-color','white');
-					$("#plusCoc"+id).attr("onclick","minusCoc("+id+")").unbind('click');
-					$("#plusCoc"+id).attr('id','minusCoc'+id);
-				}
-			});	
-		}
+	$(document).ready(function(){
 		
-		function minusCoc(id){	
-			var cCode = $("#cCode"+id).val();
-			var uno = <%=loginUser.getUno() %>;
- 			$.ajax({
-				url:"placecocminushj",
-				type:"post",
-				data:{cCode:cCode, uno:uno},
-				success:function(data){
-					$("#minusCoc"+id).css('background-color','white');
-					$("#minusCoc"+id).attr("onclick","plusCoc("+id+")").unbind('click');
-					$("#minusCoc"+id).attr('id','plusCoc'+id);
-				}
-			});	
-		}
-	</script>
+		if("#btn1")click(function(){
+			$(Btn1).show();
+			$(Btn2).hide();
+			$(Btn3).hide();
+			$(Btn4).hide();
+		});
+		if("#btn2")click(function(){
+			$(Btn1).hide();
+			$(Btn2).show();
+			$(Btn3).hide();
+			$(Btn4).hide();
+		});
+		if("#btn3")click(function(){
+			$(Btn1).hide();
+			$(Btn2).hide();
+			$(Btn3).show();
+			$(Btn4).hide();
+		});
+		if("#btn4")click(function(){
+			$(Btn1).hide();
+			$(Btn2).hide();
+			$(Btn3).hide();
+			$(Btn4).show();
+		});
+		
+		
+	});
+	
+ 
+	</Script>
 	 <!--   <script type="text/javascript">
 	   var id = $('#coc').val(); // 
 	   var tmp = document.getElementsByName('coc').value; 
@@ -478,15 +426,15 @@ outline:0;
 			</script> -->
 			
 			 
-			  <script type="text/javascript">
- <%--    var locations = [
+	 	  <script type="text/javascript">
+    <%--   var locations = [
     <%for(int j=0; j<list.size(); j++){%>
     	['<%=list.get(j).getpName()%>', <%=list.get(j).getMapx()%>, <%=list.get(j).getMapy()%>, 28]
     	<%if(j < list.size() - 1){%>
     		,
     <%}}%>
      
-    ]; --%>
+    ];   --%>
 
       /* ['국립축산과학원 축산자원개발부', 36.93309333, 127.10487485, 28] */
     var map = new google.maps.Map(document.getElementById('map'), {
