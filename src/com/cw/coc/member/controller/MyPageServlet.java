@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.service.MemberService;
 import com.cw.coc.member.model.vo.Member;
-import com.cw.coc.place.model.vo.Place;
-import com.cw.coc.reserve.model.vo.Reserve;
+import com.cw.coc.place.model.vo.LogmentVoYM;
+import com.cw.coc.room.model.vo.Room;
 
 
 @WebServlet("/myPage")
@@ -44,8 +44,8 @@ public class MyPageServlet extends HttpServlet {
 		m.setUserId(id);
 		m.setUserPwd(password);
 		m.setEmail(email);
-		m.setuType(utype);
-		m.setGender(gender);
+		m.setuType(utype); 
+		m.setGender(gender); 
 		m.setAge(age);
 		m.setiCode(icode);
 		m.setStatus(status);
@@ -54,6 +54,8 @@ public class MyPageServlet extends HttpServlet {
 		Member m1 = (Member) list.get(0);
 		ArrayList<Board> bo = (ArrayList<Board>)list.get(1);
 		ArrayList<Board> rv = (ArrayList<Board>) list.get(2);
+		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) list.get(3);
+		ArrayList<Room> rm = (ArrayList<Room>) list.get(4);
 		
 		//이용내역
 		//ArrayList<Place> uh = (ArrayList<Place>) list.get(3);
@@ -77,6 +79,8 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("m1", m1);
 		request.setAttribute("bo", bo);
 		request.setAttribute("rv", rv);
+		request.setAttribute("lm", lm);
+		request.setAttribute("rm", rm);
 		//request.setAttribute("pm1", pm1);
 		//request.setAttribute("pm2", pm2);
 		

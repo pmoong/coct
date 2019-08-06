@@ -1,19 +1,20 @@
 package com.cw.coc.board.model.sevice;
 
-import java.sql.Connection;
+import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.commit;
+import static com.cw.coc.common.JDBCTemplate.getConnection;
+import static com.cw.coc.common.JDBCTemplate.rollback;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.cw.coc.board.model.dao.BoardDao;
 import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
-import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
-
-import static com.cw.coc.common.JDBCTemplate.*;
-import static com.cw.coc.common.JDBCTemplate.close;
-import static com.cw.coc.common.JDBCTemplate.getConnection;
+import com.cw.coc.place.model.dao.LogmentDao;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 
 public class BoardService {
 
@@ -183,11 +184,14 @@ public class BoardService {
 
 		return list;
 	}
-	public ArrayList<Board> selectReviewList(int currentPage, int limit) {
+	public ArrayList<Object> selectReviewList(int currentPage, int limit, int uno) {
 		Connection con = getConnection();
-
-		ArrayList<Board> list = new BoardDao().selectReviewList(con, currentPage, limit);
-
+		ArrayList<Object> list = new ArrayList<Object>();
+		ArrayList<Board> bo = new BoardDao().selectReviewList(con, currentPage, limit, uno);
+		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con);
+		
+		list.add(bo);
+		list.add(lm);
 		close(con);
 
 		return list;
@@ -266,9 +270,7 @@ public class BoardService {
 	public int updateReview(Member m, Board b, int num) {
 
 		Connection con = getConnection();
-		
-		System.out.println("b:::: service" + b);
-		
+
 		int result = new BoardDao().updateReview(con, m, b, num);
 		
 		if(result > 0) {

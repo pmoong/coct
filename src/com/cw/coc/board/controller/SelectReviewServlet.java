@@ -14,6 +14,7 @@ import com.cw.coc.board.model.sevice.BoardService;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.board.model.vo.PageInfo;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 
 
 @WebServlet("/selectList.rv")
@@ -66,12 +67,15 @@ public class SelectReviewServlet extends HttpServlet {
 		PageInfo pi = 
 				new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Board> list = new BoardService().selectReviewList(currentPage, limit);
+		ArrayList<Object> list = new BoardService().selectReviewList(currentPage, limit, m.getUno());
+		ArrayList<Board> bo = (ArrayList<Board>)list.get(0);
+		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) list.get(1);
 		String page = "";
 		
 		if(list != null) {
 			page = "views/board/reviewList.jsp";
-			request.setAttribute("list", list);
+			request.setAttribute("bo", bo);
+			request.setAttribute("lm", lm);
 			request.setAttribute("pi", pi);
 		}else {
 			page = "views/common/errorPage.jsp";
