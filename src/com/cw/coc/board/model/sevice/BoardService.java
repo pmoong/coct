@@ -64,7 +64,7 @@ public class BoardService {
 			b = new BoardDao().selectOne(con, num);
 		}else {
 			rollback(con);
-		}
+		} 
  
 		close(con);
 
