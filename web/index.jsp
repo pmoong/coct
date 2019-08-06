@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
-<%
-	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
-	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
-	System.out.println("!!!::::::::"+ rt.get(0).getRtitle());
-%>
+
 <!DOCTYPE HTML>
 <!--
    Verti by HTML5 UP
@@ -81,19 +77,28 @@ body {
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap" rel="stylesheet">
 <script>
+	
+
 rCheck = false;
+
 function duck()
 {
 	if (!rCheck) {
 		select();
 		rCheck = true;
 	}else{
-		location.href="/coc/random2";		
+		window.location="/coc/random2";
+		
 	}
 }
 </script>
 </head>
-<body onload=duck()>
+
+<body>
+<%
+	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
+	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
+%>
    <div id="page-wrapper">
 
       <!-- Header -->
