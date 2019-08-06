@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cw.coc.place.model.service.LogmentService;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.LogmentVo;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
 
 
@@ -42,7 +43,7 @@ public class SearchRoomServlet extends HttpServlet {
 		locationName = request.getParameter("locationName");
 		System.out.println("locationName::"+locationName);
 		
-		ArrayList<LogmentVo> list = new LogmentService().searchRoomList(locationName);
+		ArrayList<LogmentVoYM> list = new LogmentService().searchRoomList(locationName);
 		
 		
 		String page = ""; 

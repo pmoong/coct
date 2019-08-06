@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*, com.cw.coc.room.model.vo.*"%>
 <%
-	ArrayList<LogmentVo> list = (ArrayList<LogmentVo>) request.getAttribute("list");
+	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
+	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
 %>	
 <!DOCTYPE HTML>
 <!--
@@ -142,22 +143,22 @@ body {
 		<div class="container" align="center">
          <div class="cocInfo" id="cocInfo" align="center">
             <div class="left-box">
-               <img src="<%=list.get(0).getLfirstimage() %>" width="400" height="300" />
+               <img src="<%=lm.get(0).getLfirstimage() %>" width="400" height="300" />
             </div>
             <div class="right-box">
             	<br><br>
                <br>
-               <p align="center"><%=list.get(0).getLtitle() %></p>
+               <p align="center"><%=lm.get(0).getLtitle() %></p>
                <br><br>
                <div id="image">
                   <img src="/coc/images/telephone.png" width="20" height="20" />
                </div>
-               <p><%=list.get(0).getLtel() %></p>
+               <p><%=lm.get(0).getLtel() %></p>
                <br>
                <div id="image">
                   <img src="/coc/images/placeholder.png" width="20" height="20" />
                </div>
-               <p><%=list.get(0).getLaddr() %></p>
+               <p><%=lm.get(0).getLaddr() %></p>
                <br>
                <!-- <div id="image">
                   <img src="/coc/images/wall-clock.png" width="20" height="20" />
@@ -234,28 +235,37 @@ body {
 		</table>
 	</div> -->
 	
-			<div class="container" align="center">
+			
+        
+        <% for (Room r : rm){ %>
+        <div class="container" align="center">
          <div class="cocInfo" id="cocInfo" align="center">
-         <a href="reserv_hotel.jsp">
+       
+		<a href="/coc/views/place/reserv_hotel.jsp">
             <div class="left-box">
                <img src="/coc/images/seoul1.PNG" width="300" height="200" />
             </div>
             <div class="right-box">
+
                <br>
-               <h2 align="center"><b>Standard Room</b></h2>
+               <h4 align="center"><b><%= r.getRmName() %></b></h4>
                <br>
                <div id="image">
                <br>
                </div>
                <br><br>
                <div id="image">
-                  <h2 width="20" height="20">숙박</h2>
+                  <h4 width="20" height="20">1박</h4>
                </div>
-               <h3>40,000</h3>
+               <h4><%=r.getPrice() +"원" %></h4>
                </a>
+               <br>
+               
             </div>
+         
          </div>
          <br>
+            <% } %>
 	 		<!-- 숙소시설 -->
 		<div class="container">
 			<div class="row">
