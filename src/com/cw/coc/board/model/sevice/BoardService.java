@@ -60,13 +60,12 @@ public class BoardService {
 
 		if(result > 0) {
 			commit(con);
-			System.out.println("selectone 진행중 1");
 
 			b = new BoardDao().selectOne(con, num);
 		}else {
 			rollback(con);
 		}
-
+ 
 		close(con);
 
 		return b;
