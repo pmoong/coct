@@ -422,7 +422,6 @@ public class BoardDao {
 
 		String query = prop.getProperty("reviewSelect");
 
-		System.out.println(uno);
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -433,7 +432,7 @@ public class BoardDao {
 			rv = new ArrayList<Board>();
 
 
-			while(rset.next()) {
+			while(rset.next()) { 
 				Board b = new Board();
 
 				b.setbCode(rset.getInt("SEQ_BCODE"));
@@ -631,10 +630,10 @@ public class BoardDao {
 	}
 
 
-	public ArrayList<Board> selectReviewList(Connection con, int currentPage, int limit) {
+	public ArrayList<Board> selectReviewList(Connection con, int currentPage, int limit, int uno) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Board> list = null;
+		ArrayList<Board> bo = null;
 		String query = prop.getProperty("selectReviewList");
 
 		try {
@@ -642,13 +641,14 @@ public class BoardDao {
 
 			int startRow = (currentPage - 1) * limit + 1;
 			int endRow = startRow + limit - 1;
-
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			
+			pstmt.setInt(1, uno);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 
 			rset = pstmt.executeQuery();
 
-			list = new ArrayList<Board>();
+			bo = new ArrayList<Board>();
 
 			while(rset.next()) {
 				Board b = new Board();
@@ -667,7 +667,7 @@ public class BoardDao {
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 
 
-				list.add(b);
+				bo.add(b);
 			}
 
 		} catch (SQLException e) {
@@ -677,7 +677,7 @@ public class BoardDao {
 			close(pstmt);
 		}
 
-		return list;
+		return bo;
 	}
 
 
@@ -875,17 +875,15 @@ public class BoardDao {
 		String query = prop.getProperty("updateReview");
 		
 		try {
-			
-			System.out.println("BBBBB:"+ b);
-			pstmt = con.prepareStatement(query);
+		
+			pstmt = con.prepareStatement(query);	
 			pstmt.setString(1, b.getbTitle());
 			pstmt.setString(2, b.getbContent());
-			pstmt.setInt(3, b.getUno());
+			pstmt.setInt(3, m.getUno());
 			pstmt.setInt(4, num);
 			
 			result = pstmt.executeUpdate();
 			
-			System.out.println("dao b::::" + b);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

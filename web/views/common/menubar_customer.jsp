@@ -99,8 +99,7 @@ body {
                   <li><a href="/coc/views/member/cs.jsp">고객센터</a></li>
                   <%if(loginUser!=null) {%>
                   <li><a href="" onclick="logout()">로그아웃</a></li>
- 
-                  <form  action="/coc/myPage" method="post">
+                  <form  action="/coc/myPage" method="post" style="float:left;">
                   <input type="hidden" name="uno" value="<%=loginUser.getUno() %>">
                   <input type="hidden" name="id" value="<%=loginUser.getUserId() %>">
                   <input type="hidden" name="password" value="<%=loginUser.getUserPwd() %>">
@@ -110,7 +109,7 @@ body {
                   <input type="hidden" name="age" value="<%=loginUser.getAge() %>">
                   <input type="hidden" name="icode" value="<%=loginUser.getiCode() %>">
                   <input type="hidden" name="status" value="<%=loginUser.getStatus() %>">
-                  <li class="current"><button type="submit">마이페이지</button></li>
+                  <li type="submit"><button type="submit" style="background:white;"><a>마이페이지</a></button></li>
                   </form>
 
                   <%}else {%>

@@ -13,11 +13,14 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.controller.LoginServlet;
 import com.cw.coc.member.model.dao.MemberDao;
 import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.place.model.dao.LogmentDao;
+import com.cw.coc.place.model.service.RoomDao;
 import com.cw.coc.place.model.vo.CultureVoYM;
 import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
 import com.cw.coc.place.model.vo.RestaurantVo;
 import com.cw.coc.place.model.vo.SeoulVoYM;
+import com.cw.coc.room.model.vo.Room;
 
 public class MemberService {
 
@@ -174,7 +177,9 @@ public class MemberService {
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con); 
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
-		ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno()); 
+		//ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno());
+		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con);
+		ArrayList<Room> rm = new RoomDao().RoomSelect(con);
 		
 		
 		
@@ -191,6 +196,8 @@ public class MemberService {
 		 list.add(m);
 		 list.add(bo);
 		 list.add(rv);
+		 list.add(lm);
+		 list.add(rm);
 		 //list.add(uh);
 		 /*list.add(p1);
 		 list.add(rs1);

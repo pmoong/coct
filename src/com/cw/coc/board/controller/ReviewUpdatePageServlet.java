@@ -13,46 +13,41 @@ import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.vo.Member;
 
 
-@WebServlet("/updateReview.rv")
-public class UpdateReviewServlet extends HttpServlet {
+@WebServlet("/reviewUpdatePage.rv")
+public class ReviewUpdatePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public UpdateReviewServlet() {
+   
+    public ReviewUpdatePageServlet() {
         super();
-    
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int num = Integer.parseInt(request.getParameter("num"));
+		String bWriter = String.valueOf(((Member) request.getSession().getAttribute("loginUser")).getUserId());
 		HttpSession session = request.getSession();
 		Member m = (Member)session.getAttribute("loginUser");
 		
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		int num = Integer.parseInt(request.getParameter("num"));
 		
-		Board b = new Board();
+		Board b = new BoardService().selectOneReview(num, m);
 		
-		b.setbTitle(title);
-		b.setbContent(content);
 		
-		int result = new BoardService().updateReview(m, b, num);
-
-		String page = "";
+		String page = null;
 		
-		if(result > 0) {
-			response.sendRedirect("/coc/selectList.rv?num=" + m.getUno());
+		if(b != null) {
+			page = "views/board/reviewUpdate.jsp";
+			request.setAttribute("b", b);
 		}else {
 			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "공지사항 수정 실패!!");
-			request.getRequestDispatcher(page).forward(request, response);
+			request.setAttribute("msg", "게시판 상세 조회 실패!");
 		}
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 

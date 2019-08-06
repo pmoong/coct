@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.notice.model.vo.*" %>
+	pageEncoding="UTF-8" import="java.util.*" %>
 <%
-	ArrayList<Notice> list = (ArrayList<Notice>) request.getAttribute("list");
+	
 %>
 <!DOCTYPE HTML>
 <!--

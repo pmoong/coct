@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
+import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.LogmentParser;
 import com.cw.coc.place.model.vo.LogmentVoYM;
@@ -107,8 +108,8 @@ public class LogmentDao {
 
 			while(rset.next()) {
 				LogmentVoYM l = new LogmentVoYM();
-				
-				
+
+
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
 				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
@@ -163,7 +164,7 @@ public class LogmentDao {
 
 			while(rset.next()) {
 				LogmentVoYM l = new LogmentVoYM();
-				
+
 				l.setcCode(rset.getInt("SEQ_CCODE"));
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
@@ -218,13 +219,13 @@ public class LogmentDao {
 
 			rset = stmt.executeQuery(query);
 			lm = new ArrayList<LogmentVoYM>();
-			
+
 			System.out.println("@@@" + ltitle);
-			
+
 			while(rset.next()) {
-			
+
 				LogmentVoYM l = new LogmentVoYM();
-				
+
 				l.setcCode(rset.getInt("SEQ_CCODE"));
 				l.setLtitle(rset.getString("LTITLE"));
 				l.setLaddr(rset.getString("LADDR"));
@@ -237,10 +238,10 @@ public class LogmentDao {
 				l.setLmapx(rset.getString("LMAPX"));
 				l.setLmapy(rset.getString("LMAPY"));
 				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
-								
+
 				if (l.getLtitle().equals(ltitle)) {
-					
-					
+
+
 					lm.add(l);
 				}
 			}
@@ -253,6 +254,50 @@ public class LogmentDao {
 			close(stmt);
 		}
 
+
+		return lm;
+	}
+	public ArrayList<LogmentVoYM> LogmentSelect(Connection con) {
+		PreparedStatement pstmt = null;
+		ArrayList<LogmentVoYM> lm = null;
+		ResultSet rset = null;
+
+		String query = prop.getProperty("selectLogment");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			rset = pstmt.executeQuery();
+
+			lm = new ArrayList<LogmentVoYM>();
+
+			while(rset.next()) {
+
+				LogmentVoYM l = new LogmentVoYM();
+
+				l.setcCode(rset.getInt("SEQ_CCODE"));
+				l.setLtitle(rset.getString("LTITLE"));
+				l.setLaddr(rset.getString("LADDR"));
+				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
+				l.setLtel(rset.getString("LTEL"));
+				l.setLcontenttypeid(rset.getInt("LCONTENTTYPEID"));
+				l.setLcat1(rset.getString("LCAT1"));
+				l.setLcat2(rset.getString("LCAT2"));
+				l.setLcat3(rset.getString("LCAT3"));
+				l.setLmapx(rset.getString("LMAPX"));
+				l.setLmapy(rset.getString("LMAPY"));
+				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
+
+					lm.add(l);
+				}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
 
 		return lm;
 	}

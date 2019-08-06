@@ -93,13 +93,13 @@ td {
 					</table>
 					<br>
 					<div align="center">
-						<button onclick="complete();">작성완료</button>
-						<button onclick="deleteBoard();">삭제하기</button>
+						<button class="btn btn-default" onclick="complete();">작성완료</button>
+						<button class="btn btn-default" onclick="deleteBoard();">삭제하기</button>
 					</div>
 				</form>
 				<script>
 					function complete(){
-						$("#updateForm").attr("action", "<%=request.getContextPath()%>/updateReview.rv");
+						$("#updateForm").attr("action", "<%=request.getContextPath()%>/updateReview.rv?num=<%= b.getbCode()%>");
 					}
 					
 					function deleteBoard(){
