@@ -28,11 +28,11 @@
 
 					<div class="row">
 						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
+
 							<!-- Box -->
 							<section class="box feature">
-								<a href="/coc/views/course/course1.jsp" class="image featured"><img
-									src="../../images/c1.jpg" alt="" /></a>
-								<div class="inner"></div>
+								<a href="/coc/views/course/course2.jsp" class="image featured"><img
+									src="../../images/c2.jpg" alt="" /></a>
 							</section>
 
 						</div>
@@ -42,7 +42,14 @@
 							<section class="box feature">
 								<a href="/coc/views/course/course3.jsp" class="image featured"><img
 									src="../../images/c3.jpg" alt="" /></a>
-								<div class="inner"></div>
+							</section>
+
+						</div>
+						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
+							<!-- Box -->
+							<section class="box feature">
+								<a href="/coc/views/course/course1.jsp" class="image featured"><img
+									src="../../images/c1.jpg" alt="" /></a>
 							</section>
 
 						</div>
@@ -52,17 +59,6 @@
 							<section class="box feature">
 								<a href="/coc/views/course/course3.jsp" class="image featured"><img
 									src="../../images/c5.jpg" alt="" /></a>
-								<div class="inner"></div>
-							</section>
-
-						</div>
-						<div class="col-12 col-12-medium" style="margin-left:15%; margin-right:15%;">
-
-							<!-- Box -->
-							<section class="box feature">
-								<a href="/coc/views/course/course2.jsp" class="image featured"><img
-									src="../../images/c2.jpg" alt="" /></a>
-								<div class="inner"></div>
 							</section>
 
 						</div>
@@ -72,7 +68,6 @@
 							<section class="box feature">
 								<a href="/coc/views/course/course2.jsp" class="image featured"><img
 									src="../../images/c4.jpg" alt="" /></a>
-								<div class="inner"></div>
 							</section>
 
 						</div>
