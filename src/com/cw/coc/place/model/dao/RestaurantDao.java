@@ -6,17 +6,23 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.RestaurantParser;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.RestaurantVo;
  
 
 public class RestaurantDao {
+	private Properties prop = new Properties();
 	 public static void saveDB(List<RestaurantVo> xmlList){
 		  
 	  }
@@ -67,6 +73,7 @@ public class RestaurantDao {
 		  close(con);
  	  }
 	}
+
 		 
 		 
 	

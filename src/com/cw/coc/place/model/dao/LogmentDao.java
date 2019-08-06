@@ -19,6 +19,7 @@ import java.util.Properties;
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.LogmentParser;
 import com.cw.coc.place.model.vo.LogmentVoYM;
+import com.cw.coc.place.model.vo.RestaurantVo;
 import com.cw.coc.place.model.vo.LogmentVo;
 
 import oracle.net.aso.l;
@@ -208,11 +209,9 @@ public class LogmentDao {
 		ArrayList<LogmentVoYM> lm = null;
 		ResultSet rset = null;
 
-
 		String query = prop.getProperty("selectRoomInfo");
 
 		try {
-
 
 			stmt = con.createStatement();
 
@@ -240,11 +239,9 @@ public class LogmentDao {
 								
 				if (l.getLtitle().equals(ltitle)) {
 					
-					
 					lm.add(l);
 				}
 			}
-
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -255,5 +252,128 @@ public class LogmentDao {
 
 
 		return lm;
+	}
+	public ArrayList<LogmentVoYM> rsvRoomInfo(Connection con) {
+		Statement stmt = null;
+		ArrayList<LogmentVoYM> list = null;
+		ArrayList<LogmentVoYM> randomlist = null;
+		ResultSet rset = null;
+
+
+		String query = prop.getProperty("randomPlaceList");
+
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+			list = new ArrayList<LogmentVoYM>();
+
+
+			String query1 = prop.getProperty("selectRandomList");
+			randomlist = new ArrayList<LogmentVoYM>();
+			rset = stmt.executeQuery(query1);
+
+			while(rset.next()) {
+				LogmentVoYM l = new LogmentVoYM();
+				
+				l.setcCode(rset.getInt("SEQ_CCODE"));
+				l.setLtitle(rset.getString("LTITLE"));
+				l.setLaddr(rset.getString("LADDR"));
+				l.setLsigungucode(rset.getInt("LSIGUNGUCODE"));
+				l.setLtel(rset.getString("LTEL"));
+				l.setLcontenttypeid(rset.getInt("LCONTENTTYPEID"));
+				l.setLcat1(rset.getString("LCAT1"));
+				l.setLcat2(rset.getString("LCAT2"));
+				l.setLcat3(rset.getString("LCAT3"));
+				l.setLmapx(rset.getString("LMAPX"));
+				l.setLmapy(rset.getString("LMAPY"));
+				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
+				randomlist.add(l);
+			}
+
+			for(LogmentVoYM l : randomlist) {
+				System.out.println(l);
+			}
+
+			Collections.shuffle(randomlist);
+
+			System.out.println("===========");
+			for(LogmentVoYM l : randomlist) {
+				System.out.println(l);
+			}
+
+			System.out.println(randomlist);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+
+		return randomlist;
+	}
+	public ArrayList<RestaurantVo> rsvRoomInfo2(Connection con) {
+		Statement stmt = null;
+		ArrayList<RestaurantVo> list = null;
+		ArrayList<RestaurantVo> randomlist = null;
+		ResultSet rset = null;
+
+		System.out.println("DAo!!!::::::::");
+		String query = prop.getProperty("randomRtList");
+
+		try {
+			stmt = con.createStatement();
+
+			rset = stmt.executeQuery(query);
+			list = new ArrayList<RestaurantVo>();
+
+			String query1 = prop.getProperty("selectList");
+			randomlist = new ArrayList<RestaurantVo>();
+			rset = stmt.executeQuery(query1);
+
+			while(rset.next()) {
+				RestaurantVo l = new RestaurantVo();
+				
+				l.setcCode(rset.getInt("SEQ_CCODE"));
+				l.setRtitle(rset.getString("RTITLE"));
+				l.setRaddr(rset.getString("RADDR"));
+				l.setRtel(rset.getString("RTEL"));
+				l.setRcontenttypeid(rset.getInt("RCONTENTTYPEID"));
+				l.setRcat1(rset.getString("RCAT1"));
+				l.setRcat2(rset.getString("RCAT2"));
+				l.setRcat3(rset.getString("RCAT3"));
+				l.setRmapx(rset.getString("RMAPX"));
+				l.setRmapy(rset.getString("RMAPY"));
+				l.setRfirstimage(rset.getString("RFIRSTIMAGE"));
+				randomlist.add(l);
+				
+			}
+
+			for(RestaurantVo l : randomlist) {
+				System.out.println(l);
+			}
+
+			Collections.shuffle(randomlist);
+
+			System.out.println("===========");
+			for(RestaurantVo  l : randomlist) {
+				System.out.println(l);
+			}
+
+			System.out.println(randomlist);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+
+		return randomlist;
 	}
 }
