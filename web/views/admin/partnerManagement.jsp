@@ -151,9 +151,6 @@ table {
 						<option value="content">구분</option>
 					</select> <input type="search">
 					<button type="submit" style="background: yellowgreen;">검색하기</button>
-					<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>
-					<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-					<%-- <% } %> --%>
 				</div>
 			</div>
 		</div>

@@ -94,7 +94,7 @@ li a.active {
 						<li><a href="/coc/ListAll.ad">게시판관리</a></li>
 						<li><a href="/coc/ListP.ad">정산내역</a></li>
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
-						<li><a href="/coc/logout" style='color:#088A08;'>로그아웃</a></li>
+						<li><a href="/coc" style='color:#088A08;'>로그아웃</a></li>
 					</ul>
 				</nav>
 			</header>

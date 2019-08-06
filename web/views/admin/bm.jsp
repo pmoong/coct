@@ -258,9 +258,7 @@
 			</select>
 			<input type="search">
 			<button type="submit">검색하기</button>
-			<% if(loginUser != null){ %>
 			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
-			<% } %>
 		</div>
 		
 	</div>
@@ -334,9 +332,6 @@
 			</select>
 			<input type="search">
 			<button type="submit">검색하기</button>
-			<% if(loginUser != null){ %>
-			<button onclick="location.href='views/board/Admin_boardInsertForm.jsp'">작성하기</button>
-			<% } %>
 		</div>
 		
 	</div>

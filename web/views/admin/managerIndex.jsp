@@ -33,22 +33,12 @@
 	
 	
 %>
-<%-- <% Member loginUser = (Member) session.getAttribute("loginUser");%>	 --%>
 <!DOCTYPE HTML>
 
 <html>
 <head>
+<meta charset="UTF-8">
 <title>CoC</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-<!-- Additional files for the Highslide popup effect -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -83,9 +73,12 @@
         var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
+      }
         </script>
-<script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
-<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+
+
+<!-- Additional files for the Highslide popup effect -->
+
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
 <style>
 body {
@@ -155,15 +148,13 @@ button {
 		</div>
 		<hr style="border-color: yellowgreen">
 		<!-- Wrapper for slides -->
-
 <div class="container">
 	<table>
        <tr>
-       <td><div id="chart_div" style="width: 50%; height: 400px;"></div></td>
+       <td><div id="chart_div" style="width: 100%; height: 400px;"></div></td>
         </tr>
     </table>
 </div>
-
 		
 
 
@@ -452,7 +443,7 @@ button {
 				
 			});
 		});
-	}
+	
 		  </script>
 </body>
 </html>

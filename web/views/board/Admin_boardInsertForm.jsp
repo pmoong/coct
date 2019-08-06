@@ -32,7 +32,6 @@ table {
 	<%@ include file="/views/common/menubar_manager.jsp"%>
 
 
-	<% if(loginUser != null){ %>
 		<div class="outer container">
 			<br>
 			<h2 align="center">공지사항 작성</h2>
@@ -40,14 +39,10 @@ table {
 				<form action="<%= request.getContextPath() %>/insert.ad" method="post">
 					<table>
 						<tr>
-							<td>분야</td>
+							<td>분류</td>
 							<td>
 								<select name="bType">
-								<%
-									if (loginUser != null && loginUser.getuType().equals("A")) {
-								%>
 									<option value="NT">전체공지</option>
-								<% } %>
 								</select>
 							</td>
 						</tr>
@@ -77,10 +72,7 @@ table {
 	<hr>
 	<!-- Footer -->
 	<%@include file="/views/common/footerbar_customer.jsp"%>
-	<% } else {
-		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
-		request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
-	} %>
+	
 
 
 

@@ -16,7 +16,6 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	System.out.print("여기까지 호출했는지?");
 	
 	
 	
@@ -153,9 +152,6 @@ table {
 						<option value="content">내용</option>
 					</select> <input type="search">
 					<button type="submit" style="background: yellowgreen;">검색하기</button>
-					<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>
-					<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-					<%-- <% } %> --%>
 				</div>
 			</div>
 		</div>

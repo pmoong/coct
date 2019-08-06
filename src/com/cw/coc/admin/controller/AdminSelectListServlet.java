@@ -53,27 +53,20 @@ public class AdminSelectListServlet extends HttpServlet {
 		int endPage;			//한 번에 표시될 페이징 버튼이 끝나는 번호
 		
 		Map<String,ArrayList> result = new HashMap<String, ArrayList>();
-		//게시판은 1페이지부터 시작
 		currentPage = 1;
 		
 		if(request.getParameter("currentPage") != null) {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		
-		//한 페이지에 보여질 목록 갯수
 		limit =5;
 		
-		//전체 목록 갯수를 리턴받음
 		int blistCount = new BoardService().getListCount();
 		int mlistCount = new MemberService().getListCount();
 		int rlistCount = new ReserveService().getListCount();
 		int plistCount = new PartnerService().getListCount();
 		int alistCount = new AllPaymentService().getListCount();
 		
-		System.out.println("listCount : " + blistCount);
-		System.out.println("mlistCount : " + mlistCount);
-		System.out.println("RlistCount : " + rlistCount);
-		System.out.println("PlistCount : " + plistCount);
 		//총 페이지 수 계산
 		maxPage = (int)((double)blistCount / limit + 0.9);
 		
@@ -92,17 +85,7 @@ public class AdminSelectListServlet extends HttpServlet {
 		PageInfo pi = 
 				new PageInfo(currentPage, blistCount, limit, maxPage, startPage, endPage);
 		
-		mPageInfo pi2 = 
-				new mPageInfo(currentPage, mlistCount, limit, maxPage, startPage, endPage);
 		
-		rPageInfo pi3 = 
-				new rPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
-		
-		pPageInfo pi4 = 
-				new pPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
-		
-		aPageInfo pi5 = 
-				new aPageInfo(currentPage, rlistCount, limit, maxPage, startPage, endPage);
 	
 		ArrayList<Board> blist = new BoardService().selectList(currentPage, limit);
 		ArrayList<Member> mlist = new MemberService().selectList(currentPage, limit);
@@ -118,10 +101,7 @@ public class AdminSelectListServlet extends HttpServlet {
 		result.put("alist", alist);
 		result.put("as", as);	
 		//result.put("pi", pi);
-		System.out.println("result : " +result);
 		
-		System.out.println("pi5 : " + pi5);
-		System.out.println("aLIST : " + alist);
 		String page = "";
 		
 		if(result != null) {
@@ -130,8 +110,6 @@ public class AdminSelectListServlet extends HttpServlet {
 			page = "views/admin/managerIndex.jsp";
 			//request.setAttribute("blist", blist);
 			request.setAttribute("result", result);
-			System.out.println("★★★★");
-			System.out.println(result);
 			request.setAttribute("pi", pi);
 		}else {
 			page = "views/common/errorPage.jsp";
