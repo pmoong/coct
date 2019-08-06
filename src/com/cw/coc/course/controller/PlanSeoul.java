@@ -8,10 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.PageInfo;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 
  
 @WebServlet("/PlanSeoul")
@@ -23,7 +26,11 @@ public class PlanSeoul extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		int currentPage;
+		HttpSession session = request.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		
+		/*
+		int currentPage;
 		int limit;
 		int maxPage;
 
@@ -48,15 +55,15 @@ public class PlanSeoul extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
-		
-		ArrayList<Place> list = new PlaceService().selectseoul(currentPage,limit);
+		ArrayList<SeoulVoYM> list = new PlaceService().selectseoul(currentPage,limit,m);*/
+		ArrayList<SeoulVoYM> list = new PlaceService().selectseoul( m);
   		String page="";
 		
 		if(list != null){
 			page="views/course/plan.jsp";
 			request.setAttribute("list", list);
-			request.setAttribute("pi", pi);
-		}else {
+/*			request.setAttribute("pi", pi);
+*/		}else {
 			page="views/common/errorPage.jsp";
 
 			request.setAttribute("msg", "실패!");

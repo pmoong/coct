@@ -1,4 +1,4 @@
-package com.cw.coc.place.model.dao;
+/*package com.cw.coc.place.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.close;
 
@@ -14,8 +14,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
 
+import com.cw.coc.choice.model.vo.Coc;
 import com.cw.coc.common.JDBCTemplate;
+import com.cw.coc.member.model.vo.Member;
+import com.cw.coc.place.model.vo.CultureVoYM;
+import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.RestaurantVo;
+import com.cw.coc.place.model.vo.SeoulVoYM;
 
 
 public class PlaceDao {
@@ -25,7 +31,7 @@ public class PlaceDao {
 		
  		
 		String fileName = 
-				PlaceDao.class.getResource("/sql/place/place-query.properties").getPath();
+				PlaceDao.class.getResource("/sql/PlaceCoc/PlaceCoc-query.properties").getPath();
 		
 		try {
 			prop.load(new FileReader(fileName));
@@ -37,7 +43,7 @@ public class PlaceDao {
 		}
 	}
 
-	/*public ArrayList<Place> searchRoomList(Connection con, String locationName) {
+	public ArrayList<Place> searchRoomList(Connection con, String locationName) {
 		Statement stmt = null;
 		ArrayList<Place> list = null;
 		ResultSet rset = null;
@@ -82,7 +88,7 @@ public class PlaceDao {
 		
 		
 		return list;
-	}*/
+	}
 
 	/*public ArrayList<Place> randomPlace(Connection con) {
 		Statement stmt = null;
@@ -237,11 +243,11 @@ public class PlaceDao {
 		return null;
 	}*/
 
-	public ArrayList<Place> selectlogment(Connection con, int currentPage, int limit) {
+	public ArrayList<LogmentVoYM> selectlogment(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Place>list =new ArrayList<Place>();
-		String query = prop.getProperty("selectlogment");
+		ArrayList<LogmentVoYM>list =new ArrayList<LogmentVoYM>();
+		String query = prop.getProperty("cocselectLogment");
 		
 		try {
 			
@@ -249,27 +255,21 @@ public class PlaceDao {
 			 
 			int startRow=(currentPage -1) *limit +1;
 			int endRow=startRow +limit -1;
-			
-			pstmt.setInt(1,startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setInt(1, m.getUno());
+
+			pstmt.setInt(2,startRow);
+			pstmt.setInt(3, endRow);
 
 			rset=pstmt.executeQuery();
-			list=new ArrayList<Place>();
+			list=new ArrayList<LogmentVoYM>();
 				
 			while(rset.next()) {
-				Place p = new Place();
+				LogmentVoYM l = new LogmentVoYM();
 				
-				p.setpName(rset.getString("PNAME"));
-				p.setpAddress(rset.getString("PADDRESS"));
-				p.setImage(rset.getString("IMAGE"));
-				p.setuType(rset.getString("UTYPE"));
-				p.setiCode(rset.getString("ICODE"));
-				p.setMapx(rset.getString("MAPX"));
-				p.setMapy(rset.getString("MAPY"));
-				p.setcCode(rset.getInt("SEQ_CCODE"));
-
-				
-					list.add(p);
+				l.setLtitle(rset.getString("LTITLE"));
+				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
+				l.setLaddr(rset.getString("LADDR"));
+				list.add(l);
 				
 			}
 			
@@ -282,37 +282,32 @@ public class PlaceDao {
 		}
 		return list;
 	}
-	public ArrayList<Place> selectrestaurant(Connection con, int currentPage, int limit) {
+	public ArrayList<RestaurantVo> selectrestaurant(Connection con ,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Place>list =new ArrayList<Place>();
+		ArrayList<RestaurantVo>list =new ArrayList<RestaurantVo>();
 		
-		String query = prop.getProperty("selectrestaurant");
+		String query = prop.getProperty("cocselectRestaurant");
 		
 		try {
 			pstmt=con.prepareStatement(query);
 			 
 			int startRow=(currentPage -1) *limit +1;
 			int endRow=startRow +limit -1;
-			
-			pstmt.setInt(1,startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setInt(1, m.getUno());
+			pstmt.setInt(2,startRow);
+			pstmt.setInt(3, endRow);
 
 			rset=pstmt.executeQuery();
-			list=new ArrayList<Place>();
+			list=new ArrayList<RestaurantVo>();
 			while(rset.next()) {
-				Place p = new Place();
+RestaurantVo r = new RestaurantVo();
 				
-				p.setpName(rset.getString("PNAME"));
-				p.setpAddress(rset.getString("PADDRESS"));
-				p.setImage(rset.getString("IMAGE"));
-				p.setuType(rset.getString("UTYPE"));
-				p.setiCode(rset.getString("ICODE"));
-				p.setMapx(rset.getString("MAPX"));
-				p.setMapy(rset.getString("MAPY"));
-				p.setcCode(rset.getInt("SEQ_CCODE"));
+				r.setRtitle(rset.getString("RTITLE"));
+				r.setRfirstimage(rset.getString("RFIRSTIMAGE"));
+				r.setRaddr(rset.getString("RADDR"));
 
-					list.add(p);
+					list.add(r);
 				
 			}
 			
@@ -324,37 +319,27 @@ public class PlaceDao {
 		}
 		return list;
 	}
-	public ArrayList<Place> selectculture(Connection con, int currentPage, int limit) {
+	public ArrayList<CultureVoYM> selectculture(Connection con, int currentPage, int limit,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Place>list =new ArrayList<Place>();
+		ArrayList<CultureVoYM> list =null;
 		
-		String query = prop.getProperty("selectculture");
+		String query = prop.getProperty("cocselectculture");
 		
 		try {
 			pstmt=con.prepareStatement(query);
-			 
-			int startRow=(currentPage -1) *limit +1;
-			int endRow=startRow +limit -1;
-			
-			pstmt.setInt(1,startRow);
-			pstmt.setInt(2, endRow);
-
+		 
+			pstmt.setInt(1, m.getUno());
+		 
 			rset=pstmt.executeQuery();
-			list=new ArrayList<Place>();
+			list=new ArrayList<CultureVoYM>();
 			while(rset.next()) {
-				Place p = new Place();
+				CultureVoYM c = new CultureVoYM();
 				
-				p.setpName(rset.getString("PNAME"));
-				p.setpAddress(rset.getString("PADDRESS"));
-				p.setImage(rset.getString("IMAGE"));
-				p.setuType(rset.getString("UTYPE"));
-				p.setiCode(rset.getString("ICODE"));
-				p.setMapx(rset.getString("MAPX"));
-				p.setMapy(rset.getString("MAPY"));
-				p.setcCode(rset.getInt("SEQ_CCODE"));
-
-					list.add(p);
+				c.setCtitle(rset.getString("CTITLE"));
+				c.setFirstimage(rset.getString("CFIRSTIMAGE"));
+				c.setCaddr(rset.getString("CADDR"));
+					list.add(c);
 				
 			}
 			
@@ -367,37 +352,32 @@ public class PlaceDao {
 		}
 		return list;
 	}
-	public ArrayList<Place> selectseoul(Connection con, int currentPage, int limit) {
+	public ArrayList<SeoulVoYM> selectseoul(Connection con, int currentPage, int limit,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Place>list =new ArrayList<Place>();
-		String query = prop.getProperty("selectseoul");
+		ArrayList<SeoulVoYM>list =new ArrayList<SeoulVoYM>();
+		String query = prop.getProperty("cocselectSeoul");
 		
 		try {
 			pstmt=con.prepareStatement(query);
 			 
 			int startRow=(currentPage -1) *limit +1;
 			int endRow=startRow +limit -1;
-			
-			pstmt.setInt(1,startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setInt(1, m.getUno());
+
+			pstmt.setInt(2,startRow);
+			pstmt.setInt(3, endRow);
 
 			rset=pstmt.executeQuery();
-			list=new ArrayList<Place>();
+			list=new ArrayList<SeoulVoYM>();
+			
 			while(rset.next()) {
-				Place p = new Place();
+				SeoulVoYM s = new SeoulVoYM();
 				
-				p.setpName(rset.getString("PNAME"));
-				p.setpAddress(rset.getString("PADDRESS"));
-				p.setImage(rset.getString("IMAGE"));
-				p.setuType(rset.getString("UTYPE"));
-				p.setiCode(rset.getString("ICODE"));
-				p.setMapx(rset.getString("MAPX"));
-				p.setMapy(rset.getString("MAPY"));
-				p.setcCode(rset.getInt("SEQ_CCODE"));
-
-					list.add(p);
-					System.out.println(rset.getString("PNAME"));
+				s.setTitle(rset.getString("STITLE"));
+				s.setFirstimage(rset.getString("SFIRSTIMAGE"));
+				s.setAddr1(rset.getString("SADDR"));
+				list.add(s);
 
 			}
 			
@@ -525,7 +505,7 @@ public class PlaceDao {
 		ResultSet rset=null;
 	 
 	 
-		String query=prop.getProperty("getListCount");
+		String query=prop.getProperty("cocgetListCount");
 		
  		try {
 			stmt=con.createStatement();
@@ -542,33 +522,29 @@ public class PlaceDao {
 		return listCount;
 	}
 
-	public ArrayList<Place> selectList(Connection con, int currentPage, int limit) {
+	 public ArrayList<Coc> selectList(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Place>list =new ArrayList<Place>();
+		ArrayList<Coc>list =new ArrayList<Coc>();
 		String query =prop.getProperty("selectListPaging");
-
+System.out.println("11111");
 		try {
 		pstmt=con.prepareStatement(query);
-		 
-		int startRow=(currentPage -1) *limit +1;
-		int endRow=startRow +limit -1;
-		
-		pstmt.setInt(1,startRow);
-		pstmt.setInt(2, endRow);
-
+ 
+		pstmt.setInt(1, m.getUno());
+		pstmt.setInt(2, m.getUno());
+		pstmt.setInt(3, m.getUno());
+		pstmt.setInt(4, m.getUno());
+ 
 		rset=pstmt.executeQuery();
-		list=new ArrayList<Place>();
+		list=new ArrayList<Coc>();
 		while(rset.next()) {
-			Place p = new Place();
+			Coc c =new Coc();
+			 
 			p.setpName(rset.getString("PNAME"));
 			p.setpAddress(rset.getString("PADDRESS"));
 			p.setImage(rset.getString("IMAGE"));
-			p.setuType(rset.getString("UTYPE"));
-			p.setiCode(rset.getString("ICODE"));
-			p.setMapx(rset.getString("MAPX"));
-			p.setMapy(rset.getString("MAPY"));
-				list.add(p);
+			list.add(p);
 				System.out.println(list+"list");
 			}
 	} catch (SQLException e) {
@@ -576,11 +552,12 @@ public class PlaceDao {
 	}finally {
 		close(pstmt);
 		close(rset);
-	}return list;
-	}
+ 	}
+		return list;
+	} 
 
 	public ArrayList<Place> selectListPage(Connection conn, int currentPage, int limit, String searchkey,
-			String searchvalue) {
+			String searchvalue,Member m) {
 		
 		ArrayList<Place>list =null;
 		PreparedStatement pstmt=null;
@@ -599,42 +576,63 @@ public class PlaceDao {
 			if (searchkey.equals("total")) {
                pstmt = conn.prepareStatement(total);
                pstmt.setString(1, searchvalue);
-               pstmt.setString(2, searchvalue);
-               pstmt.setInt(3,startRow);
-       			pstmt.setInt(4, endRow);
+               pstmt.setInt(2, m.getUno());
+       		   pstmt.setString(3, searchvalue);
+       		   pstmt.setInt(4, m.getUno());
+    		   pstmt.setString(5, searchvalue);
+    		   pstmt.setInt(6, m.getUno());
+        		pstmt.setString(7, searchvalue);
+        		pstmt.setInt(8, m.getUno());
+                pstmt.setInt(9,startRow);
+       			pstmt.setInt(10, endRow);
 
            } else if (searchkey.equals("culture")) {
            
                pstmt = conn.prepareStatement(culture);
-               pstmt.setString(1,searchvalue);
-               pstmt.setInt(2,startRow);
-               pstmt.setInt(3, endRow);
+       
+       	   pstmt.setInt(1, m.getUno());
+           pstmt.setString(2, searchvalue);
+   	 
+    		 pstmt.setInt(9,startRow);
+    			pstmt.setInt(10, endRow);
 
             } else if (searchkey.equals("logment")) {
             
                pstmt = conn.prepareStatement(logment);
-               pstmt.setString(1, searchvalue);
-               pstmt.setInt(2,startRow);
-       		   pstmt.setInt(3, endRow);
+               pstmt.setInt(1, m.getUno());
+               pstmt.setString(2, searchvalue);
+       		 
+        		 pstmt.setInt(9,startRow);
+        			pstmt.setInt(10, endRow);
 
            } else if (searchkey.equals("restaurant")) {
           
                pstmt = conn.prepareStatement(restaurant);
-               pstmt.setString(1,searchvalue);
-               pstmt.setInt(2,startRow);
-       		   pstmt.setInt(3, endRow);
+               pstmt.setInt(1, m.getUno());
+               pstmt.setString(2, searchvalue);
+       	 
+        		 pstmt.setInt(9,startRow);
+        			pstmt.setInt(10, endRow);
            } else if (searchkey.equals("seoul")) {
          
                pstmt = conn.prepareStatement(seoul);
-               pstmt.setString(1, searchvalue);
-               pstmt.setInt(3,startRow);
-       		   pstmt.setInt(4, endRow);
+               pstmt.setInt(1, m.getUno());
+               pstmt.setString(2, searchvalue);
+       		 
+        		 pstmt.setInt(9,startRow);
+        			pstmt.setInt(10, endRow);
             } else if (searchkey.equals("addr")) {
                pstmt = conn.prepareStatement(addr);
-               pstmt.setString(1, searchvalue);
-               pstmt.setInt(2,startRow);
-       		   pstmt.setInt(3, endRow);
-           
+                pstmt.setString(1, searchvalue);
+               pstmt.setInt(2, m.getUno());
+       		   pstmt.setString(3, searchvalue);
+       		   pstmt.setInt(4, m.getUno());
+    		   pstmt.setString(5, searchvalue);
+    		   pstmt.setInt(6, m.getUno());
+        		pstmt.setString(7, searchvalue);
+        		pstmt.setInt(8, m.getUno());
+        		 pstmt.setInt(9,startRow);
+        			pstmt.setInt(10, endRow);
            } else {
         	   System.out.println("b");
            }
@@ -642,15 +640,13 @@ public class PlaceDao {
 			list = new ArrayList<Place>();
 			
 			while(rset.next()) {
-				Place p = new Place();
+				Place p =new Place();
+				 
 				p.setpName(rset.getString("PNAME"));
- 			 	p.setpAddress(rset.getString("PADDRESS"));
+				System.out.println("p:"+p);
+				p.setpAddress(rset.getString("PADDRESS"));
 				p.setImage(rset.getString("IMAGE"));
-				p.setuType(rset.getString("UTYPE"));
-  				p.setMapx(rset.getString("MAPX"));
-				p.setMapy(rset.getString("MAPY"));
-				p.setcCode(rset.getInt("SEQ_CCODE"));
-					list.add(p);
+				list.add(p);
  			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -675,4 +671,4 @@ public class PlaceDao {
 	
 	
 	
-	
+	*/

@@ -1,19 +1,22 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo"%>
+	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo,com.cw.coc.choice.model.vo.Coc"%>
 	<%
-  ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
-  /* ArrayList<PlaceCocVo> PlacecocList =(ArrayList<PlaceCocVo>)request.getAttribute("PlacecocList");
-  ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>) request.getAttribute("ct");
-	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
-	ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
-	ArrayList<SeoulVoYM> sl = (ArrayList<SeoulVoYM>) request.getAttribute("sl");
-	 */
-	PageInfo pi =(PageInfo)request.getAttribute("pi");
+/*      ArrayList<PlaceCocVo> list=(ArrayList<PlaceCocVo>)request.getAttribute("list");
+ */	 ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
+	 
+ 		ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>)request.getAttribute("ct");
+		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>)  request.getAttribute("lm");
+		ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
+		ArrayList<SeoulVoYM> sl = (ArrayList<SeoulVoYM>) request.getAttribute("sl"); 
+/* 		ArrayList<LogmentVoYM> list =new PlaceService().selectlogment(m);
+ */   /* ArrayList<Coc> list =(ArrayList<Coc>)request.getAttribute("list");
+   */
+	/* PageInfo pi =(PageInfo)request.getAttribute("pi");
 	    int listCount =pi.getListCount();
 	    int currentPage =pi.getCurrentPage();
 	    int maxPage=pi.getMaxPage();
 	    int startPage=pi.getStartPage();
-	    int endPage=pi.getEndPage();
+	    int endPage=pi.getEndPage(); */
   	%>
 <!DOCTYPE html>
 <html>
@@ -127,20 +130,15 @@ outline:0;
 			<form action="<%= request.getContextPath() %>/plan" method="post">
              <fieldset class="field-container" style="border-radius:20px;">
              <input type="hidden" name="userNo" value="<%=loginUser.getUno() %>"/>
-         <%--     <input type="hidden" name="mapx" value="<%=mapx%>"/>
-             <input type="hidden" name="mapy" value="<%=mapy%>"/>
-              --%>
-             
-<%--              	<input type="search" name="searchKeyword" class="form-control" placeholder="<%=keyWord %>" class="field"  style="border-radius:20px;"/>
- --%>              </fieldset>
+                         </fieldset>
              </form>
 			</div>
   	<div class="container">
 		<div class="row">
-			 <div id="map"   >
+			 <div id="map" style="width:500px ;height:600px; inline:auto;" ></div>
 				<h1 id="pm">
 				</h1>
-			</div> 
+			  
 			<div class="right-box">
   				 	<form id="search" method="get" action="search.hj">
 				<select class="btn btn-default" name="searchkey" style="width:70px;">
@@ -165,24 +163,22 @@ outline:0;
  				
  				   <table border="1">
 <tr>
-<th>타이틀</th>
+<th>타이틀</th></tr>
 
-
-<% int i=0;
-for(Place pl :list){ %>
+  <%  
+for(CultureVoYM p: ct){ %> 
 <tr id="title">
-   
-<td id="title"><%=pl.getpName() %></td>
-<td id="addr"><%=pl.getMapx() %></td>
-<td class="pname"></td>
-<input type="hidden"   name="mapx<%=i %>" value="<%=pl.getMapx()%>">
-<input type="hidden"   name="mapy<%=i %>" value="<%=pl.getMapy()%>">
- 
+  <%p.getCaddr();%>
+  
+  
+  <%} %>
+<%-- <td id="title"><%=p.getCaddr()%></td>
+ <td class="pname"></td>
+ <%} %> 
 </tr>
-<%} %> 
-</table>
-   <%-- 
- --%>
+ 
+</table></div></div></div> --%>
+ 
    	<%-- <%if(i%4 ==0 ){ %>
    <%} int cnt=0;%>
    <%for(int j=0; j<PlacecocList.size(); j++){%>
@@ -214,7 +210,7 @@ for(Place pl :list){ %>
 </div> 	
 	</td>
  --%>
-<div class="pagingArea" align="center">
+<%-- <div class="pagingArea" align="center">
 <button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/plan2?currentPage=1'"><<</button>
 
 	<% if(currentPage <=1){ %>
@@ -241,7 +237,7 @@ for(Place pl :list){ %>
  
 
 <button class="btn btn-default" onclick="location.href='<%=request.getContextPath() %>/plan2?currentPage=<%=maxPage %>'">>></button>
-</div></div></div></div>
+</div></div></div></div> --%>
  
   
 		<div class="bottom" id="bottom">
@@ -250,12 +246,12 @@ for(Place pl :list){ %>
 				<h2>첫 번째 목적지를 설정해볼까요?</h2><br><br><br>
 			</div>
 			
-    <%for(int j=0; j<list.size(); j++){%>
+    <%--  <%for(int j=0; j<list1.size(); j++){%>
 					 <div style="display:inline; float:left;"> 
-    	 <b><%=list.get(j).getpName()%></b> <br> <b><%=list.get(j).getpAddress()%></b><br> <img src="<%=list.get(j).getImage()%>" width="150px" height="200px" >
+    	 <b><%=list1.get(j).getpName()%></b> <br> <b><%=list1.get(j).getpAddress()%></b><br> <img src="<%=list1.get(j).getImage()%>" width="150px" height="200px" >
      		</div>
-    <%}%>
-			<div id="rowDay1" class="row">
+    <%}%> --%>
+		 	<div id="rowDay1" class="row">
 				<div class="count">
 					<h1>1일차</h1>
 					<sup><button type="button" id="colPlus1" class="btn" style="font-size:20px" onclick="colPlus('1')">+</button></sup>
@@ -482,14 +478,14 @@ for(Place pl :list){ %>
 			
 			 
 			  <script type="text/javascript">
-    var locations = [
+ <%--    var locations = [
     <%for(int j=0; j<list.size(); j++){%>
     	['<%=list.get(j).getpName()%>', <%=list.get(j).getMapx()%>, <%=list.get(j).getMapy()%>, 28]
     	<%if(j < list.size() - 1){%>
     		,
     <%}}%>
      
-    ];
+    ]; --%>
 
       /* ['국립축산과학원 축산자원개발부', 36.93309333, 127.10487485, 28] */
     var map = new google.maps.Map(document.getElementById('map'), {

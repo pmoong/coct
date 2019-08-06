@@ -10,9 +10,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.cw.coc.place.model.vo.*;
 import com.cw.coc.board.model.dao.BoardDao;
+import com.cw.coc.choice.model.vo.Coc;
 import com.cw.coc.course.model.sevice.SearchService;
+import com.cw.coc.course.model.sevice.Place.PlaceCocService;
+import com.cw.coc.course.model.vo.Place.PlaceCocVo;
+import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.PageInfo;
 import com.cw.coc.place.model.vo.Place;
@@ -36,12 +42,16 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		int currentPage;
-		int limit;
-		int maxPage;
+		HttpSession session = request.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		int userNo = m.getUno();
+
+	  	ArrayList<PlaceCocVo> PlacecocList  = new PlaceCocService().PlaceisCoc(userNo);
 		String searchkey=request.getParameter("searchkey");
 		String searchvalue=request.getParameter("searchvalue");
+		/*int currentPage;
+		int limit;
+		int maxPage;
 
 		int startPage;
 		int endPage;
@@ -62,16 +72,18 @@ public class SearchServlet extends HttpServlet {
 		if(maxPage <endPage) {
 			endPage = maxPage;
 		}
-		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
+		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);*/
 		
-		 ArrayList<Place> list =new PlaceService().searchListPage(currentPage,limit, searchkey, searchvalue); 
+		 ArrayList<Place> list =new PlaceService().searchListPage(/*currentPage,limit,*/ searchkey, searchvalue,m); 
  		String page="";
 		
 		if(list != null ){
 			page="views/course/plan.jsp";
 			request.setAttribute("list", list);
- 			request.setAttribute("pi", pi);
-		}else {
+			request.setAttribute("PlacecocList", PlacecocList);
+
+/* 			request.setAttribute("pi", pi);
+*/		}else {
 			page="views/common/errorPage.jsp";
 			request.setAttribute("msg", "ㅠㅠ!");
 		}

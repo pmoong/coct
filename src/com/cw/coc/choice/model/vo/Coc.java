@@ -4,16 +4,16 @@ public class Coc {
 	private int uno;
 	private int cCode;
 	private int cocNo;
-	
+ 
 	public Coc() {}
 
-	public Coc(int uno, int cCode, int cocNo) {
+	public Coc(int uno, int cCode, int cocNo ) {
 		super();
 		this.uno = uno;
 		this.cCode = cCode;
 		this.cocNo = cocNo;
+		
 	}
-
 	public int getUno() {
 		return uno;
 	}
@@ -38,10 +38,15 @@ public class Coc {
 		this.cocNo = cocNo;
 	}
 
+ 
+
 	@Override
 	public String toString() {
-		return "Coc [uno=" + uno + ", cCode=" + cCode + ", cocNo=" + cocNo + "]";
+		return "Coc [uno=" + uno + ", cCode=" + cCode + ", cocNo=" + cocNo 
+				+ "]";
 	}
-	
+
+
+ 
 	
 }
