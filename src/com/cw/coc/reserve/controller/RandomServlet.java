@@ -16,7 +16,7 @@ import com.cw.coc.place.model.vo.RestaurantVo;
 /**
  * Servlet implementation class RandomServlet
  */
-@WebServlet("/random2")
+@WebServlet("")
 public class RandomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

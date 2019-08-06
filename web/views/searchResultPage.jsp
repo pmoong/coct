@@ -139,6 +139,99 @@ body {
                onclick="addTag();" style="font-size: small;">
          </header>
       </div>
+      <%-- <!-- Header -->
+      <div id="header-wrapper">
+         <header id="header" class="container">
+
+            <!-- Logo -->
+            <div id="logo">
+               <fieldset class="field-container" style="width: 160%">
+                  <input type="search" name="keyWord" class="form-control" placeholder="Search..." class="field"  style="border-radius:20px;" value="<%=keyWord%>"/>
+               </fieldset>
+            </div>
+         </header>
+         <header class="container">
+            <input class="tagBtn" type="button" value="태그추가하기"
+               onclick="addTag();" style="font-size: small;">
+         </header>
+      </div> --%>
+
+
+
+
+
+      <!-- Banner -->
+      <div id="banner-wrapper">
+         <div class="box container">
+         <h3>파워링크</h3>
+            <div class="row" style="background:skyblue">
+               <div class="col-3 col-12-medium">
+                  <!-- Box -->
+                  <section class="box feature">
+                     <a href="#" class="image featured"><img
+                        src="/coc/images/pic01.jpg" alt=""></a>
+                     <div class="inner">
+                        <header>
+                        <h2>뽕나무족발</h2>
+                           <p>02-558-9279</p>
+                           <p>서울 강남구 역삼로65길 31</p>
+                           </header>   
+                     </div>
+                  </section>
+
+               </div>
+               <div class="col-3 col-12-medium">
+
+                  <!-- Box -->
+                  <section class="box feature">
+                     <a href="#" class="image featured"><img
+                        src="/coc/images/pic02.jpg" alt=""></a>
+                     <div class="inner">
+                        <header>
+                           <h2>뽕나무족발</h2>
+                           <p>02-558-9279</p>
+                           <p>서울 강남구 역삼로65길 31</p>
+                           </header>
+                     </div>
+                  </section>
+
+               </div>
+               <div class="col-3 col-12-medium">
+
+                  <!-- Box -->
+                  <section class="box feature">
+                     <a href="#" class="image featured"><img
+                        src="/coc/images/pic03.jpg" alt=""></a>
+                     <div class="inner">
+                        <header>
+                           <h2>뽕나무족발</h2>
+                           <p>02-558-9279</p>
+                           <p>서울 강남구 역삼로65길 31</p>
+                           </header>
+                     </div>
+                  </section>
+
+               </div>
+               <div class="col-3 col-12-medium">
+
+                  <!-- Box -->
+                  <section class="box feature">
+                     <a href="#" class="image featured"><img
+                        src="/coc/images/pic01.jpg" alt=""></a>
+                     <div class="inner">
+                        <header>
+                           <h2>뽕나무족발</h2>
+                           <p>02-558-9279</p>
+                           <p>서울 강남구 역삼로65길 31</p>
+                        </header>
+                     </div>
+                  </section>
+
+               </div>
+            </div>
+         </div>
+      </div>
+
 
 
       <div id="features-wrapper">
@@ -161,17 +254,9 @@ body {
                  <% } %>
                  <%} %>
                  <%if(cnt!=0){ %>
-               <div style="float:right">
-               		<%-- <button type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button> --%>
-               		<div class="glyphicon glyphicon-heart" type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)"></div>
-               </div>
+               <div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
                  <%}else{ %>
-                 <div style="float:right">
-                 	<%-- <button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button> --%>
-              		<div class="glyphicon glyphicon-heart" type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)"></div>
-                 </div>
+                 <div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
                  <%} %>
                      <img src="<%=r.getRfirstimage() %>" style="width: 110%; margin: auto;">
                      <div class="inner">
@@ -219,18 +304,10 @@ body {
                <%}else{ %>
                  <% } %>
                  <%} %>
-                                 <%if(cnt!=0){ %>
-               <div style="float:right">
-               		<%-- <button type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button> --%>
-               		<div class="glyphicon glyphicon-heart" type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)"></div>
-               </div>
+                 <%if(cnt!=0){ %>
+               <div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
                  <%}else{ %>
-                 <div style="float:right">
-                 	<%-- <button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button> --%>
-              		<div class="glyphicon glyphicon-heart" type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)"></div>
-                 </div>
+                 <div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
                  <%} %>
                      <img src="<%=lm.getLfirstimage() %>" style="width: 110%; margin: auto;">
                      <div class="inner">
@@ -278,18 +355,10 @@ body {
                <%}else{ %>
                  <% } %>
                  <%} %>
-                                 <%if(cnt!=0){ %>
-               <div style="float:right">
-               		<%-- <button type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button> --%>
-               		<div class="glyphicon glyphicon-heart" type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)"></div>
-               </div>
+                 <%if(cnt!=0){ %>
+               <div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
                  <%}else{ %>
-                 <div style="float:right">
-                 	<%-- <button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button> --%>
-              		<div class="glyphicon glyphicon-heart" type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)"></div>
-                 </div>
+                 <div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
                  <%} %>
                      <img src="<%=so.getFirstimage() %>" style="width: 110%; margin: auto;">
                      <div class="inner">
@@ -337,18 +406,10 @@ body {
                <%}else{ %>
                  <% } %>
                  <%} %>
-                               <%if(cnt!=0){ %>
-               <div style="float:right">
-               		<%-- <button type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button> --%>
-               		<div class="glyphicon glyphicon-heart-empty" type="submit" id="minusCoc<%=i %>" 
-               			onclick="minusCoc(<%=i %>)"></div>
-               </div>
+                 <%if(cnt!=0){ %>
+               <div style="float:right"><button type="submit" id="minusCoc<%=i %>" onclick="minusCoc(<%=i %>)" style="background:yellow">콕</button></div>
                  <%}else{ %>
-                 <div style="float:right">
-                 	<%-- <button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button> --%>
-              		<div class="glyphicon glyphicon-heart" type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)"></div>
-                 </div>
+                 <div style="float:right"><button type="submit" id="plusCoc<%=i %>" onclick="plusCoc(<%=i %>)" style="background:darkgray">콕</button></div>
                  <%} %>
                      <img src="<%=ct.getFirstimage() %>" style="width: 110%; margin: auto;">
                      <div class="inner">
@@ -384,7 +445,7 @@ body {
             type:"post",
             data:{cCode:cCode, uno:uno},
             success:function(data){
-               $("#plusCoc"+id).css("color", "black");
+               $("#plusCoc"+id).css('background-color','yellow');
                $("#plusCoc"+id).attr("onclick","minusCoc("+id+")").unbind('click');
                $("#plusCoc"+id).attr('id','minusCoc'+id);
             }
@@ -399,7 +460,7 @@ body {
             type:"post",
             data:{cCode:cCode, uno:uno},
             success:function(data){
-               $("#minusCoc"+id).css("color", "red");
+               $("#minusCoc"+id).css('background-color','darkgray');
                $("#minusCoc"+id).attr("onclick","plusCoc("+id+")").unbind('click');
                $("#minusCoc"+id).attr('id','plusCoc'+id);
             }
