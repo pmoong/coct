@@ -44,27 +44,30 @@ body {
 
 <body class="is-preload homepage">
 	<div id="page-wrapper">
-		<!-- Banner -->
-		<div id="banner-wrapper">
-			<div id="banner" class="box container">
-				<div class="row">
-					<div class="col-7 col-12-medium" align="center">
-						<h2 align="center">콕과 함께 당신의</h2>
-						<br> <br><br><br>
-						<span style="float: left; width: 200px; height: 200px;">
-							<a href="/coc/plan" class="button  icon solid planbtn" align="center">계획 그리기</a>
-						</span>
-						<span style="float: right; width: 200px; height: 200px;">
-							<a href="/coc/views/course/recommend.jsp" class="button icon solid planbtn"align="center">계획 추천받기</a>
-						</span> <br>
-					</div>
-					<div class="col-5 col-12-medium">
-						<div class="outer" style="background: skyblue;"></div>
-
-					</div>
-				</div>
-			</div>
-		</div>
+      <!-- Banner -->
+      <div id="banner-wrapper">
+         <div class="box container" style="margin-left:16%;">
+            <div class="row">
+            	<div class="main" style="width:100%; height:500px; background-image:url('/coc/images/banner2.PNG');
+            	background-size:100% 500px; position:relative;">
+	               <div style="color:white; text-shadow:1px 1px 2px lightgray; margin-top:5%; margin-left:10%; margin-right:60%; position:absolute;">
+	                  <h2 style="font-size:3.5em; font-weight:600;">지금 바로</h2>
+	                  <h2 style="font-size:3.5em; font-weight:600;">계획을</h2>
+	                  <h2 style="font-size:3.5em; font-weight:600;">세워보세요</h2>
+	               </div>
+               <div style="float:right; margin-right:20%;">
+               	 <div style="margin-top:100%;">
+                     <div><a href="/coc/plan" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 그리기&nbsp;</label></a></div>
+                     <div style="height:20px;"></div>
+                     <div><a href="/coc/views/course/recommend.jsp" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 추천받기&nbsp;</label></a></div>
+                     <div style="height:80px;"></div>
+                  </div>
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>	
+	
 		<br>
 
 

@@ -3,6 +3,7 @@
 <%
 	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
 	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
+	
 %>	
 <!DOCTYPE HTML>
 <!--
@@ -125,14 +126,29 @@ body {
  color:black;
  margin-left:30px;
 }
+  #map12 {
+    height: 350px;  /* The height is 400 pixels */
+    width: 60%;  /* The width is the width of the web page */
+   }
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<script>
+function initMap() {
+  var uluru = {lat: 37.509439, lng: 127.060830};
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15, center: uluru});
+  
+  var marker = new google.maps.Marker({position: uluru, map: map});
+  zoomControl:false;
+  scaleControl:true;
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc-FAooT4cR2nne8SYnHMKaE7OmJfgp6U&callback=initMap">
+</script>
 </head>
 <body class="is-preload homepage">
 	<div id="page-wrapper">
@@ -189,13 +205,20 @@ body {
 					style='text-align: left; margin-top: 1%;'>호텔소개</h3>
 			</div>
 			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
-				제주시 중심의 아라동에 위치한 단독주택입니다.<br>
-
-				집 구성 간략설명드려요<br>
-				총 4층짜리 단독주택으로 집안에는 저희가족 3명(저희부부, 초등생 딸), 마당에는 프렌치불독 한마리가 살고 있답니다.<br> 
-				1층 : 현관, 게스트룸<br>
-				2층 : 게스트 전용 욕실(화장실), 거실, 주방<br>
-				3층,4층 : 저희가족 전용공간<br>
+				그랜드 인터컨티넨탈 서울 파르나스는 2호선 삼성역 5번 출구와 연결되어 있습니다. <br>
+				호텔과 코엑스몰, 현대백화점 무역센터점 등이 이어져 있어 편리하게 쇼핑하실 수 있습니다.<br>
+				 뿐만 아니라, 차로 20분 거리에 압구정 로데오거리가 있습니다. <br>
+				 호텔 내 사우나, 이규제큐티브 층 등이 있어 편리하게 이용하실 수 있으며  <br>
+				 피트니스 센터와 실내 수영장 등도 마련되어 있어 운동을 즐기실 수 있습니다.  <br>
+				 프런트 데스크를 24시간 운영하고 있으며 룸서비스, 아이 돌봄, 드라이클리닝 서비스 등을 이용하실 수 있습니다.  <br>
+				 또한, 객실당 1대까지 무료로 주차하실 수 있습니다.  <br>
+				 클럽 인터컨티넨탈 122개 객실을 포함하여 전체 516개 객실이 있으며 객실에 따라 무역센터 또는 테헤란로 전망 등을 감상하실 수 있습니다.  <br>
+				 모던하고 세련된 인테리어를 자랑하는 모든 객실에는 최신식 스마트폰, 평면 LCD TV,  <br>
+				 미니바 등이 있으며 욕실에는 목욕 가운, 독립 샤워부스, 욕실용품 등이 있습니다.  <br>
+				 클럽 객실 이용 시에는 클럽 라운지 이용 혜택이 제공됩니다. <br>
+				 최고급 프렌치 레스토랑인 테이블 34, 중국 전통 베이징덕을 맛볼 수 있는 웨이루,  <br>
+				 정갈한 일식을 선보이는 하코네, 높은 천장이 돋보이는 그랜드 키친, 라이브 음악을 들을 수 있는 로비라운지&바,  <br>
+				 갓구운 빵을 판매하는 그랜드 델리 등 총 6개의 레스토랑과 바가 준비되어 있어 다이닝 선택의 폭이 넓습니다. <br>
 			</div>
 		</div>
 		<!-- 룸정보 -->
@@ -204,14 +227,7 @@ body {
 				<h3 id="roominf" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>룸정보</h3>
 			</div>
-			<div border="1px solid black" style="width:100%; text-align:left; margin-left:15%">
-				<b>주택의 개인실</b>
-				인원2명&emsp;침실1개&emsp;침대1개&emsp;단독사용욕실1개<br>
-				<b>순조로운 체크인 과정</b>
-				최근 숙박한 게스트중 100%가 체크인 과정에 별점 5점을 준 숙소입니다.<br>
-				<b>높은 청결도</b>
-				최근 게스트 14명이 이 숙소가 티 없이 깨끗하다고 후기를 남겼습니다.<br>
-			</div>
+
 		</div>
 		<br><br>
 	<!-- 방 정보 -->
@@ -237,13 +253,13 @@ body {
 	
 			
         
-        <% for (Room r : rm){ %>
+                <% for (Room r : rm){ %>
         <div class="container" align="center">
          <div class="cocInfo" id="cocInfo" align="center">
        
-		<a href="/coc/views/place/reserv_hotel.jsp">
+      <a href="/coc/views/place/reserv_hotel.jsp">
             <div class="left-box">
-               <img src="/coc/images/seoul1.PNG" width="300" height="200" />
+               <img src="<%=r.getrmImage() %>" width="300" height="200" />
             </div>
             <div class="right-box">
 
@@ -271,7 +287,15 @@ body {
 			<div class="row">
 				<h3 id="room" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>숙소시설</h3>
-
+			<div border="1px solid black" style="width:100%; text-align:left; margin-left:13%">
+				<b>체크인</b>15:00 이후
+				<b>체크아웃</b>12:00 이전
+				무선 인터넷<br>
+				비즈니스 센터<br>
+				헬스/피트니스 센터<br>
+				실내 수영장<br>
+				애완동물 불허<br>
+			</div>
 			</div> 
 		</div> 
  		<!-- 호텔정책 -->
@@ -281,30 +305,34 @@ body {
 					style='text-align: left; margin-top: 1%;'>호텔정책</h3>
 
 			</div> 
-		</div> 
+		</div> <br><br><br><br><br><br><br><br><br><br>
 	 		<!-- 위치 -->
 		<div class="container">
 			<div class="row">
 				<h3 id="map" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>위치</h3>
-			</div> 
-			<div id="map" class="outer" style="width: 650px; height: 300px;">
+			</div>
+			<div style="width:100%; text-align:left; margin-left:15%">
+				<div id="map12"></div>
+			</div>
 		</div> 
- 		<!-- 이용정보 -->
+ 		<!-- 이용정보 --><br><br><br>
 		<div class="container">
 			<div class="row">
 				<h3 id="information" class="col-8 col-12-medium"
 					style='text-align: left; margin-top: 1%;'>이용정보</h3>
 			</div> 
 			<div style="width:100%; text-align:left; margin-left:15%">
-				주방상기 모든 이미지는 연출 컷으로 실제와 다를 수 있습니다.<br>
-				객실 상황에 따라 패키지가 조기 마감될 수 있습니다.<br>
-				체크인은 오후 2시 이후, 체크아웃은 정오까지 입니다.<br>
-				해당 기프트는 체크인 시 프론트에서 전달 드립니다.<br>
-				해당 패키지 상품에 객실 또는 공연 관람 중 한 가지라도 이용하였다면 취소 불가입니다.<br>
-				(부분 취소 및 변경 절대 불가, 공연 좌석 등급 변경 불가)<br>
-				성인 2인 1실 기준 1박 요금이며, 세금은 별도입니다.<br>
-				피트니스 센터는 안전상의 이유로 16세 이상 입장 가능합니다.<br>
+				예약을 취소하거나 예약 후 아무런 통보없이 투숙하지 않을 경우, 객실당 1박<br>
+				에 대한 요금이 신용 카드로 청구됩니다. 부가세가 적용됩니다. <br>
+				예약한 첫째 날 밤이 지난 후 체크아웃 시간 이전에 연락을 하지 않거나<br>
+				호텔에 도착하지 않으면 나머지 예약 기간도 취소됩니다.<br>
+				<br><br>
+				<small>법적 고지사항</small><br>
+				<small>예약 시점과 실제 숙박일 사이에 환율이 변경될 수 있으므로 확정된 요금은 호텔의 기본 통화로만 보장됩니다.<br>
+				예약한 때로부터 투숙할 때까지 그리고 실제 숙박 기간 동안 세금과 추가 요금이 변경될 수 있으므로,<br>
+				총 요금은 예상치입니다. 예상 요금에는 객실 요금, 추가 인원 요금, 총 세금 및 총 호텔 요금이 포함됩니다. <br>
+				호텔에 따라 추가 요금이 부과될 수도 있습니다. 자세한 사항은 해당 호텔에 문의하십시오.<br></small>
 			</div>
 		</div> 	
 	
@@ -314,35 +342,7 @@ body {
 		<%@include file="/views/common/footerbar_customer.jsp" %>
 
 	</div>
-  <script type="text/javascript">
-    var locations = [
-      ['신라스테이', 37.504788, 127.041312, 28] 
-    ];
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: new google.maps.LatLng(37.504788, 127.041312),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2],locations[i][3]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        
-        }
-      })(marker, i));
-    }
-  </script>
 
 </body>
 </html>

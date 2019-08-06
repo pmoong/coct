@@ -9,10 +9,11 @@ public class Room {
 	private int sleepsMax;
 	private int epc;
 	private int price;
+	private String rmImage;
 	
 	public Room() {}
 
-	public Room(String rmName, int rmCode, int uno, int cCode, int sleeps, int sleepsMax, int epc, int price) {
+	public Room(String rmName, int rmCode, int uno, int cCode, int sleeps, int sleepsMax, int epc, int price, String rmImage) {
 		super();
 		this.rmName = rmName;
 		this.rmCode = rmCode;
@@ -22,6 +23,7 @@ public class Room {
 		this.sleepsMax = sleepsMax;
 		this.epc = epc;
 		this.price = price;
+		this.rmImage = rmImage;
 	}
 
 	public String getRmName() {
@@ -87,7 +89,15 @@ public class Room {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public String getrmImage() {
+		return rmImage;
+	}
 
+	public void setrmImage(String rmImage) {
+		this.rmImage = rmImage;
+	}
+	
 	@Override
 	public String toString() {
 		return "Room [rmName=" + rmName + ", rmCode=" + rmCode + ", uno=" + uno + ", cCode=" + cCode + ", sleeps="
