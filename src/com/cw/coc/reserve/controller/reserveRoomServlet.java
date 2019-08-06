@@ -1,4 +1,4 @@
-package com.cw.coc.reserve;
+package com.cw.coc.reserve.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.service.LogmentService;
+import com.cw.coc.reserve.RoomService;
 import com.cw.coc.room.model.vo.Room;
 
 /**

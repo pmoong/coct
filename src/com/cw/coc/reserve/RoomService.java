@@ -15,6 +15,18 @@ public class RoomService {
 		Connection con = getConnection();
 
 		ArrayList<Room> list = new RoomDao().rsvRoomInfo(con);
+		
+
+		close(con);
+ 
+		return list;
+	}
+
+	public ArrayList<Room> deleteRoom() {
+		Connection con = getConnection();
+
+		ArrayList<Room> list = new RoomDao().deleteRoom(con);
+		
 
 		close(con);
  

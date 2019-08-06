@@ -424,7 +424,7 @@ body {
 										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></button></div>
 									</form>
 									
-									<div class="inner"><%=randomlist.get(6).getLtitle()%></div>
+									<div class="inner"><input type="hidden" value="<%=randomlist.get(6).getLtitle()%>"></div>
 								</section>
 
 							</div>
