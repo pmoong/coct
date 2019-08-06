@@ -35,9 +35,10 @@ body {
 	background: white !important;
 	color: black !important;
 }
+
 .outer {
-	width: 1000px;
-	height: 500px;
+	width: 1500px;
+	height: 700px;
 	background: white;
 	color: black;
 	margin-left: auto;
@@ -51,8 +52,8 @@ table {
 }
 
 .tableArea {
-	width: 100%;
-	height: 20% px;
+	width: 800px;
+	height: 450px;
 	margin: 0 auto;
 }
 
@@ -92,7 +93,6 @@ table {
 
 		<div class="outer">
 			<br>
-			<h2 align="center">제휴사관리</h2>
 			<div class="tableArea">
 			<table align="center" id="listArea">
 				<tr>
@@ -170,7 +170,25 @@ table {
 
 
 	</div>
+<script>
 
+$(function(){
+	$("#listArea td").mouseenter(function(){
+		
+		$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+		
+	}).mouseout(function(){
+		$(this).parent().css({"background":"white"});
+		
+	}).click(function(){
+		
+		var num = $(this).parent().children("input").val();
+		
+		location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+	});
+});
+
+</script>
 
 </body>
 </html>
