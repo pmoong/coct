@@ -14,7 +14,7 @@ public class Reserve {
 	public Reserve(int rsvCode, int uno, int rmCode, Date rsvDate, Date ciDate) {
 		super();
 		this.rsvCode = rsvCode;
-		this.uno = uno;
+		this.uno = uno; 
 		this.rmCode = rmCode;
 		this.rsvDate = rsvDate;
 		this.ciDate = ciDate;
