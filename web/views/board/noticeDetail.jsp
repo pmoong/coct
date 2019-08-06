@@ -59,7 +59,7 @@ td {
 	%>
 	<div class="outer container">
 		<br>
-		<h2 align="center">게시판 상세 보기</h2>
+		<h2 align="center">공지사항 상세 보기</h2>
 		<div class="tableArea">
 				<table align="center" width="800px">
 					<tr>

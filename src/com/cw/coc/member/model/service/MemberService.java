@@ -172,7 +172,7 @@ public class MemberService {
 		Connection con = getConnection();
 		ArrayList<Object> list = new ArrayList<Object>();
 		m  = new MemberDao().selectSurvey(con, m);
-		ArrayList<Board> bo = new BoardDao().myPageSelect(con);
+		ArrayList<Board> bo = new BoardDao().myPageSelect(con); 
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
 		ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno()); 
 		

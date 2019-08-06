@@ -30,7 +30,7 @@ public class SelectBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-int num = Integer.parseInt(request.getParameter("num"));
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		Board b = new BoardService().selectOne(num);
 		
@@ -40,7 +40,7 @@ int num = Integer.parseInt(request.getParameter("num"));
 			page = "views/board/boardUpdate.jsp";
 			request.setAttribute("b", b);
 		}else {
-			page = "views/common/errorPage.jsp";
+			page = "views/common/errorPage.jsp"; 
 			request.setAttribute("msg", "게시글 수정용 상세보기 실패!");
 		}
 		

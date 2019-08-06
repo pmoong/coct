@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <style>
 .outer {
-	width: 600px;
+	width: 900px;
 	height: 600px;
 	color: black;
 	margin-left: auto;
@@ -59,7 +59,7 @@ td {
 	%>
 	<div class="outer container">
 		<br>
-		<h2 align="center">게시판 상세 보기</h2>
+		<h2 align="center">리뷰 상세 보기</h2>
 		<div class="tableArea">
 				<table align="center" width="800px">
 					<tr>
@@ -88,12 +88,11 @@ td {
 				</div>
 				<div align="center">
 					<button 
-						class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectReviewList.rv'">메뉴</button>
+						class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv'">메뉴</button>
 					 <%
 						if (loginUser != null && b.getbWriter().equals(loginUser.getUserId())) {
 					%> 
-					<button
-						onclick="location.href='<%=request.getContextPath()%>/selectBoard.bo?num=<%= b.getbCode()%>'">수정하기</button>
+					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/updateReview.rv?num=<%= b.getbCode()%>'">수정하기</button>
 				
 					 <%
 						}

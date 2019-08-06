@@ -9,6 +9,7 @@ import com.cw.coc.board.model.dao.BoardDao;
 import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.dao.MemberDao;
+import com.cw.coc.member.model.vo.Member;
 
 import static com.cw.coc.common.JDBCTemplate.*;
 import static com.cw.coc.common.JDBCTemplate.close;
@@ -244,7 +245,42 @@ public class BoardService {
 
 		return list;
 	}
-//	public void insertMassiveArticleInBoard(File destFile);
+	public Board selectOneReview(int num, Member m) {
+		Connection con = getConnection();
+		Board b = null;
 
+		int result = new BoardDao().updateCount(con, num);
+
+		if(result > 0) {
+			commit(con);
+
+			b = new BoardDao().selectOneReview(con, num, m);
+		}else {
+			rollback(con);
+		} 
+ 
+		close(con);
+
+		return b;
+	}
+	public int updateReview(Member m, Board b, int num) {
+
+		Connection con = getConnection();
+		
+		System.out.println("b:::: service" + b);
+		
+		int result = new BoardDao().updateReview(con, m, b, num);
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		
+		return result;
+	}
+
+//	public void insertMassiveArticleInBoard(File destFile);
 }
 
