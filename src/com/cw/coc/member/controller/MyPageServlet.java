@@ -27,7 +27,7 @@ public class MyPageServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Member m = new Member();
+		Member m = new Member(); 
 		
 		
 		int uno = Integer.parseInt(request.getParameter("uno"));
