@@ -62,6 +62,7 @@ public class RoomDao {
 				r.setSleepsMax(rset.getInt("SLEEPS_MAX"));
 				r.setEpc(rset.getInt("EPC"));
 				r.setPrice(rset.getInt("PRICE"));
+				r.setrmImage(rset.getString("RMIMAGE"));
 				
 				rm.add(r);
 		
@@ -106,6 +107,7 @@ public class RoomDao {
 				r.setSleepsMax(rset.getInt("SLEEPS_MAX"));
 				r.setEpc(rset.getInt("EPC"));
 				r.setPrice(rset.getInt("PRICE"));
+				r.setrmImage(rset.getString("RMIMAGE"));
 				
 				list.add(r);
 		
@@ -119,5 +121,94 @@ public class RoomDao {
 		}
 
 		return list;
+	}
+
+
+	public ArrayList<Room> deleteRoom(Connection con) {
+		ArrayList<Room> list = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = prop.getProperty("deleteRoom");
+	
+	
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<Room>();
+			
+			while(rset.next()) {
+				
+				Room r = new Room();
+				
+				r.setRmName(rset.getString("RMNAME"));
+				r.setRmCode(rset.getInt("SEQ_RMCODE"));
+				r.setUno(rset.getInt("SEQ_UNO"));
+				r.setcCode(rset.getInt("SEQ_CCODE"));
+				r.setSleeps(rset.getInt("SLEEPS"));
+				r.setSleepsMax(rset.getInt("SLEEPS_MAX"));
+				r.setEpc(rset.getInt("EPC"));
+				r.setPrice(rset.getInt("PRICE"));
+				r.setrmImage(rset.getString("RMIMAGE"));
+				
+				list.add(r);
+		
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+
+		return list;
+	}
+
+
+	public ArrayList<Room> RoomSelect(Connection con) {
+		PreparedStatement pstmt = null;
+		ArrayList<Room> rm = null;
+		ResultSet rset = null;
+
+		String query = prop.getProperty("selectRoom");
+
+		try {
+			pstmt = con.prepareStatement(query);
+
+			rset = pstmt.executeQuery();
+
+			rm = new ArrayList<Room>();
+
+			while(rset.next()) {
+
+				Room r = new Room();
+
+				r.setRmName(rset.getString("RMNAME"));
+				r.setRmCode(rset.getInt("SEQ_RMCODE"));
+				r.setUno(rset.getInt("SEQ_UNO"));
+				r.setcCode(rset.getInt("SEQ_CCODE"));
+				r.setSleeps(rset.getInt("SLEEPS"));
+				r.setSleepsMax(rset.getInt("SLEEPS_MAX"));
+				r.setEpc(rset.getInt("EPC"));
+				r.setPrice(rset.getInt("PRICE"));
+				
+				
+
+				rm.add(r);
+				}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return rm;
 	}
 }

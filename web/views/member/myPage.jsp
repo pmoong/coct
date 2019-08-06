@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*"%>
+	pageEncoding="UTF-8"
+	import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.place.model.vo.*, com.cw.coc.room.model.vo.*"%>
 <%
 	
 	//ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("list");
@@ -8,6 +9,8 @@
 	
 	ArrayList<Board> bo = (ArrayList<Board>) request.getAttribute("bo");
 	ArrayList<Board> rv = (ArrayList<Board>) request.getAttribute("rv");
+	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
+	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
 	//Payment pm1 = (Payment) request.getAttribute("pm1");
 	//Payment pm2 = (Payment) request.getAttribute("pm2");
 	
@@ -134,12 +137,11 @@ div>a {
 				<table align="center" class="infoArea">
 					<tbody>
 						<tr>
-						<%-- <form action="<%=request.getContextPath()%>/insert.tn"" method="post" encType="multipart/form-data"></form> --%>
+							<%-- <form action="<%=request.getContextPath()%>/insert.tn"" method="post" encType="multipart/form-data"></form> --%>
 							<td rowspan="4" style="vertical-align: middle"><img
 								id="imgThumb"
 								src="https://static.nid.naver.com/images/web/user/default.png?type=s160"
-								width="40%" height="40%"> <br>
-							<br>
+								width="40%" height="40%"> <br> <br>
 								<button style="background: darkgray">편집</button></td>
 							<td><label id="id">아이디 </label></td>
 							<td><%=loginUser.getUserId()  %></td>
@@ -161,26 +163,32 @@ div>a {
 						<tr>
 							<td><label>비밀번호</label></td>
 							<td><input type="password" name="userPwd" id="userPwd">&nbsp;&nbsp;
-								<button style="background: darkgray" id="testbtn" onclick="pwdCheck();">
+								<button style="background: darkgray" id="testbtn"
+									onclick="pwdCheck();">
 									<p>비밀번호변경하기</p>
 								</button></td>
 						</tr>
 						<tr>
 							<td style="vertical-align: middle"><label>설문조사</label>
 								<form action="/coc/updateSurvey" method="post">
-									<br>
-									<br>
-									<button typee="button" id="saveSurvey" style="background: darkgray">저장하기</button>
-									<input type="hidden" name="uno" value="<%=loginUser.getUno() %>">
-									<input type="hidden" name="id" value="<%=loginUser.getUserId() %>">
-									<input type="hidden" name="userPwd" value="<%=loginUser.getUserPwd() %>">
-									<input type="hidden" name="email" value="<%=loginUser.getEmail() %>">
-									<input type="hidden" name="utype" value="<%=loginUser.getuType() %>">
-									<input type="hidden" name="gender" value="<%=loginUser.getGender() %>">
-									<input type="hidden" name="age" value="<%=loginUser.getAge() %>">
-									<input type="hidden" name="icode" value="<%=loginUser.getiCode() %>">
-									<input type="hidden" name="status" value="<%=loginUser.getStatus() %>">
-							</td>
+									<br> <br>
+									<button typee="button" id="saveSurvey"
+										style="background: darkgray">저장하기</button>
+									<input type="hidden" name="uno"
+										value="<%=loginUser.getUno() %>"> <input type="hidden"
+										name="id" value="<%=loginUser.getUserId() %>"> <input
+										type="hidden" name="userPwd"
+										value="<%=loginUser.getUserPwd() %>"> <input
+										type="hidden" name="email" value="<%=loginUser.getEmail() %>">
+									<input type="hidden" name="utype"
+										value="<%=loginUser.getuType() %>"> <input
+										type="hidden" name="gender"
+										value="<%=loginUser.getGender() %>"> <input
+										type="hidden" name="age" value="<%=loginUser.getAge() %>">
+									<input type="hidden" name="icode"
+										value="<%=loginUser.getiCode() %>"> <input
+										type="hidden" name="status"
+										value="<%=loginUser.getStatus() %>"></td>
 							<td colspan="2"><label class="checkbox-inline"><b>분위기
 								</b> </label><br> <br>
 
@@ -259,22 +267,21 @@ div>a {
 										for="seoulCheckbox5" class="checkbox-inline">중랑구</label> <input
 										type="checkbox" id="seoulCheckbox6" value="29" name="checkbox">
 									<label for="seoulCheckbox6" class="checkbox-inline">서대문구</label>
-									<br>
-									<br> <input type="checkbox" id="seoulCheckbox7" value="30"
-										name="checkbox"> <label for="seoulCheckbox7"
-										class="checkbox-inline">종로구</label> <input type="checkbox"
-										id="seoulCheckbox8" value="31" name="checkbox"> <label
-										for="seoulCheckbox8" class="checkbox-inline">온평구</label> <input
-										type="checkbox" id="seoulCheckbox9" value="32" name="checkbox">
-									<label for="seoulCheckbox9" class="checkbox-inline">서대문구</label>
-									<input type="checkbox" id="seoulCheckbox10" value="33"
-										name="checkbox"> <label for="seoulCheckbox10"
-										class="checkbox-inline">동대문구</label> <input type="checkbox"
-										id="seoulCheckbox11" value="34" name="checkbox"> <label
-										for="seoulCheckbox11" class="checkbox-inline">중구</label> <input
-										type="checkbox" id="seoulCheckbox12" value="35"
-										name="checkbox"> <label for="seoulCheckbox12"
-										class="checkbox-inline">성동구</label> <br>
+									<br> <br> <input type="checkbox" id="seoulCheckbox7"
+										value="30" name="checkbox"> <label
+										for="seoulCheckbox7" class="checkbox-inline">종로구</label> <input
+										type="checkbox" id="seoulCheckbox8" value="31" name="checkbox">
+									<label for="seoulCheckbox8" class="checkbox-inline">온평구</label>
+									<input type="checkbox" id="seoulCheckbox9" value="32"
+										name="checkbox"> <label for="seoulCheckbox9"
+										class="checkbox-inline">서대문구</label> <input type="checkbox"
+										id="seoulCheckbox10" value="33" name="checkbox"> <label
+										for="seoulCheckbox10" class="checkbox-inline">동대문구</label> <input
+										type="checkbox" id="seoulCheckbox11" value="34"
+										name="checkbox"> <label for="seoulCheckbox11"
+										class="checkbox-inline">중구</label> <input type="checkbox"
+										id="seoulCheckbox12" value="35" name="checkbox"> <label
+										for="seoulCheckbox12" class="checkbox-inline">성동구</label> <br>
 									<br> <input type="checkbox" id="seoulCheckbox13"
 										value="36" name="checkbox"> <label
 										for="seoulCheckbox13" class="checkbox-inline">광진구</label> <input
@@ -319,15 +326,13 @@ div>a {
 					</tbody>
 				</table>
 			</div>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 
 		<!-- 공지사항 -->
 		<div class="container">
-			<a  onclick="goNotice();">
-			
+			<a onclick="goNotice();">
+
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>공지사항</h3>
@@ -340,31 +345,29 @@ div>a {
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-							<th width="80px">글번호</th>
-							<th width="400px">글제목</th>
-							<th width="100px">작성자</th>
-							<th width="80px">조회수</th>
-							<th width="100px">작성일</th>
-						</tr>
-						 <%
+						<th width="80px">글번호</th>
+						<th width="400px">글제목</th>
+						<th width="100px">작성자</th>
+						<th width="80px">조회수</th>
+						<th width="100px">작성일</th>
+					</tr>
+					<%
 							for (Board b : bo) {
 						%>
-						<tr>
-							<input type="hidden" value="<%=b.getbCode()%>">
-							<td><%=b.getbCode()%></td>
-							<td><%=b.getbTitle()%></td>
-							<td><%=b.getbWriter()%></td>
-							<td><span><%=b.getCount()%></span></td>
-							<td><%=b.getbDate()%></td>
-						</tr>
-						<%
+					<tr>
+						<input type="hidden" value="<%=b.getbCode()%>">
+						<td><%=b.getbCode()%></td>
+						<td><%=b.getbTitle()%></td>
+						<td><%=b.getbWriter()%></td>
+						<td><span><%=b.getCount()%></span></td>
+						<td><%=b.getbDate()%></td>
+					</tr>
+					<%
 							}
-						%> 
+						%>
 				</table>
 			</div>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 		<script>
 				function goNotice(){
@@ -380,8 +383,7 @@ div>a {
 
 		<!-- Features1 -->
 		<div class="container">
-			<a onclick="goReview();">
-			<!-- <a href="/coc/views/board/reviewList.jsp"> -->
+			<a onclick="goReview();"> <!-- <a href="/coc/views/board/reviewList.jsp"> -->
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>나의리뷰</h3>
@@ -395,33 +397,41 @@ div>a {
 				<table align="center" id="listArea">
 					<tr>
 						<th width="70px">업체이름</th>
+						<th width="80px">방 정보</th>
 						<th width="100px">제목</th>
 						<th width="300px">내용</th>
 						<th width="100px">작성자</th>
 						<th width="50px">조회수</th>
 						<th width="120px">작성일</th>
 					</tr>
-					 <%
+					<%
 							for (Board r : rv) {
+								for(LogmentVoYM l : lm) {
+									for(Room ro : rm) {
+									if(l.getcCode() == r.getcCode()){
+										if(l.getcCode() == ro.getcCode()){
 						%>
-						<tr>
-							<input type="hidden" value="<%=r.getbCode()%>">
-							<td><%=r.getbCode()%></td>
-							<td><%=r.getbTitle()%></td>
-							<td><%=r.getbContent()%></td>
-							<td><%= r.getbWriter() %></td>
-							<td><span><%=r.getCount()%></span></td>
-							<td><%=r.getbDate()%></td>
-						</tr>
-						<%
+					<tr>
+						<input type="hidden" value="<%=r.getbCode()%>">
+						<td> <%= l.getLtitle() %></td>
+						<td><%=ro.getRmName()%></td>
+						<td><%=r.getbTitle()%></td>
+						<td><%=r.getbContent()%></td>
+						<td><%= r.getbWriter() %></td>
+						<td><span><%=r.getCount()%></span></td>
+						<td><%=r.getbDate()%></td>
+					</tr>
+					<%
+											}
+										}
+									}
+								}
 							}
-						%> 
-					
+						%>
+
 				</table>
 			</div>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 		<script>
 				function goReview(){
@@ -469,17 +479,14 @@ div>a {
 					</tr>
 				</table>
 			</div>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 
 
 		<!-- Wrapper for slides -->
 
 		<div class="container">
-			<a onclick="myCoc();">
-			<!-- <a href="/coc/views/member/myCoc.jsp"> -->
+			<a onclick="myCoc();"> <!-- <a href="/coc/views/member/myCoc.jsp"> -->
 				<div class="row">
 					<h3 class="col-8 col-12-medium"
 						style='text-align: left; margin-top: 1%;'>나의콕</h3>
@@ -530,9 +537,7 @@ div>a {
 
 
 			<!-- Footer -->
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 
 		<%@include file="/views/common/footerbar_customer.jsp"%>

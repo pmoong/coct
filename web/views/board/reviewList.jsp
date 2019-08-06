@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.board.model.vo.*" %>
+	pageEncoding="UTF-8"
+	import="java.util.*, com.cw.coc.place.model.vo.LogmentVoYM, com.cw.coc.board.model.vo.*"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	//ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
+	ArrayList<Board> bo = (ArrayList<Board>) request.getAttribute("bo");
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
 	int maxPage = pi.getMaxPage();
@@ -33,12 +36,12 @@ body {
 }
 
 #userId, #userPwd {
-	font-size:13px;
-}
-select{
-	-webkit-appearance: menulist !important;
+	font-size: 13px;
 }
 
+select {
+	-webkit-appearance: menulist !important;
+}
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -52,37 +55,40 @@ select{
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<%@ include file="/views/common/menubar_customer.jsp" %>
- 
+		<%@ include file="/views/common/menubar_customer.jsp"%>
+
 		<div class="container" align="center">
 			<div class="outer">
-		<br>
-		<h2 align="center">나의 리뷰</h2>
+				<br>
+				<h2 align="center">나의 리뷰</h2>
 				<div class="tableArea">
 					<table align="center" id="listArea">
 						<tr>
-							<th width="80px">글번호</th>
+							<th width="80px">업체명</th>
 							<th width="400px">글제목</th>
 							<th width="100px">작성자</th>
 							<th width="80px">조회수</th>
 							<th width="100px">작성일</th>
 						</tr>
 						<%
-							for (Board b : list) {
+							for (Board b : bo) {
+								for (LogmentVoYM l : lm) {
+									if (l.getcCode() == b.getcCode()) {
 						%>
 						<tr>
-							<input type="hidden" value="<%=b.getbCode()%>">
-							<td><%=b.getbCode()%></td>
+							<td><%=l.getLtitle()%></td>
 							<td><%=b.getbTitle()%></td>
 							<td><%=b.getbWriter()%></td>
 							<td><span><%=b.getCount()%></span></td>
 							<td><%=b.getbDate()%></td>
 						</tr>
 						<%
+									}
+								}
 							}
 						%>
-						
-						
+
+
 						<%-- <%for(Notice n : list){ %>
 				<tr>
 					<td><%=n.getNno() %></td>
@@ -93,47 +99,69 @@ select{
 				</tr>
 				<%} %> --%>
 					</table>
-					
-					<%-- 페이징처리 --%>
-		<div class="pagingArea" align="center">
-			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=1'"><<</button>
-			
-			<% if(currentPage <= 1){ %>
-			<button class="btn btn-default" disabled><</button>
-			<% }else { %>
-			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage - 1%>'"><</button>
-			<% } %>
-			
-			<% for(int p = startPage; p <= endPage; p++){ 
-				if(currentPage == p){
-			%>
-					<button class="btn btn-default" disabled><%= p %></button>
-			<% } else { %>
-					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=p%>'"><%= p %></button>
-			<% 
-				}
-			   } 
-			%>
-			
-			<% if(currentPage >= maxPage){ %>
-			<button class="btn btn-default" disabled>></button>
-			<% }else{ %>
-			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage + 1 %>'">></button>
-			<% } %>
 
-			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=maxPage%>'">>></button>
-		</div>
+					<%-- 페이징처리 --%>
+					<div class="pagingArea" align="center">
+						<button class="btn btn-default"
+							onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=1'"><<</button>
+
+						<%
+							if (currentPage <= 1) {
+						%>
+						<button class="btn btn-default" disabled><</button>
+						<%
+							} else {
+						%>
+						<button class="btn btn-default"
+							onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage - 1%>'"><</button>
+						<%
+							}
+						%>
+
+						<%
+							for (int p = startPage; p <= endPage; p++) {
+								if (currentPage == p) {
+						%>
+						<button class="btn btn-default" disabled><%=p%></button>
+						<%
+							} else {
+						%>
+						<button class="btn btn-default"
+							onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=p%>'"><%=p%></button>
+						<%
+							}
+							}
+						%>
+
+						<%
+							if (currentPage >= maxPage) {
+						%>
+						<button class="btn btn-default" disabled>></button>
+						<%
+							} else {
+						%>
+						<button class="btn btn-default"
+							onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage + 1%>'">></button>
+						<%
+							}
+						%>
+
+						<button class="btn btn-default"
+							onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=maxPage%>'">>></button>
+					</div>
 					<div class="searchArea" align="center">
 						<select id="searchCondition" name="searchCondition">
 							<option value="wirter">작성자</option>
 							<option value="title">제목</option>
 							<option value="content">내용</option>
 						</select> <input type="search">
-						<button class="btn btn-default" type="submit" style="background: darkgray">검색하기</button>
+						<button class="btn btn-default" type="submit"
+							style="background: darkgray">검색하기</button>
 						<%
 							if (loginUser != null && loginUser.getUserId().equals("admin")) {
 						%>
-						<button class="btn btn-default" onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+						<button class="btn btn-default"
+							onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
 						<%
 							}
 						%>
@@ -143,19 +171,30 @@ select{
 		</div>
 
 		<!-- Footer -->
-		<%@include file="/views/common/footerbar_customer.jsp" %>
+		<%@include file="/views/common/footerbar_customer.jsp"%>
 
 	</div>
 	<script>
-		$(function(){
-			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"lightgray", "cursor":"pointer"});
-			}).mouseout(function(){
-				$(this).parent().css({"background":"white"});
-			}).click(function(){
-				var num = $(this).parent().children("input").val();
-				
-				location.href="<%=request.getContextPath()%>/selectReviewList.rv?num=" + num;
+		$(function() {
+			$("#listArea td")
+					.mouseenter(function() {
+						$(this).parent().css({
+							"background" : "lightgray",
+							"cursor" : "pointer"
+						});
+					})
+					.mouseout(function() {
+						$(this).parent().css({
+							"background" : "white"
+						});
+					})
+					.click(
+							function() {
+								var num = $(this).parent().children("input")
+										.val();
+
+								location.href = "
+	<%=request.getContextPath()%>/selectReviewList.rv?num=" + num;
 			});
 		});
 	</script>

@@ -11,41 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cw.coc.place.model.service.LogmentService;
 import com.cw.coc.place.model.vo.LogmentVoYM;
-import com.cw.coc.room.model.vo.Room;
+import com.cw.coc.place.model.vo.RestaurantVo;
 
 /**
- * Servlet implementation class ReserveRoomInfoServlet
+ * Servlet implementation class RandomServlet
  */
-@WebServlet("/reserveRoomInfo")
-public class ReserveRoomInfoServlet extends HttpServlet {
+@WebServlet("/random2")
+public class RandomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ReserveRoomInfoServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RandomServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String ltitle = request.getParameter("ltitle");
-		
-		System.out.println(ltitle);
-		
-		ArrayList<Object> list = new LogmentService().rsvRoomInfo(ltitle);
+		System.out.println(":::::::::::::::::");
+		ArrayList<Object> list = new LogmentService().rsvRoomInfo();
 		
 		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) list.get(0); 
-		ArrayList<Room> rm = (ArrayList<Room>) list.get(1);
+		ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) list.get(1); 
+		
 		String page = "";
 		if(list != null) { 
-			page = "views/place/reserv_hotelView.jsp";
+			page = "index.jsp";
 			request.setAttribute("lm", lm);
-			request.setAttribute("rm", rm);
+			request.setAttribute("rt", rt);
 			
 		}else {page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "랜덤 안돼~~~");
@@ -53,9 +50,7 @@ public class ReserveRoomInfoServlet extends HttpServlet {
 	
 
 		request.getRequestDispatcher(page).forward(request, response);
-
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

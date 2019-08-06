@@ -92,7 +92,7 @@ td {
 					 <%
 						if (loginUser != null && b.getbWriter().equals(loginUser.getUserId())) {
 					%> 
-					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/updateReview.rv?num=<%= b.getbCode()%>'">수정하기</button>
+					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/reviewUpdatePage.rv?num=<%= b.getbCode()%>'">수정하기</button>
 				
 					 <%
 						}
