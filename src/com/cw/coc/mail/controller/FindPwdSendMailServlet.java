@@ -55,7 +55,7 @@ public class FindPwdSendMailServlet extends HttpServlet {
 		String page = "";
 
 		if(result > 0) {
-			page = "views/member/login.jsp";
+			page="views/member/login.jsp";
 			response.sendRedirect(page);
 		}else {
 			page = "views/common/errorPage.jsp";

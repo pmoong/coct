@@ -70,19 +70,16 @@ public class BoardDao {
 		ArrayList<Board> list = null;
 		String query = prop.getProperty("selectListWithPaging");
 
-		System.out.println("dao!!!!!!!");
 		try {
 			pstmt = con.prepareStatement(query);
-			System.out.println("☆☆☆☆☆☆☆☆☆query" + query);
-			//조회를 시작할 행 번호와 마지막 행 번호 계산
+
 			int startRow = (currentPage - 1) * limit + 1;
 			int endRow = startRow + limit - 1;
-			System.out.println("☆☆☆☆☆☆☆☆☆startRow" + startRow);
-			System.out.println("☆☆☆☆☆☆☆☆☆endRow" + endRow);
+
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
 			rset = pstmt.executeQuery();
-			System.out.println("rset확인  : "  +rset.next());
+
 			list = new ArrayList<Board>();
 
 			while(rset.next()) {
@@ -101,10 +98,8 @@ public class BoardDao {
 				b.setCount(rset.getInt("COUNT"));
 				b.setModifiyDate(rset.getDate("MODIFY_DATE"));
 
-				System.out.println("b = 뭐냐" + b);
 				list.add(b);
 			}
-			System.out.println("board b list = " + list);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -162,7 +157,7 @@ public class BoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(pstmt);
+			close(pstmt); 
 		}
 
 		return result;
@@ -181,8 +176,6 @@ public class BoardDao {
 			pstmt.setInt(1, num);
 
 			rset = pstmt.executeQuery();
-			System.out.println("sone query : " + query);
-
 
 			if(rset.next()) {
 				b = new Board();
@@ -208,8 +201,6 @@ public class BoardDao {
 			close(pstmt);
 			close(rset);
 		}
-
-		System.out.println("값 리턴하러가기");
 		return b;
 	}
 

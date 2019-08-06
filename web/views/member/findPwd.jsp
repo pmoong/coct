@@ -82,13 +82,13 @@ body {
 					type:"post",
 					data:{userId:userId, email:email},
 					success:function(data){
+						location.href="views/member/login.jsp";				
 					},
 					error:function(){
 						console.log("실패!");
 					}
 				});
-				alert("임시비밀번호가 발송되었습니다.");
-				location.href="/coc/views/member/login.jsp";				
+				alert("임시비밀번호가 발송되었습니다.\n확인 후 로그인 해주세요");
 			}
 		</script>
       <!-- Footer -->

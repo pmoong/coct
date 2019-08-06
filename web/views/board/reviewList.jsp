@@ -96,32 +96,32 @@ select{
 					
 					<%-- 페이징처리 --%>
 		<div class="pagingArea" align="center">
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=1'"><<</button>
+			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=1'"><<</button>
 			
 			<% if(currentPage <= 1){ %>
-			<button disabled><</button>
+			<button class="btn btn-default" disabled><</button>
 			<% }else { %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage - 1%>'"><</button>
+			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage - 1%>'"><</button>
 			<% } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){ 
 				if(currentPage == p){
 			%>
-					<button disabled><%= p %></button>
+					<button class="btn btn-default" disabled><%= p %></button>
 			<% } else { %>
-					<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=p%>'"><%= p %></button>
+					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=p%>'"><%= p %></button>
 			<% 
 				}
 			   } 
 			%>
 			
 			<% if(currentPage >= maxPage){ %>
-			<button disabled>></button>
+			<button class="btn btn-default" disabled>></button>
 			<% }else{ %>
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage + 1 %>'">></button>
+			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=currentPage + 1 %>'">></button>
 			<% } %>
 
-			<button onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=maxPage%>'">>></button>
+			<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/selectList.rv?currentPage=<%=maxPage%>'">>></button>
 		</div>
 					<div class="searchArea" align="center">
 						<select id="searchCondition" name="searchCondition">
@@ -129,12 +129,11 @@ select{
 							<option value="title">제목</option>
 							<option value="content">내용</option>
 						</select> <input type="search">
-						<button type="submit" style="background: darkgray">검색하기</button>
+						<button class="btn btn-default" type="submit" style="background: darkgray">검색하기</button>
 						<%
 							if (loginUser != null && loginUser.getUserId().equals("admin")) {
 						%>
-						<button
-							onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+						<button class="btn btn-default" onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
 						<%
 							}
 						%>
@@ -150,13 +149,13 @@ select{
 	<script>
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"red", "cursor":"pointer"});
+				$(this).parent().css({"background":"lightgray", "cursor":"pointer"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"white"});
 			}).click(function(){
 				var num = $(this).parent().children("input").val();
 				
-				//location.href="<%=request.getContextPath()%>/selectOne.o?num=" + num;
+				location.href="<%=request.getContextPath()%>/selectReviewList.rv?num=" + num;
 			});
 		});
 	</script>

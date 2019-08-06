@@ -31,17 +31,21 @@ public class ReserveRoomInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<LogmentVo> rsvRoomInfo = new LogmentService().rsvRoomInfo();
-
-
+		
+		String ltitle = request.getParameter("ltitle");
+		
+		System.out.println(ltitle);
+		
+		ArrayList<LogmentVo> list = new LogmentService().rsvRoomInfo(ltitle);
+		
 		String page = "";
-		if(rsvRoomInfo != null) { 
-			page = "/coc/views/place/reserv_hotelView.jsp";
-			request.setAttribute("rsvRoomInfo", rsvRoomInfo);
-		}else {
-			page = "views/common/errorPage.jsp";
+		if(list != null) { 
+			page = "views/place/reserv_hotelView.jsp";
+			request.setAttribute("list", list);
+		}else {page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "랜덤 안돼~~~");
 		}
+	
 
 		request.getRequestDispatcher(page).forward(request, response);
 
