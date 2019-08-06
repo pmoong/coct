@@ -1,6 +1,7 @@
 package com.cw.coc.place.model.dao;
 
-import static com.cw.coc.common.JDBCTemplate.close;
+import static com.cw.coc.common.JDBCTemplate.*;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -320,7 +321,7 @@ RestaurantVo r = new RestaurantVo();
 	public ArrayList<CultureVoYM> selectculture(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<CultureVoYM> list =null;
+		ArrayList<CultureVoYM> list =new ArrayList<CultureVoYM>(); 
 		
 		String query = prop.getProperty("cocselectculture");
 		
@@ -434,7 +435,7 @@ RestaurantVo r = new RestaurantVo();
 	
 	public ArrayList<Place> searchList(Connection conn ,String searchkey,String searchvalue) {
 		 
-		ArrayList<Place>list =null;
+		ArrayList<Place>list =new ArrayList<Place>();
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
  		String culture =prop.getProperty("culture");
@@ -557,7 +558,7 @@ System.out.println("11111");
 	public ArrayList<RestaurantVo> selectListPage(Connection conn,String searchkey,
 			String searchvalue,Member m) {
 		
-		ArrayList<RestaurantVo>list =null;
+		ArrayList<RestaurantVo>list=new ArrayList<RestaurantVo>();
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
  		String culture =prop.getProperty("culturePage");
@@ -633,11 +634,14 @@ System.out.println("11111");
 			while(rset.next()) {
 				RestaurantVo r =new RestaurantVo();
 				 
-				r.setRtitle(rset.getString("RTITLE"));
-				System.out.println("p:"+r);
-				r.setRaddr(rset.getString("RADDR"));
-				r.setRfirstimage(rset.getString("FIRSTIMAGE"));
- 
+			/*	p.setpName(rset.getString("PNAME"));
+				System.out.println("p:"+p);
+				p.setpAddress(rset.getString("PADDRESS"));
+				p.setImage(rset.getString("IMAGE"));
+ */
+				r.setRaddr(rset.getString("RTITLE"));
+				r.setRtitle(rset.getString("RADDR"));
+				r.setRfirstimage(rset.getString("RFIRSTIMAGE"));
 				
 				list.add(r);
  			}

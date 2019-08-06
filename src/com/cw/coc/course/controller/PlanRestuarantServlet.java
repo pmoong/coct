@@ -61,13 +61,13 @@ public class PlanRestuarantServlet extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);*/
-  		ArrayList<RestaurantVo> list =new PlaceService().selectrestaurant(/*currentPage,limit,*/m);
+  		ArrayList<RestaurantVo> listres =new PlaceService().selectrestaurant(/*currentPage,limit,*/m);
  
   		String page="";
 		
-		if(list != null){
+		if(listres != null){
 			page="views/course/plan.jsp";
-			request.setAttribute("list", list);
+			request.setAttribute("listres", listres);
 			request.setAttribute("PlacecocList", PlacecocList);
 
 /*			request.setAttribute("pi", pi);

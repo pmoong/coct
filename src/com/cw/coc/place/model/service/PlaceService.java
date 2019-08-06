@@ -21,7 +21,7 @@ import com.cw.coc.place.model.vo.SeoulVoYM;
 
 public class PlaceService {
 	
-	private static final String word = null;
+	/*private static final String word = null;*/
 
 	/*public ArrayList<Place> searchRoomList(String locationName) {
 		Connection con = getConnection();
@@ -135,7 +135,7 @@ public class PlaceService {
 		return list;
 	}
 
-	public ArrayList<RestaurantVo> searchListPage(/*int currentPage, int limit, */String searchkey, String searchvalue,Member m) {
+	public ArrayList<RestaurantVo> searchListPage(String searchkey, String searchvalue,Member m) {
 		Connection conn=getConnection(); 
 		ArrayList<RestaurantVo> list=new PlaceDao().selectListPage(conn,searchkey,searchvalue,m );
 		close(conn);

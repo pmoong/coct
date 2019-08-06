@@ -56,12 +56,12 @@ public class PlanSeoul extends HttpServlet {
 		}
 		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
 		ArrayList<SeoulVoYM> list = new PlaceService().selectseoul(currentPage,limit,m);*/
-		ArrayList<SeoulVoYM> list = new PlaceService().selectseoul( m);
+		ArrayList<SeoulVoYM> listseo = new PlaceService().selectseoul( m);
   		String page="";
 		
-		if(list != null){
+		if(listseo != null){
 			page="views/course/plan.jsp";
-			request.setAttribute("list", list);
+			request.setAttribute("listseo", listseo);
 /*			request.setAttribute("pi", pi);
 */		}else {
 			page="views/common/errorPage.jsp";

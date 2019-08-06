@@ -99,7 +99,7 @@ public class PlaceCocDao {
 		}
 		return list;
 	}
-
+	
 	public int PlacedeleteCoc(Connection con, int cCode, int loginUserNo) {
 		PreparedStatement pstmt=null;
 		int result=0;
