@@ -71,6 +71,8 @@ body {
 	text-align: justify !important;
 	color: #ffffff !important;
 }
+
+
 .ui-datepicker{ font-size: 13.2px; width: 293px; height:295px; z-index:100; margin:0px;}
 </style>
 <link rel="stylesheet"
@@ -306,9 +308,13 @@ body {
 							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(0).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(0).getLtitle()%></div>
 								</section>
 
@@ -317,9 +323,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(1).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(1).getLtitle()%></div>
 								</section>
 
@@ -328,9 +338,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(2).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(2).getLtitle()%></div>
 								</section>
 
@@ -349,9 +363,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(3).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(3).getLtitle()%></div>
 								</section>
 
@@ -359,9 +377,13 @@ body {
 							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(4).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(4).getLtitle()%></div>
 								</section>
 
@@ -371,9 +393,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(5).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(5).getLtitle()%></div>
 								</section>
 
@@ -391,9 +417,13 @@ body {
 							<div class="col-4 col-12-medium">
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(6).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(6).getLtitle()%></div>
 								</section>
 
@@ -402,9 +432,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(7).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(7).getLtitle()%></div>
 								</section>
 
@@ -413,9 +447,13 @@ body {
 
 								<!-- Box -->
 								<section class="box feature">
-									<a href="/coc/reserveRoomInfo" class="image featured"><img
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(8).getLtitle()%>">
+									<div type="button" class="image featured"><button style="background:white"><img
 										class="max-small"
-										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></a>
+										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
 									<div class="inner"><%=randomlist.get(8).getLtitle()%></div>
 								</section>
 

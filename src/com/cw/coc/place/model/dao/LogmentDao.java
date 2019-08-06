@@ -199,7 +199,7 @@ public class LogmentDao {
 
 		return randomlist;
 	}
-	public ArrayList<LogmentVo> rsvRoomInfo(Connection con) {
+	public ArrayList<LogmentVo> rsvRoomInfo(Connection con, String ltitle) {
 		Statement stmt = null;
 		ArrayList<LogmentVo> list = null;
 		ResultSet rset = null;
@@ -214,9 +214,11 @@ public class LogmentDao {
 
 			rset = stmt.executeQuery(query);
 			list = new ArrayList<LogmentVo>();
-
-
+			
+			System.out.println("@@@" + ltitle);
+			
 			while(rset.next()) {
+			
 				LogmentVo l = new LogmentVo();
 
 				l.setLtitle(rset.getString("LTITLE"));
@@ -230,8 +232,15 @@ public class LogmentDao {
 				l.setLmapx(rset.getString("LMAPX"));
 				l.setLmapy(rset.getString("LMAPY"));
 				l.setLfirstimage(rset.getString("LFIRSTIMAGE"));
-
 				
+				System.out.println("l:::::::" + l.getLtitle());
+			
+				
+				if (l.getLtitle().equals(ltitle)) {
+					
+					System.out.println("if@@@@@@@@@");
+					list.add(l);
+				}
 			}
 
 

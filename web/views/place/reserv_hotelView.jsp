@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
 <%
-	ArrayList<LogmentVo> rsvRoomInfo = (ArrayList<LogmentVo>) request.getAttribute("rsvRoomInfo");
+	ArrayList<LogmentVo> list = (ArrayList<LogmentVo>) request.getAttribute("list");
 %>	
 <!DOCTYPE HTML>
 <!--
@@ -142,23 +142,24 @@ body {
 		<div class="container" align="center">
          <div class="cocInfo" id="cocInfo" align="center">
             <div class="left-box">
-               <img src="/coc/images/seoul1.PNG" width="400" height="300" />
+               <img src="<%=list.get(0).getLfirstimage() %>" width="400" height="300" />
             </div>
             <div class="right-box">
+            	<br><br>
                <br>
-               <p align="center"><%= %></p>
-               <br>
+               <p align="center"><%=list.get(0).getLtitle() %></p>
+               <br><br>
                <div id="image">
                   <img src="/coc/images/telephone.png" width="20" height="20" />
                </div>
-               <p>02-123-4567</p>
+               <p><%=list.get(0).getLtel() %></p>
                <br>
                <div id="image">
                   <img src="/coc/images/placeholder.png" width="20" height="20" />
                </div>
-               <p>서울시 강남구 역삼동</p>
+               <p><%=list.get(0).getLaddr() %></p>
                <br>
-               <div id="image">
+               <!-- <div id="image">
                   <img src="/coc/images/wall-clock.png" width="20" height="20" />
                </div>
                <p>11 : 00 ~ 21 : 00 (연중무휴)</p>
@@ -166,7 +167,7 @@ body {
                <div id="image">
                   <img src="/coc/images/house.png" width="20" height="20" />
                </div>
-               <p>http://www.cweda.com</p>
+               <p>http://www.cweda.com</p> -->
             </div>
          </div>
 <br><br>
