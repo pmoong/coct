@@ -42,7 +42,7 @@ public class MemberService {
 		}
 		
 		close(con);
-		
+		 
 		return loginUser;
 	}
 
