@@ -7,9 +7,10 @@ import static com.cw.coc.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import com.cw.coc.course.model.dao.Place.PlaceCocDao;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.dao.PlaceDao;
+import com.cw.coc.place.model.dao.RestaurantDao;
+import com.cw.coc.place.model.dao.RestaurantDaoYM;
 import com.cw.coc.place.model.vo.CultureVoYM;
 import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
@@ -125,7 +126,7 @@ public class PlaceService {
  		return list;
 	}*/
 
-	public ArrayList<Place> selectList(/*int currentPage, int limit,*/Member m) {
+	public ArrayList<Place> selectList(Member m ){
 		Connection conn=getConnection(); 
 		ArrayList<Place> list=new PlaceDao().selectList(conn,/*currentPage,limit,*/m );
 		close(conn);
@@ -134,10 +135,11 @@ public class PlaceService {
 		return list;
 	}
 
-	public ArrayList<Place> searchListPage(/*int currentPage, int limit, */String searchkey, String searchvalue,Member m) {
+	public ArrayList<RestaurantVo> searchListPage(/*int currentPage, int limit, */String searchkey, String searchvalue,Member m) {
 		Connection conn=getConnection(); 
-		ArrayList<Place> list=new PlaceDao().selectListPage(conn,/*currentPage,limit,*/searchkey,searchvalue,m );
+		ArrayList<RestaurantVo> list=new PlaceDao().selectListPage(conn,searchkey,searchvalue,m );
 		close(conn);
+		
 		return list;
 	}
 	
