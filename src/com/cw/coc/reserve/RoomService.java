@@ -22,15 +22,6 @@ public class RoomService {
 		return list;
 	}
 
-	public ArrayList<Room> deleteRoom() {
-		Connection con = getConnection();
-
-		ArrayList<Room> list = new RoomDao().deleteRoom(con);
-		
-
-		close(con);
- 
-		return list;
-	}
+	
 
 }

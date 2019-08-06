@@ -124,49 +124,7 @@ public class RoomDao {
 	}
 
 
-	public ArrayList<Room> deleteRoom(Connection con) {
-		ArrayList<Room> list = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		String query = prop.getProperty("deleteRoom");
 	
-	
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			
-			rset = pstmt.executeQuery();
-			
-			list = new ArrayList<Room>();
-			
-			while(rset.next()) {
-				
-				Room r = new Room();
-				
-				r.setRmName(rset.getString("RMNAME"));
-				r.setRmCode(rset.getInt("SEQ_RMCODE"));
-				r.setUno(rset.getInt("SEQ_UNO"));
-				r.setcCode(rset.getInt("SEQ_CCODE"));
-				r.setSleeps(rset.getInt("SLEEPS"));
-				r.setSleepsMax(rset.getInt("SLEEPS_MAX"));
-				r.setEpc(rset.getInt("EPC"));
-				r.setPrice(rset.getInt("PRICE"));
-				r.setrmImage(rset.getString("RMIMAGE"));
-				
-				list.add(r);
-		
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-			close(rset);
-		}
-
-		return list;
-	}
 
 
 	public ArrayList<Room> RoomSelect(Connection con) {
@@ -174,7 +132,7 @@ public class RoomDao {
 		ArrayList<Room> rm = null;
 		ResultSet rset = null;
 
-		String query = prop.getProperty("selectRoom");
+		String query = prop.getProperty("selectRooms");
 
 		try {
 			pstmt = con.prepareStatement(query);

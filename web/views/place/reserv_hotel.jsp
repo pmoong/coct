@@ -243,7 +243,7 @@ body {
 		<script>
 		function pay(){
 			var IMP = window.IMP; // 생략가능
-	        IMP.init('imp81277853'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+	        IMP.init('imp81277853'); //  "가맹점 식별코드"를 사용
 	        var msg;
 	        
 	        IMP.request_pay({
@@ -280,22 +280,13 @@ body {
 	                        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
 	                    }
 	                });
-	                //성공시 이동할 페이지
-	               /*    $.ajax({
-	                	url:"/coc/deleteRoom",
-	                	type:"post",
-	                	success:function(){
-	    				},
-	    				error:function(){
-	    					console.log("실패!");
-	    				}
-	                });   */
-	                location.href='<%=request.getContextPath()%>/views/place/reserv_hotelView.jsp?msg='+msg;
+	             	//성공시 이동할 페이지
+	                location.href='<%=request.getContextPath()%>';
 	            } else {
 	                msg = '결제에 실패하였습니다.';
 	                msg += '에러내용 : ' + rsp.error_msg;
 	                //실패시 이동할 페이지
-					location.href="<%=request.getContextPath()%>/view/common/errorPage.jsp";
+					location.href="<%=request.getContextPath()%>/views/common/errorPage.jsp";
 	                alert(msg);
 	            }
 	        });

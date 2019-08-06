@@ -14,7 +14,11 @@ import com.cw.coc.board.model.vo.Attachment;
 import com.cw.coc.board.model.vo.Board;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.dao.LogmentDao;
+import com.cw.coc.place.model.service.RoomDao;
 import com.cw.coc.place.model.vo.LogmentVoYM;
+import com.cw.coc.reserve.model.dao.ReserveDao;
+import com.cw.coc.reserve.model.vo.Reserve;
+import com.cw.coc.room.model.vo.Room;
 
 public class BoardService {
 
@@ -67,7 +71,7 @@ public class BoardService {
 		}else {
 			rollback(con);
 		} 
- 
+
 		close(con);
 
 		return b;
@@ -189,10 +193,15 @@ public class BoardService {
 		ArrayList<Object> list = new ArrayList<Object>();
 		ArrayList<Board> bo = new BoardDao().selectReviewList(con, currentPage, limit, uno);
 		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con);
-		
+		ArrayList<Room> rm = new RoomDao().RoomSelect(con);
+		ArrayList<Reserve> rs = new ReserveDao().Reservation(con);
+
 		list.add(bo);
 		list.add(lm);
+		list.add(rm);
+		list.add(rs);
 		close(con);
+
 
 		return list;
 	}
@@ -220,7 +229,7 @@ public class BoardService {
 
 
 		return list;
-}
+	}
 	public ArrayList<Object> statics2() {
 		Connection con = getConnection();
 
@@ -262,7 +271,7 @@ public class BoardService {
 		}else {
 			rollback(con);
 		} 
- 
+
 		close(con);
 
 		return b;
@@ -272,17 +281,17 @@ public class BoardService {
 		Connection con = getConnection();
 
 		int result = new BoardDao().updateReview(con, m, b, num);
-		
+
 		if(result > 0) {
 			commit(con);
 		}else {
 			rollback(con);
 		}
 		close(con);
-		
+
 		return result;
 	}
 
-//	public void insertMassiveArticleInBoard(File destFile);
+	//	public void insertMassiveArticleInBoard(File destFile);
 }
 
