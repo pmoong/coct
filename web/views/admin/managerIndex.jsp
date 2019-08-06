@@ -10,15 +10,17 @@
 	List<Reserve> rlist = new ArrayList<Reserve>();
 	List<Partner> plist = new ArrayList<Partner>();
 	List<AllPayment> alist = new ArrayList<AllPayment>();
+	List<Object> list2 = new ArrayList<Object>();
 			
 	list = (List)result.get("blist");
 	mlist = (List)result.get("mlist");
 	rlist = (List)result.get("rlist");
 	plist = (List)result.get("plist");
 	alist = (List)result.get("alist");
+	list2 = (List)result.get("as");
 	
 	System.out.println("※");
-	System.out.println(alist);
+	System.out.println(list2);
 
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	int listCount = pi.getListCount();
@@ -41,13 +43,47 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 <!-- Additional files for the Highslide popup effect -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+		
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month',  '정산금액'],
+          
+          ['1월',   <%= list2.get(0) %>],
+          ['2월',   <%= list2.get(1) %>],
+          ['3월',  	  <%= list2.get(2) %>],
+          ['4월',  	<%= list2.get(3) %>],
+          ['5월',  	  <%=list2.get(4) %>],
+          ['6월',  	  <%= list2.get(5) %>],
+          ['7월',    <%= list2.get(6) %>],
+          ['8월',     <%= list2.get(7) %>],
+          ['9월',  	 <%= list2.get(8) %>],
+          ['10월',   <%= list2.get(9) %>],
+          ['11월',  	  <%= list2.get(10) %>],
+          ['12월',  	  <%= list2.get(11) %>]
+			
+        ]);
+
+        var options = {
+          title: '월별 정산 금액',
+          vAxis: {title: 'Accumulated Rating'},
+          isStacked: true
+        };
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+        </script>
 <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
 <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
@@ -120,15 +156,13 @@ button {
 		<hr style="border-color: yellowgreen">
 		<!-- Wrapper for slides -->
 
-
-		<div class="container">
-	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-		<br>
-<hr>
-<br>
-<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-	</div>
-
+<div class="container">
+	<table>
+       <tr>
+       <td><div id="chart_div" style="width: 50%; height: 400px;"></div></td>
+        </tr>
+    </table>
+</div>
 
 		
 
@@ -418,217 +452,7 @@ button {
 				
 			});
 		});
-		
-		   Highcharts.chart('container', {
-
-		       chart: {
-		           scrollablePlotArea: {
-		               minWidth: 700
-		           }
-		       },
-
-		       data: {
-		           csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
-		           beforeParse: function (csv) {
-		               return csv.replace(/\n\n/g, '\n');
-		           }
-		       },
-
-		       title: {
-		           text: '주별 사용자 추이'
-		       },
-		       
-		       xAxis: {
-		           tickInterval: 7 * 24 * 3600 * 1000, // one week
-		           tickWidth: 0,
-		           gridLineWidth: 1,
-		           labels: {
-		               align: 'left',
-		               x: 3,
-		               y: -3
-		           }
-		       },
-
-		       yAxis: [{ // left y axis
-		           title: {
-		               text: null
-		           },
-		           labels: {
-		               align: 'left',
-		               x: 3,
-		               y: 16,
-		               format: '{value:.,0f}'
-		           },
-		           showFirstLabel: false
-		       }, { // right y axis
-		           linkedTo: 0,
-		           gridLineWidth: 0,
-		           opposite: true,
-		           title: {
-		               text: null
-		           },
-		           labels: {
-		               align: 'right',
-		               x: -3,
-		               y: 16,
-		               format: '{value:.,0f}'
-		           },
-		           showFirstLabel: false
-		       }],
-
-		       legend: {
-		           align: 'left',
-		           verticalAlign: 'top',
-		           borderWidth: 0
-		       },
-
-		       tooltip: {
-		           shared: true,
-		           crosshairs: true
-		       },
-
-		       plotOptions: {
-		           series: {
-		               cursor: 'pointer',
-		               point: {
-		                   events: {
-		                       click: function (e) {
-		                           hs.htmlExpand(null, {
-		                               pageOrigin: {
-		                                   x: e.pageX || e.clientX,
-		                                   y: e.pageY || e.clientY
-		                               },
-		                               headingText: this.series.name,
-		                               maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-		                                   this.y + ' sessions',
-		                               width: 200
-		                           });
-		                       }
-		                   }
-		               },
-		               marker: {
-		                   lineWidth: 1
-		               }
-		           }
-		       },
-
-		       series: [{
-		           name: 'All sessions',
-		           lineWidth: 4,
-		           marker: {
-		               radius: 4
-		           }
-		       }, {
-		           name: 'New users'
-		       }]
-		   });
-		      
-		   
-		   Highcharts.chart('container2', {
-
-		       chart: {
-		           scrollablePlotArea: {
-		               minWidth: 700
-		           }
-		       },
-
-		       data: {
-		           csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
-		           beforeParse: function (csv) {
-		               return csv.replace(/\n\n/g, '\n');
-		           }
-		       },
-
-		       title: {
-		           text: '주별 매출 추이'
-		       },
-
-		       xAxis: {
-		           tickInterval: 7 * 24 * 3600 * 1000, // one week
-		           tickWidth: 0,
-		           gridLineWidth: 1,
-		           labels: {
-		               align: 'left',
-		               x: 3,
-		               y: -3
-		           }
-		       },
-
-		       yAxis: [{ // left y axis
-		           title: {
-		               text: null
-		           },
-		           labels: {
-		               align: 'left',
-		               x: 3,
-		               y: 16,
-		               format: '{value:.,0f}'
-		           },
-		           showFirstLabel: false
-		       }, { // right y axis
-		           linkedTo: 0,
-		           gridLineWidth: 0,
-		           opposite: true,
-		           title: {
-		               text: null
-		           },
-		           labels: {
-		               align: 'right',
-		               x: -3,
-		               y: 16,
-		               format: '{value:.,0f}'
-		           },
-		           showFirstLabel: false
-		       }],
-
-		       legend: {
-		           align: 'left',
-		           verticalAlign: 'top',
-		           borderWidth: 0
-		       },
-
-		       tooltip: {
-		           shared: true,
-		           crosshairs: true
-		       },
-
-		       plotOptions: {
-		           series: {
-		               cursor: 'pointer',
-		               point: {
-		                   events: {
-		                       click: function (e) {
-		                           hs.htmlExpand(null, {
-		                               pageOrigin: {
-		                                   x: e.pageX || e.clientX,
-		                                   y: e.pageY || e.clientY
-		                               },
-		                               headingText: this.series.name,
-		                               maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-		                                   this.y + ' sessions',
-		                               width: 200
-		                           });
-		                       }
-		                   }
-		               },
-		               marker: {
-		                   lineWidth: 1
-		               }
-		           }
-		       },
-
-		       series: [{
-		           name: 'All sessions',
-		           lineWidth: 4,
-		           marker: {
-		               radius: 4
-		           }
-		       }, {
-		           name: 'New users'
-		       }]
-		   });
-		      
-		   </script>
-	<%-- <% } %> --%>
+	}
+		  </script>
 </body>
 </html>

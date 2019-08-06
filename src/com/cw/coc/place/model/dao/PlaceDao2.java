@@ -24,7 +24,7 @@ import com.cw.coc.place.model.vo.Place;
 			Connection conn=null;
 
 
-   File file = new File("culture2.xml");
+   File file = new File("seoul2.xml");
   
   PlaceParser PlaceParser = new PlaceParser(file);
   System.out.println("PlaceParser"+PlaceParser);

@@ -97,8 +97,8 @@ table {
 			<table align="center" id="listArea">
 				<tr>
 					<th width="200px">회원번호</th>
-					<th width="300px">상호명</th>
-					<th width="250px">전화번호</th>
+					<th width="300px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상호명</th>
+					<th width="250px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전화번호</th>
 					<th width="150px">업체담당자명</th>
 					<th width="100px">구분</th>
 				</tr>
@@ -146,9 +146,9 @@ table {
 		<br><br><br>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">
-						<option value="writer">작성자</option>
-						<option value="title">제목</option>
-						<option value="content">내용</option>
+						<option value="writer">업체명</option>
+						<option value="title">전화번호</option>
+						<option value="content">구분</option>
 					</select> <input type="search">
 					<button type="submit" style="background: yellowgreen;">검색하기</button>
 					<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>

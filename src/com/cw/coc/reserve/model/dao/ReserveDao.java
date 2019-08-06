@@ -88,6 +88,8 @@ public class ReserveDao {
 				r.setRmCode(rset.getInt("SEQ_RMCODE"));
 				r.setRsvDate(rset.getDate("RSVDATE"));
 				r.setCiDate(rset.getDate("CIDATE"));
+				r.setpName(rset.getString("PNAME"));
+				
 
 				rlist.add(r);
 			}

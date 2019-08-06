@@ -98,8 +98,8 @@ table {
 			<table align="center" id="MlistArea">
 				<tr>
 					<th width="100px">회원번호</th>
-					<th width="100px">아이디</th>
-					<th width="300px">이메일</th>
+					<th width="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이디</th>
+					<th width="300px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이메일</th>
 					<th width="100px">구분</th>
 					<th width="100px">성별</th>
 				</tr>

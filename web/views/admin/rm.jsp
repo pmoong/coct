@@ -101,7 +101,9 @@ table {
 				<tr>
 					<th width="100px">예약번호</th>
 					<th width="100px">예약회원</th>
-					<th width="300px">방번호</th>
+					<th width="100px">방번호</th>
+					
+					<th width="300px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;업체명</th>
 					<th width="100px">예약날짜</th>
 					<th width="100px">예약상품날짜</th>
 				</tr>
@@ -112,6 +114,7 @@ table {
 					<td><%= r.getRsvCode() %></td>
 					<td><%= r.getUno() %></td>
 					<td><%= r.getRmCode() %></td>
+					<td><%= r.getpName() %></td>
 					<td><%= r.getRsvDate() %></td>
 					<td><%= r.getCiDate() %></td>
 				</tr>
