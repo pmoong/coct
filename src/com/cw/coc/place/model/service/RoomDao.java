@@ -132,7 +132,7 @@ public class RoomDao {
 		ArrayList<Room> rm = null;
 		ResultSet rset = null;
 
-		String query = prop.getProperty("selectRoom");
+		String query = prop.getProperty("selectRooms");
 
 		try {
 			pstmt = con.prepareStatement(query);

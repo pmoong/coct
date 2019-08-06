@@ -20,6 +20,8 @@ import com.cw.coc.place.model.vo.LogmentVoYM;
 import com.cw.coc.place.model.vo.Place;
 import com.cw.coc.place.model.vo.RestaurantVo;
 import com.cw.coc.place.model.vo.SeoulVoYM;
+import com.cw.coc.reserve.model.dao.ReserveDao;
+import com.cw.coc.reserve.model.vo.Reserve;
 import com.cw.coc.room.model.vo.Room;
 
 public class MemberService {
@@ -177,9 +179,10 @@ public class MemberService {
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con); 
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
-		//ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno());
 		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con);
 		ArrayList<Room> rm = new RoomDao().RoomSelect(con);
+		ArrayList<Reserve> rs = new ReserveDao().Reservation(con);
+		//ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno());
 		
 		
 		
@@ -198,6 +201,7 @@ public class MemberService {
 		 list.add(rv);
 		 list.add(lm);
 		 list.add(rm);
+		 list.add(rs);
 		 //list.add(uh);
 		 /*list.add(p1);
 		 list.add(rs1);

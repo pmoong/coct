@@ -1,7 +1,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.place.model.vo.*, com.cw.coc.room.model.vo.*"%>
+	import="java.util.*, com.cw.coc.board.model.vo.*, com.cw.coc.member.model.vo.*, com.cw.coc.place.model.vo.*, com.cw.coc.room.model.vo.*
+	, com.cw.coc.reserve.model.vo.*"%>
 <%
 	
 	//ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("list");
@@ -11,6 +12,8 @@
 	ArrayList<Board> rv = (ArrayList<Board>) request.getAttribute("rv");
 	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
 	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
+	ArrayList<Reserve> rs = (ArrayList<Reserve>) request.getAttribute("rs");
+	
 	//Payment pm1 = (Payment) request.getAttribute("pm1");
 	//Payment pm2 = (Payment) request.getAttribute("pm2");
 	
@@ -396,32 +399,40 @@ div>a {
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-						<th width="70px">업체이름</th>
-						<th width="80px">방 정보</th>
-						<th width="100px">제목</th>
+						<th width="100px">업체명</th>
+						<th width="90px">방 정보</th>
+						<th width="50px">가격</th>
+						<th width="70px">제목</th>
 						<th width="300px">내용</th>
 						<th width="100px">작성자</th>
-						<th width="50px">조회수</th>
-						<th width="120px">작성일</th>
+						<th width="100px">작성일</th>
 					</tr>
 					<%
+					int a = 0;
 							for (Board r : rv) {
 								for(LogmentVoYM l : lm) {
 									for(Room ro : rm) {
-									if(l.getcCode() == r.getcCode()){
-										if(l.getcCode() == ro.getcCode()){
+										for(Reserve re : rs) {
+											if(l.getcCode() == r.getcCode()){
+												if(l.getcCode() == ro.getcCode()){
+													if(ro.getRmCode() == re.getRmCode()){
+														a ++;
+														if(a==1 ||a ==4){
 						%>
 					<tr>
 						<input type="hidden" value="<%=r.getbCode()%>">
-						<td> <%= l.getLtitle() %></td>
+						<td><%= l.getLtitle() %></td>
 						<td><%=ro.getRmName()%></td>
+						<td><span><%= ro.getPrice()%></span></td>
 						<td><%=r.getbTitle()%></td>
 						<td><%=r.getbContent()%></td>
 						<td><%= r.getbWriter() %></td>
-						<td><span><%=r.getCount()%></span></td>
 						<td><%=r.getbDate()%></td>
 					</tr>
 					<%
+														}
+													}
+												}
 											}
 										}
 									}
@@ -439,49 +450,7 @@ div>a {
 				}
 			</script>
 
-		<div class="container">
-			<a href="/coc/views/member/usingHistory.jsp">
-				<div class="row">
-					<h3 class="col-8 col-12-medium"
-						style='text-align: left; margin-top: 1%;'>이용내역</h3>
-					<h2 class="col-4 col-12-medium"
-						style='text-align: right; margin-top: 1%;'>></h2>
-				</div>
-			</a>
-			<hr style="border: 1px solid darkgray">
-			<br>
-			<div class="tableArea">
-				<table align="center" id="listArea">
-					<tr>
-						<th width="100px">예약번호</th>
-						<th width="100px">업체이름</th>
-						<th width="100px">방이름</th>
-						<th width="100px">회원ID</th>
-						<th width="100px">예약한상품날짜</th>
-						<th width="100px">진행상황</th>
-						<th width="100px">가격</th>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-				</table>
-			</div>
-			<br> <br> <br>
-		</div>
-
+		
 
 		<!-- Wrapper for slides -->
 

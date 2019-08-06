@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.*, com.cw.coc.place.model.vo.LogmentVoYM, com.cw.coc.board.model.vo.*"%>
+	import="java.util.*, com.cw.coc.place.model.vo.LogmentVoYM, com.cw.coc.board.model.vo.*, com.cw.coc.room.model.vo.*
+	, com.cw.coc.reserve.model.vo.*"%>
 <%
 	//ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
-	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
 	ArrayList<Board> bo = (ArrayList<Board>) request.getAttribute("bo");
+	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
+	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
+	ArrayList<Reserve> rs = (ArrayList<Reserve>) request.getAttribute("rs");
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
 	int maxPage = pi.getMaxPage();
@@ -13,11 +16,6 @@
 	int endPage = pi.getEndPage();
 %>
 <!DOCTYPE HTML>
-<!--
-   Verti by HTML5 UP
-   html5up.net | @ajlkn
-   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 <head>
 <title>CoC</title>
@@ -64,31 +62,46 @@ select {
 				<div class="tableArea">
 					<table align="center" id="listArea">
 						<tr>
-							<th width="80px">업체명</th>
-							<th width="400px">글제목</th>
+							<th width="100px">업체명</th>
+							<th width="90px">방 정보</th>
+							<th width="50px">가격</th>
+							<th width="70px">제목</th>
+							<th width="300px">내용</th>
 							<th width="100px">작성자</th>
-							<th width="80px">조회수</th>
 							<th width="100px">작성일</th>
 						</tr>
 						<%
+						int a = 0;
 							for (Board b : bo) {
 								for (LogmentVoYM l : lm) {
-									if (l.getcCode() == b.getcCode()) {
+									for(Room ro : rm) {
+										for(Reserve re : rs) {	
+											if (l.getcCode() == b.getcCode()) {
+												if(l.getcCode() == ro.getcCode()){
+													if(ro.getRmCode() == re.getRmCode()){
+														a ++;
+														if(a==2 ||a ==3){
 						%>
 						<tr>
-							<td><%=l.getLtitle()%></td>
+							<input type="hidden" value="<%=b.getbCode()%>">
+							<td><%= l.getLtitle() %></td>
+							<td><%=ro.getRmName()%></td>
+							<td><span><%= ro.getPrice()%></span></td>
 							<td><%=b.getbTitle()%></td>
-							<td><%=b.getbWriter()%></td>
-							<td><span><%=b.getCount()%></span></td>
+							<td><%=b.getbContent()%></td>
+							<td><%= b.getbWriter() %></td>
 							<td><%=b.getbDate()%></td>
 						</tr>
 						<%
+														}
+													}
+												}
+											}
+										}
 									}
 								}
 							}
 						%>
-
-
 						<%-- <%for(Notice n : list){ %>
 				<tr>
 					<td><%=n.getNno() %></td>
@@ -178,23 +191,16 @@ select {
 		$(function() {
 			$("#listArea td")
 					.mouseenter(function() {
-						$(this).parent().css({
-							"background" : "lightgray",
-							"cursor" : "pointer"
-						});
+						$(this).parent().css({"background" : "lightgray","cursor" : "pointer"});
 					})
 					.mouseout(function() {
-						$(this).parent().css({
-							"background" : "white"
-						});
+						$(this).parent().css({"background" : "white"});
 					})
 					.click(
 							function() {
-								var num = $(this).parent().children("input")
-										.val();
+								var num = $(this).parent().children("input").val();
 
-								location.href = "
-	<%=request.getContextPath()%>/selectReviewList.rv?num=" + num;
+								location.href = "<%=request.getContextPath()%>/selectReviewList.rv?num=" + num;
 			});
 		});
 	</script>
