@@ -1,4 +1,4 @@
-/*package com.cw.coc.place.model.dao;
+package com.cw.coc.place.model.dao;
 
 import static com.cw.coc.common.JDBCTemplate.close;
 
@@ -11,10 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Properties;
 
-import com.cw.coc.choice.model.vo.Coc;
 import com.cw.coc.common.JDBCTemplate;
 import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.vo.CultureVoYM;
@@ -252,13 +250,13 @@ public class PlaceDao {
 		try {
 			
 			pstmt=con.prepareStatement(query);
-			 
+		/*	 
 			int startRow=(currentPage -1) *limit +1;
-			int endRow=startRow +limit -1;
+			int endRow=startRow +limit -1;*/
 			pstmt.setInt(1, m.getUno());
 
-			pstmt.setInt(2,startRow);
-			pstmt.setInt(3, endRow);
+			/*pstmt.setInt(2,startRow);
+			pstmt.setInt(3, endRow);*/
 
 			rset=pstmt.executeQuery();
 			list=new ArrayList<LogmentVoYM>();
@@ -292,11 +290,11 @@ public class PlaceDao {
 		try {
 			pstmt=con.prepareStatement(query);
 			 
-			int startRow=(currentPage -1) *limit +1;
-			int endRow=startRow +limit -1;
+		/*	int startRow=(currentPage -1) *limit +1;
+			int endRow=startRow +limit -1;*/
 			pstmt.setInt(1, m.getUno());
-			pstmt.setInt(2,startRow);
-			pstmt.setInt(3, endRow);
+		/*	pstmt.setInt(2,startRow);
+			pstmt.setInt(3, endRow);*/
 
 			rset=pstmt.executeQuery();
 			list=new ArrayList<RestaurantVo>();
@@ -319,7 +317,7 @@ RestaurantVo r = new RestaurantVo();
 		}
 		return list;
 	}
-	public ArrayList<CultureVoYM> selectculture(Connection con, int currentPage, int limit,Member m) {
+	public ArrayList<CultureVoYM> selectculture(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
 		ArrayList<CultureVoYM> list =null;
@@ -352,7 +350,7 @@ RestaurantVo r = new RestaurantVo();
 		}
 		return list;
 	}
-	public ArrayList<SeoulVoYM> selectseoul(Connection con, int currentPage, int limit,Member m) {
+	public ArrayList<SeoulVoYM> selectseoul(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
 		ArrayList<SeoulVoYM>list =new ArrayList<SeoulVoYM>();
@@ -361,13 +359,13 @@ RestaurantVo r = new RestaurantVo();
 		try {
 			pstmt=con.prepareStatement(query);
 			 
-			int startRow=(currentPage -1) *limit +1;
-			int endRow=startRow +limit -1;
+		/*	int startRow=(currentPage -1) *limit +1;
+			int endRow=startRow +limit -1;*/
 			pstmt.setInt(1, m.getUno());
-
+/*
 			pstmt.setInt(2,startRow);
 			pstmt.setInt(3, endRow);
-
+*/
 			rset=pstmt.executeQuery();
 			list=new ArrayList<SeoulVoYM>();
 			
@@ -522,10 +520,10 @@ RestaurantVo r = new RestaurantVo();
 		return listCount;
 	}
 
-	 public ArrayList<Coc> selectList(Connection con,Member m) {
+	 public ArrayList<Place> selectList(Connection con,Member m) {
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
-		ArrayList<Coc>list =new ArrayList<Coc>();
+		ArrayList<Place>list =new ArrayList<Place>();
 		String query =prop.getProperty("selectListPaging");
 System.out.println("11111");
 		try {
@@ -537,14 +535,14 @@ System.out.println("11111");
 		pstmt.setInt(4, m.getUno());
  
 		rset=pstmt.executeQuery();
-		list=new ArrayList<Coc>();
+		list=new ArrayList<Place>();
 		while(rset.next()) {
-			Coc c =new Coc();
+			Place c =new Place();
 			 
-			p.setpName(rset.getString("PNAME"));
-			p.setpAddress(rset.getString("PADDRESS"));
-			p.setImage(rset.getString("IMAGE"));
-			list.add(p);
+			c.setpName("PNAME");
+			c.setpAddress(rset.getString("PADDRESS"));
+			c.setImage(rset.getString("IMAGE"));
+			list.add(c);
 				System.out.println(list+"list");
 			}
 	} catch (SQLException e) {
@@ -556,10 +554,10 @@ System.out.println("11111");
 		return list;
 	} 
 
-	public ArrayList<Place> selectListPage(Connection conn, int currentPage, int limit, String searchkey,
+	public ArrayList<RestaurantVo> selectListPage(Connection conn,String searchkey,
 			String searchvalue,Member m) {
 		
-		ArrayList<Place>list =null;
+		ArrayList<RestaurantVo>list =null;
 		PreparedStatement pstmt=null;
 		ResultSet rset=null;
  		String culture =prop.getProperty("culturePage");
@@ -570,8 +568,7 @@ System.out.println("11111");
 		String total=prop.getProperty("totalPage");
 		try {
 			 conn = JDBCTemplate.getConnection();
-			 int startRow=(currentPage -1) *limit +1;
-		     int endRow=startRow +limit -1;
+		 
 		     
 			if (searchkey.equals("total")) {
                pstmt = conn.prepareStatement(total);
@@ -583,9 +580,7 @@ System.out.println("11111");
     		   pstmt.setInt(6, m.getUno());
         		pstmt.setString(7, searchvalue);
         		pstmt.setInt(8, m.getUno());
-                pstmt.setInt(9,startRow);
-       			pstmt.setInt(10, endRow);
-
+             
            } else if (searchkey.equals("culture")) {
            
                pstmt = conn.prepareStatement(culture);
@@ -593,8 +588,7 @@ System.out.println("11111");
        	   pstmt.setInt(1, m.getUno());
            pstmt.setString(2, searchvalue);
    	 
-    		 pstmt.setInt(9,startRow);
-    			pstmt.setInt(10, endRow);
+    		 
 
             } else if (searchkey.equals("logment")) {
             
@@ -602,8 +596,8 @@ System.out.println("11111");
                pstmt.setInt(1, m.getUno());
                pstmt.setString(2, searchvalue);
        		 
-        		 pstmt.setInt(9,startRow);
-        			pstmt.setInt(10, endRow);
+        		/* pstmt.setInt(9,startRow);
+        			pstmt.setInt(10, endRow);*/
 
            } else if (searchkey.equals("restaurant")) {
           
@@ -611,16 +605,14 @@ System.out.println("11111");
                pstmt.setInt(1, m.getUno());
                pstmt.setString(2, searchvalue);
        	 
-        		 pstmt.setInt(9,startRow);
-        			pstmt.setInt(10, endRow);
+        		 
            } else if (searchkey.equals("seoul")) {
          
                pstmt = conn.prepareStatement(seoul);
                pstmt.setInt(1, m.getUno());
                pstmt.setString(2, searchvalue);
        		 
-        		 pstmt.setInt(9,startRow);
-        			pstmt.setInt(10, endRow);
+        		  
             } else if (searchkey.equals("addr")) {
                pstmt = conn.prepareStatement(addr);
                 pstmt.setString(1, searchvalue);
@@ -631,22 +623,23 @@ System.out.println("11111");
     		   pstmt.setInt(6, m.getUno());
         		pstmt.setString(7, searchvalue);
         		pstmt.setInt(8, m.getUno());
-        		 pstmt.setInt(9,startRow);
-        			pstmt.setInt(10, endRow);
+        		 
            } else {
         	   System.out.println("b");
            }
  			rset = pstmt.executeQuery();
-			list = new ArrayList<Place>();
+			list = new ArrayList<RestaurantVo>();
 			
 			while(rset.next()) {
-				Place p =new Place();
+				RestaurantVo r =new RestaurantVo();
 				 
-				p.setpName(rset.getString("PNAME"));
-				System.out.println("p:"+p);
-				p.setpAddress(rset.getString("PADDRESS"));
-				p.setImage(rset.getString("IMAGE"));
-				list.add(p);
+				r.setRtitle(rset.getString("RTITLE"));
+				System.out.println("p:"+r);
+				r.setRaddr(rset.getString("RADDR"));
+				r.setRfirstimage(rset.getString("FIRSTIMAGE"));
+ 
+				
+				list.add(r);
  			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -671,4 +664,3 @@ System.out.println("11111");
 	
 	
 	
-	*/

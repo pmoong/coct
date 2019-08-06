@@ -12,145 +12,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/coc/assets/css/main.css" />
-<style>
-body {
-	background: white;
-}
- 
-#test {
-	background: white !important;
-	color: black !important;
-}
- 
-   .btn-group{ 
-            padding: 10px;
-}  
- 
- .btn-plus {
-  position:absolute !important;
-  top:100px !important;
-  left:100px !important;
-  border-radius:50% !important;
-  text-align:center !important;
-   opacity:0 !important;
-  transform:scale(2) !important;
-  transition:all .3s linear !important;
-}
- 
-.btn-plus span {
-  font-size:9em !important;
-  color:#ffffff !important;
-   user-select:none !important; 
-}
-  .img-wrapper:hover .darkness{
-  opacity:0.4 !important;
-}
-
-.img-wrapper:hover .btn-plus {
-  opacity:1 !important;
-  transform:scale(1) !important;
-}  
- 
-#bbtn{
-  background:#fcfcfc !important;
- font-size:1.5em !important;
-font-weight: bold !important;
-}
-
-  #btn{
-  background:#fcfcfc !important;
-  color:#852d7a !important;
-  border:none !important;
-  position:relative !important;
-  height:60px !important;
-  font-size:1 em !important;
-  padding:0 2em !important;
-  cursor:pointer !important;
-  transition:800ms ease all;
-  outline:none !important;
-  font-weight: bold !important;
-}
-#btn:hover{
-  background:#fff !important;
-  color:#852d7a !important;
-}
-#btn:before,button:after{
-  content:'' !important;
-  position:absolute !important;
-  top:0 !important;
-  right:0 !important;
-  height:2px !important;
-  width:0 !important;
-   color:#852d7a !important;
-  background: #852d7a !important;
-  transition:400ms ease all !important;
-}
- #btn:after{
-   color:#852d7a !important;
-  right:inherit !important;
-  top:inherit !important;
-  left:0 !important;
-  bottom:0 !important;
-}  
-#btn:hover:before,#btn:hover:after{
-  color:#852d7a !important;
-  width:100% !important;
-  transition:800ms ease all !important;
-}
-.carousel-control{
-   width:12% !important;
-}
-
-.con{
-padding-left:30px !important;
-} 
- #bb{
-  
- padding-left:30px !important;
- 	font-size:2em !important;
- 	color:#000000 !important;
- 	  border:none !important;
- 	font-weight: bold !important;
- }
- .icono-smile {
-	color : #2ba3bb;
-}
-
-.my_fontaw{
-	border:2px solid black;
-	background-color:black;
-
-}
-.my_fontmu{
-color:white;
- 
-}
- 
-#el{
-position: fixed;
-top: 350px;
- font-weight:bold;
- font-size:20px;
-  
- 
-}
-#el:hover{
-position: fixed;
-top: 350px;
- font-weight:bold; 
-  font-size:20px;
-}
- 
-#color{
-  color:black;
- 
- 
-}#color:hover{
-color:#51c4a5;
- 
-}
-#map_ma {width:100%; height:400px; clear:both; border:solid 1px red;}
-  </style>
   <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -158,6 +19,28 @@ color:#51c4a5;
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+  #map {
+    height: 350px;  /* The height is 400 pixels */
+    width: 60%;  /* The width is the width of the web page */
+   }
+</style>
+<script>
+function initMap() {
+  var uluru1 = {lat: 37.576469, lng: 126.973368};
+  var uluru2 = {lat: 37.579836, lng: 126.976995};
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15, center: uluru1});
+  
+  var marker1 = new google.maps.Marker({position: uluru1, map: map});
+  var marker2 = new google.maps.Marker({position: uluru2, map: map});
+  zoomControl:false;
+  scaleControl:true;
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc-FAooT4cR2nne8SYnHMKaE7OmJfgp6U&callback=initMap">
+</script>
 </head>
   <body class="is-preload homepage">
 	<!-- Header -->
@@ -165,6 +48,8 @@ color:#51c4a5;
 		<img src="/coc/images/ccc.jpg" style="width:80%; height:400px; margin-left:10%;">
 	<br>
 	<h3 style="margin-left:20%;"><b>한복입궁 가자 궁</b></h3>
+	<br><br>
+		<div id="map" style="margin-left:20%;"></div>
 	<br><br><br>
 	<div role="tabpanel" style="margin-left:20%; margin-right:20%;">
 

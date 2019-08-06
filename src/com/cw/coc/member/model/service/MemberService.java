@@ -276,6 +276,23 @@ public class MemberService {
 	}
 
 
+	public int updatePassword2(Member m) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().updatePassword2(con, m);
+		
+		
+		if(result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);		
+    
+		return result;
+	}
+
+
 	
 	
 

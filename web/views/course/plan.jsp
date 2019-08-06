@@ -1,9 +1,9 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"  import="java.util.*, com.cw.coc.place.model.vo.*,com.cw.coc.course.model.vo.Place.PlaceCocVo,com.cw.coc.choice.model.vo.Coc"%>
 	<%
-/*      ArrayList<PlaceCocVo> list=(ArrayList<PlaceCocVo>)request.getAttribute("list");
- */	 ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
-	 
+    ArrayList<PlaceCocVo> PlacecocList=(ArrayList<PlaceCocVo>)request.getAttribute("PlacecocList");
+ 	 ArrayList<Place> list=(ArrayList<Place>)request.getAttribute("list");
+  
  		ArrayList<CultureVoYM> ct = (ArrayList<CultureVoYM>)request.getAttribute("ct");
 		ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>)  request.getAttribute("lm");
 		ArrayList<RestaurantVo> rt = (ArrayList<RestaurantVo>) request.getAttribute("rt");
@@ -165,13 +165,14 @@ outline:0;
 <tr>
 <th>타이틀</th></tr>
 
-  <%  
-for(CultureVoYM p: ct){ %> 
+<%--  
+<% for(Place p: list){ %> 
 <tr id="title">
-  <%p.getCaddr();%>
+  <%p.getcCode();%>
+  
+  <%}%>  --%> 
   
   
-  <%} %>
 <%-- <td id="title"><%=p.getCaddr()%></td>
  <td class="pname"></td>
  <%} %> 
@@ -418,7 +419,7 @@ for(CultureVoYM p: ct){ %>
 		
 		function minusCoc(id){	
 			var cCode = $("#cCode"+id).val();
-			var uno = <%=loginUser.getUno()%>;
+			var uno = <%=loginUser.getUno() %>;
  			$.ajax({
 				url:"placecocminushj",
 				type:"post",

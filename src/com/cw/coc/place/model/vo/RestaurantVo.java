@@ -1,6 +1,10 @@
 package com.cw.coc.place.model.vo;
- 
-  
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import com.cw.coc.member.model.vo.Member;
+
 public  class RestaurantVo {
 	
 	private int cCode; 
@@ -130,6 +134,8 @@ public int getcCode() {
 				+ rcontenttypeid + ", rcat1=" + rcat1 + ", rcat2=" + rcat2 + ", rcat3=" + rcat3 + ", rmapx=" + rmapx
 				+ ", rmapy=" + rmapy + ", rfirstimage=" + rfirstimage + "]";
 	}
+
+ 
 
  
 	 
