@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.Condb;
 import com.cw.coc.place.RestaurantParser;
 import com.cw.coc.place.model.vo.RestaurantVo;
@@ -66,6 +67,7 @@ public class RestaurantDao {
 		  close(con);
  	  }
 	}
+		 
 		 
 	
 }
