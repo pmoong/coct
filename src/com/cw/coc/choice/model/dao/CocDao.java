@@ -66,7 +66,7 @@ public class CocDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, loginUserNo);
 			pstmt.setInt(2, cCode);
-			
+			 
 			result = pstmt.executeUpdate();
 			
 			
@@ -124,7 +124,6 @@ public class CocDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, loginUserNo);
 			pstmt.setInt(2, cCode);
-			
 			result = pstmt.executeUpdate();
 			
 			

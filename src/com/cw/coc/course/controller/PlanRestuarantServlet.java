@@ -8,10 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.cw.coc.course.model.sevice.Place.PlaceCocService;
+import com.cw.coc.course.model.vo.Place.PlaceCocVo;
+import com.cw.coc.member.model.vo.Member;
 import com.cw.coc.place.model.service.PlaceService;
 import com.cw.coc.place.model.vo.PageInfo;
 import com.cw.coc.place.model.vo.Place;
+import com.cw.coc.place.model.vo.RestaurantVo;
 
 /**
  * Servlet implementation class Plan
@@ -25,7 +30,13 @@ public class PlanRestuarantServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		int currentPage;
+		HttpSession session = request.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		int userNo = m.getUno();
+
+	  	ArrayList<PlaceCocVo> PlacecocList  = new PlaceCocService().PlaceisCoc(userNo);
+		/*
+		int currentPage;
 		int limit;
 		int maxPage;
 
@@ -49,16 +60,18 @@ public class PlanRestuarantServlet extends HttpServlet {
 		if(maxPage <endPage) {
 			endPage = maxPage;
 		}
-		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
-/* 		ArrayList<Place> list =new PlaceService().selectrestaurant(currentPage,limit);
-*/
+		PageInfo pi=new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);*/
+  		ArrayList<RestaurantVo> list =new PlaceService().selectrestaurant(/*currentPage,limit,*/m);
+ 
   		String page="";
 		
 		if(list != null){
 			page="views/course/plan.jsp";
 			request.setAttribute("list", list);
-			request.setAttribute("pi", pi);
-		}else {
+			request.setAttribute("PlacecocList", PlacecocList);
+
+/*			request.setAttribute("pi", pi);
+*/		}else {
 			page="views/common/errorPage.jsp";
 			request.setAttribute("msg", "실패!");
 		}
