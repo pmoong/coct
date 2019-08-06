@@ -20,7 +20,7 @@ public class UpdatePassword extends HttpServlet {
 
 	public UpdatePassword() {
 		super();
-	}
+	} 
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -179,45 +179,17 @@ public class MemberService {
 		m  = new MemberDao().selectSurvey(con, m);
 		ArrayList<Board> bo = new BoardDao().myPageSelect(con); 
 		ArrayList<Board> rv = new BoardDao().reviewSelect(con, m.getUno());
-		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con);
+		ArrayList<LogmentVoYM> lm = new LogmentDao().LogmentSelect(con); 
 		ArrayList<Room> rm = new RoomDao().RoomSelect(con);
 		ArrayList<Reserve> rs = new ReserveDao().Reservation(con);
-		//ArrayList<Object> uh = new MemberDao().useHistory(con, m.getUno());
 		
-		
-		
-		/*ArrayList<Place> p1 = (ArrayList<Place>) uh.get(0);
-		ArrayList<Reserve> rs1 = (ArrayList<Reserve>) uh.get(1);
-		ArrayList<Room> r1 = (ArrayList<Room>) uh.get(2);
-		ArrayList<Member> m1 = (ArrayList<Member>) uh.get(3);
-		ArrayList<Payment> pm1 = (ArrayList<Payment>) uh.get(4);
-		ArrayList<Place> p2 = (ArrayList<Place>) uh.get(5);
-		ArrayList<Reserve> rs2 = (ArrayList<Reserve>) uh.get(6);
-		ArrayList<Room> r2 = (ArrayList<Room>) uh.get(7);
-		ArrayList<Member> m2 = (ArrayList<Member>) uh.get(8);
-		ArrayList<Payment> pm2 = (ArrayList<Payment>) uh.get(9);*/
 		 list.add(m);
 		 list.add(bo);
 		 list.add(rv);
 		 list.add(lm);
 		 list.add(rm);
 		 list.add(rs);
-		 //list.add(uh);
-		 /*list.add(p1);
-		 list.add(rs1);
-		 list.add(r1);
-		 list.add(m1);
-		 list.add(pm1);
-		 list.add(p2);
-		 list.add(rs2);
-		 list.add(r2);
-		 list.add(m2);
-		 list.add(pm2);*/
 		 
-		 
-
-		 //list.add(pm.get(0));
-		 //,list.add(pm.get(1));
 
 		close(con);
 		

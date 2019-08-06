@@ -28,7 +28,7 @@ public class UpdateSurveyServlet extends HttpServlet {
 		
 		int uno = Integer.parseInt(request.getParameter("uno"));
 		String id = request.getParameter("id");
-		String userPwd = request.getParameter("userPwd");
+		String userPwd = request.getParameter("userPwd");  
 		String email = request.getParameter("email");
 		String utype = request.getParameter("utype");
 		String gender = request.getParameter("gender");
