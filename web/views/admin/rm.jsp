@@ -35,9 +35,10 @@ body {
 	background: white !important;
 	color: black !important;
 }
+
 .outer {
-	width: 800px;
-	height: 500px;
+	width: 1500px;
+	height: 700px;
 	background: white;
 	color: black;
 	margin-left: auto;
@@ -51,8 +52,8 @@ table {
 }
 
 .tableArea {
-	width: 650px;
-	height: 350px;
+	width: 800px;
+	height: 450px;
 	margin: 0 auto;
 }
 
@@ -60,6 +61,7 @@ table {
 	width: 650px;
 	margin: 0 auto;
 }
+
 </style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -94,7 +96,6 @@ table {
 
 		<div class="outer">
 			<br>
-			<h2 align="center">예약관리</h2>
 			<div class="tableArea">
 			<table align="center" id="listArea">
 				<tr>
@@ -146,7 +147,6 @@ table {
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.ad?currentPage=<%=maxPage%>'">>></button>
 		</div>
 		<br><br><br>
-				</div>
 				<div class="searchArea" align="center">
 					<select id="searchCondition" name="searchCondition">
 						<option value="writer">작성자</option>
@@ -173,7 +173,25 @@ table {
 
 
 	</div>
+<script>
 
+$(function(){
+	$("#listArea td").mouseenter(function(){
+		
+		$(this).parent().css({"background":"yellowgreen", "cursor":"pointer"});
+		
+	}).mouseout(function(){
+		$(this).parent().css({"background":"white"});
+		
+	}).click(function(){
+		
+		var num = $(this).parent().children("input").val();
+		
+		location.href="<%=request.getContextPath()%>/selectOne.ad?num=" + num;
+	});
+});
+
+</script>
 
 
 </body>

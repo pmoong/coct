@@ -203,10 +203,10 @@ public class BoardService {
 
 
 	}
-	public ArrayList<HashMap<String, Object>> statics() {
+	public ArrayList<Object> statics() {
 		Connection con = getConnection();
 
-		ArrayList<HashMap<String,Object>> list = new BoardDao().statics(con);
+		ArrayList<Object> list = new BoardDao().statics(con);
 
 
 		close(con);
@@ -217,10 +217,10 @@ public class BoardService {
 
 		return list;
 }
-	public ArrayList<HashMap<String, Object>> statics2() {
+	public ArrayList<Object> statics2() {
 		Connection con = getConnection();
 
-		ArrayList<HashMap<String,Object>> list = new BoardDao().statics2(con);
+		ArrayList<Object> list = new BoardDao().statics2(con);
 
 
 		close(con);
@@ -231,10 +231,10 @@ public class BoardService {
 
 		return list;
 	}
-	public ArrayList<HashMap<String, Object>> statics3() {
+	public ArrayList<Object> statics3() {
 		Connection con = getConnection();
 
-		ArrayList<HashMap<String,Object>> list = new BoardDao().statics3(con);
+		ArrayList<Object> list = new BoardDao().statics3(con);
 
 
 		close(con);

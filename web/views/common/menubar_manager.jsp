@@ -87,13 +87,12 @@ li a.active {
 				<nav id="nav" style='left: 20%'>
 					<ul>
 						<li><a href="/coc/List.ad">홈</a></li>
-						<li><a href="/coc/views/admin/statistics.jsp">통계</a></li>
+						<li><a href="/coc/statics">통계</a></li>
 						<li><a href="/coc/selectReserveList.ad">예약관리</a></li>
 						<li><a href="/coc/selectMemberList.ad">회원관리</a></li>
 						<li><a href="/coc/selectPartnerList.ad">제휴사관리</a></li>
 						<li><a href="/coc/ListAll.ad">게시판관리</a></li>
 						<li><a href="/coc/ListP.ad">정산내역</a></li>
-						<li><a href="/coc/views/admin/courseManagement.jsp">코스</a></li>
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
 						<li><a href="/coc/logout" style='color:#088A08;'>로그아웃</a></li>
 					</ul>

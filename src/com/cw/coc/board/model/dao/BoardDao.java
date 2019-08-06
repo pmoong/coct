@@ -710,10 +710,9 @@ public class BoardDao {
 		return listCount;
 	}
 	
-	public ArrayList<HashMap<String, Object>> statics(Connection con) {
+	public ArrayList<Object> statics(Connection con) {
 		Statement stmt = null;
-		ArrayList<HashMap<String, Object>> list = null;
-		HashMap<String, Object> hmap = null;
+		ArrayList<Object> list = null;
 
 		ResultSet rset = null;
 		String query = prop.getProperty("statics");//결제금액
@@ -723,15 +722,24 @@ public class BoardDao {
 
 			rset = stmt.executeQuery(query);
 
-			list = new ArrayList<HashMap<String, Object>>();
+			list = new ArrayList<Object>();
 
 			while(rset.next()) {
-				hmap = new HashMap<String,Object>();
-
-				hmap.put("reason1", rset.getString("PDATE"));
-				hmap.put("reason2", rset.getString("PRICE"));
-
-				list.add(hmap);
+				list.add(rset.getInt("M1"));
+				list.add(rset.getInt("M2"));
+				list.add(rset.getInt("M3"));
+				list.add(rset.getInt("M4"));
+				list.add(rset.getInt("M5"));
+				list.add(rset.getInt("M6"));
+				list.add(rset.getInt("M7"));
+				list.add(rset.getInt("M8"));
+				list.add(rset.getInt("M9"));
+				list.add(rset.getInt("M10"));
+				list.add(rset.getInt("M11"));
+				list.add(rset.getInt("M12"));
+				
+				
+				System.out.println("pay list : " + list);
 			}
 
 
@@ -747,33 +755,35 @@ public class BoardDao {
 	}
 
 
-	public ArrayList<HashMap<String, Object>> statics2(Connection con) {
+	public ArrayList<Object> statics2(Connection con) {
 		PreparedStatement pstmt = null;
-		ArrayList<HashMap<String, Object>> list = null;
-		HashMap<String, Object> hmap = null;
+		ArrayList<Object> list = null;
 
 		ResultSet rset = null;
-		String query = prop.getProperty("statics2");//예약일, 상품일
+		String query = prop.getProperty("statics2");//예약
 
 		try {
 			
 			pstmt = con.prepareStatement(query);
-			for(int i = 1; i >= 12 ; i++  ) {
 			
-				pstmt.setInt(1, i);
-			
-			}
 			rset = pstmt.executeQuery();
 			
-			list = new ArrayList<HashMap<String, Object>>();
+			list = new ArrayList<Object>();
 
 			while(rset.next()) {
-				hmap = new HashMap<String,Object>();
-
-				hmap.put("reser1", rset.getString("RSVDATE"));
-				hmap.put("reser2", rset.getString("CIDATE"));
-
-				list.add(hmap);
+				list.add(rset.getInt("M1"));
+				list.add(rset.getInt("M2"));
+				list.add(rset.getInt("M3"));
+				list.add(rset.getInt("M4"));
+				list.add(rset.getInt("M5"));
+				list.add(rset.getInt("M6"));
+				list.add(rset.getInt("M7"));
+				list.add(rset.getInt("M8"));
+				list.add(rset.getInt("M9"));
+				list.add(rset.getInt("M10"));
+				list.add(rset.getInt("M11"));
+				list.add(rset.getInt("M12"));
+				System.out.println("reser hmap : " + list);
 			}
 
 
@@ -789,10 +799,9 @@ public class BoardDao {
 	}
 
 
-	public ArrayList<HashMap<String, Object>> statics3(Connection con) {
+	public ArrayList<Object> statics3(Connection con) {
 		Statement stmt = null;
-		ArrayList<HashMap<String, Object>> list = null;
-		HashMap<String, Object> hmap = null;
+		ArrayList<Object> list = null;
 
 		ResultSet rset = null;
 		String query = prop.getProperty("statics3");//
@@ -802,15 +811,13 @@ public class BoardDao {
 
 			rset = stmt.executeQuery(query);
 
-			list = new ArrayList<HashMap<String, Object>>();
+			list = new ArrayList<Object>();
 
 			while(rset.next()) {
-				hmap = new HashMap<String,Object>();
 
-				hmap.put("member1", rset.getString("SEQ_UNO"));
-				hmap.put("member2", rset.getString("GENDER"));
-
-				list.add(hmap);
+				list.add(rset.getInt("MEN"));
+				list.add(rset.getInt("WO"));
+				System.out.println("mem hmap : " + list);
 			}
 
 
