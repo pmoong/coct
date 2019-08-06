@@ -22,13 +22,12 @@ public class MyPageServletTwo extends HttpServlet {
     
     public MyPageServletTwo() {
         super(); 
-    }
+    } 
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member m = (Member)session.getAttribute("loginUser");
-		System.out.println(m.getUserPwd());
 		
 		ArrayList<Object> list = new MemberService().myPage(m);
 		Member m1 = (Member) list.get(0);
@@ -38,7 +37,7 @@ public class MyPageServletTwo extends HttpServlet {
 		String page = "";
 		page = "/views/member/myPage.jsp";
 		request.setAttribute("list", list);
-		request.setAttribute("m1", m1);
+		request.setAttribute("m1", m1); 
 		request.setAttribute("bo", bo);
 		request.setAttribute("rv", rv);
 		

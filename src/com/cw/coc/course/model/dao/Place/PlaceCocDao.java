@@ -91,7 +91,7 @@ public class PlaceCocDao {
 				
 				list.add(pc);
 		} 
-		}catch (SQLException e) {
+		}catch (SQLException e) { 
 			e.printStackTrace();
 		}finally{
 			close(pstmt);
