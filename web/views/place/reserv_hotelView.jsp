@@ -3,6 +3,7 @@
 <%
 	ArrayList<LogmentVoYM> lm = (ArrayList<LogmentVoYM>) request.getAttribute("lm");
 	ArrayList<Room> rm = (ArrayList<Room>) request.getAttribute("rm");
+	
 %>	
 <!DOCTYPE HTML>
 <!--
@@ -252,13 +253,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc-FAooT4cR2nne8SYnHMKaE7
 	
 			
         
-        <% for (Room r : rm){ %>
+                <% for (Room r : rm){ %>
         <div class="container" align="center">
          <div class="cocInfo" id="cocInfo" align="center">
        
-		<a href="/coc/views/place/reserv_hotel.jsp">
+      <a href="/coc/views/place/reserv_hotel.jsp">
             <div class="left-box">
-               <img src="/coc/images/seoul1.PNG" width="300" height="200" />
+               <img src="<%=r.getrmImage() %>" width="300" height="200" />
             </div>
             <div class="right-box">
 
