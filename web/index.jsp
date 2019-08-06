@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8" import="java.util.*, com.cw.coc.place.model.vo.*"%>
+   <%
+	ArrayList<LogmentVo> randomlist = (ArrayList<LogmentVo>) request.getAttribute("randomlist");
+%>
 <!DOCTYPE HTML>
 <!--
    Verti by HTML5 UP
@@ -74,7 +77,7 @@ body {
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap" rel="stylesheet">
 </head>
 <body class="is-preload homepage">
    <div id="page-wrapper">
@@ -83,27 +86,32 @@ body {
       <%@ include file="/views/common/menubar_customer.jsp" %>
 
 
-
       <!-- Banner -->
       <div id="banner-wrapper">
-         <div id="banner" class="box container">
+         <div class="box container" style="margin-left:16%;">
             <div class="row">
-               <div class="col-7 col-12-medium">
-                  <h2>COC과 함께</h2>
-                  <h2>당신의 여행의</h2>
+            	<div class="main" style="width:100%; height:500px; background-image:url('/coc/images/banner1.jpg');
+            	background-size:100% 500px; position:relative;">
+	               <div style="color:white; text-shadow:1px 1px 2px lightgray; margin-top:5%; margin-left:10%; margin-right:60%; position:absolute;">
+	                  <h2 style="font-size:3.5em; font-weight:600;">COC과 함께</h2>
+	                  <h2 style="font-size:3.5em; font-weight:600;">당신의 여행을</h2>
+	                  <h2 style="font-size:3.5em; font-weight:600;">계획해보세요</h2>
+	               </div>
+               <div style="float:right; margin-right:20%;">
+               	 <div style="margin-top:100%;">
+                     <div><a href="#" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 그리기&nbsp;</label></a></div>
+                     <div style="height:20px;"></div>
+                     <div><a href="/coc/views/course/recommend.jsp" class="btn btn-default btn-lg btn-block"><label style="font-size:1.3em;">&nbsp;계획 추천받기&nbsp;</label></a></div>
+                     <div style="height:80px;"></div>
+                  </div>
                </div>
-               <div class="col-5 col-12-medium">
-                  <ul>
-                     <li><a href="#" class="btn btn-default">계획 그리기</a></li>
-                     <li><a href="#" class="button large icon solid planbtn button-default">계획 추천받기</a></li>
-                  </ul>
                </div>
             </div>
          </div>
       </div>
 
 
-
+	<!-- 식당 -->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
          <div class="container">
             <h3>식당</h3>
@@ -249,153 +257,210 @@ body {
          </a>
       </div>
 
-      <!-- Features1 -->
-      <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-         <div class="container">
-            <h3>숙박</h3>
-         </div>
-         <!-- Indicators -->
-         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-         </ol>
 
-         <!-- Wrapper for slides -->
-         <div class="carousel-inner">
-            <div class="item">
-               <div id="features-wrapper">
-                  <div class="container">
+		<!--  숙소  -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="container">
+			<h3>제휴</h3>
+		</div>
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+			<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+		</ol>
 
-                     <div class="row">
-                        <div class="col-4 col-12-medium">
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item">
+				<div id="features-wrapper">
+					<div class="container">
 
-                        </div>
-                        <div class="col-4 col-12-medium">
+						<div class="row">
+							<div class="col-4 col-12-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(0).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(0).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(0).getLtitle()%></div>
+								</section>
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+							</div>
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                        <div class="col-4 col-12-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(1).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(1).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(1).getLtitle()%></div>
+								</section>
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+							</div>
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(2).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(2).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(2).getLtitle()%></div>
+								</section>
 
-            <div class="item active">
-               <div id="features-wrapper">
-                  <div class="container">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                     <div class="row">
-                        <div class="col-4 col-12-medium">
+			<div class="item active">
+				<div id="features-wrapper">
+					<div class="container">
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+						<div class="row">
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                        <div class="col-4 col-12-medium">
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(3).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(3).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(3).getLtitle()%></div>
+								</section>
 
-                        </div>
+							</div>
+							<div class="col-4 col-12-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(4).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(4).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(4).getLtitle()%></div>
+								</section>
 
-                        <div class="col-4 col-12-medium">
+							</div>
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(5).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(5).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(5).getLtitle()%></div>
+								</section>
 
-            <div class="item">
-               <div id="features-wrapper">
-                  <div class="container">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                     <div class="row">
-                        <div class="col-4 col-12-medium">
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic01.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+			<div class="item">
+				<div id="features-wrapper">
+					<div class="container">
 
-                        </div>
-                        <div class="col-4 col-12-medium">
+						<div class="row">
+							<div class="col-4 col-12-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(6).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(6).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(6).getLtitle()%></div>
+								</section>
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic02.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+							</div>
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                        <div class="col-4 col-12-medium">
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(7).getLtitle()%>">
+									<div type="button" class="image featured"><button  style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(7).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(7).getLtitle()%></div>
+								</section>
 
-                           <!-- Box -->
-                           <section class="box feature">
-                              <a href="#" class="image featured"><img
-                                 src="images/pic03.jpg" alt="" /></a>
-                              <div class="inner"></div>
-                           </section>
+							</div>
+							<div class="col-4 col-12-medium">
 
-                        </div>
-                     </div>
-                  </div>
-               </div>
+								<!-- Box -->
+								<section class="box feature">
+									<form action="/coc/reserveRoomInfo" method="post">
+									<input type="hidden" name="ltitle" value="<%=randomlist.get(8).getLtitle()%>">
+									<div type="button" class="image featured"><button style="background:white"><img
+										class="max-small"
+										src="<%=randomlist.get(8).getLfirstimage()%>" alt="" /></button></div>
+									</form>
+									
+									<div class="inner"><%=randomlist.get(8).getLtitle()%></div>
+								</section>
 
-            </div>
-         </div>
+							</div>
 
-         <!-- Left and right controls -->
-         <a class="left carousel-control" href="#myCarousel2" data-slide="prev"
-            style="background: white"> <span
-            class="glyphicon glyphicon-chevron-left"></span> <span
-            class="sr-only">Previous</span>
-         </a> <a class="right carousel-control" href="#myCarousel2"
-            data-slide="next" style="background: white"> <span
-            class="glyphicon glyphicon-chevron-right"></span> <span
-            class="sr-only">Next</span>
-         </a>
-      </div>
-      
-      
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev"
+			style="background: white"> <span
+			class="glyphicon glyphicon-chevron-left"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel"
+			data-slide="next" style="background: white"> <span
+			class="glyphicon glyphicon-chevron-right"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+
+
+
+
+
+
+
+
+
+
       <!--  추천코스 -->
       <div id="myCarousel3" class="carousel slide" data-ride="carousel">
          <div class="container">
