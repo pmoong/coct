@@ -145,7 +145,6 @@ div>a {
 								id="imgThumb"
 								src="https://static.nid.naver.com/images/web/user/default.png?type=s160"
 								width="40%" height="40%"> <br> <br>
-								<button style="background: darkgray">편집</button></td>
 							<td><label id="id">아이디 </label></td>
 							<td><%=loginUser.getUserId()  %></td>
 						</tr>
@@ -417,7 +416,7 @@ div>a {
 												if(l.getcCode() == ro.getcCode()){
 													if(ro.getRmCode() == re.getRmCode()){
 														a ++;
-														if(a==1 ||a ==4){
+														if(a==1 ||a ==5){
 						%>
 					<tr>
 						<input type="hidden" value="<%=r.getbCode()%>">

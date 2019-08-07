@@ -396,7 +396,7 @@ public class MemberDao {
 				m.setAge(rset.getInt("AGE"));
 				m.setiCode(rset.getString("ICODE"));
 			}
-
+ 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

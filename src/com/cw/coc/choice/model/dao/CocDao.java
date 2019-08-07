@@ -67,7 +67,7 @@ public class CocDao {
 			pstmt.setInt(1, loginUserNo);
 			pstmt.setInt(2, cCode);
 			 
-			result = pstmt.executeUpdate();
+			result = pstmt.executeUpdate(); 
 			
 			
 		} catch (SQLException e) {

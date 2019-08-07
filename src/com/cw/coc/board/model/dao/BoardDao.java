@@ -426,14 +426,14 @@ public class BoardDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, uno);
-
+			System.out.println("m:::::" + uno);
 			rset = pstmt.executeQuery();
 
 			rv = new ArrayList<Board>();
 
 
 			while(rset.next()) { 
-				Board b = new Board();
+				Board b = new Board(); 
 
 				b.setbCode(rset.getInt("SEQ_BCODE"));
 				b.setbDate(rset.getDate("BDATE"));

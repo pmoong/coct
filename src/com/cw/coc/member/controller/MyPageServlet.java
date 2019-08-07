@@ -32,7 +32,7 @@ public class MyPageServlet extends HttpServlet {
 		
 		
 		int uno = Integer.parseInt(request.getParameter("uno"));
-		String id = request.getParameter("id");
+		String id = request.getParameter("id"); 
 		String password = request.getParameter("password"); 
 		String email = request.getParameter("email");
 		String utype = request.getParameter("utype");
@@ -49,7 +49,7 @@ public class MyPageServlet extends HttpServlet {
 		m.setGender(gender); 
 		m.setAge(age);
 		m.setiCode(icode);
-		m.setStatus(status);
+		m.setStatus(status); 
 
 		ArrayList<Object> list = new MemberService().myPage(m);
 		Member m1 = (Member) list.get(0);

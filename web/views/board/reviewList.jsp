@@ -80,7 +80,7 @@ select {
 												if(l.getcCode() == ro.getcCode()){
 													if(ro.getRmCode() == re.getRmCode()){
 														a ++;
-														if(a==2 ||a ==3){
+														if(a==1 || a==6 || a ==8){
 						%>
 						<tr>
 							<input type="hidden" value="<%=b.getbCode()%>">
