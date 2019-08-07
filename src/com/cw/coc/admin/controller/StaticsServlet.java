@@ -26,11 +26,6 @@ public class StaticsServlet extends HttpServlet {
 		ArrayList<Object> as= new BoardService().statics();
 		ArrayList<Object> as2= new BoardService().statics2();
 		ArrayList<Object> as3= new BoardService().statics3();
-/*		ArrayList<HashMap<String, Object>> as4= new BoardService().statics4();
-		ArrayList<HashMap<String,Object>> as5 = new BoardService().statics5();
-		ArrayList<HashMap<String,Object>> as6 = new BoardService().statics6();
-		ArrayList<HashMap<String,Object>> as7 = new BoardService().statics7();
-*/	
 		
 		result.put("as", as);	
 		result.put("as2", as2);
@@ -40,13 +35,6 @@ public class StaticsServlet extends HttpServlet {
 
 			page = "views/admin/statistics.jsp";
 			request.setAttribute("result", result);
-			System.out.println("result !!!!!!!!!!!!!!!!!"  + result);
-			/*request.setAttribute("static2", as2);
-			request.setAttribute("static3", as3);*/
-			/*request.setAttribute("static4", as4);
-			request.setAttribute("static5", as5);
-			request.setAttribute("static6", as6);
-			request.setAttribute("static7", as7);*/
 
 		}
 		request.getRequestDispatcher(page).forward(request, response);

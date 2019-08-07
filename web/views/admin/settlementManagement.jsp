@@ -116,7 +116,7 @@ table {
 				<tr>
 					<th width="100px">업체번호</th>
 					<th width="100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상호명</th>
-					<th width="300px">결제금액</th>
+					<th width="300px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;결제금액</th>
 					<th width="100px">결제일</th>
 				</tr>
 				
@@ -170,9 +170,6 @@ table {
 						<option value="content">내용</option>
 					</select> <input type="search">
 					<button type="submit" style="background: yellowgreen;">검색하기</button>
-					<%-- <% if(loginUser != null && loginUser.getUserId().equals("admin")){ %> --%>
-					<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-					<%-- <% } %> --%>
 				</div>
 				
 		

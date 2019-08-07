@@ -9,9 +9,6 @@
 		
 	list = (List)result.get("list");
 	blist = (List)result.get("blist");
-	
-	System.out.println("b%%%%%%%%%%%%%" + blist);
-	System.out.println("m%%%%%%%%%%%%" + list);
 
 	%>
 
@@ -270,34 +267,32 @@ div>a {
 			</a>
 			<hr style="border: 1px solid darkgray">
 			<br>
+			<div class="outer">
+			<br>
+			<h2 align="center">리뷰</h2>
 			<div class="tableArea">
 				<table align="center" id="listArea">
 					<tr>
-						<th width="100px">예약번호</th>
-						<th width="100px">방이름</th>
-						<th width="100px">회원번호</th>
-						<th width="100px">예약한날짜</th>
-						<th width="100px">예약한상품날짜</th>
-						<th width="100px">??</th>
+						<th>글번호</th>
+						<th width="300px">글제목</th>
+						<th width="100px">작성자</th>
+						<th>조회수</th>
+						<th width="100px">작성일</th>
 					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
-					<tr>
-						<td>ㅁㅁ</td>
-						<td>ㄴㄴ</td>
-						<td>ㅇㅇ</td>
-						<td>ㄹㄹ</td>
-						<td>ㄷㄷ</td>
-						<td>ㅋㅋ</td>
-					</tr>
+					<%-- 	<% for(Notice n : list){ %>
+				<tr>
+					<td><%= n.getNno() %></td>
+					<td><%= n.getnTitle() %></td>
+					<td><%= n.getnWriter() %></td>
+					<td><%= n.getnCount() %></td>
+					<td><%= n.getnDate() %></td>
+				</tr>
+				<% } %> --%>
 				</table>
+				
+				<br><br>
 			</div>
+		</div>
 			<br>
 			<br>
 			<br>

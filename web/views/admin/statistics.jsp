@@ -60,7 +60,7 @@
 
         chart.draw(data, options);
         
-////////////////////////월별 예약건수///////////////////////////////////////////
+//-----------------월별 예약건수-------------------------------//
         var data = google.visualization.arrayToDataTable([
         	['Month',  '예약건수'],
             
@@ -87,7 +87,7 @@
 
         chart.draw(data, options);
         
-////////////////////////남녀성비///////////////////////////////////////////
+//-------------------남녀성비------------------------//
         var data = google.visualization.arrayToDataTable([
           ['Gender', 'Member'],
           ['남자',   <%=list3.get(0)%> ],
