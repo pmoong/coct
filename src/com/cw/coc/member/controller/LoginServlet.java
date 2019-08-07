@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect(view);
 					
 				}else{
-				view = "/coc/index.jsp";
+				view = "/coc";
 				//request.setAttribute("loginUser", loginUser);
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", loginUser);

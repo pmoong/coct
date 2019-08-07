@@ -30,7 +30,7 @@ public class LogoutServlet extends HttpServlet {
 		
 		request.getSession().invalidate();
 		
-		response.sendRedirect("/coc/index.jsp");
+		response.sendRedirect("/coc");
 	}
 
 	/**
