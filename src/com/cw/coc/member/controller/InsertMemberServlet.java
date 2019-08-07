@@ -57,11 +57,6 @@ public class InsertMemberServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("Info", hi );
 		
-		//세션
-		//session.setMaxInactiveInterval(5*60);
-		//세션 해제
-		//session.invalidate();
-		
 		Member m = new Member();
 		m.setUserId(userId);
 		m.setUserPwd(userPwd);
@@ -71,6 +66,12 @@ public class InsertMemberServlet extends HttpServlet {
 		String page = "";
 		page = "/coc/views/member/joinInterest.jsp";
 		response.sendRedirect(page);
+
+		//세션
+		//session.setMaxInactiveInterval(5*60);
+		//세션 해제
+		//session.invalidate();
+		
 	}
 
 	/**

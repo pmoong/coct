@@ -82,7 +82,7 @@ body {
 
             <!-- Logo -->
             <div id="logo">
-               <h1 id="test"><a href="/coc/index.jsp">콕</a></h1>
+               <h1 id="test"><a href="/coc">콕</a></h1>
                <!-- <img href="#" src="images/coc_main.png" width="100px" height="100px"> -->
                   <h1 id="test">
                      <button type="button" style="background:none; margin:0; padding:0" onclick="location.href='/coc/views/searchPage.jsp'">
